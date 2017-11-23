@@ -38,6 +38,13 @@
 		93C1443F1FC5B72A0006FB90 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93C1443D1FC5B72A0006FB90 /* Raleway-Medium.ttf */; };
 		93C144401FC5B72A0006FB90 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93C1443E1FC5B72A0006FB90 /* Raleway-Regular.ttf */; };
 		93C144451FC5D2F70006FB90 /* Muli-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93C144441FC5D2F70006FB90 /* Muli-SemiBold.ttf */; };
+		93C144681FC66FB60006FB90 /* ZCConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C144671FC66FB60006FB90 /* ZCConstant.m */; };
+		93C1446E1FC6AA740006FB90 /* ZCPhotoBrowerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C1446D1FC6AA740006FB90 /* ZCPhotoBrowerViewController.m */; };
+		93C144731FC6C4900006FB90 /* ZCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C144721FC6C4900006FB90 /* ZCAsset.m */; };
+		93C144761FC6C4AD0006FB90 /* ZCAssetsGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C144751FC6C4AD0006FB90 /* ZCAssetsGroup.m */; };
+		93C144791FC6C4BD0006FB90 /* ZCAssetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C144781FC6C4BD0006FB90 /* ZCAssetsManager.m */; };
+		93C1447E1FC6D04B0006FB90 /* ZCImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C1447D1FC6D04B0006FB90 /* ZCImagePickerViewController.m */; };
+		93C144811FC6D5520006FB90 /* ZCImagePickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C144801FC6D5520006FB90 /* ZCImagePickerCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,10 +91,24 @@
 		93C144321FC59BB80006FB90 /* ZCBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCBaseModel.m; sourceTree = "<group>"; };
 		93C144381FC5A7FA0006FB90 /* UIImage+ZCCate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZCCate.h"; sourceTree = "<group>"; };
 		93C144391FC5A7FA0006FB90 /* UIImage+ZCCate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZCCate.m"; sourceTree = "<group>"; };
-		93C1443B1FC5AAF00006FB90 /* FontImages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontImages.h; sourceTree = "<group>"; };
 		93C1443D1FC5B72A0006FB90 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
 		93C1443E1FC5B72A0006FB90 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		93C144441FC5D2F70006FB90 /* Muli-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-SemiBold.ttf"; sourceTree = "<group>"; };
+		93C1445F1FC6656F0006FB90 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		93C144661FC66FB60006FB90 /* ZCConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCConstant.h; sourceTree = "<group>"; };
+		93C144671FC66FB60006FB90 /* ZCConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCConstant.m; sourceTree = "<group>"; };
+		93C1446C1FC6AA740006FB90 /* ZCPhotoBrowerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPhotoBrowerViewController.h; sourceTree = "<group>"; };
+		93C1446D1FC6AA740006FB90 /* ZCPhotoBrowerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPhotoBrowerViewController.m; sourceTree = "<group>"; };
+		93C144711FC6C4900006FB90 /* ZCAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCAsset.h; sourceTree = "<group>"; };
+		93C144721FC6C4900006FB90 /* ZCAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCAsset.m; sourceTree = "<group>"; };
+		93C144741FC6C4AD0006FB90 /* ZCAssetsGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCAssetsGroup.h; sourceTree = "<group>"; };
+		93C144751FC6C4AD0006FB90 /* ZCAssetsGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCAssetsGroup.m; sourceTree = "<group>"; };
+		93C144771FC6C4BD0006FB90 /* ZCAssetsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCAssetsManager.h; sourceTree = "<group>"; };
+		93C144781FC6C4BD0006FB90 /* ZCAssetsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCAssetsManager.m; sourceTree = "<group>"; };
+		93C1447C1FC6D04B0006FB90 /* ZCImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCImagePickerViewController.h; sourceTree = "<group>"; };
+		93C1447D1FC6D04B0006FB90 /* ZCImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCImagePickerViewController.m; sourceTree = "<group>"; };
+		93C1447F1FC6D5520006FB90 /* ZCImagePickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCImagePickerCollectionViewCell.h; sourceTree = "<group>"; };
+		93C144801FC6D5520006FB90 /* ZCImagePickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCImagePickerCollectionViewCell.m; sourceTree = "<group>"; };
 		EF3D4C9F21CB708B2A091D47 /* Pods-24EditorDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24EditorDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-24EditorDemo/Pods-24EditorDemo.release.xcconfig"; sourceTree = "<group>"; };
 		FF41CCCE21E3C1A793C23BB6 /* libPods-24EditorDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-24EditorDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -133,7 +154,9 @@
 			children = (
 				93C143D11FC54DB30006FB90 /* AppEntry */,
 				93C143E01FC54DC00006FB90 /* Feature */,
+				93C1447A1FC6D0300006FB90 /* Compent */,
 				93C143DD1FC54DBC0006FB90 /* Config */,
+				93C1446F1FC6C42D0006FB90 /* Utils */,
 				93C143F81FC55D950006FB90 /* Supporting Files */,
 				93C144201FC596030006FB90 /* Resource */,
 				93C143C61FC547D00006FB90 /* Assets.xcassets */,
@@ -158,6 +181,9 @@
 			isa = PBXGroup;
 			children = (
 				93C143DE1FC54DBC0006FB90 /* Info.plist */,
+				93C1445F1FC6656F0006FB90 /* PrefixHeader.pch */,
+				93C144661FC66FB60006FB90 /* ZCConstant.h */,
+				93C144671FC66FB60006FB90 /* ZCConstant.m */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -202,6 +228,8 @@
 			children = (
 				93C143F51FC5517C0006FB90 /* ZCEditorViewController.h */,
 				93C143F61FC5517C0006FB90 /* ZCEditorViewController.m */,
+				93C1446C1FC6AA740006FB90 /* ZCPhotoBrowerViewController.h */,
+				93C1446D1FC6AA740006FB90 /* ZCPhotoBrowerViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -263,7 +291,6 @@
 			children = (
 				93C144381FC5A7FA0006FB90 /* UIImage+ZCCate.h */,
 				93C144391FC5A7FA0006FB90 /* UIImage+ZCCate.m */,
-				93C1443B1FC5AAF00006FB90 /* FontImages.h */,
 			);
 			path = IconFont;
 			sourceTree = "<group>";
@@ -276,6 +303,47 @@
 				93C1443E1FC5B72A0006FB90 /* Raleway-Regular.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		93C1446F1FC6C42D0006FB90 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				93C144701FC6C42D0006FB90 /* AssetManager */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		93C144701FC6C42D0006FB90 /* AssetManager */ = {
+			isa = PBXGroup;
+			children = (
+				93C144711FC6C4900006FB90 /* ZCAsset.h */,
+				93C144721FC6C4900006FB90 /* ZCAsset.m */,
+				93C144741FC6C4AD0006FB90 /* ZCAssetsGroup.h */,
+				93C144751FC6C4AD0006FB90 /* ZCAssetsGroup.m */,
+				93C144771FC6C4BD0006FB90 /* ZCAssetsManager.h */,
+				93C144781FC6C4BD0006FB90 /* ZCAssetsManager.m */,
+			);
+			name = AssetManager;
+			path = PhotoManager;
+			sourceTree = "<group>";
+		};
+		93C1447A1FC6D0300006FB90 /* Compent */ = {
+			isa = PBXGroup;
+			children = (
+				93C1447B1FC6D0300006FB90 /* ImagePicker */,
+			);
+			path = Compent;
+			sourceTree = "<group>";
+		};
+		93C1447B1FC6D0300006FB90 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				93C1447C1FC6D04B0006FB90 /* ZCImagePickerViewController.h */,
+				93C1447D1FC6D04B0006FB90 /* ZCImagePickerViewController.m */,
+				93C1447F1FC6D5520006FB90 /* ZCImagePickerCollectionViewCell.h */,
+				93C144801FC6D5520006FB90 /* ZCImagePickerCollectionViewCell.m */,
+			);
+			path = ImagePicker;
 			sourceTree = "<group>";
 		};
 		CF8B05295385C7F412B2B635 /* Pods */ = {
@@ -434,14 +502,21 @@
 				93C1443A1FC5A7FA0006FB90 /* UIImage+ZCCate.m in Sources */,
 				93C143F11FC550530006FB90 /* ZCBaseViewController.m in Sources */,
 				93C144081FC55D950006FB90 /* NSString+YYAdd.m in Sources */,
+				93C144681FC66FB60006FB90 /* ZCConstant.m in Sources */,
+				93C1446E1FC6AA740006FB90 /* ZCPhotoBrowerViewController.m in Sources */,
+				93C144811FC6D5520006FB90 /* ZCImagePickerCollectionViewCell.m in Sources */,
 				93C144071FC55D950006FB90 /* NSData+YYAdd.m in Sources */,
+				93C144791FC6C4BD0006FB90 /* ZCAssetsManager.m in Sources */,
 				93C1441C1FC579790006FB90 /* ZCBaseView.m in Sources */,
 				93C143D91FC54DB30006FB90 /* AppDelegate.m in Sources */,
 				93C144091FC55D950006FB90 /* UIControl+YYAdd.m in Sources */,
+				93C1447E1FC6D04B0006FB90 /* ZCImagePickerViewController.m in Sources */,
 				93C143DC1FC54DB30006FB90 /* main.m in Sources */,
 				93C1441F1FC57B120006FB90 /* ZCInputToolView.m in Sources */,
+				93C144731FC6C4900006FB90 /* ZCAsset.m in Sources */,
 				93C143F71FC5517C0006FB90 /* ZCEditorViewController.m in Sources */,
 				93C1440D1FC55E690006FB90 /* UIView+YYAdd.m in Sources */,
+				93C144761FC6C4AD0006FB90 /* ZCAssetsGroup.m in Sources */,
 				93C143C51FC547D00006FB90 /* _4EditorDemo.xcdatamodeld in Sources */,
 				93C144051FC55D950006FB90 /* CALayer+YYAdd.m in Sources */,
 				93C144331FC59BB80006FB90 /* ZCBaseModel.m in Sources */,
@@ -566,8 +641,27 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = PX2JJM7RG8;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/24EditorDemo/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = 24EditorDemo/Config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"YYText\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.personal.zhuchen.-4EditorDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -580,8 +674,27 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = PX2JJM7RG8;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/24EditorDemo/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = 24EditorDemo/Config/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"YYText\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.personal.zhuchen.-4EditorDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

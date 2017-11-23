@@ -8,20 +8,20 @@
 
 #import "ZCEditorViewController.h"
 #import "YYText.h"
-#import "UIView+YYAdd.h"
-#import "NSData+YYAdd.h"
-#import "NSBundle+YYAdd.h"
-#import "NSString+YYAdd.h"
-#import "UIControl+YYAdd.h"
-#import "UIGestureRecognizer+YYAdd.h"
-#import "CALayer+YYAdd.h"
+//#import "NSData+YYAdd.h"
+//#import "NSBundle+YYAdd.h"
+//#import "NSString+YYAdd.h"
+//#import "UIControl+YYAdd.h"
+//#import "UIGestureRecognizer+YYAdd.h"
+//#import "CALayer+YYAdd.h"
 
 #import "ZCInputToolView.h"
+#import "ZCPhotoBrowerViewController.h"
 
 @interface ZCEditorViewController () <YYTextViewDelegate, YYTextKeyboardObserver>
 
-@property (nonatomic, assign) YYTextView *titleTextView;
-@property (nonatomic, assign) YYTextView *contentTextView;
+@property (nonatomic, strong) YYTextView *titleTextView;
+@property (nonatomic, strong) YYTextView *contentTextView;
 
 @end
 
@@ -109,8 +109,12 @@
         [contentTextView becomeFirstResponder];
     });
     
-    ZCInputToolView *inputToolView = [[ZCInputToolView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
-//    inputToolView.size = CGSizeMake(kScreenWidth, 44);
+    ZCInputToolView *inputToolView = [[ZCInputToolView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44) HostView:_contentTextView];
+
+    [inputToolView selectPhotoButtonOnTouch:^(UIButton *sender) {
+        ZCPhotoBrowerViewController *vc = [[ZCPhotoBrowerViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:true];
+    }];
     
     contentTextView.inputAccessoryView = inputToolView;
     
@@ -119,6 +123,12 @@
 //    [[YYTextKeyboardManager defaultManager] addObserver:self];
     
 }
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
 
 - (void)dealloc {
 //    [[YYTextKeyboardManager defaultManager] removeObserver:self];
@@ -150,12 +160,5 @@
         self.navigationItem.rightBarButtonItem = nil;
     }
 }
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 
 @end

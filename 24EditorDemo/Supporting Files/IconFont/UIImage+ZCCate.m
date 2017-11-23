@@ -14,7 +14,7 @@
     CGSize imageSize = CGSizeMake(size, size);
     UIGraphicsBeginImageContextWithOptions(imageSize, NO, [[UIScreen mainScreen] scale]);
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, size, size)];
-    label.font = [UIFont fontWithName:kFontName size:size];
+    label.font = [UIFont fontWithName:kIFIcon24App size:size];
     label.text = iconCode;
     if (color) {
         label.textColor = color;

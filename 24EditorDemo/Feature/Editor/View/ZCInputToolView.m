@@ -11,14 +11,18 @@
 #import "UIImage+ZCCate.h"
 
 @interface ZCInputToolView ()
-@property (nonatomic, assign) UIView *toolView;
+@property (nonatomic, strong) UIView *toolView;
+@property (nonatomic, strong) YYTextView *hostView;
 @end
 
 @implementation ZCInputToolView
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame HostView:(YYTextView *)hostView{
     self = [super initWithFrame:frame];
     if (self) {
+        
+        self.hostView = hostView;
+        
         self.backgroundColor = UIColorHex(#ffffff);
         UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 1)];
         topView.backgroundColor = UIColorHex(#dfe6ee);
@@ -28,9 +32,9 @@
         [self addSubview:toolView];
         self.toolView = toolView;
         
-        [self addButtonWithIcon:kFIArrowDown size:12];
-        [self addButtonWithIcon:kFIImage size:20];
-        [self addButtonWithIcon:kFIUser size:20];
+        [self addButtonWithIcon:kIFIArrowDown size:12 tag:1001];
+        [self addButtonWithIcon:kIFIImage size:20 tag:1002];
+        [self addButtonWithIcon:kIFIUser size:20 tag:1003];
         
         UIButton *sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
         sendButton.size = CGSizeMake(66, 29);
@@ -46,8 +50,25 @@
     return self;
 }
 
-- (void)addButtonWithIcon:(NSString *)icon size:(NSInteger)size {
+-(void)layoutSubviews {
+    [super layoutSubviews];
+    int count = self.toolView.subviews.count;
+    
+    CGFloat buttonW = self.toolView.width / count;
+    CGFloat buttonH = self.height;
+    for (int i = 0; i < count; i++) {
+        UIButton *button = self.toolView.subviews[i];
+        button.top = 0;
+        button.width = buttonW;
+        button.height = buttonH;
+        button.left = i * buttonW;
+    }
+    
+}
+
+- (void)addButtonWithIcon:(NSString *)icon size:(NSInteger)size tag:(NSInteger)tag {
     UIButton *button = [[UIButton alloc] init];
+    button.tag = tag;
     [button addTarget:self action:@selector(buttonOnTouch:) forControlEvents:UIControlEventTouchUpInside];
     UIImage *image = [UIImage imageWithIcon:icon size:size color:UIColorHex(#667587)];
     [button setImage:image forState:UIControlStateNormal];
@@ -56,23 +77,24 @@
 }
 
 - (void)buttonOnTouch:(UIButton *)sender {
+    switch (sender.tag) {
+        case 1001:
+            [_hostView resignFirstResponder];
+            break;
+        case 1002:
+            self.selectPhotoBlock(sender);
+            break;
+            
+        default:
+            break;
+    }
     NSLog(@"touch");
 }
 
--(void)layoutSubviews {
-     [super layoutSubviews];
-     int count = self.toolView.subviews.count;
+- (void)selectPhotoButtonOnTouch:(SelectPhotoBlock)block {
+    self.selectPhotoBlock = block;
+}
 
-     CGFloat buttonW = self.toolView.width / count;
-     CGFloat buttonH = self.height;
-     for (int i = 0; i < count; i++) {
-         UIButton *button = self.toolView.subviews[i];
-         button.top = 0;
-         button.width = buttonW;
-         button.height = buttonH;
-         button.left = i * buttonW;
-     }
-     
- }
+
 
 @end

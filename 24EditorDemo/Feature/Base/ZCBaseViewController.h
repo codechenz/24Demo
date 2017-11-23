@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIView+YYAdd.h"
 
 @interface ZCBaseViewController : UIViewController
 

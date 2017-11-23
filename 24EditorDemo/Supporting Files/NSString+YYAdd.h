@@ -260,4 +260,7 @@
  */
 + (NSString *)stringNamed:(NSString *)name;
 
+//AssetManager
+- (NSString *)zc_md5;
+
 @end

@@ -7,7 +7,13 @@
 //
 
 #import "ZCBaseView.h"
+#import "YYText.h"
+
+typedef void(^SelectPhotoBlock) (UIButton *sender);
 
 @interface ZCInputToolView : ZCBaseView
-- (instancetype)initWithFrame:(CGRect)frame;
+@property (nonatomic, copy) SelectPhotoBlock selectPhotoBlock;
+
+- (instancetype)initWithFrame:(CGRect)frame HostView:(YYTextView *)hostView;
+- (void)selectPhotoButtonOnTouch:(SelectPhotoBlock)block;
 @end
