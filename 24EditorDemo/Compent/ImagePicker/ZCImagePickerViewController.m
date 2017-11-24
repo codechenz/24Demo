@@ -9,19 +9,27 @@
 #import "ZCImagePickerViewController.h"
 #import "ZCImagePickerCollectionViewCell.h"
 #import "UIView+YYAdd.h"
+#import "UICollectionView+ZCCate.h"
+#import "NSString+YYAdd.h"
 #import "ZCAssetsManager.h"
+#import "ZCImagePickerHelper.h"
 
-// CollectionView
-#define CollectionViewInsetHorizontal PreferredVarForDevices((PixelOne * 2), 1, 2, 2)
-#define CollectionViewInset UIEdgeInsetsMake(CollectionViewInsetHorizontal, CollectionViewInsetHorizontal, CollectionViewInsetHorizontal, CollectionViewInsetHorizontal)
-#define CollectionViewCellMargin CollectionViewInsetHorizontal
 
 @interface ZCImagePickerViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
-@property(nonatomic, strong) UICollectionViewFlowLayout *collectionViewLayout;
-@property(nonatomic, strong) UICollectionView *collectionView;
-@property(nonatomic, strong) UIView *operationToolBarView;
+
+@property(nonatomic, strong, readwrite) UICollectionViewFlowLayout *collectionViewLayout;
+@property(nonatomic, strong, readwrite) UICollectionView *collectionView;
+@property(nonatomic, strong, readwrite) UIView *operationToolBarView;
+@property(nonatomic, strong, readwrite) UIButton *previewButton;
+@property(nonatomic, strong, readwrite) UIButton *sendButton;
+@property(nonatomic, strong, readwrite) UILabel *imageCountLabel;
 
 @property(nonatomic, strong, readwrite) NSMutableArray<ZCAsset *> *imagesAssetArray;
+@property(nonatomic, strong, readwrite) ZCAssetsGroup *assetsGroup;
+
+@property(nonatomic, strong) ZCImagePickerPreviewViewController *imagePickerPreviewViewController;
+@property(nonatomic, assign) BOOL hasScrollToInitialPosition;
+@property(nonatomic, assign) BOOL canScrollToInitialPosition;// 要等数据加载完才允许滚动
 @end
 
 @implementation ZCImagePickerViewController
@@ -39,6 +47,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    self.collectionView.dataSource = nil;
+    self.collectionView.delegate = nil;
+}
+
 - (void)initSubViews {
     self.collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
     self.collectionViewLayout.minimumLineSpacing = 1;
@@ -54,6 +67,92 @@
     [self.collectionView registerClass:[ZCImagePickerCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ZCImagePickerCollectionViewCell class])];
     
     [self.view addSubview:self.collectionView];
+    
+    _selectedImageAssetArray = [[NSMutableArray alloc] init];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    // 由于被选中的图片 selectedImageAssetArray 是 property，所以可以由外部改变，
+    // 因此 viewWillAppear 时检查一下图片被选中的情况，并刷新 collectionView
+    if (self.allowsMultipleSelection) {
+        // 只有允许多选，即底部工具栏显示时，需要重新设置底部工具栏的元素
+        NSInteger selectedImageCount = [_selectedImageAssetArray count];
+        if (selectedImageCount > 0) {
+            // 如果有图片被选择，则预览按钮和发送按钮可点击，并刷新当前被选中的图片数量
+//            self.previewButton.enabled = YES;
+//            self.sendButton.enabled = YES;
+//            self.imageCountLabel.text = [NSString stringWithFormat:@"%@", @(selectedImageCount)];
+//            self.imageCountLabel.hidden = NO;
+        } else {
+            // 如果没有任何图片被选择，则预览和发送按钮不可点击，并且隐藏显示图片数量的 Label
+//            self.previewButton.enabled = NO;
+//            self.sendButton.enabled = NO;
+//            self.imageCountLabel.hidden = YES;
+        }
+    }
+    [self.collectionView reloadData];
+}
+
+- (void)refreshWithImagesArray:(NSMutableArray<ZCAsset *> *)imagesArray {
+    self.imagesAssetArray = imagesArray;
+    [self.collectionView reloadData];
+}
+
+- (void)refreshWithAssetsGroup:(ZCAssetsGroup *)assetsGroup {
+    self.assetsGroup = assetsGroup;
+    if (!self.imagesAssetArray) {
+        self.imagesAssetArray = [[NSMutableArray alloc] init];
+    } else {
+        [self.imagesAssetArray removeAllObjects];
+    }
+    // 通过 ZCAssetsGroup 获取该相册所有的图片 ZCAsset，并且储存到数组中
+    ZCAlbumSortType albumSortType = ZCAlbumSortTypePositive;
+    // 从 delegate 中获取相册内容的排序方式，如果没有实现这个 delegate，则使用 ZCAlbumSortType 的默认值，即最新的内容排在最后面
+    if (self.imagePickerViewControllerDelegate && [self.imagePickerViewControllerDelegate respondsToSelector:@selector(albumSortTypeForImagePickerViewController:)]) {
+        albumSortType = [self.imagePickerViewControllerDelegate albumSortTypeForImagePickerViewController:self];
+    }
+    
+    // 遍历相册内的资源较为耗时，交给子线程去处理，因此这里需要显示 Loading
+    if ([self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewControllerWillStartLoad:)]) {
+        [self.imagePickerViewControllerDelegate imagePickerViewControllerWillStartLoad:self];
+    }
+//    if (self.shouldShowDefaultLoadingView) {
+//        [self showEmptyViewWithLoading];
+//    }
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [assetsGroup enumerateAssetsWithOptions:albumSortType usingBlock:^(ZCAsset *resultAsset) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // 这里需要对 UI 进行操作，因此放回主线程处理
+                if (resultAsset) {
+                    [self.imagesAssetArray addObject:resultAsset];
+                } else { // result 为 nil，即遍历相片或视频完毕
+                    [self.collectionView reloadData];
+                    [self.collectionView performBatchUpdates:NULL
+                                                  completion:^(BOOL finished) {
+                                                      
+                                                      // 有时候如果这里很早就执行（比 viewWillAppear: 以及 self.view 被添加到 superview 上还早），那它实际上是不会滚动的，会等到 viewDidLayoutSubviews 里改完 contentInsets 后才滚
+                                                      [self scrollToInitialPositionIfNeeded];
+                                                      
+                                                      if ([self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewControllerWillFinishLoad:)]) {
+                                                          [self.imagePickerViewControllerDelegate imagePickerViewControllerWillFinishLoad:self];
+                                                      }
+                                                      if (self.shouldShowDefaultLoadingView) {
+//                                                          [self hideEmptyView];
+                                                      }
+                                                  }];
+                }
+            });
+        }];
+    });
+}
+
+- (void)initPreviewViewControllerIfNeeded {
+    if (!self.imagePickerPreviewViewController) {
+        self.imagePickerPreviewViewController = [self.imagePickerViewControllerDelegate imagePickerPreviewViewControllerForImagePickerViewController:self];
+        self.imagePickerPreviewViewController.maximumSelectImageCount = self.maximumSelectImageCount;
+        self.imagePickerPreviewViewController.minimumSelectImageCount = self.minimumSelectImageCount;
+    }
 }
 
 - (CGSize)referenceImageSize {
@@ -61,14 +160,39 @@
     CGFloat collectionViewContentSpacing = collectionViewWidth - (self.collectionView.contentInset.left + self.collectionView.contentInset.right);
     NSInteger columnCount = floor(collectionViewContentSpacing / self.minimumImageWidth);
     CGFloat referenceImageWidth = self.minimumImageWidth;
-    BOOL isSpacingEnoughWhenDisplayInMinImageSize = UIEdgeInsetsGetHorizontalValue(self.collectionViewLayout.sectionInset) + (self.minimumImageWidth + self.collectionViewLayout.minimumInteritemSpacing) * columnCount - self.collectionViewLayout.minimumInteritemSpacing <= collectionViewContentSpacing;
+    BOOL isSpacingEnoughWhenDisplayInMinImageSize = (self.collectionViewLayout.sectionInset.top + self.collectionViewLayout.sectionInset.bottom) + (self.minimumImageWidth + self.collectionViewLayout.minimumInteritemSpacing) * columnCount - self.collectionViewLayout.minimumInteritemSpacing <= collectionViewContentSpacing;
     if (!isSpacingEnoughWhenDisplayInMinImageSize) {
         // 算上图片之间的间隙后发现其实还是放不下啦，所以得把列数减少，然后放大图片以撑满剩余空间
         columnCount -= 1;
     }
-    referenceImageWidth = (collectionViewContentSpacing - UIEdgeInsetsGetHorizontalValue(self.collectionViewLayout.sectionInset) - self.collectionViewLayout.minimumInteritemSpacing * (columnCount - 1)) / columnCount;
+    referenceImageWidth = (collectionViewContentSpacing - (self.collectionViewLayout.sectionInset.left + self.collectionViewLayout.sectionInset.right) - self.collectionViewLayout.minimumInteritemSpacing * (columnCount - 1)) / columnCount;
     return CGSizeMake(referenceImageWidth, referenceImageWidth);
 }
+
+- (void)setMinimumImageWidth:(CGFloat)minimumImageWidth {
+    _minimumImageWidth = minimumImageWidth;
+    [self referenceImageSize];
+    [self.collectionView.collectionViewLayout invalidateLayout];
+}
+
+- (void)scrollToInitialPositionIfNeeded {
+    BOOL hasDataLoaded = [self.collectionView numberOfItemsInSection:0] > 0;
+    if (self.collectionView.window && hasDataLoaded && !self.hasScrollToInitialPosition) {
+        if ([self.imagePickerViewControllerDelegate respondsToSelector:@selector(albumSortTypeForImagePickerViewController:)] && [self.imagePickerViewControllerDelegate albumSortTypeForImagePickerViewController:self] == ZCAlbumSortTypeReverse) {
+//            [self.collectionView zc_scrollToTop];
+        } else {
+//            [self.collectionView zc_scrollToBottom];
+        }
+        
+        self.hasScrollToInitialPosition = YES;
+    }
+}
+
+- (void)willPopInNavigationControllerWithAnimated:(BOOL)animated {
+    self.hasScrollToInitialPosition = NO;
+}
+
+
 
 #pragma mark - <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -86,44 +210,42 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *identifier = kImageOrUnknownCellIdentifier;
+    NSString *identifier = NSStringFromClass([ZCImagePickerCollectionViewCell class]);
     // 获取需要显示的资源
-    QMUIAsset *imageAsset = [self.imagesAssetArray objectAtIndex:indexPath.item];
-    if (imageAsset.assetType == QMUIAssetTypeVideo) {
-        identifier = kVideoCellIdentifier;
-    }
-    QMUIImagePickerCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    ZCAsset *imageAsset = [self.imagesAssetArray objectAtIndex:indexPath.item];
+    
+    ZCImagePickerCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
     // 异步请求资源对应的缩略图（因系统接口限制，iOS 8.0 以下为实际上同步请求）
     [imageAsset requestThumbnailImageWithSize:[self referenceImageSize] completion:^(UIImage *result, NSDictionary *info) {
         if (!info || [[info objectForKey:PHImageResultIsDegradedKey] boolValue]) {
             // 模糊，此时为同步调用
             cell.contentImageView.image = result;
-        } else if ([collectionView qmui_itemVisibleAtIndexPath:indexPath]) {
+        } else if ([collectionView zc_itemVisibleAtIndexPath:indexPath]) {
             // 清晰，此时为异步调用
-            QMUIImagePickerCollectionViewCell *anotherCell = (QMUIImagePickerCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+            ZCImagePickerCollectionViewCell *anotherCell = (ZCImagePickerCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
             anotherCell.contentImageView.image = result;
         }
     }];
     
-    if (imageAsset.assetType == QMUIAssetTypeVideo) {
-        cell.videoDurationLabel.text = [NSString qmui_timeStringWithMinsAndSecsFromSecs:imageAsset.duration];
+    if (imageAsset.assetType == ZCAssetTypeVideo) {
+        cell.videoDurationLabel.text = [NSString zc_timeStringWithMinsAndSecsFromSecs:imageAsset.duration];
     }
     
     [cell.checkboxButton addTarget:self action:@selector(handleCheckBoxButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.progressView addTarget:self action:@selector(handleProgressViewClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [cell.progressView addTarget:self action:@selector(handleProgressViewClick:) forControlEvents:UIControlEventTouchUpInside];
     [cell.downloadRetryButton addTarget:self action:@selector(handleDownloadRetryButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     
     cell.editing = self.allowsMultipleSelection;
     if (cell.editing) {
-        // 如果该图片的 QMUIAsset 被包含在已选择图片的数组中，则控制该图片被选中
-        cell.checked = [QMUIImagePickerHelper imageAssetArray:_selectedImageAssetArray containsImageAsset:imageAsset];
+        // 如果该图片的 ZCAsset 被包含在已选择图片的数组中，则控制该图片被选中
+        cell.checked = [ZCImagePickerHelper imageAssetArray:_selectedImageAssetArray containsImageAsset:imageAsset];
     }
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    QMUIAsset *imageAsset = [self.imagesAssetArray objectAtIndex:indexPath.item];
+    ZCAsset *imageAsset = [self.imagesAssetArray objectAtIndex:indexPath.item];
     if (self.imagePickerViewControllerDelegate && [self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewController:didSelectImageWithImagesAsset:afterImagePickerPreviewViewControllerUpdate:)]) {
         [self.imagePickerViewControllerDelegate imagePickerViewController:self didSelectImageWithImagesAsset:imageAsset afterImagePickerPreviewViewControllerUpdate:self.imagePickerPreviewViewController];
     }
@@ -146,5 +268,179 @@
         [self.navigationController pushViewController:self.imagePickerPreviewViewController animated:YES];
     }
 }
+
+#pragma mark - 按钮点击回调
+
+- (void)handleSendButtonClick:(id)sender {
+    if (self.imagePickerViewControllerDelegate && [self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewController:didFinishPickingImageWithImagesAssetArray:)]) {
+        [self.imagePickerViewControllerDelegate imagePickerViewController:self didFinishPickingImageWithImagesAssetArray:_selectedImageAssetArray];
+    }
+    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)handlePreviewButtonClick:(id)sender {
+    [self initPreviewViewControllerIfNeeded];
+    // 手工更新图片预览界面
+    [self.imagePickerPreviewViewController updateImagePickerPreviewViewWithImagesAssetArray:[_selectedImageAssetArray copy]
+                                                                    selectedImageAssetArray:_selectedImageAssetArray
+                                                                          currentImageIndex:0
+                                                                            singleCheckMode:NO];
+    [self.navigationController pushViewController:self.imagePickerPreviewViewController animated:YES];
+}
+
+- (void)handleCancelPickerImage:(id)sender {
+    [self.navigationController dismissViewControllerAnimated:YES completion:^() {
+        if (self.imagePickerViewControllerDelegate && [self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewControllerDidCancel:)]) {
+            [self.imagePickerViewControllerDelegate imagePickerViewControllerDidCancel:self];
+        }
+    }];
+}
+
+- (void)handleCheckBoxButtonClick:(id)sender {
+    UIButton *checkBoxButton = sender;
+    NSIndexPath *indexPath = [self.collectionView zc_indexPathForItemAtView:checkBoxButton];
+    
+    ZCImagePickerCollectionViewCell *cell = (ZCImagePickerCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    ZCAsset *imageAsset = [self.imagesAssetArray objectAtIndex:indexPath.item];
+    if (cell.checked) {
+        // 移除选中状态
+        if ([self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewController:willUncheckImageAtIndex:)]) {
+            [self.imagePickerViewControllerDelegate imagePickerViewController:self willUncheckImageAtIndex:indexPath.item];
+        }
+        
+        cell.checked = NO;
+        [ZCImagePickerHelper imageAssetArray:_selectedImageAssetArray removeImageAsset:imageAsset];
+        
+        if ([self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewController:didUncheckImageAtIndex:)]) {
+            [self.imagePickerViewControllerDelegate imagePickerViewController:self didUncheckImageAtIndex:indexPath.item];
+        }
+        
+        // 根据选择图片数控制预览和发送按钮的 enable，以及修改已选中的图片数
+        [self updateImageCountAndCheckLimited];
+    } else {
+        // 选中该资源
+        // 发出请求获取大图，如果图片在 iCloud，则会发出网络请求下载图片。这里同时保存请求 id，供取消请求使用
+        [self requestImageWithIndexPath:indexPath];
+    }
+}
+
+- (void)handleProgressViewClick:(id)sender {
+    UIControl *progressView = sender;
+    NSIndexPath *indexPath = [self.collectionView zc_indexPathForItemAtView:progressView];
+    ZCAsset *imageAsset = [self.imagesAssetArray objectAtIndex:indexPath.item];
+    if (imageAsset.downloadStatus == ZCAssetDownloadStatusDownloading) {
+        // 下载过程中点击，取消下载，理论上能点击 progressView 就肯定是下载中，这里只是做个保护
+        ZCImagePickerCollectionViewCell *cell = (ZCImagePickerCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+        [[ZCAssetsManager sharedInstance].phCachingImageManager cancelImageRequest:(int32_t)imageAsset.requestID];
+        NSLog(@"Cancel download asset image with request ID %@", [NSNumber numberWithInteger:imageAsset.requestID]);
+        cell.downloadStatus = ZCAssetDownloadStatusCanceled;
+        [imageAsset updateDownloadStatusWithDownloadResult:NO];
+    }
+}
+
+- (void)handleDownloadRetryButtonClick:(id)sender {
+    UIButton *downloadRetryButton = sender;
+    NSIndexPath *indexPath = [self.collectionView zc_indexPathForItemAtView:downloadRetryButton];
+    [self requestImageWithIndexPath:indexPath];
+}
+
+- (void)updateImageCountAndCheckLimited {
+    NSInteger selectedImageCount = [_selectedImageAssetArray count];
+    if (selectedImageCount > 0 && selectedImageCount >= _minimumSelectImageCount) {
+        self.previewButton.enabled = YES;
+        self.sendButton.enabled = YES;
+        self.imageCountLabel.text = [NSString stringWithFormat:@"%@", @(selectedImageCount)];
+        self.imageCountLabel.hidden = NO;
+        [ZCImagePickerHelper springAnimationOfImageSelectedCountChangeWithCountLabel:self.imageCountLabel];
+    } else {
+        self.previewButton.enabled = NO;
+        self.sendButton.enabled = NO;
+        self.imageCountLabel.hidden = YES;
+    }
+}
+
+#pragma mark - Request Image
+
+- (void)requestImageWithIndexPath:(NSIndexPath *)indexPath {
+    // 发出请求获取大图，如果图片在 iCloud，则会发出网络请求下载图片。这里同时保存请求 id，供取消请求使用
+    ZCAsset *imageAsset = [self.imagesAssetArray objectAtIndex:indexPath.item];
+    ZCImagePickerCollectionViewCell *cell = (ZCImagePickerCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    imageAsset.requestID = [imageAsset requestPreviewImageWithCompletion:^(UIImage *result, NSDictionary *info) {
+        
+        BOOL downloadSucceed = (result && !info) || (![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey] && ![[info objectForKey:PHImageResultIsDegradedKey] boolValue]);
+        
+        if (downloadSucceed) {
+            // 资源资源已经在本地或下载成功
+            [imageAsset updateDownloadStatusWithDownloadResult:YES];
+            cell.downloadStatus = ZCAssetDownloadStatusSucceed;
+            
+            if ([_selectedImageAssetArray count] >= _maximumSelectImageCount) {
+                if (!_alertTitleWhenExceedMaxSelectImageCount) {
+                    _alertTitleWhenExceedMaxSelectImageCount = [NSString stringWithFormat:@"你最多只能选择%@张图片", @(_maximumSelectImageCount)];
+                }
+                if (!_alertButtonTitleWhenExceedMaxSelectImageCount) {
+                    _alertButtonTitleWhenExceedMaxSelectImageCount = [NSString stringWithFormat:@"我知道了"];
+                }
+                
+//               UIAlertController *alertController = [UIAlertController alertControllerWithTitle:_alertTitleWhenExceedMaxSelectImageCount message:nil preferredStyle:UIAlertControllerStyleAlert];
+//                [alertController addAction:[UIAlertAction actionWithTitle:_alertButtonTitleWhenExceedMaxSelectImageCount style:UIAlertActionStyleCancel handler:nil]];
+//                
+//                [alertController showWithAnimated:YES];
+                return;
+            }
+            
+            if ([self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewController:willCheckImageAtIndex:)]) {
+                [self.imagePickerViewControllerDelegate imagePickerViewController:self willCheckImageAtIndex:indexPath.item];
+            }
+            
+            cell.checked = YES;
+            [_selectedImageAssetArray addObject:imageAsset];
+            
+            if ([self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewController:didCheckImageAtIndex:)]) {
+                [self.imagePickerViewControllerDelegate imagePickerViewController:self didCheckImageAtIndex:indexPath.item];
+            }
+            
+            // 根据选择图片数控制预览和发送按钮的 enable，以及修改已选中的图片数
+            [self updateImageCountAndCheckLimited];
+        } else if ([info objectForKey:PHImageErrorKey] ) {
+            // 下载错误
+            [imageAsset updateDownloadStatusWithDownloadResult:NO];
+            cell.downloadStatus = ZCAssetDownloadStatusFailed;
+        }
+        
+    } withProgressHandler:^(double progress, NSError *error, BOOL *stop, NSDictionary *info) {
+        imageAsset.downloadProgress = progress;
+        
+        if ([self.collectionView zc_itemVisibleAtIndexPath:indexPath]) {
+            /**
+             *  withProgressHandler 不在主线程执行，若用户在该 block 中操作 UI 时会产生一些问题，
+             *  为了避免这种情况，这里该 block 主动放到主线程执行。
+             */
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"Download iCloud image, current progress is : %f", progress);
+                
+                if (cell.downloadStatus != ZCAssetDownloadStatusDownloading) {
+                    cell.downloadStatus = ZCAssetDownloadStatusDownloading;
+                    // 重置 progressView 的显示的进度为 0
+//                    [cell.progressView setProgress:0 animated:NO];
+                    // 预先设置预览界面的下载状态
+                    self.imagePickerPreviewViewController.downloadStatus = ZCAssetDownloadStatusDownloading;
+                }
+                // 拉取资源的初期，会有一段时间没有进度，猜测是发出网络请求以及与 iCloud 建立连接的耗时，这时预先给个 0.02 的进度值，看上去好看些
+                float targetProgress = MAX(0.02, progress);
+//                if ( targetProgress < cell.progressView.progress ) {
+//                    [cell.progressView setProgress:targetProgress animated:NO];
+//                } else {
+//                    cell.progressView.progress = MAX(0.02, progress);
+//                }
+                if (error) {
+                    NSLog(@"Download iCloud image Failed, current progress is: %f", progress);
+                    cell.downloadStatus = ZCAssetDownloadStatusFailed;
+                }
+            });
+        }
+    }];
+}
+
 
 @end

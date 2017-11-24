@@ -10,11 +10,12 @@
 #define PrefixHeader_pch
 
 
-//#ifdef __OBJC__
+#ifdef __OBJC__
 
 #import "ZCConstant.h"
+#import "CommonDefines.h"
 
-//#endif
+#endif
 
 
 

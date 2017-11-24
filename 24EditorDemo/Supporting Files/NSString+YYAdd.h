@@ -262,5 +262,6 @@
 
 //AssetManager
 - (NSString *)zc_md5;
++ (NSString *)zc_timeStringWithMinsAndSecsFromSecs:(double)seconds;
 
 @end
