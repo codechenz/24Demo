@@ -13,9 +13,22 @@
 #import "NSString+YYAdd.h"
 #import "ZCAssetsManager.h"
 #import "ZCImagePickerHelper.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 
-@interface ZCImagePickerViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+#define OperationToolBarViewHeight 44
+#define OperationToolBarViewPaddingHorizontal 12
+#define ImageCountLabelSize CGSizeMake(18, 18)
+
+#define CollectionViewInsetHorizontal PreferredVarForDevices((PixelOne * 2), 1, 2, 2)
+#define CollectionViewInset UIEdgeInsetsMake(CollectionViewInsetHorizontal, CollectionViewInsetHorizontal, CollectionViewInsetHorizontal, CollectionViewInsetHorizontal)
+#define CollectionViewCellMargin CollectionViewInsetHorizontal
+
+static NSString * const kVideoCellIdentifier = @"video";
+static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
+
+@interface ZCImagePickerViewController ()
 
 @property(nonatomic, strong, readwrite) UICollectionViewFlowLayout *collectionViewLayout;
 @property(nonatomic, strong, readwrite) UICollectionView *collectionView;
@@ -37,7 +50,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    _allowsMultipleSelection = YES;
+    _maximumSelectImageCount = INT_MAX;
+    _minimumSelectImageCount = 0;
+    _shouldShowDefaultLoadingView = YES;
+    _minimumImageWidth = 75;
     [self initSubViews];
     
 }
@@ -54,8 +71,9 @@
 
 - (void)initSubViews {
     self.collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
-    self.collectionViewLayout.minimumLineSpacing = 1;
-    self.collectionViewLayout.minimumInteritemSpacing = 1;
+    self.collectionViewLayout.sectionInset = CollectionViewInset;
+    self.collectionViewLayout.minimumLineSpacing = CollectionViewCellMargin;
+    self.collectionViewLayout.minimumInteritemSpacing = CollectionViewCellMargin;
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:_collectionViewLayout];
     self.collectionView.delegate = self;
@@ -67,6 +85,45 @@
     [self.collectionView registerClass:[ZCImagePickerCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ZCImagePickerCollectionViewCell class])];
     
     [self.view addSubview:self.collectionView];
+    
+    if (self.allowsMultipleSelection) {
+        self.operationToolBarView = [[UIView alloc] init];
+        self.operationToolBarView.backgroundColor = [UIColor whiteColor];
+        [self.view addSubview:self.operationToolBarView];
+        
+        self.sendButton = [[UIButton alloc] init];
+        self.sendButton.titleLabel.font = [UIFont systemFontOfSize:16];
+        self.sendButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        [self.sendButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self.sendButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+        [self.sendButton setTitle:@"发送" forState:UIControlStateNormal];
+        [self.sendButton sizeToFit];
+        self.sendButton.enabled = NO;
+        [self.sendButton addTarget:self action:@selector(handleSendButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.operationToolBarView addSubview:self.sendButton];
+        
+        self.previewButton = [[UIButton alloc] init];
+        self.previewButton.titleLabel.font = self.sendButton.titleLabel.font;
+        [self.previewButton setTitleColor:[self.sendButton titleColorForState:UIControlStateNormal] forState:UIControlStateNormal];
+        [self.previewButton setTitleColor:[self.sendButton titleColorForState:UIControlStateDisabled] forState:UIControlStateDisabled];
+        [self.previewButton setTitle:@"预览" forState:UIControlStateNormal];
+        [self.previewButton sizeToFit];
+        self.previewButton.enabled = NO;
+        [self.previewButton addTarget:self action:@selector(handlePreviewButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.operationToolBarView addSubview:self.previewButton];
+        
+        self.imageCountLabel = [[UILabel alloc] init];
+        self.imageCountLabel.backgroundColor = [UIColor blackColor];
+        self.imageCountLabel.textColor = [UIColor whiteColor];
+        self.imageCountLabel.font = [UIFont systemFontOfSize:12];
+        self.imageCountLabel.textAlignment = NSTextAlignmentCenter;
+        self.imageCountLabel.lineBreakMode = NSLineBreakByCharWrapping;
+        self.imageCountLabel.layer.masksToBounds = YES;
+        self.imageCountLabel.layer.cornerRadius = CGSizeMake(18, 18).width / 2;
+        self.imageCountLabel.hidden = YES;
+        [self.operationToolBarView addSubview:self.imageCountLabel];
+    }
+
     
     _selectedImageAssetArray = [[NSMutableArray alloc] init];
 }
@@ -80,18 +137,42 @@
         NSInteger selectedImageCount = [_selectedImageAssetArray count];
         if (selectedImageCount > 0) {
             // 如果有图片被选择，则预览按钮和发送按钮可点击，并刷新当前被选中的图片数量
-//            self.previewButton.enabled = YES;
-//            self.sendButton.enabled = YES;
-//            self.imageCountLabel.text = [NSString stringWithFormat:@"%@", @(selectedImageCount)];
+            self.previewButton.enabled = YES;
+            self.sendButton.enabled = YES;
+            self.imageCountLabel.text = [NSString stringWithFormat:@"%@", @(selectedImageCount)];
 //            self.imageCountLabel.hidden = NO;
         } else {
             // 如果没有任何图片被选择，则预览和发送按钮不可点击，并且隐藏显示图片数量的 Label
-//            self.previewButton.enabled = NO;
-//            self.sendButton.enabled = NO;
-//            self.imageCountLabel.hidden = YES;
+            self.previewButton.enabled = NO;
+            self.sendButton.enabled = NO;
+            self.imageCountLabel.hidden = YES;
         }
     }
     [self.collectionView reloadData];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    if (!CGSizeEqualToSize(self.collectionView.frame.size, self.view.bounds.size)) {
+        self.collectionView.frame = self.view.bounds;
+    }
+    
+    CGFloat operationToolBarViewHeight = 0;
+    if (self.allowsMultipleSelection) {
+        self.operationToolBarView.frame = CGRectMake(0, CGRectGetHeight(self.view.bounds) - OperationToolBarViewHeight, CGRectGetWidth(self.view.bounds), OperationToolBarViewHeight);
+        self.previewButton.frame = CGRectSetXY(self.previewButton.frame, OperationToolBarViewPaddingHorizontal, CGFloatGetCenter(CGRectGetHeight(self.operationToolBarView.frame), CGRectGetHeight(self.previewButton.frame)));
+        self.sendButton.frame = CGRectMake(CGRectGetWidth(self.operationToolBarView.frame) - OperationToolBarViewPaddingHorizontal - CGRectGetWidth(self.sendButton.frame), CGFloatGetCenter(CGRectGetHeight(self.operationToolBarView.frame), CGRectGetHeight(self.sendButton.frame)), CGRectGetWidth(self.sendButton.frame), CGRectGetHeight(self.sendButton.frame));
+        self.imageCountLabel.frame = CGRectMake(CGRectGetMinX(self.sendButton.frame) - ImageCountLabelSize.width - 5, CGRectGetMinY(self.sendButton.frame) + CGFloatGetCenter(CGRectGetHeight(self.sendButton.frame), ImageCountLabelSize.height), ImageCountLabelSize.width, ImageCountLabelSize.height);
+        operationToolBarViewHeight = CGRectGetHeight(self.operationToolBarView.frame);
+    }
+    
+    if (self.collectionView.contentInset.bottom != operationToolBarViewHeight) {
+        self.collectionView.contentInset = UIEdgeInsetsSetBottom(self.collectionView.contentInset, operationToolBarViewHeight);
+        self.collectionView.scrollIndicatorInsets = self.collectionView.contentInset;
+        // 放在这里是因为有时候会先走完 refreshWithAssetsGroup 里的 completion 再走到这里，此时前者不会导致 scollToInitialPosition 的滚动，所以在这里再调用一次保证一定会滚
+        [self scrollToInitialPositionIfNeeded];
+    }
 }
 
 - (void)refreshWithImagesArray:(NSMutableArray<ZCAsset *> *)imagesArray {
@@ -107,7 +188,7 @@
         [self.imagesAssetArray removeAllObjects];
     }
     // 通过 ZCAssetsGroup 获取该相册所有的图片 ZCAsset，并且储存到数组中
-    ZCAlbumSortType albumSortType = ZCAlbumSortTypePositive;
+    ZCAlbumSortType albumSortType = ZCAlbumSortTypeReverse;
     // 从 delegate 中获取相册内容的排序方式，如果没有实现这个 delegate，则使用 ZCAlbumSortType 的默认值，即最新的内容排在最后面
     if (self.imagePickerViewControllerDelegate && [self.imagePickerViewControllerDelegate respondsToSelector:@selector(albumSortTypeForImagePickerViewController:)]) {
         albumSortType = [self.imagePickerViewControllerDelegate albumSortTypeForImagePickerViewController:self];
@@ -127,6 +208,7 @@
                 if (resultAsset) {
                     [self.imagesAssetArray addObject:resultAsset];
                 } else { // result 为 nil，即遍历相片或视频完毕
+                    
                     [self.collectionView reloadData];
                     [self.collectionView performBatchUpdates:NULL
                                                   completion:^(BOOL finished) {
@@ -246,12 +328,14 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     ZCAsset *imageAsset = [self.imagesAssetArray objectAtIndex:indexPath.item];
-    if (self.imagePickerViewControllerDelegate && [self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewController:didSelectImageWithImagesAsset:afterImagePickerPreviewViewControllerUpdate:)]) {
-        [self.imagePickerViewControllerDelegate imagePickerViewController:self didSelectImageWithImagesAsset:imageAsset afterImagePickerPreviewViewControllerUpdate:self.imagePickerPreviewViewController];
-    }
     
-    if ([self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerPreviewViewControllerForImagePickerViewController:)]) {
+//    if (self.imagePickerViewControllerDelegate && [self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewController:didSelectImageWithImagesAsset:afterImagePickerPreviewViewControllerUpdate:)]) {
+//        [self.imagePickerViewControllerDelegate imagePickerViewController:self didSelectImageWithImagesAsset:imageAsset afterImagePickerPreviewViewControllerUpdate:self.imagePickerPreviewViewController];
+//    }
+    
+//    if ([self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerPreviewViewControllerForImagePickerViewController:)]) {
         [self initPreviewViewControllerIfNeeded];
+    self.imagePickerPreviewViewController = [[ZCImagePickerPreviewViewController alloc] init];
         if (!self.allowsMultipleSelection) {
             // 单选的情况下
             [self.imagePickerPreviewViewController updateImagePickerPreviewViewWithImagesAssetArray:@[imageAsset]
@@ -266,7 +350,7 @@
                                                                                     singleCheckMode:NO];
         }
         [self.navigationController pushViewController:self.imagePickerPreviewViewController animated:YES];
-    }
+//    }
 }
 
 #pragma mark - 按钮点击回调
@@ -280,11 +364,13 @@
 
 - (void)handlePreviewButtonClick:(id)sender {
     [self initPreviewViewControllerIfNeeded];
+    self.imagePickerPreviewViewController = [[ZCImagePickerPreviewViewController alloc] init];
     // 手工更新图片预览界面
     [self.imagePickerPreviewViewController updateImagePickerPreviewViewWithImagesAssetArray:[_selectedImageAssetArray copy]
                                                                     selectedImageAssetArray:_selectedImageAssetArray
                                                                           currentImageIndex:0
                                                                             singleCheckMode:NO];
+//    [self.navigationController pushViewController:self.imagePickerPreviewViewController animated:YES];
     [self.navigationController pushViewController:self.imagePickerPreviewViewController animated:YES];
 }
 

@@ -114,15 +114,7 @@
     ZCInputToolView *inputToolView = [[ZCInputToolView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44) HostView:_contentTextView];
 
     [inputToolView selectPhotoButtonOnTouch:^(UIButton *sender) {
-        ZCImagePickerViewController *_imagePickerViewController;
-        if (!_imagePickerViewController) {
-            _imagePickerViewController = [self.albumViewControllerDelegate imagePickerViewControllerForAlbumViewController:self];
-        }
-        NSAssert(_imagePickerViewController, @"self.%@ 必须实现 %@ 并返回一个 %@ 对象", NSStringFromSelector(@selector(albumViewControllerDelegate)), NSStringFromSelector(@selector(imagePickerViewControllerForAlbumViewController:)), NSStringFromClass([QMUIImagePickerViewController class]));
-        QMUIAssetsGroup *assetsGroup = [_albumsArray objectAtIndex:indexPath.row];
-        [_imagePickerViewController refreshWithAssetsGroup:assetsGroup];
-        _imagePickerViewController.title = [assetsGroup name];
-        [self.navigationController pushViewController:_imagePickerViewController animated:YES];
+        
     }];
     
     contentTextView.inputAccessoryView = inputToolView;

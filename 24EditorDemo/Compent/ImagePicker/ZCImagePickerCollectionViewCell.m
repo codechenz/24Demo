@@ -32,13 +32,13 @@ const UIEdgeInsets QMUIImagePickerCollectionViewCellDefaultVideoMarkImageViewMar
 + (void)initialize {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [ZCImagePickerCollectionViewCell appearance].checkboxImage = [UIImage imageNamed:@"QMUI_pickerImage_checkbox"];
+        [ZCImagePickerCollectionViewCell appearance].checkboxImage = [UIImage imageNamed:@"PickerImageCheckbox"];
         [ZCImagePickerCollectionViewCell appearance].checkboxCheckedImage =
-        [UIImage imageNamed:@"QMUI_pickerImage_checkbox_checked"];
+        [UIImage imageNamed:@"PickerImageCheckboxChecked"];
         [ZCImagePickerCollectionViewCell appearance].checkboxButtonMargins = QMUIImagePickerCollectionViewCellDefaultCheckboxButtonMargins;
         
-        [ZCImagePickerCollectionViewCell appearance].downloadRetryImage = [UIImage imageNamed:@"QMUI_icloud_download_fault_small"];
-        [ZCImagePickerCollectionViewCell appearance].videoMarkImage = [UIImage imageNamed:@"QMUI_pickerImage_video_mark"];
+        [ZCImagePickerCollectionViewCell appearance].downloadRetryImage = [UIImage imageNamed:@"IcloudDownloadFaultSmall"];
+        [ZCImagePickerCollectionViewCell appearance].videoMarkImage = [UIImage imageNamed:@"PickerImageVideoMark"];
         [ZCImagePickerCollectionViewCell appearance].videoMarkImageViewMargins = QMUIImagePickerCollectionViewCellDefaultVideoMarkImageViewMargins;
         [ZCImagePickerCollectionViewCell appearance].videoDurationLabelFont = [UIFont systemFontOfSize:12];
         [ZCImagePickerCollectionViewCell appearance].videoDurationLabelTextColor = [UIColor whiteColor];

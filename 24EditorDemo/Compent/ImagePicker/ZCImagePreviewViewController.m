@@ -11,29 +11,6 @@
 #define ZCViewAnimationOptionsCurveOut (7<<16)
 #define ZCViewAnimationOptionsCurveIn (8<<16)
 
-@implementation ZCImagePreviewViewController (UIAppearance)
-
-+ (void)initialize {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self appearance];
-    });
-}
-
-static ZCImagePreviewViewController *imagePreviewViewControllerAppearance;
-+ (instancetype)appearance {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        if (!imagePreviewViewControllerAppearance) {
-            imagePreviewViewControllerAppearance = [[ZCImagePreviewViewController alloc] init];
-            imagePreviewViewControllerAppearance.backgroundColor = [UIColor blackColor];
-        }
-    });
-    return imagePreviewViewControllerAppearance;
-}
-
-@end
-
 @interface ZCImagePreviewViewController ()
 
 @property(nonatomic, strong) UIWindow *previewWindow;
@@ -50,11 +27,7 @@ static ZCImagePreviewViewController *imagePreviewViewControllerAppearance;
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
-        
         self.automaticallyAdjustsScrollViewInsets = NO;
-        if (imagePreviewViewControllerAppearance) {
-            self.backgroundColor = [ZCImagePreviewViewController appearance].backgroundColor;
-        }
     }
     return self;
 }
@@ -74,14 +47,12 @@ static ZCImagePreviewViewController *imagePreviewViewControllerAppearance;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = self.backgroundColor;
-    [self initSubviews];
-}
-
-- (void)initSubviews {
+    self.view.backgroundColor = [UIColor blackColor];
+    
     _imagePreviewView = [[ZCImagePreviewView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.imagePreviewView];
 }
+
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];

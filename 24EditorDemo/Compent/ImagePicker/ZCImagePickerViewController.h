@@ -11,7 +11,7 @@
 #import "ZCAssetsGroup.h"
 #import "ZCImagePickerPreviewViewController.h"
 
-#define UI_APPEARANCE_SELECTOR __attribute__((annotate("ui_appearance_selector")))
+//#define UI_APPEARANCE_SELECTOR __attribute__((annotate("ui_appearance_selector")))
 
 @class ZCImagePickerViewController;
 

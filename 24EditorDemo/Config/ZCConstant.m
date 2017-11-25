@@ -27,4 +27,5 @@ NSString *const kIFIArrowLeft = @"\U0000e901";
 NSString *const kIFIArrowRight = @"\U0000e913";
 NSString *const kIFISave = @"\U0000e914";
 NSString *const kIFIUser = @"\U0000e91d";
+
 @end

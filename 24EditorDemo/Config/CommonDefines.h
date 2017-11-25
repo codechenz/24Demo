@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
 #import "UIView+YYAdd.h"
+#import "ZCHelper.h"
 
 #pragma mark - 变量-编译相关
 
@@ -18,6 +19,58 @@
 #else
 #define IS_DEBUG NO
 #endif
+
+// 设备类型
+#define IS_IPAD [ZCHelper isIPad]
+#define IS_IPAD_PRO [ZCHelper isIPadPro]
+#define IS_IPOD [ZCHelper isIPod]
+#define IS_IPHONE [ZCHelper isIPhone]
+#define IS_SIMULATOR [ZCHelper isSimulator]
+
+// 操作系统版本号
+#define IOS_VERSION ([[[UIDevice currentDevice] systemVersion] floatValue])
+
+// 是否横竖屏
+// 用户界面横屏了才会返回YES
+#define IS_LANDSCAPE UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])
+// 无论支不支持横屏，只要设备横屏了，就会返回YES
+#define IS_DEVICE_LANDSCAPE UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])
+
+
+// 屏幕宽度，会根据横竖屏的变化而变化
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+
+// 屏幕宽度，跟横竖屏无关
+#define DEVICE_WIDTH (IS_LANDSCAPE ? [[UIScreen mainScreen] bounds].size.height : [[UIScreen mainScreen] bounds].size.width)
+
+// 屏幕高度，会根据横竖屏的变化而变化
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+
+// 屏幕高度，跟横竖屏无关
+#define DEVICE_HEIGHT (IS_LANDSCAPE ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height)
+
+// 设备屏幕尺寸
+#define IS_58INCH_SCREEN [ZCHelper is58InchScreen]
+#define IS_55INCH_SCREEN [ZCHelper is55InchScreen]
+#define IS_47INCH_SCREEN [ZCHelper is47InchScreen]
+#define IS_40INCH_SCREEN [ZCHelper is40InchScreen]
+#define IS_35INCH_SCREEN [ZCHelper is35InchScreen]
+
+// 获取一个像素
+#define PixelOne [ZCHelper pixelOne]
+
+// 获取最合适的适配值，默认以varFor55Inch为准，也即偏向大屏，特殊的，iPhone X 虽然英寸值更大，但由于宽度与 47inch 相等，因此布局上使用与 47inch 一样的值
+#define PreferredVarForDevices(varFor55Inch, varFor47or58Inch, varFor40Inch, varFor35Inch) PreferredVarForUniversalDevices(varFor55Inch, varFor55Inch, varFor47or58Inch, varFor40Inch, varFor35Inch)
+
+// 同上，加多一个iPad的参数
+#define PreferredVarForUniversalDevices(varForPad, varFor55Inch, varFor47or58Inch, varFor40Inch, varFor35Inch) (IS_IPAD ? varForPad : (IS_35INCH_SCREEN ? varFor35Inch : (IS_40INCH_SCREEN ? varFor40Inch : (IS_47INCH_SCREEN || IS_58INCH_SCREEN ? varFor47or58Inch : varFor55Inch))))
+
+// 状态栏高度(来电等情况下，状态栏高度会发生变化，所以应该实时计算)
+#define StatusBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height)
+
+// UIColor 相关的宏，用于快速创建一个 UIColor 对象，更多创建的宏可查看 UIColor+QMUI.h
+#define UIColorMake(r, g, b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
+#define UIColorMakeWithRGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a/1.0]
 
 #pragma mark - 方法-C对象、结构操作
 
@@ -36,7 +89,6 @@ ReplaceMethod(Class _class, SEL _originSelector, SEL _newSelector) {
 
 /**
  *  某些地方可能会将 CGFLOAT_MIN 作为一个数值参与计算（但其实 CGFLOAT_MIN 更应该被视为一个标志位而不是数值），可能导致一些精度问题，所以提供这个方法快速将 CGFLOAT_MIN 转换为 0
- *  issue: https://github.com/QMUI/QMUI_iOS/issues/203
  */
 CG_INLINE CGFloat
 removeFloatMin(CGFloat floatValue) {

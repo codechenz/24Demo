@@ -62,8 +62,3 @@
 - (void)endPreviewFading;
 @end
 
-@interface ZCImagePreviewViewController (UIAppearance)
-
-+ (instancetype)appearance;
-@end
-

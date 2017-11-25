@@ -105,6 +105,7 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
 }
 
 - (void)setCurrentImageIndex:(NSUInteger)currentImageIndex animated:(BOOL)animated {
+    
     _currentImageIndex = currentImageIndex;
     [self.collectionView reloadData];
     if (currentImageIndex < [self.collectionView numberOfItemsInSection:0]) {
@@ -129,7 +130,8 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
     if ([self.delegate respondsToSelector:@selector(numberOfImagesInImagePreviewView:)]) {
         return [self.delegate numberOfImagesInImagePreviewView:self];
     }
-    return 0;
+//    从0改为1
+    return 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {

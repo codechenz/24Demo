@@ -56,6 +56,9 @@
 		93C1449E1FC7042A0006FB90 /* ZCCollectionViewPagingLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C1449D1FC7042A0006FB90 /* ZCCollectionViewPagingLayout.m */; };
 		93C144A11FC70A490006FB90 /* UILabel+ZCCate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C144A01FC70A490006FB90 /* UILabel+ZCCate.m */; };
 		93C144A41FC70AA00006FB90 /* NSObject+ZCCate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C144A31FC70AA00006FB90 /* NSObject+ZCCate.m */; };
+		93C144D81FC7A8060006FB90 /* ZCAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C144D71FC7A8060006FB90 /* ZCAlbumViewController.m */; };
+		93C144DB1FC7AC0E0006FB90 /* UIView+ZCCate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C144DA1FC7AC0E0006FB90 /* UIView+ZCCate.m */; };
+		93C144DE1FC7ADA90006FB90 /* ZCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C144DD1FC7ADA90006FB90 /* ZCHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +146,12 @@
 		93C144A01FC70A490006FB90 /* UILabel+ZCCate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ZCCate.m"; sourceTree = "<group>"; };
 		93C144A21FC70AA00006FB90 /* NSObject+ZCCate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZCCate.h"; sourceTree = "<group>"; };
 		93C144A31FC70AA00006FB90 /* NSObject+ZCCate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZCCate.m"; sourceTree = "<group>"; };
+		93C144D61FC7A8060006FB90 /* ZCAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCAlbumViewController.h; sourceTree = "<group>"; };
+		93C144D71FC7A8060006FB90 /* ZCAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCAlbumViewController.m; sourceTree = "<group>"; };
+		93C144D91FC7AC0E0006FB90 /* UIView+ZCCate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZCCate.h"; sourceTree = "<group>"; };
+		93C144DA1FC7AC0E0006FB90 /* UIView+ZCCate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZCCate.m"; sourceTree = "<group>"; };
+		93C144DC1FC7ADA90006FB90 /* ZCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCHelper.h; sourceTree = "<group>"; };
+		93C144DD1FC7ADA90006FB90 /* ZCHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCHelper.m; sourceTree = "<group>"; };
 		EF3D4C9F21CB708B2A091D47 /* Pods-24EditorDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24EditorDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-24EditorDemo/Pods-24EditorDemo.release.xcconfig"; sourceTree = "<group>"; };
 		FF41CCCE21E3C1A793C23BB6 /* libPods-24EditorDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-24EditorDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -219,6 +228,8 @@
 				93C144661FC66FB60006FB90 /* ZCConstant.h */,
 				93C144671FC66FB60006FB90 /* ZCConstant.m */,
 				93C144891FC6EB4E0006FB90 /* CommonDefines.h */,
+				93C144DC1FC7ADA90006FB90 /* ZCHelper.h */,
+				93C144DD1FC7ADA90006FB90 /* ZCHelper.m */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -310,6 +321,8 @@
 				93C144A01FC70A490006FB90 /* UILabel+ZCCate.m */,
 				93C144A21FC70AA00006FB90 /* NSObject+ZCCate.h */,
 				93C144A31FC70AA00006FB90 /* NSObject+ZCCate.m */,
+				93C144D91FC7AC0E0006FB90 /* UIView+ZCCate.h */,
+				93C144DA1FC7AC0E0006FB90 /* UIView+ZCCate.m */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -399,6 +412,8 @@
 				93C1449A1FC702C40006FB90 /* ZCZoomImageView.m */,
 				93C1449C1FC7042A0006FB90 /* ZCCollectionViewPagingLayout.h */,
 				93C1449D1FC7042A0006FB90 /* ZCCollectionViewPagingLayout.m */,
+				93C144D61FC7A8060006FB90 /* ZCAlbumViewController.h */,
+				93C144D71FC7A8060006FB90 /* ZCAlbumViewController.m */,
 			);
 			path = ImagePicker;
 			sourceTree = "<group>";
@@ -559,6 +574,7 @@
 				93C144061FC55D950006FB90 /* NSBundle+YYAdd.m in Sources */,
 				93C1443A1FC5A7FA0006FB90 /* UIImage+ZCCate.m in Sources */,
 				93C143F11FC550530006FB90 /* ZCBaseViewController.m in Sources */,
+				93C144DB1FC7AC0E0006FB90 /* UIView+ZCCate.m in Sources */,
 				93C144081FC55D950006FB90 /* NSString+YYAdd.m in Sources */,
 				93C144681FC66FB60006FB90 /* ZCConstant.m in Sources */,
 				93C144921FC6FE150006FB90 /* ZCImagePickerPreviewViewController.m in Sources */,
@@ -569,6 +585,8 @@
 				93C1448C1FC6EE960006FB90 /* ZCImagePickerHelper.m in Sources */,
 				93C144791FC6C4BD0006FB90 /* ZCAssetsManager.m in Sources */,
 				93C1441C1FC579790006FB90 /* ZCBaseView.m in Sources */,
+				93C144DE1FC7ADA90006FB90 /* ZCHelper.m in Sources */,
+				93C144D81FC7A8060006FB90 /* ZCAlbumViewController.m in Sources */,
 				93C143D91FC54DB30006FB90 /* AppDelegate.m in Sources */,
 				93C144091FC55D950006FB90 /* UIControl+YYAdd.m in Sources */,
 				93C1447E1FC6D04B0006FB90 /* ZCImagePickerViewController.m in Sources */,
