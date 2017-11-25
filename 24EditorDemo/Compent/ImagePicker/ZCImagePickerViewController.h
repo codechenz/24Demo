@@ -9,6 +9,7 @@
 #import "ZCBaseViewController.h"
 #import "ZCAsset.h"
 #import "ZCAssetsGroup.h"
+#import "ZCAssetsManager.h"
 #import "ZCImagePickerPreviewViewController.h"
 
 //#define UI_APPEARANCE_SELECTOR __attribute__((annotate("ui_appearance_selector")))
@@ -81,7 +82,7 @@
 @end
 
 
-@interface ZCImagePickerViewController : ZCBaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,ZCImagePickerPreviewViewControllerDelegate>
+@interface ZCImagePickerViewController : ZCBaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,ZCImagePickerPreviewViewControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 /**
  *  图片的最小尺寸，布局时如果有剩余空间，会将空间分配给图片大小，所以最终显示出来的大小不一定等于minimumImageWidth。默认是75。

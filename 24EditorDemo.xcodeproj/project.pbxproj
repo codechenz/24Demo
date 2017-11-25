@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3EAC1B88DBA7C5A860E5F821 /* libPods-24EditorDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF41CCCE21E3C1A793C23BB6 /* libPods-24EditorDemo.a */; };
+		9369B3071FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3061FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.m */; };
 		93C143C51FC547D00006FB90 /* _4EditorDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93C143C31FC547D00006FB90 /* _4EditorDemo.xcdatamodeld */; };
 		93C143C71FC547D00006FB90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C143C61FC547D00006FB90 /* Assets.xcassets */; };
 		93C143D91FC54DB30006FB90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C143D31FC54DB30006FB90 /* AppDelegate.m */; };
@@ -63,6 +64,8 @@
 
 /* Begin PBXFileReference section */
 		25CD7A04455561CED0A1AE43 /* Pods-24EditorDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24EditorDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-24EditorDemo/Pods-24EditorDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		9369B3051FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCImagePickerNoneCollectionViewCell.h; sourceTree = "<group>"; };
+		9369B3061FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCImagePickerNoneCollectionViewCell.m; sourceTree = "<group>"; };
 		93C143B41FC547D00006FB90 /* 24EditorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 24EditorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C143C41FC547D00006FB90 /* _4EditorDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = _4EditorDemo.xcdatamodel; sourceTree = "<group>"; };
 		93C143C61FC547D00006FB90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -414,6 +417,8 @@
 				93C1449D1FC7042A0006FB90 /* ZCCollectionViewPagingLayout.m */,
 				93C144D61FC7A8060006FB90 /* ZCAlbumViewController.h */,
 				93C144D71FC7A8060006FB90 /* ZCAlbumViewController.m */,
+				9369B3051FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.h */,
+				9369B3061FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.m */,
 			);
 			path = ImagePicker;
 			sourceTree = "<group>";
@@ -601,6 +606,7 @@
 				93C1449B1FC702C40006FB90 /* ZCZoomImageView.m in Sources */,
 				93C144841FC6E38B0006FB90 /* UIControl+ZCCate.m in Sources */,
 				93C1440D1FC55E690006FB90 /* UIView+YYAdd.m in Sources */,
+				9369B3071FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.m in Sources */,
 				93C144761FC6C4AD0006FB90 /* ZCAssetsGroup.m in Sources */,
 				93C143C51FC547D00006FB90 /* _4EditorDemo.xcdatamodeld in Sources */,
 				93C144051FC55D950006FB90 /* CALayer+YYAdd.m in Sources */,

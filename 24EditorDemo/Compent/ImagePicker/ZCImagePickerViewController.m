@@ -8,6 +8,7 @@
 
 #import "ZCImagePickerViewController.h"
 #import "ZCImagePickerCollectionViewCell.h"
+#import "ZCImagePickerNoneCollectionViewCell.h"
 #import "UIView+YYAdd.h"
 #import "UICollectionView+ZCCate.h"
 #import "NSString+YYAdd.h"
@@ -15,6 +16,7 @@
 #import "ZCImagePickerHelper.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <Photos/PHAsset.h>
 
 
 #define OperationToolBarViewHeight 44
@@ -83,6 +85,7 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
     self.collectionView.alwaysBounceHorizontal = NO;
     self.collectionView.backgroundColor = [UIColor clearColor];
     [self.collectionView registerClass:[ZCImagePickerCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ZCImagePickerCollectionViewCell class])];
+    [self.collectionView registerClass:[ZCImagePickerNoneCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([ZCImagePickerNoneCollectionViewCell class])];
     
     [self.view addSubview:self.collectionView];
     
@@ -208,7 +211,11 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
                 if (resultAsset) {
                     [self.imagesAssetArray addObject:resultAsset];
                 } else { // result 为 nil，即遍历相片或视频完毕
-                    
+#warning 相机相册时添加照相选择
+                    if (true) {
+                        NSNull *null = [[NSNull alloc] init];
+                        [self.imagesAssetArray insertObject:null atIndex:0];
+                    }
                     [self.collectionView reloadData];
                     [self.collectionView performBatchUpdates:NULL
                                                   completion:^(BOOL finished) {
@@ -292,50 +299,116 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *identifier = NSStringFromClass([ZCImagePickerCollectionViewCell class]);
-    // 获取需要显示的资源
-    ZCAsset *imageAsset = [self.imagesAssetArray objectAtIndex:indexPath.item];
     
-    ZCImagePickerCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    
-    // 异步请求资源对应的缩略图（因系统接口限制，iOS 8.0 以下为实际上同步请求）
-    [imageAsset requestThumbnailImageWithSize:[self referenceImageSize] completion:^(UIImage *result, NSDictionary *info) {
-        if (!info || [[info objectForKey:PHImageResultIsDegradedKey] boolValue]) {
-            // 模糊，此时为同步调用
-            cell.contentImageView.image = result;
-        } else if ([collectionView zc_itemVisibleAtIndexPath:indexPath]) {
-            // 清晰，此时为异步调用
-            ZCImagePickerCollectionViewCell *anotherCell = (ZCImagePickerCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-            anotherCell.contentImageView.image = result;
+    if (indexPath.row == 0) {
+        ZCImagePickerNoneCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ZCImagePickerNoneCollectionViewCell class]) forIndexPath:indexPath];
+        
+        return cell;
+        
+    }else {
+        NSString *identifier = NSStringFromClass([ZCImagePickerCollectionViewCell class]);
+        // 获取需要显示的资源
+        ZCAsset *imageAsset = [self.imagesAssetArray objectAtIndex:indexPath.item];
+        
+        ZCImagePickerCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+        
+        
+        // 异步请求资源对应的缩略图（因系统接口限制，iOS 8.0 以下为实际上同步请求）
+        [imageAsset requestThumbnailImageWithSize:[self referenceImageSize] completion:^(UIImage *result, NSDictionary *info) {
+            if (!info || [[info objectForKey:PHImageResultIsDegradedKey] boolValue]) {
+                // 模糊，此时为同步调用
+                cell.contentImageView.image = result;
+            } else if ([collectionView zc_itemVisibleAtIndexPath:indexPath]) {
+                // 清晰，此时为异步调用
+                ZCImagePickerCollectionViewCell *anotherCell = (ZCImagePickerCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+                anotherCell.contentImageView.image = result;
+            }
+        }];
+        
+        if (imageAsset.assetType == ZCAssetTypeVideo) {
+            cell.videoDurationLabel.text = [NSString zc_timeStringWithMinsAndSecsFromSecs:imageAsset.duration];
         }
-    }];
-    
-    if (imageAsset.assetType == ZCAssetTypeVideo) {
-        cell.videoDurationLabel.text = [NSString zc_timeStringWithMinsAndSecsFromSecs:imageAsset.duration];
+        
+        [cell.checkboxButton addTarget:self action:@selector(handleCheckBoxButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        //    [cell.progressView addTarget:self action:@selector(handleProgressViewClick:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.downloadRetryButton addTarget:self action:@selector(handleDownloadRetryButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        cell.editing = self.allowsMultipleSelection;
+        if (cell.editing) {
+            // 如果该图片的 ZCAsset 被包含在已选择图片的数组中，则控制该图片被选中
+            cell.checked = [ZCImagePickerHelper imageAssetArray:_selectedImageAssetArray containsImageAsset:imageAsset];
+        }
+        return cell;
     }
-    
-    [cell.checkboxButton addTarget:self action:@selector(handleCheckBoxButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-//    [cell.progressView addTarget:self action:@selector(handleProgressViewClick:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.downloadRetryButton addTarget:self action:@selector(handleDownloadRetryButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    
-    cell.editing = self.allowsMultipleSelection;
-    if (cell.editing) {
-        // 如果该图片的 ZCAsset 被包含在已选择图片的数组中，则控制该图片被选中
-        cell.checked = [ZCImagePickerHelper imageAssetArray:_selectedImageAssetArray containsImageAsset:imageAsset];
-    }
-    return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    ZCAsset *imageAsset = [self.imagesAssetArray objectAtIndex:indexPath.item];
+    
     
 //    if (self.imagePickerViewControllerDelegate && [self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewController:didSelectImageWithImagesAsset:afterImagePickerPreviewViewControllerUpdate:)]) {
 //        [self.imagePickerViewControllerDelegate imagePickerViewController:self didSelectImageWithImagesAsset:imageAsset afterImagePickerPreviewViewControllerUpdate:self.imagePickerPreviewViewController];
 //    }
     
 //    if ([self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerPreviewViewControllerForImagePickerViewController:)]) {
+    
+    if (indexPath.row == 0) {
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+        {
+            
+            // 以"检查用户对相册的授权状态"为例
+            
+            // 返回用户对相册的授权状态
+            ALAuthorizationStatus authorizationStatus = [ALAssetsLibrary authorizationStatus];
+            // 处理不同授权状态下的操作流程
+            switch (authorizationStatus)
+            {
+                case ALAuthorizationStatusNotDetermined:
+                {
+                    // 用户没有选择是否授权使用
+                }
+                    break;
+                case ALAuthorizationStatusRestricted:
+                {
+                    // 用户禁止使用,且授权状态不可修改,可能由于家长控制功能
+                }
+                    break;
+                case ALAuthorizationStatusDenied:
+                {
+                    // 用户已经禁止使用
+                }
+                    break;
+                case ALAuthorizationStatusAuthorized:
+                {
+                    // 用户已经授权使用
+                }
+                    break;
+            }
+            // 相机类型可用
+            // 创建图像选取控制器对象
+            UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+            // 将资源类型设置为相机类型
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            // 将媒体类型设置为图片类型和视频类型(数组中如果只写一个,图像选择控制器即只允许拍照/录像)
+            picker.mediaTypes = @[(NSString *)kUTTypeImage];
+            // 设置拍照后的图片允许编辑
+            picker.allowsEditing = NO;
+            // 设置摄像图像品质,默认是UIImagePickerControllerQualityTypeMedium
+            picker.videoQuality = UIImagePickerControllerQualityTypeHigh;
+            // 设置最长摄像时间,默认是10秒
+//            picker.videoMaximumDuration = 30;
+            // 设置代理,需要遵守<UINavigationControllerDelegate, UIImagePickerControllerDelegate>两个协议
+            picker.delegate = self;
+            // 弹出图像选取控制器
+            [self presentViewController:picker animated:YES completion:nil];
+        }
+        else
+        {
+            // 相机类型不可用
+        }
+    }else {
+        ZCAsset *imageAsset = [self.imagesAssetArray objectAtIndex:indexPath.item];
         [self initPreviewViewControllerIfNeeded];
-    self.imagePickerPreviewViewController = [[ZCImagePickerPreviewViewController alloc] init];
+        self.imagePickerPreviewViewController = [[ZCImagePickerPreviewViewController alloc] init];
         if (!self.allowsMultipleSelection) {
             // 单选的情况下
             [self.imagePickerPreviewViewController updateImagePickerPreviewViewWithImagesAssetArray:@[imageAsset]
@@ -346,12 +419,51 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
             // cell 处于编辑状态，即图片允许多选
             [self.imagePickerPreviewViewController updateImagePickerPreviewViewWithImagesAssetArray:self.imagesAssetArray
                                                                             selectedImageAssetArray:_selectedImageAssetArray
-                                                                                  currentImageIndex:indexPath.item
+                                                                                  currentImageIndex:indexPath.item 
                                                                                     singleCheckMode:NO];
         }
         [self.navigationController pushViewController:self.imagePickerPreviewViewController animated:YES];
-//    }
+    }
 }
+
+#pragma mart - <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+
+// 操作完成
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    // do something ...
+    
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    PHFetchResult *result = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary options:nil];
+    
+    ZCAssetsGroup *assetsGroup = [[ZCAssetsGroup alloc] initWithPHCollection:result[0]];
+    [[ZCAssetsManager sharedInstance] saveImageWithImageRef:image.CGImage albumAssetsGroup:assetsGroup orientation:image.imageOrientation completionBlock:^(ZCAsset *asset, NSError *error) {
+        NSLog(@"%@", asset);
+        self.imagePickerPreviewViewController = [[ZCImagePickerPreviewViewController alloc] init];
+        // 单选的情况下
+        [self.imagePickerPreviewViewController updateImagePickerPreviewViewWithImagesAssetArray:@[asset]
+                                                                        selectedImageAssetArray:nil
+                                                                              currentImageIndex:0
+                                                                                singleCheckMode:YES];
+        [self.navigationController pushViewController:self.imagePickerPreviewViewController animated:YES];
+    }];
+    
+    [picker dismissViewControllerAnimated:NO completion:nil];
+
+
+    
+    // 回收图像选取控制器
+    
+}
+
+// 操作取消
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    // 回收图像选取控制器
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 #pragma mark - 按钮点击回调
 
