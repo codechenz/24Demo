@@ -344,61 +344,16 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    
-//    if (self.imagePickerViewControllerDelegate && [self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewController:didSelectImageWithImagesAsset:afterImagePickerPreviewViewControllerUpdate:)]) {
-//        [self.imagePickerViewControllerDelegate imagePickerViewController:self didSelectImageWithImagesAsset:imageAsset afterImagePickerPreviewViewControllerUpdate:self.imagePickerPreviewViewController];
-//    }
-    
-//    if ([self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerPreviewViewControllerForImagePickerViewController:)]) {
-    
-    if (indexPath.row == 0) {
+    if (indexPath.item == 0) {
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
         {
-            
-            // 以"检查用户对相册的授权状态"为例
-            
-            // 返回用户对相册的授权状态
-            ALAuthorizationStatus authorizationStatus = [ALAssetsLibrary authorizationStatus];
-            // 处理不同授权状态下的操作流程
-            switch (authorizationStatus)
-            {
-                case ALAuthorizationStatusNotDetermined:
-                {
-                    // 用户没有选择是否授权使用
-                }
-                    break;
-                case ALAuthorizationStatusRestricted:
-                {
-                    // 用户禁止使用,且授权状态不可修改,可能由于家长控制功能
-                }
-                    break;
-                case ALAuthorizationStatusDenied:
-                {
-                    // 用户已经禁止使用
-                }
-                    break;
-                case ALAuthorizationStatusAuthorized:
-                {
-                    // 用户已经授权使用
-                }
-                    break;
-            }
-            // 相机类型可用
-            // 创建图像选取控制器对象
             UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-            // 将资源类型设置为相机类型
+            
             picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-            // 将媒体类型设置为图片类型和视频类型(数组中如果只写一个,图像选择控制器即只允许拍照/录像)
             picker.mediaTypes = @[(NSString *)kUTTypeImage];
-            // 设置拍照后的图片允许编辑
             picker.allowsEditing = NO;
-            // 设置摄像图像品质,默认是UIImagePickerControllerQualityTypeMedium
             picker.videoQuality = UIImagePickerControllerQualityTypeHigh;
-            // 设置最长摄像时间,默认是10秒
-//            picker.videoMaximumDuration = 30;
-            // 设置代理,需要遵守<UINavigationControllerDelegate, UIImagePickerControllerDelegate>两个协议
             picker.delegate = self;
-            // 弹出图像选取控制器
             [self presentViewController:picker animated:YES completion:nil];
         }
         else
@@ -419,7 +374,7 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
             // cell 处于编辑状态，即图片允许多选
             [self.imagePickerPreviewViewController updateImagePickerPreviewViewWithImagesAssetArray:self.imagesAssetArray
                                                                             selectedImageAssetArray:_selectedImageAssetArray
-                                                                                  currentImageIndex:indexPath.item 
+                                                                                  currentImageIndex:indexPath.item - 1
                                                                                     singleCheckMode:NO];
         }
         [self.navigationController pushViewController:self.imagePickerPreviewViewController animated:YES];

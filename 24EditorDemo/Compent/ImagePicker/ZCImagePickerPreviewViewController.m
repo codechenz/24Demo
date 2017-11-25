@@ -163,6 +163,12 @@
                                  selectedImageAssetArray:(NSMutableArray<ZCAsset *> *)selectedImageAssetArray
                                        currentImageIndex:(NSInteger)currentImageIndex
                                          singleCheckMode:(BOOL)singleCheckMode {
+    //单选和相机模式时，不移除占位item.
+    if (!singleCheckMode) {
+        if ([imageAssetArray isKindOfClass:[NSMutableArray class]]) {
+            [imageAssetArray removeObjectAtIndex:0];
+        }
+    }
     self.imagesAssetArray = imageAssetArray;
     self.selectedImageAssetArray = selectedImageAssetArray;
     self.imagePreviewView.currentImageIndex = currentImageIndex;
@@ -180,15 +186,15 @@
 
 - (ZCImagePreviewMediaType)imagePreviewView:(ZCImagePreviewView *)imagePreviewView assetTypeAtIndex:(NSUInteger)index {
     ZCAsset *imageAsset = [self.imagesAssetArray objectAtIndex:index];
-    if (imageAsset.assetType == ZCAssetTypeImage) {
-        return ZCImagePreviewMediaTypeImage;
-    } else if (imageAsset.assetType == ZCAssetTypeLivePhoto) {
-        return ZCImagePreviewMediaTypeLivePhoto;
-    } else if (imageAsset.assetType == ZCAssetTypeVideo) {
-        return ZCImagePreviewMediaTypeVideo;
-    } else {
-        return ZCImagePreviewMediaTypeOthers;
-    }
+        if (imageAsset.assetType == ZCAssetTypeImage) {
+            return ZCImagePreviewMediaTypeImage;
+        } else if (imageAsset.assetType == ZCAssetTypeLivePhoto) {
+            return ZCImagePreviewMediaTypeLivePhoto;
+        } else if (imageAsset.assetType == ZCAssetTypeVideo) {
+            return ZCImagePreviewMediaTypeVideo;
+        } else {
+            return ZCImagePreviewMediaTypeOthers;
+        }
 }
 
 - (void)imagePreviewView:(ZCImagePreviewView *)imagePreviewView renderZoomImageView:(ZCZoomImageView *)zoomImageView atIndex:(NSUInteger)index {
