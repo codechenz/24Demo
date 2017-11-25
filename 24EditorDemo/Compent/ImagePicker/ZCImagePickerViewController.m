@@ -386,7 +386,6 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
 // 操作完成
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
-    // do something ...
     
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     PHFetchResult *result = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary options:nil];
@@ -404,11 +403,6 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
     }];
     
     [picker dismissViewControllerAnimated:NO completion:nil];
-
-
-    
-    // 回收图像选取控制器
-    
 }
 
 // 操作取消
@@ -437,7 +431,6 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
                                                                     selectedImageAssetArray:_selectedImageAssetArray
                                                                           currentImageIndex:0
                                                                             singleCheckMode:NO];
-//    [self.navigationController pushViewController:self.imagePickerPreviewViewController animated:YES];
     [self.navigationController pushViewController:self.imagePickerPreviewViewController animated:YES];
 }
 
