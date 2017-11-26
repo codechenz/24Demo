@@ -54,12 +54,14 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     _allowsMultipleSelection = YES;
     _maximumSelectImageCount = INT_MAX;
     _minimumSelectImageCount = 0;
     _shouldShowDefaultLoadingView = YES;
     _minimumImageWidth = 75;
+//    [self setNavigationBar];
     [self initSubViews];
     
 }
@@ -73,6 +75,20 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
     self.collectionView.dataSource = nil;
     self.collectionView.delegate = nil;
 }
+
+//- (void)setNavigationBar {
+//    
+//    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+//    [btn setTitle:@"Cancel" forState:UIControlStateNormal];
+//    btn.titleLabel.font = [UIFont fontWithName:kf size:<#(CGFloat)#>]
+//    [btn addTarget:self action:@selector(handleBackButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+//    
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+//}
+
+//- (void)handleBackButtonClick:(UIBarButtonItem *)sender {
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 
 - (void)initSubViews {
     
@@ -363,14 +379,10 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
         
         ZCImagePickerCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
         
-        
-        // 异步请求资源对应的缩略图（因系统接口限制，iOS 8.0 以下为实际上同步请求）
         [imageAsset requestThumbnailImageWithSize:[self referenceImageSize] completion:^(UIImage *result, NSDictionary *info) {
             if (!info || [[info objectForKey:PHImageResultIsDegradedKey] boolValue]) {
-                // 模糊，此时为同步调用
                 cell.contentImageView.image = result;
             } else if ([collectionView zc_itemVisibleAtIndexPath:indexPath]) {
-                // 清晰，此时为异步调用
                 ZCImagePickerCollectionViewCell *anotherCell = (ZCImagePickerCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
                 anotherCell.contentImageView.image = result;
             }

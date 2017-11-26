@@ -7,8 +7,9 @@
 //
 
 #import "ZCBaseViewController.h"
+#import "UIImage+ZCCate.h"
 
-@interface ZCBaseViewController ()
+@interface ZCBaseViewController () <UIGestureRecognizerDelegate>
 
 @end
 
@@ -38,7 +39,31 @@
     self.navigationController.navigationBar.layer.shadowOpacity = 0.3;
 
     
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColorHex(#3f4a56),NSFontAttributeName:[UIFont fontWithName:@"Muli-SemiBold" size:16]}];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColorHex(#3f4a56),NSFontAttributeName:[UIFont fontWithName:kFNMuliSemiBold size:16]}];
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+    [btn setImage:[UIImage imageWithIcon:kIFIArrowLeft size:18 color:UIColorHex(#3F4A56)] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(handleBackButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    spacer.width = -20;
+    self.navigationItem.leftBarButtonItems = @[spacer, backBtn];
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+}
+
+#pragma mark - Event Handle
+
+- (void)handleBackButtonClick:(UIButton *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - <UIGestureRecognizerDelegate>
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    if (gestureRecognizer == self.navigationController.interactivePopGestureRecognizer) {
+        return [self.navigationController viewControllers].count > 1;
+    }
+    return true;
 }
 
 @end

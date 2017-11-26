@@ -12,10 +12,6 @@
 
 // 相册预览图的大小默认值
 const CGFloat ZCAlbumViewDefaultAlbumTableViewCellHeight = 57;
-// 相册名称的字号默认值
-const CGFloat ZCAlbumViewTableViewCellDefaultAlbumNameFontSize = 16;
-// 相册资源数量的字号默认值
-const CGFloat ZCAlbumViewTableViewCellDefaultAlbumAssetsNumberFontSize = 16;
 // 相册名称的 insets 默认值
 const UIEdgeInsets ZCAlbumViewTableViewCellDefaultAlbumNameInsets = {0, 8, 0, 4};
 
@@ -28,15 +24,14 @@ const UIEdgeInsets ZCAlbumViewTableViewCellDefaultAlbumNameInsets = {0, 8, 0, 4}
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.albumNameFontSize = ZCAlbumViewTableViewCellDefaultAlbumNameFontSize;
-        self.albumAssetsNumberFontSize = ZCAlbumViewTableViewCellDefaultAlbumAssetsNumberFontSize;
         self.albumNameInsets = ZCAlbumViewTableViewCellDefaultAlbumNameInsets;
         self.imageView.contentMode = UIViewContentModeScaleAspectFill;
         self.imageView.clipsToBounds = YES;
-        self.detailTextLabel.textColor = [UIColor darkGrayColor];
+        self.textLabel.textColor = UIColorHex(#667587);
+        self.textLabel.font = [UIFont fontWithName:kFNRalewayRegular size:15];
         
         _bottomLineLayer = [[CALayer alloc] init];
-        _bottomLineLayer.backgroundColor = [UIColor grayColor].CGColor;
+        _bottomLineLayer.backgroundColor =  UIColorHex(#dfe6ee).CGColor;
         // 让分隔线垫在背后
         [self.layer insertSublayer:_bottomLineLayer atIndex:0];
     }
@@ -132,17 +127,14 @@ const UIEdgeInsets ZCAlbumViewTableViewCellDefaultAlbumNameInsets = {0, 8, 0, 4}
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     ZCAlbumViewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: NSStringFromClass([ZCAlbumViewTableViewCell class])];
     
     ZCAssetsGroup *assetsGroup = [_albumsArray objectAtIndex:indexPath.row];
     // 显示相册缩略图
     cell.imageView.image = [assetsGroup posterImageWithSize:CGSizeMake(self.albumTableViewCellHeight, self.albumTableViewCellHeight)];
     // 显示相册名称
-    cell.textLabel.text = [assetsGroup name];
-    // 显示相册中所包含的资源数量
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"(%@)", @(assetsGroup.numberOfAssets)];
-    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@   (%@)",[assetsGroup name], @(assetsGroup.numberOfAssets)];
+ 
     return cell;
 }
 

@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "24EditorDemo/Compent/ImagePicker/ZCImagePickerPreviewViewController.m"
-            timestampString = "533386870.216923"
+            filePath = "24EditorDemo/Feature/Editor/ViewController/ZCEditorViewController.m"
+            timestampString = "533395355.521703"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
-            landmarkName = "-handleSendButtonClick:"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
+            landmarkName = "-handleSaveButtonClick:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

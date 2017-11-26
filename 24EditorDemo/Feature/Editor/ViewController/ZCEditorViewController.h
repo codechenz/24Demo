@@ -13,6 +13,4 @@
 
 @interface ZCEditorViewController : ZCBaseViewController <ZCImagePickerViewControllerDelegate>
 
-@property(nonatomic, assign) ZCAlbumContentType contentType;
-
 @end

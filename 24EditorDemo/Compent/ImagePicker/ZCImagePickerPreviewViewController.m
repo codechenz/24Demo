@@ -25,6 +25,7 @@
 @interface ZCImagePickerPreviewViewController ()
 @property(nonatomic, strong, readwrite) UIView *operationToolBarView;
 @property(nonatomic, strong, readwrite) UIButton *sendButton;
+@property(nonatomic, strong, readwrite) UIButton *editButton;
 @property(nonatomic, strong, readwrite) UILabel *imageCountLabel;
 @end
 
@@ -54,7 +55,7 @@
     
     _backButton = [[UIButton alloc] init];
 
-    [self.backButton setImage:[UIImage imageWithIcon:kIFIArrowLeft size:20 color:UIColorHex(#ffffff)] forState:UIControlStateNormal];
+    [self.backButton setImage:[UIImage imageWithIcon:kIFIArrowLeft size:18 color:UIColorHex(#ffffff)] forState:UIControlStateNormal];
     self.backButton.tintColor = self.topToolBarView.tintColor;
     [self.backButton sizeToFit];
     [self.backButton addTarget:self action:@selector(handleCancelPreviewImage:) forControlEvents:UIControlEventTouchUpInside];
@@ -99,6 +100,15 @@
     [self.sendButton addTarget:self action:@selector(handleSendButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.operationToolBarView addSubview:self.sendButton];
     
+    self.editButton = [[UIButton alloc] init];
+    self.editButton.titleLabel.font = self.sendButton.titleLabel.font;
+    [self.editButton setTitleColor:[self.sendButton titleColorForState:UIControlStateNormal] forState:UIControlStateNormal];
+    [self.editButton setTitle:@"Edit" forState:UIControlStateNormal];
+    [self.editButton sizeToFit];
+    self.editButton.enabled = YES;
+    [self.editButton addTarget:self action:@selector(handleEditButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.operationToolBarView addSubview:self.editButton];
+    
     self.imageCountLabel = [[UILabel alloc] init];
     self.imageCountLabel.backgroundColor = UIColorHex(#0088cc);
     self.imageCountLabel.textColor = [UIColor whiteColor];
@@ -133,13 +143,14 @@
     self.operationToolBarView.frame = CGRectMake(0, CGRectGetHeight(self.view.bounds) - OperationToolBarViewHeight, CGRectGetWidth(self.view.bounds), OperationToolBarViewHeight);
     
      self.sendButton.frame = CGRectMake(CGRectGetWidth(self.operationToolBarView.frame) - OperationToolBarViewPaddingHorizontal - CGRectGetWidth(self.sendButton.frame), CGFloatGetCenter(CGRectGetHeight(self.operationToolBarView.frame), CGRectGetHeight(self.sendButton.frame)), CGRectGetWidth(self.sendButton.frame), CGRectGetHeight(self.sendButton.frame));
+    self.editButton.frame = CGRectSetXY(self.editButton.frame, OperationToolBarViewPaddingHorizontal, CGFloatGetCenter(CGRectGetHeight(self.operationToolBarView.frame), CGRectGetHeight(self.editButton.frame)));
     self.imageCountLabel.frame = CGRectMake(CGRectGetMinX(self.sendButton.frame) - ImageCountLabelSize.width - 5, CGRectGetMinY(self.sendButton.frame) + CGFloatGetCenter(CGRectGetHeight(self.sendButton.frame), ImageCountLabelSize.height), ImageCountLabelSize.width, ImageCountLabelSize.height);
     
     self.topToolBarView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), TopToolBarViewHeight);
     
     CGFloat topToolbarPaddingTop = [[UIApplication sharedApplication] isStatusBarHidden] ? 0 : StatusBarHeight;
     CGFloat topToolbarContentHeight = CGRectGetHeight(self.topToolBarView.bounds) - topToolbarPaddingTop;
-    self.backButton.frame = CGRectSetXY(self.backButton.frame, 8, topToolbarPaddingTop + CGFloatGetCenter(topToolbarContentHeight, CGRectGetHeight(self.backButton.frame)));
+    self.backButton.frame = CGRectSetXY(self.backButton.frame, 15, topToolbarPaddingTop + CGFloatGetCenter(topToolbarContentHeight, CGRectGetHeight(self.backButton.frame)));
     if (!self.checkboxButton.hidden) {
         self.checkboxButton.frame = CGRectSetXY(self.checkboxButton.frame, CGRectGetWidth(self.topToolBarView.frame) - 10 - CGRectGetWidth(self.checkboxButton.frame), topToolbarPaddingTop + CGFloatGetCenter(topToolbarContentHeight, CGRectGetHeight(self.checkboxButton.frame)));
     }
@@ -260,11 +271,31 @@
 
 - (void)singleTouchInZoomingImageView:(ZCZoomImageView *)zoomImageView location:(CGPoint)location {
     self.topToolBarView.hidden = !self.topToolBarView.hidden;
+    self.operationToolBarView.hidden = !self.operationToolBarView.hidden;
 }
 
 
 - (void)zoomImageView:(ZCZoomImageView *)imageView didHideVideoToolbar:(BOOL)didHide {
     self.topToolBarView.hidden = didHide;
+    self.operationToolBarView.hidden = didHide;
+}
+
+#pragma mark - <CLImageEditorDelegate>
+
+- (void)imageEditor:(CLImageEditor *)editor didFinishEdittingWithImage:(UIImage *)image {
+    
+    PHFetchResult *result = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary options:nil];
+    
+    ZCAssetsGroup *assetsGroup = [[ZCAssetsGroup alloc] initWithPHCollection:result[0]];
+    [[ZCAssetsManager sharedInstance] saveImageWithImageRef:image.CGImage albumAssetsGroup:assetsGroup orientation:image.imageOrientation completionBlock:^(ZCAsset *asset, NSError *error) {
+        [self.imagesAssetArray replaceObjectAtIndex:self.imagePreviewView.currentImageIndex withObject:asset];
+        [self updateImagePickerPreviewViewWithImagesAssetArray:self.imagesAssetArray selectedImageAssetArray:self.selectedImageAssetArray currentImageIndex:self.imagePreviewView.currentImageIndex singleCheckMode:_singleCheckMode];
+    }];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)imageEditorDidCancel:(CLImageEditor *)editor {
+    
 }
 
 #pragma mark - 按钮点击回调
@@ -274,13 +305,14 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(imagePickerPreviewViewControllerDidCancel:)]) {
         [self.delegate imagePickerPreviewViewControllerDidCancel:self];
     }
-//    ZCAsset *imageAsset = [self.imagesAssetArray objectAtIndex:self.imagePreviewView.currentImageIndex];
-//    
-//    CLImageEditor *editor = [[CLImageEditor alloc] initWithImage:imageAsset.originImage];
-//    editor.delegate = self;
-//    
-//    [self.navigationController pushViewController:editor animated:YES];
-//    [self presentViewController:editor animated:NO completion:nil];
+
+}
+
+- (void)handleEditButtonClick:(UIButton *)sender {
+        ZCAsset *imageAsset = [self.imagesAssetArray objectAtIndex:self.imagePreviewView.currentImageIndex];
+        CLImageEditor *editor = [[CLImageEditor alloc] initWithImage:imageAsset.originImage];
+        editor.delegate = self;
+        [self.navigationController pushViewController:editor animated:YES];
 }
 
 - (void)handleSendButtonClick:(id)sender {
@@ -288,11 +320,6 @@
             [self.delegate imagePickerPreviewViewController:self didFinishPickingImageWithImagesAssetArray:self.selectedImageAssetArray];
     }
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)imageEditorDidCancel:(CLImageEditor *)editor {
-    [editor popoverPresentationController];
-//    [editor dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (void)handleCheckButtonClick:(UIButton *)button {

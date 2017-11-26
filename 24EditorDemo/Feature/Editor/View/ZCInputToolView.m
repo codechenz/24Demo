@@ -17,7 +17,7 @@
 
 @implementation ZCInputToolView
 
-- (instancetype)initWithFrame:(CGRect)frame HostView:(YYTextView *)hostView{
+- (instancetype)initWithFrame:(CGRect)frame HostView:(YYTextView *)hostView isShowTool:(BOOL)isShowTool buttonTitle:(NSString *)buttonTitle{
     self = [super initWithFrame:frame];
     if (self) {
         
@@ -32,19 +32,20 @@
         [self addSubview:toolView];
         self.toolView = toolView;
         
-        [self addButtonWithIcon:kIFIArrowDown size:12 tag:1001];
-        [self addButtonWithIcon:kIFIImage size:20 tag:1002];
-        [self addButtonWithIcon:kIFIUser size:20 tag:1003];
+        [self addButtonWithIcon:kIFIArrowDown size:12 tag:1001 hidden:NO];
+        [self addButtonWithIcon:kIFIImage size:20 tag:1002 hidden:!isShowTool];
+        [self addButtonWithIcon:kIFIUser size:20 tag:1003 hidden:!isShowTool];
         
         UIButton *sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
         sendButton.size = CGSizeMake(66, 29);
         sendButton.right = kScreenWidth - 15;
         sendButton.centerY = self.centerY;
         sendButton.backgroundColor = UIColorHex(#0088cc);
-        [sendButton setTitle:@"Send" forState:UIControlStateNormal];
-        sendButton.titleLabel.font = [UIFont fontWithName:@"Raleway-Medium" size:15];
+        [sendButton setTitle:buttonTitle forState:UIControlStateNormal];
+        sendButton.titleLabel.font = [UIFont fontWithName:kFNRalewayRegular size:15];
         sendButton.layer.cornerRadius = 4;
         sendButton.layer.masksToBounds = true;
+        [sendButton addTarget:self action:@selector(handleSendButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:sendButton];
     }
     return self;
@@ -66,15 +67,18 @@
     
 }
 
-- (void)addButtonWithIcon:(NSString *)icon size:(NSInteger)size tag:(NSInteger)tag {
+- (void)addButtonWithIcon:(NSString *)icon size:(NSInteger)size tag:(NSInteger)tag hidden:(BOOL)hidden {
     UIButton *button = [[UIButton alloc] init];
     button.tag = tag;
+    button.hidden = hidden;
     [button addTarget:self action:@selector(buttonOnTouch:) forControlEvents:UIControlEventTouchUpInside];
     UIImage *image = [UIImage imageWithIcon:icon size:size color:UIColorHex(#667587)];
     [button setImage:image forState:UIControlStateNormal];
     
     [self.toolView addSubview:button];
 }
+
+#pragma mark - Event Handle
 
 - (void)buttonOnTouch:(UIButton *)sender {
     switch (sender.tag) {
@@ -91,8 +95,18 @@
     NSLog(@"touch");
 }
 
-- (void)selectPhotoButtonOnTouch:(SelectPhotoBlock)block {
+- (void)handleSendButtonClick:(UIButton *)sender {
+    self.inputButtonBlock(sender);
+}
+
+#pragma mark - Block
+
+- (void)selectPhotoButtonClick:(SelectPhotoBlock)block {
     self.selectPhotoBlock = block;
+}
+
+- (void)inputButtonOnClick:(InputButtonBlock)block {
+    self.inputButtonBlock = block;
 }
 
 
