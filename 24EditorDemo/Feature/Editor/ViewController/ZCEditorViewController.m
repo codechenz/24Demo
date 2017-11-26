@@ -11,6 +11,8 @@
 #import "ZCInputToolView.h"
 #import "ZCImagePickerViewController.h"
 #import "UIImage+ZCCate.h"
+#import "NSAttributedString+Ashton.h"
+#import "ZCDraftViewController.h"
 
 
 @interface ZCEditorViewController () <YYTextViewDelegate, YYTextKeyboardObserver>
@@ -35,7 +37,6 @@
     [self setNavigationBar];
     [self initSubview];
     [[YYTextKeyboardManager defaultManager] addObserver:self];
-    
 }
 
 // 实现点击方法
@@ -131,7 +132,7 @@
     }];
     
     [inputToolView inputButtonOnClick:^(UIButton *sender) {
-        NSLog(@"%@", self.contentTextView.attributedText);
+        
     }];
     
     contentTextView.inputAccessoryView = inputToolView;
@@ -191,15 +192,6 @@
     self.contentTextView.selectedRange = NSMakeRange((self.contentString.length), 0);
 }
 
-//设置键盘响应状态
-- (void)edit:(UIBarButtonItem *)item {
-    if (_contentTextView.isFirstResponder) {
-        [_contentTextView resignFirstResponder];
-    } else {
-        [_contentTextView becomeFirstResponder];
-    }
-}
-
 #pragma mark - Event Handle
 
 - (void)handleImageButtonOnTouch:(UIButton *)sender {
@@ -224,6 +216,23 @@
 
 - (void)handleSaveButtonClick:(UIButton *)sender {
     
+    
+    UIAlertController *saveAlertController = [UIAlertController alertControllerWithTitle:@"Save" message:@"test" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *htmlAction = [UIAlertAction actionWithTitle:@"log html" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSString *showString = [NSString stringWithFormat:@"{title:%@,content:%@}",[self.titleTextView.attributedText mn_HTMLRepresentationFromCoreTextAttributes],[self.contentTextView.attributedText mn_HTMLRepresentationFromCoreTextAttributes]];
+        
+        self.contentTextView.text = showString;
+        self.contentTextView.selectedRange = NSMakeRange((self.contentTextView.text.length), 0);
+        
+    }];
+    
+    UIAlertAction *draftAction = [UIAlertAction actionWithTitle:@"open draft" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        ZCDraftViewController *vc = [[ZCDraftViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+    [saveAlertController addAction:htmlAction];
+    [saveAlertController addAction:draftAction];
+    [self presentViewController:saveAlertController animated:YES completion:nil];
 }
 
 #pragma mark <YYTextViewDelegate>
@@ -266,8 +275,8 @@
     for (ZCAsset *itemAsset in imagesAssetArray) {
         [self refreshEditorInputImage:itemAsset.originImage];
     }
-    
-    
 }
+
+
 
 @end

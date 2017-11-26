@@ -10,6 +10,22 @@
 		3EAC1B88DBA7C5A860E5F821 /* libPods-24EditorDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF41CCCE21E3C1A793C23BB6 /* libPods-24EditorDemo.a */; };
 		9369B3071FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3061FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.m */; };
 		9369B3361FCA620E005ED1D7 /* ZCAlbumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3351FCA620E005ED1D7 /* ZCAlbumView.m */; };
+		9369B34E1FCB0EC8005ED1D7 /* AshtonCoreText.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B33C1FCB0EC8005ED1D7 /* AshtonCoreText.m */; };
+		9369B34F1FCB0EC8005ED1D7 /* AshtonHTMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B33E1FCB0EC8005ED1D7 /* AshtonHTMLReader.m */; };
+		9369B3501FCB0EC8005ED1D7 /* AshtonHTMLWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3401FCB0EC8005ED1D7 /* AshtonHTMLWriter.m */; };
+		9369B3511FCB0EC8005ED1D7 /* AshtonIntermediate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3421FCB0EC8005ED1D7 /* AshtonIntermediate.m */; };
+		9369B3521FCB0EC8005ED1D7 /* AshtonMarkdownReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3441FCB0EC8005ED1D7 /* AshtonMarkdownReader.m */; };
+		9369B3531FCB0EC8005ED1D7 /* AshtonMarkdownWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3461FCB0EC8005ED1D7 /* AshtonMarkdownWriter.m */; };
+		9369B3541FCB0EC8005ED1D7 /* AshtonUIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3481FCB0EC8005ED1D7 /* AshtonUIKit.m */; };
+		9369B3551FCB0EC8005ED1D7 /* AshtonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B34A1FCB0EC8005ED1D7 /* AshtonUtils.m */; };
+		9369B3561FCB0EC8005ED1D7 /* NSAttributedString+Ashton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B34C1FCB0EC8005ED1D7 /* NSAttributedString+Ashton.m */; };
+		9369B3591FCB21CE005ED1D7 /* ZCDraftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3581FCB21CE005ED1D7 /* ZCDraftViewController.m */; };
+		9369B35C1FCB2223005ED1D7 /* ZCDraftTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B35B1FCB2223005ED1D7 /* ZCDraftTextTableViewCell.m */; };
+		9369B35F1FCB2239005ED1D7 /* ZCDraftTextImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B35E1FCB2239005ED1D7 /* ZCDraftTextImageTableViewCell.m */; };
+		9369B3621FCB224B005ED1D7 /* ZCDraftSoundTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3611FCB224B005ED1D7 /* ZCDraftSoundTableViewCell.m */; };
+		9369B3651FCB226F005ED1D7 /* ZCDraftDefautTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3641FCB226F005ED1D7 /* ZCDraftDefautTableViewCell.m */; };
+		9369B3681FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3671FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.m */; };
+		9369B36A1FCB2751005ED1D7 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9369B3691FCB2751005ED1D7 /* Muli-Regular.ttf */; };
 		93C143C51FC547D00006FB90 /* _4EditorDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93C143C31FC547D00006FB90 /* _4EditorDemo.xcdatamodeld */; };
 		93C143C71FC547D00006FB90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C143C61FC547D00006FB90 /* Assets.xcassets */; };
 		93C143D91FC54DB30006FB90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C143D31FC54DB30006FB90 /* AppDelegate.m */; };
@@ -67,6 +83,38 @@
 		9369B3061FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCImagePickerNoneCollectionViewCell.m; sourceTree = "<group>"; };
 		9369B3341FCA620E005ED1D7 /* ZCAlbumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCAlbumView.h; sourceTree = "<group>"; };
 		9369B3351FCA620E005ED1D7 /* ZCAlbumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCAlbumView.m; sourceTree = "<group>"; };
+		9369B33A1FCB0EC8005ED1D7 /* AshtonConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AshtonConverter.h; sourceTree = "<group>"; };
+		9369B33B1FCB0EC8005ED1D7 /* AshtonCoreText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AshtonCoreText.h; sourceTree = "<group>"; };
+		9369B33C1FCB0EC8005ED1D7 /* AshtonCoreText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AshtonCoreText.m; sourceTree = "<group>"; };
+		9369B33D1FCB0EC8005ED1D7 /* AshtonHTMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AshtonHTMLReader.h; sourceTree = "<group>"; };
+		9369B33E1FCB0EC8005ED1D7 /* AshtonHTMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AshtonHTMLReader.m; sourceTree = "<group>"; };
+		9369B33F1FCB0EC8005ED1D7 /* AshtonHTMLWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AshtonHTMLWriter.h; sourceTree = "<group>"; };
+		9369B3401FCB0EC8005ED1D7 /* AshtonHTMLWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AshtonHTMLWriter.m; sourceTree = "<group>"; };
+		9369B3411FCB0EC8005ED1D7 /* AshtonIntermediate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AshtonIntermediate.h; sourceTree = "<group>"; };
+		9369B3421FCB0EC8005ED1D7 /* AshtonIntermediate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AshtonIntermediate.m; sourceTree = "<group>"; };
+		9369B3431FCB0EC8005ED1D7 /* AshtonMarkdownReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AshtonMarkdownReader.h; sourceTree = "<group>"; };
+		9369B3441FCB0EC8005ED1D7 /* AshtonMarkdownReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AshtonMarkdownReader.m; sourceTree = "<group>"; };
+		9369B3451FCB0EC8005ED1D7 /* AshtonMarkdownWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AshtonMarkdownWriter.h; sourceTree = "<group>"; };
+		9369B3461FCB0EC8005ED1D7 /* AshtonMarkdownWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AshtonMarkdownWriter.m; sourceTree = "<group>"; };
+		9369B3471FCB0EC8005ED1D7 /* AshtonUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AshtonUIKit.h; sourceTree = "<group>"; };
+		9369B3481FCB0EC8005ED1D7 /* AshtonUIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AshtonUIKit.m; sourceTree = "<group>"; };
+		9369B3491FCB0EC8005ED1D7 /* AshtonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AshtonUtils.h; sourceTree = "<group>"; };
+		9369B34A1FCB0EC8005ED1D7 /* AshtonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AshtonUtils.m; sourceTree = "<group>"; };
+		9369B34B1FCB0EC8005ED1D7 /* NSAttributedString+Ashton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Ashton.h"; sourceTree = "<group>"; };
+		9369B34C1FCB0EC8005ED1D7 /* NSAttributedString+Ashton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Ashton.m"; sourceTree = "<group>"; };
+		9369B3571FCB21CE005ED1D7 /* ZCDraftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCDraftViewController.h; sourceTree = "<group>"; };
+		9369B3581FCB21CE005ED1D7 /* ZCDraftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCDraftViewController.m; sourceTree = "<group>"; };
+		9369B35A1FCB2223005ED1D7 /* ZCDraftTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCDraftTextTableViewCell.h; sourceTree = "<group>"; };
+		9369B35B1FCB2223005ED1D7 /* ZCDraftTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCDraftTextTableViewCell.m; sourceTree = "<group>"; };
+		9369B35D1FCB2239005ED1D7 /* ZCDraftTextImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCDraftTextImageTableViewCell.h; sourceTree = "<group>"; };
+		9369B35E1FCB2239005ED1D7 /* ZCDraftTextImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCDraftTextImageTableViewCell.m; sourceTree = "<group>"; };
+		9369B3601FCB224B005ED1D7 /* ZCDraftSoundTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCDraftSoundTableViewCell.h; sourceTree = "<group>"; };
+		9369B3611FCB224B005ED1D7 /* ZCDraftSoundTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCDraftSoundTableViewCell.m; sourceTree = "<group>"; };
+		9369B3631FCB226F005ED1D7 /* ZCDraftDefautTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCDraftDefautTableViewCell.h; sourceTree = "<group>"; };
+		9369B3641FCB226F005ED1D7 /* ZCDraftDefautTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCDraftDefautTableViewCell.m; sourceTree = "<group>"; };
+		9369B3661FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCDraftVideoTableViewCell.h; sourceTree = "<group>"; };
+		9369B3671FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCDraftVideoTableViewCell.m; sourceTree = "<group>"; };
+		9369B3691FCB2751005ED1D7 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
 		93C143B41FC547D00006FB90 /* 24EditorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 24EditorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C143C41FC547D00006FB90 /* _4EditorDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = _4EditorDemo.xcdatamodel; sourceTree = "<group>"; };
 		93C143C61FC547D00006FB90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -174,6 +222,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9369B3371FCB0EC8005ED1D7 /* Ashton */ = {
+			isa = PBXGroup;
+			children = (
+				9369B33A1FCB0EC8005ED1D7 /* AshtonConverter.h */,
+				9369B33B1FCB0EC8005ED1D7 /* AshtonCoreText.h */,
+				9369B33C1FCB0EC8005ED1D7 /* AshtonCoreText.m */,
+				9369B33D1FCB0EC8005ED1D7 /* AshtonHTMLReader.h */,
+				9369B33E1FCB0EC8005ED1D7 /* AshtonHTMLReader.m */,
+				9369B33F1FCB0EC8005ED1D7 /* AshtonHTMLWriter.h */,
+				9369B3401FCB0EC8005ED1D7 /* AshtonHTMLWriter.m */,
+				9369B3411FCB0EC8005ED1D7 /* AshtonIntermediate.h */,
+				9369B3421FCB0EC8005ED1D7 /* AshtonIntermediate.m */,
+				9369B3431FCB0EC8005ED1D7 /* AshtonMarkdownReader.h */,
+				9369B3441FCB0EC8005ED1D7 /* AshtonMarkdownReader.m */,
+				9369B3451FCB0EC8005ED1D7 /* AshtonMarkdownWriter.h */,
+				9369B3461FCB0EC8005ED1D7 /* AshtonMarkdownWriter.m */,
+				9369B3471FCB0EC8005ED1D7 /* AshtonUIKit.h */,
+				9369B3481FCB0EC8005ED1D7 /* AshtonUIKit.m */,
+				9369B3491FCB0EC8005ED1D7 /* AshtonUtils.h */,
+				9369B34A1FCB0EC8005ED1D7 /* AshtonUtils.m */,
+				9369B34B1FCB0EC8005ED1D7 /* NSAttributedString+Ashton.h */,
+				9369B34C1FCB0EC8005ED1D7 /* NSAttributedString+Ashton.m */,
+			);
+			path = Ashton;
+			sourceTree = "<group>";
+		};
 		93C143AB1FC547D00006FB90 = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +341,16 @@
 				93C1441E1FC57B120006FB90 /* ZCInputToolView.m */,
 				9369B3341FCA620E005ED1D7 /* ZCAlbumView.h */,
 				9369B3351FCA620E005ED1D7 /* ZCAlbumView.m */,
+				9369B35A1FCB2223005ED1D7 /* ZCDraftTextTableViewCell.h */,
+				9369B35B1FCB2223005ED1D7 /* ZCDraftTextTableViewCell.m */,
+				9369B35D1FCB2239005ED1D7 /* ZCDraftTextImageTableViewCell.h */,
+				9369B35E1FCB2239005ED1D7 /* ZCDraftTextImageTableViewCell.m */,
+				9369B3601FCB224B005ED1D7 /* ZCDraftSoundTableViewCell.h */,
+				9369B3611FCB224B005ED1D7 /* ZCDraftSoundTableViewCell.m */,
+				9369B3631FCB226F005ED1D7 /* ZCDraftDefautTableViewCell.h */,
+				9369B3641FCB226F005ED1D7 /* ZCDraftDefautTableViewCell.m */,
+				9369B3661FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.h */,
+				9369B3671FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -276,6 +360,8 @@
 			children = (
 				93C143F51FC5517C0006FB90 /* ZCEditorViewController.h */,
 				93C143F61FC5517C0006FB90 /* ZCEditorViewController.m */,
+				9369B3571FCB21CE005ED1D7 /* ZCDraftViewController.h */,
+				9369B3581FCB21CE005ED1D7 /* ZCDraftViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -356,6 +442,7 @@
 		93C1443C1FC5B72A0006FB90 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				9369B3691FCB2751005ED1D7 /* Muli-Regular.ttf */,
 				93C144441FC5D2F70006FB90 /* Muli-SemiBold.ttf */,
 				93C1443D1FC5B72A0006FB90 /* Raleway-Medium.ttf */,
 				93C1443E1FC5B72A0006FB90 /* Raleway-Regular.ttf */,
@@ -366,6 +453,7 @@
 		93C1446F1FC6C42D0006FB90 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9369B3371FCB0EC8005ED1D7 /* Ashton */,
 				93C144701FC6C42D0006FB90 /* AssetManager */,
 			);
 			path = Utils;
@@ -507,6 +595,7 @@
 				93C144451FC5D2F70006FB90 /* Muli-SemiBold.ttf in Resources */,
 				93C143DF1FC54DBC0006FB90 /* Info.plist in Resources */,
 				93C1443F1FC5B72A0006FB90 /* Raleway-Medium.ttf in Resources */,
+				9369B36A1FCB2751005ED1D7 /* Muli-Regular.ttf in Resources */,
 				93C143DB1FC54DB30006FB90 /* Main.storyboard in Resources */,
 				93C144401FC5B72A0006FB90 /* Raleway-Regular.ttf in Resources */,
 				93C143C71FC547D00006FB90 /* Assets.xcassets in Resources */,
@@ -580,33 +669,48 @@
 				93C144681FC66FB60006FB90 /* ZCConstant.m in Sources */,
 				93C144921FC6FE150006FB90 /* ZCImagePickerPreviewViewController.m in Sources */,
 				93C144811FC6D5520006FB90 /* ZCImagePickerCollectionViewCell.m in Sources */,
+				9369B3621FCB224B005ED1D7 /* ZCDraftSoundTableViewCell.m in Sources */,
 				93C144A41FC70AA00006FB90 /* NSObject+ZCCate.m in Sources */,
 				93C144071FC55D950006FB90 /* NSData+YYAdd.m in Sources */,
 				93C1448C1FC6EE960006FB90 /* ZCImagePickerHelper.m in Sources */,
+				9369B3681FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.m in Sources */,
 				93C144791FC6C4BD0006FB90 /* ZCAssetsManager.m in Sources */,
 				93C1441C1FC579790006FB90 /* ZCBaseView.m in Sources */,
 				93C144DE1FC7ADA90006FB90 /* ZCHelper.m in Sources */,
 				93C143D91FC54DB30006FB90 /* AppDelegate.m in Sources */,
 				93C144091FC55D950006FB90 /* UIControl+YYAdd.m in Sources */,
+				9369B34F1FCB0EC8005ED1D7 /* AshtonHTMLReader.m in Sources */,
 				93C1447E1FC6D04B0006FB90 /* ZCImagePickerViewController.m in Sources */,
+				9369B3551FCB0EC8005ED1D7 /* AshtonUtils.m in Sources */,
 				93C143DC1FC54DB30006FB90 /* main.m in Sources */,
+				9369B3591FCB21CE005ED1D7 /* ZCDraftViewController.m in Sources */,
 				93C1449E1FC7042A0006FB90 /* ZCCollectionViewPagingLayout.m in Sources */,
+				9369B3651FCB226F005ED1D7 /* ZCDraftDefautTableViewCell.m in Sources */,
 				93C144981FC702050006FB90 /* ZCImagePreviewView.m in Sources */,
+				9369B3561FCB0EC8005ED1D7 /* NSAttributedString+Ashton.m in Sources */,
+				9369B35F1FCB2239005ED1D7 /* ZCDraftTextImageTableViewCell.m in Sources */,
+				9369B3541FCB0EC8005ED1D7 /* AshtonUIKit.m in Sources */,
+				9369B35C1FCB2223005ED1D7 /* ZCDraftTextTableViewCell.m in Sources */,
 				93C1441F1FC57B120006FB90 /* ZCInputToolView.m in Sources */,
 				93C144951FC6FF9E0006FB90 /* ZCImagePreviewViewController.m in Sources */,
+				9369B3521FCB0EC8005ED1D7 /* AshtonMarkdownReader.m in Sources */,
 				93C144731FC6C4900006FB90 /* ZCAsset.m in Sources */,
 				93C143F71FC5517C0006FB90 /* ZCEditorViewController.m in Sources */,
 				93C144871FC6E5EC0006FB90 /* CALayer+ZCCate.m in Sources */,
 				93C1449B1FC702C40006FB90 /* ZCZoomImageView.m in Sources */,
+				9369B3511FCB0EC8005ED1D7 /* AshtonIntermediate.m in Sources */,
 				93C144841FC6E38B0006FB90 /* UIControl+ZCCate.m in Sources */,
 				93C1440D1FC55E690006FB90 /* UIView+YYAdd.m in Sources */,
 				9369B3071FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.m in Sources */,
 				93C144761FC6C4AD0006FB90 /* ZCAssetsGroup.m in Sources */,
 				93C143C51FC547D00006FB90 /* _4EditorDemo.xcdatamodeld in Sources */,
 				93C144051FC55D950006FB90 /* CALayer+YYAdd.m in Sources */,
+				9369B3531FCB0EC8005ED1D7 /* AshtonMarkdownWriter.m in Sources */,
+				9369B3501FCB0EC8005ED1D7 /* AshtonHTMLWriter.m in Sources */,
 				93C144331FC59BB80006FB90 /* ZCBaseModel.m in Sources */,
 				93C1440A1FC55D950006FB90 /* UIGestureRecognizer+YYAdd.m in Sources */,
 				93C144A11FC70A490006FB90 /* UILabel+ZCCate.m in Sources */,
+				9369B34E1FCB0EC8005ED1D7 /* AshtonCoreText.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

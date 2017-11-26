@@ -16,6 +16,7 @@ extern NSString *const kIFIcon24App;
 extern NSString *const kFNRalewayMedium;
 extern NSString *const kFNRalewayRegular;
 extern NSString *const kFNMuliSemiBold;
+extern NSString *const kFNMuliRegular;
 
 //Color HEX
 
@@ -26,4 +27,5 @@ extern NSString *const kIFIArrowLeft;
 extern NSString *const kIFIArrowRight;
 extern NSString *const kIFISave;
 extern NSString *const kIFIUser;
+extern NSString *const kIFIArtboard;
 @end
