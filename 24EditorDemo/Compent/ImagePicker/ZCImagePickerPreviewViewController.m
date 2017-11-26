@@ -18,8 +18,14 @@
 
 #define TopToolBarViewHeight 64
 
-@interface ZCImagePickerPreviewViewController ()
+#define OperationToolBarViewHeight 44
+#define OperationToolBarViewPaddingHorizontal 12
+#define ImageCountLabelSize CGSizeMake(18, 18)
 
+@interface ZCImagePickerPreviewViewController ()
+@property(nonatomic, strong, readwrite) UIView *operationToolBarView;
+@property(nonatomic, strong, readwrite) UIButton *sendButton;
+@property(nonatomic, strong, readwrite) UILabel *imageCountLabel;
 @end
 
 @implementation ZCImagePickerPreviewViewController {
@@ -48,7 +54,7 @@
     
     _backButton = [[UIButton alloc] init];
 
-    [self.backButton setImage:[UIImage imageWithIcon:kIFIArrowLeft size:20 color:UIColorHex(#667587)] forState:UIControlStateNormal];
+    [self.backButton setImage:[UIImage imageWithIcon:kIFIArrowLeft size:20 color:UIColorHex(#ffffff)] forState:UIControlStateNormal];
     self.backButton.tintColor = self.topToolBarView.tintColor;
     [self.backButton sizeToFit];
     [self.backButton addTarget:self action:@selector(handleCancelPreviewImage:) forControlEvents:UIControlEventTouchUpInside];
@@ -75,6 +81,34 @@
     self.downloadRetryButton.zc_outsideEdge = UIEdgeInsetsMake(-6, -6, -6, -6);
     self.downloadRetryButton.hidden = YES;
     [self.topToolBarView addSubview:self.downloadRetryButton];
+    
+    
+    self.operationToolBarView = [[UIView alloc] init];
+    self.operationToolBarView.backgroundColor = UIColorMakeWithRGBA(27, 27, 27, .9f);
+    [self.view addSubview:self.operationToolBarView];
+    
+    self.sendButton = [[UIButton alloc] init];
+    self.sendButton.titleLabel.font = [UIFont systemFontOfSize:16];
+    self.sendButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [self.sendButton setTitleColor:UIColorHex(#0088cc) forState:UIControlStateNormal];
+    [self.sendButton setTitleColor:UIColorHex(#667587) forState:UIControlStateDisabled];
+    self.sendButton.titleLabel.font = [UIFont fontWithName:kFNRalewayMedium size:15];
+    [self.sendButton setTitle:@"Send" forState:UIControlStateNormal];
+    [self.sendButton sizeToFit];
+    self.sendButton.enabled = NO;
+    [self.sendButton addTarget:self action:@selector(handleSendButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.operationToolBarView addSubview:self.sendButton];
+    
+    self.imageCountLabel = [[UILabel alloc] init];
+    self.imageCountLabel.backgroundColor = UIColorHex(#0088cc);
+    self.imageCountLabel.textColor = [UIColor whiteColor];
+    self.imageCountLabel.font = [UIFont fontWithName:kFNMuliSemiBold size:12];;
+    self.imageCountLabel.textAlignment = NSTextAlignmentCenter;
+    self.imageCountLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    self.imageCountLabel.layer.masksToBounds = YES;
+    self.imageCountLabel.layer.cornerRadius = CGSizeMake(18, 18).width / 2;
+    self.imageCountLabel.hidden = YES;
+    [self.operationToolBarView addSubview:self.imageCountLabel];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -95,6 +129,12 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
+    
+    self.operationToolBarView.frame = CGRectMake(0, CGRectGetHeight(self.view.bounds) - OperationToolBarViewHeight, CGRectGetWidth(self.view.bounds), OperationToolBarViewHeight);
+    
+     self.sendButton.frame = CGRectMake(CGRectGetWidth(self.operationToolBarView.frame) - OperationToolBarViewPaddingHorizontal - CGRectGetWidth(self.sendButton.frame), CGFloatGetCenter(CGRectGetHeight(self.operationToolBarView.frame), CGRectGetHeight(self.sendButton.frame)), CGRectGetWidth(self.sendButton.frame), CGRectGetHeight(self.sendButton.frame));
+    self.imageCountLabel.frame = CGRectMake(CGRectGetMinX(self.sendButton.frame) - ImageCountLabelSize.width - 5, CGRectGetMinY(self.sendButton.frame) + CGFloatGetCenter(CGRectGetHeight(self.sendButton.frame), ImageCountLabelSize.height), ImageCountLabelSize.width, ImageCountLabelSize.height);
+    
     self.topToolBarView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), TopToolBarViewHeight);
     
     CGFloat topToolbarPaddingTop = [[UIApplication sharedApplication] isStatusBarHidden] ? 0 : StatusBarHeight;
@@ -125,6 +165,20 @@
     self.checkboxButton.tintColor = toolBarTintColor;
 }
 
+- (void)updateImageCountAndCheckLimited {
+    NSInteger selectedImageCount = [_selectedImageAssetArray count];
+    if (selectedImageCount > 0 && selectedImageCount >= _minimumSelectImageCount) {
+        
+        self.sendButton.enabled = YES;
+        self.imageCountLabel.text = [NSString stringWithFormat:@"%@", @(selectedImageCount)];
+        self.imageCountLabel.hidden = NO;
+        [ZCImagePickerHelper springAnimationOfImageSelectedCountChangeWithCountLabel:self.imageCountLabel];
+    } else {
+        self.sendButton.enabled = NO;
+        self.imageCountLabel.hidden = YES;
+    }
+}
+
 - (void)setDownloadStatus:(ZCAssetDownloadStatus)downloadStatus {
     _downloadStatus = downloadStatus;
     switch (downloadStatus) {
@@ -132,24 +186,20 @@
             if (!_singleCheckMode) {
                 self.checkboxButton.hidden = NO;
             }
-//            self.progressView.hidden = YES;
             self.downloadRetryButton.hidden = YES;
             break;
             
         case ZCAssetDownloadStatusDownloading:
             self.checkboxButton.hidden = YES;
-//            self.progressView.hidden = NO;
             self.downloadRetryButton.hidden = YES;
             break;
             
         case ZCAssetDownloadStatusCanceled:
             self.checkboxButton.hidden = NO;
-//            self.progressView.hidden = YES;
             self.downloadRetryButton.hidden = YES;
             break;
             
         case ZCAssetDownloadStatusFailed:
-//            self.progressView.hidden = YES;
             self.checkboxButton.hidden = YES;
             self.downloadRetryButton.hidden = NO;
             break;
@@ -163,20 +213,18 @@
                                  selectedImageAssetArray:(NSMutableArray<ZCAsset *> *)selectedImageAssetArray
                                        currentImageIndex:(NSInteger)currentImageIndex
                                          singleCheckMode:(BOOL)singleCheckMode {
-    //单选和相机模式时，不移除占位item.
-    if (!singleCheckMode) {
-        if ([imageAssetArray isKindOfClass:[NSMutableArray class]]) {
-            [imageAssetArray removeObjectAtIndex:0];
-        }
-    }
     self.imagesAssetArray = imageAssetArray;
     self.selectedImageAssetArray = selectedImageAssetArray;
     self.imagePreviewView.currentImageIndex = currentImageIndex;
     _singleCheckMode = singleCheckMode;
     if (singleCheckMode) {
         self.checkboxButton.hidden = YES;
+        self.sendButton.enabled = YES;
+    }else {
+        [self updateImageCountAndCheckLimited];
     }
 }
+    
 
 #pragma mark - <ZCImagePreviewViewDelegate>
 
@@ -226,6 +274,25 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(imagePickerPreviewViewControllerDidCancel:)]) {
         [self.delegate imagePickerPreviewViewControllerDidCancel:self];
     }
+//    ZCAsset *imageAsset = [self.imagesAssetArray objectAtIndex:self.imagePreviewView.currentImageIndex];
+//    
+//    CLImageEditor *editor = [[CLImageEditor alloc] initWithImage:imageAsset.originImage];
+//    editor.delegate = self;
+//    
+//    [self.navigationController pushViewController:editor animated:YES];
+//    [self presentViewController:editor animated:NO completion:nil];
+}
+
+- (void)handleSendButtonClick:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(imagePickerPreviewViewController:didFinishPickingImageWithImagesAssetArray:)]) {
+            [self.delegate imagePickerPreviewViewController:self didFinishPickingImageWithImagesAssetArray:self.selectedImageAssetArray];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)imageEditorDidCancel:(CLImageEditor *)editor {
+    [editor popoverPresentationController];
+//    [editor dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (void)handleCheckButtonClick:(UIButton *)button {
@@ -235,7 +302,6 @@
         if ([self.delegate respondsToSelector:@selector(imagePickerPreviewViewController:willUncheckImageAtIndex:)]) {
             [self.delegate imagePickerPreviewViewController:self willUncheckImageAtIndex:self.imagePreviewView.currentImageIndex];
         }
-        
         button.selected = NO;
         ZCAsset *imageAsset = [self.imagesAssetArray objectAtIndex:self.imagePreviewView.currentImageIndex];
         [ZCImagePickerHelper imageAssetArray:self.selectedImageAssetArray removeImageAsset:imageAsset];
@@ -245,23 +311,20 @@
         }
     } else {
         if ([self.selectedImageAssetArray count] >= self.maximumSelectImageCount) {
+#warning 超出限制提醒
             if (!self.alertTitleWhenExceedMaxSelectImageCount) {
                 self.alertTitleWhenExceedMaxSelectImageCount = [NSString stringWithFormat:@"你最多只能选择%@张图片", @(self.maximumSelectImageCount)];
             }
             if (!self.alertButtonTitleWhenExceedMaxSelectImageCount) {
                 self.alertButtonTitleWhenExceedMaxSelectImageCount = [NSString stringWithFormat:@"我知道了"];
             }
-            
-//            QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:self.alertTitleWhenExceedMaxSelectImageCount message:nil preferredStyle:QMUIAlertControllerStyleAlert];
-//            [alertController addAction:[QMUIAlertAction actionWithTitle:self.alertButtonTitleWhenExceedMaxSelectImageCount style:QMUIAlertActionStyleCancel handler:nil]];
-//            [alertController showWithAnimated:YES];
+
             return;
         }
         
         if (self.delegate && [self.delegate respondsToSelector:@selector(imagePickerPreviewViewController:willCheckImageAtIndex:)]) {
             [self.delegate imagePickerPreviewViewController:self willCheckImageAtIndex:self.imagePreviewView.currentImageIndex];
         }
-        
         button.selected = YES;
         [ZCImagePickerHelper springAnimationOfImageCheckedWithCheckboxButton:button];
         ZCAsset *imageAsset = [self.imagesAssetArray objectAtIndex:self.imagePreviewView.currentImageIndex];
@@ -271,6 +334,7 @@
             [self.delegate imagePickerPreviewViewController:self didCheckImageAtIndex:self.imagePreviewView.currentImageIndex];
         }
     }
+    [self updateImageCountAndCheckLimited];
 }
 
 - (void)handleDownloadRetryButtonClick:(id)sender {

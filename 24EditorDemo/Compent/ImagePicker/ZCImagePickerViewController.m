@@ -17,6 +17,8 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/PHAsset.h>
+#import "UIImage+ZCCate.h"
+
 
 
 #define OperationToolBarViewHeight 44
@@ -45,6 +47,7 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
 @property(nonatomic, strong) ZCImagePickerPreviewViewController *imagePickerPreviewViewController;
 @property(nonatomic, assign) BOOL hasScrollToInitialPosition;
 @property(nonatomic, assign) BOOL canScrollToInitialPosition;// 要等数据加载完才允许滚动
+@property(nonatomic, strong) ZCAlbumView *albumView;
 @end
 
 @implementation ZCImagePickerViewController
@@ -72,12 +75,25 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
 }
 
 - (void)initSubViews {
+    
+    self.naviTitleButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    [self.naviTitleButton setTitle:self.title forState:(UIControlStateNormal)];
+    [self.naviTitleButton addTarget:self action:@selector(handleTitleButtonClick:) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.naviTitleButton sizeToFit];
+    self.naviTitleButton.titleLabel.font = [UIFont fontWithName:@"Muli-SemiBold" size:16];
+    [self.naviTitleButton setTitleColor:UIColorHex(#3F4A56) forState:UIControlStateNormal];
+    [self.naviTitleButton setImage:[UIImage imageWithIcon:kIFIArrowDown size:12 color:UIColorHex(#3F4A56)] forState:UIControlStateNormal];
+    [self.naviTitleButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -self.naviTitleButton.imageView.image.size.width, 0, self.naviTitleButton.imageView.image.size.width)];
+#warning button 中图片位置适配
+    [self.naviTitleButton setImageEdgeInsets:UIEdgeInsetsMake(0, self.naviTitleButton.titleLabel.bounds.size.width + 20, 0, -self.naviTitleButton.titleLabel.bounds.size.width)];
+    self.navigationItem.titleView = self.naviTitleButton;
+    
     self.collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
     self.collectionViewLayout.sectionInset = CollectionViewInset;
     self.collectionViewLayout.minimumLineSpacing = CollectionViewCellMargin;
     self.collectionViewLayout.minimumInteritemSpacing = CollectionViewCellMargin;
     
-    self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:_collectionViewLayout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, kiOS7Later ? 64 : 0, self.view.width, self.view.height) collectionViewLayout:_collectionViewLayout];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.delaysContentTouches = NO;
@@ -97,9 +113,10 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
         self.sendButton = [[UIButton alloc] init];
         self.sendButton.titleLabel.font = [UIFont systemFontOfSize:16];
         self.sendButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-        [self.sendButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [self.sendButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
-        [self.sendButton setTitle:@"发送" forState:UIControlStateNormal];
+        [self.sendButton setTitleColor:UIColorHex(#0088cc) forState:UIControlStateNormal];
+        [self.sendButton setTitleColor:UIColorHex(#667587) forState:UIControlStateDisabled];
+        self.sendButton.titleLabel.font = [UIFont fontWithName:kFNRalewayMedium size:15];
+        [self.sendButton setTitle:@"Send" forState:UIControlStateNormal];
         [self.sendButton sizeToFit];
         self.sendButton.enabled = NO;
         [self.sendButton addTarget:self action:@selector(handleSendButtonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -109,16 +126,16 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
         self.previewButton.titleLabel.font = self.sendButton.titleLabel.font;
         [self.previewButton setTitleColor:[self.sendButton titleColorForState:UIControlStateNormal] forState:UIControlStateNormal];
         [self.previewButton setTitleColor:[self.sendButton titleColorForState:UIControlStateDisabled] forState:UIControlStateDisabled];
-        [self.previewButton setTitle:@"预览" forState:UIControlStateNormal];
+        [self.previewButton setTitle:@"Preview" forState:UIControlStateNormal];
         [self.previewButton sizeToFit];
         self.previewButton.enabled = NO;
         [self.previewButton addTarget:self action:@selector(handlePreviewButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.operationToolBarView addSubview:self.previewButton];
         
         self.imageCountLabel = [[UILabel alloc] init];
-        self.imageCountLabel.backgroundColor = [UIColor blackColor];
+        self.imageCountLabel.backgroundColor = UIColorHex(#0088cc);
         self.imageCountLabel.textColor = [UIColor whiteColor];
-        self.imageCountLabel.font = [UIFont systemFontOfSize:12];
+        self.imageCountLabel.font = [UIFont fontWithName:kFNMuliSemiBold size:12];;
         self.imageCountLabel.textAlignment = NSTextAlignmentCenter;
         self.imageCountLabel.lineBreakMode = NSLineBreakByCharWrapping;
         self.imageCountLabel.layer.masksToBounds = YES;
@@ -126,6 +143,13 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
         self.imageCountLabel.hidden = YES;
         [self.operationToolBarView addSubview:self.imageCountLabel];
     }
+    
+    self.albumView = [[ZCAlbumView alloc] initWithFrame:CGRectMake(0, -(kScreenHeight - 2 * 64), kScreenWidth, kScreenHeight - 64)];
+    self.albumView.bottom = 0;
+    self.albumView.albumViewDelegate = self;
+    self.albumView.albumsArray = self.albumsArray;
+    
+    [self.view addSubview:self.albumView];
 
     
     _selectedImageAssetArray = [[NSMutableArray alloc] init];
@@ -238,7 +262,8 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
 
 - (void)initPreviewViewControllerIfNeeded {
     if (!self.imagePickerPreviewViewController) {
-        self.imagePickerPreviewViewController = [self.imagePickerViewControllerDelegate imagePickerPreviewViewControllerForImagePickerViewController:self];
+        self.imagePickerPreviewViewController = [[ZCImagePickerPreviewViewController alloc] init];
+        self.imagePickerPreviewViewController.delegate = self;
         self.imagePickerPreviewViewController.maximumSelectImageCount = self.maximumSelectImageCount;
         self.imagePickerPreviewViewController.minimumSelectImageCount = self.minimumSelectImageCount;
     }
@@ -281,7 +306,33 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
     self.hasScrollToInitialPosition = NO;
 }
 
+- (void)naviButtonAnimation:(UIButton *)sender {
+    [UIView beginAnimations:@"rotate"context:nil];
+    [UIView setAnimationDuration:.25f];
+    if(CGAffineTransformEqualToTransform(sender.imageView.transform,CGAffineTransformIdentity)){
+        sender.imageView.transform = CGAffineTransformMakeRotation(M_PI);
+        [UIView animateWithDuration:.25 animations:^{
+            self.albumView.top = 0;
+        }];
+    }else {
+        sender.imageView.transform =CGAffineTransformIdentity;
+        [UIView animateWithDuration:.25 animations:^{
+            self.albumView.bottom = 0;
+        }];
+    }
+    [UIView commitAnimations];
+}
 
+
+#pragma mark - <ZCImagePickerPreviewViewControllerDelegate>
+
+- (void)imagePickerPreviewViewController:(ZCImagePickerPreviewViewController *)imagePickerViewController didFinishPickingImageWithImagesAssetArray:(NSMutableArray<ZCAsset *> *)imagesAssetArray {
+    if (self.imagePickerViewControllerDelegate && [self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewController:didFinishPickingImageWithImagesAssetArray:)]) {
+        [self.imagePickerViewControllerDelegate imagePickerViewController:self didFinishPickingImageWithImagesAssetArray:imagesAssetArray];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
 
 #pragma mark - <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -300,7 +351,7 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row == 0) {
+    if ([self.imagesAssetArray[indexPath.row] isKindOfClass:[NSNull class]]) {
         ZCImagePickerNoneCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([ZCImagePickerNoneCollectionViewCell class]) forIndexPath:indexPath];
         
         return cell;
@@ -343,8 +394,7 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (indexPath.item == 0) {
+    if ([self.imagesAssetArray[indexPath.row] isKindOfClass:[NSNull class]]) {
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
         {
             UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -363,7 +413,6 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
     }else {
         ZCAsset *imageAsset = [self.imagesAssetArray objectAtIndex:indexPath.item];
         [self initPreviewViewControllerIfNeeded];
-        self.imagePickerPreviewViewController = [[ZCImagePickerPreviewViewController alloc] init];
         if (!self.allowsMultipleSelection) {
             // 单选的情况下
             [self.imagePickerPreviewViewController updateImagePickerPreviewViewWithImagesAssetArray:@[imageAsset]
@@ -371,8 +420,12 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
                                                                                   currentImageIndex:0
                                                                                     singleCheckMode:YES];
         } else {
+            NSMutableArray *tempImageAssetArray = self.imagesAssetArray.mutableCopy;
+            if ([_imagesAssetArray[0] isKindOfClass:[NSNull class]]) {
+                [tempImageAssetArray removeObjectAtIndex:0];
+            }
             // cell 处于编辑状态，即图片允许多选
-            [self.imagePickerPreviewViewController updateImagePickerPreviewViewWithImagesAssetArray:self.imagesAssetArray
+            [self.imagePickerPreviewViewController updateImagePickerPreviewViewWithImagesAssetArray:tempImageAssetArray
                                                                             selectedImageAssetArray:_selectedImageAssetArray
                                                                                   currentImageIndex:indexPath.item - 1
                                                                                     singleCheckMode:NO];
@@ -387,45 +440,69 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     
+    [picker dismissViewControllerAnimated:NO completion:nil];
+    
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     PHFetchResult *result = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary options:nil];
     
     ZCAssetsGroup *assetsGroup = [[ZCAssetsGroup alloc] initWithPHCollection:result[0]];
     [[ZCAssetsManager sharedInstance] saveImageWithImageRef:image.CGImage albumAssetsGroup:assetsGroup orientation:image.imageOrientation completionBlock:^(ZCAsset *asset, NSError *error) {
-        NSLog(@"%@", asset);
-        self.imagePickerPreviewViewController = [[ZCImagePickerPreviewViewController alloc] init];
+        [self initPreviewViewControllerIfNeeded];
+        NSMutableArray *assetArray = [NSMutableArray arrayWithObject:asset];
         // 单选的情况下
-        [self.imagePickerPreviewViewController updateImagePickerPreviewViewWithImagesAssetArray:@[asset]
-                                                                        selectedImageAssetArray:nil
+        [self.imagePickerPreviewViewController updateImagePickerPreviewViewWithImagesAssetArray:assetArray
+                                                                        selectedImageAssetArray:assetArray
                                                                               currentImageIndex:0
                                                                                 singleCheckMode:YES];
         [self.navigationController pushViewController:self.imagePickerPreviewViewController animated:YES];
     }];
     
-    [picker dismissViewControllerAnimated:NO completion:nil];
+    
+    
 }
 
 // 操作取消
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     // 回收图像选取控制器
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 
 
+
+#pragma mark - <ZCAlbumViewControllerDelegate>
+
+
+- (void)albumDidChange:(ZCAssetsGroup *)assetsGroup {
+    [self refreshWithAssetsGroup:assetsGroup];
+    [self.naviTitleButton setTitle:assetsGroup.name forState:UIControlStateNormal];
+    [self.naviTitleButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -self.naviTitleButton.imageView.image.size.width, 0, self.naviTitleButton.imageView.image.size.width)];
+#warning button 中图片位置适配
+    [self.naviTitleButton setImageEdgeInsets:UIEdgeInsetsMake(0, self.naviTitleButton.titleLabel.bounds.size.width + 20, 0, -self.naviTitleButton.titleLabel.bounds.size.width)];
+    [self naviButtonAnimation:self.naviTitleButton];
+}
+
+- (void)cancelChooseAlbum {
+    [self naviButtonAnimation:self.naviTitleButton];
+    
+}
+
 #pragma mark - 按钮点击回调
+
+- (void)handleTitleButtonClick:(UIButton *)sender {
+    
+    [self naviButtonAnimation:sender];
+}
 
 - (void)handleSendButtonClick:(id)sender {
     if (self.imagePickerViewControllerDelegate && [self.imagePickerViewControllerDelegate respondsToSelector:@selector(imagePickerViewController:didFinishPickingImageWithImagesAssetArray:)]) {
         [self.imagePickerViewControllerDelegate imagePickerViewController:self didFinishPickingImageWithImagesAssetArray:_selectedImageAssetArray];
     }
-    [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)handlePreviewButtonClick:(id)sender {
     [self initPreviewViewControllerIfNeeded];
-    self.imagePickerPreviewViewController = [[ZCImagePickerPreviewViewController alloc] init];
     // 手工更新图片预览界面
     [self.imagePickerPreviewViewController updateImagePickerPreviewViewWithImagesAssetArray:[_selectedImageAssetArray copy]
                                                                     selectedImageAssetArray:_selectedImageAssetArray

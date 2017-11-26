@@ -11,6 +11,9 @@
 #import "ZCAssetsGroup.h"
 #import "ZCAssetsManager.h"
 #import "ZCImagePickerPreviewViewController.h"
+#import "ZCAlbumView.h"
+
+
 
 //#define UI_APPEARANCE_SELECTOR __attribute__((annotate("ui_appearance_selector")))
 
@@ -79,10 +82,11 @@
  */
 - (void)imagePickerViewControllerWillFinishLoad:(ZCImagePickerViewController *)imagePickerViewController;
 
+
 @end
 
 
-@interface ZCImagePickerViewController : ZCBaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,ZCImagePickerPreviewViewControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface ZCImagePickerViewController : ZCBaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,ZCImagePickerPreviewViewControllerDelegate, UIImagePickerControllerDelegate,UINavigationControllerDelegate, ZCAlbumViewDelegate>
 
 /**
  *  图片的最小尺寸，布局时如果有剩余空间，会将空间分配给图片大小，所以最终显示出来的大小不一定等于minimumImageWidth。默认是75。
@@ -97,6 +101,8 @@
 @property(nonatomic, strong, readonly) UIButton *previewButton;
 @property(nonatomic, strong, readonly) UIButton *sendButton;
 @property(nonatomic, strong, readonly) UILabel *imageCountLabel;
+@property(nonatomic, strong) UIButton *naviTitleButton;
+@property(nonatomic,strong) NSMutableArray *albumsArray;
 
 /**
  *  由于组件需要通过本地图片的 ZCAsset 对象读取图片的详细信息，因此这里的需要传入的是包含一个或多个 ZCAsset 对象的数组，传入后会赋值到 imagesAssetArray ，并自动刷新 UI 展示

@@ -1,12 +1,17 @@
 PODS:
+  - CLImageEditor (0.1.8):
+    - CLImageEditor/Core (= 0.1.8)
+  - CLImageEditor/Core (0.1.8)
   - YYText (1.0.7)
 
 DEPENDENCIES:
+  - CLImageEditor
   - YYText
 
 SPEC CHECKSUMS:
+  CLImageEditor: 0d4d5a14aa317c097418b05b5736fec4b8a90dcf
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: c5098f195f764edac70913b21b3a56a7d45cf538
+PODFILE CHECKSUM: 5381701fd8a319df96e9cdbba0b5346fdb3d10f0
 
 COCOAPODS: 1.2.1

@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "ZCImagePreviewViewController.h"
 #import "ZCAsset.h"
+#import <CLImageEditor.h>
 
 @class ZCImagePickerViewController;
 @class ZCImagePickerPreviewViewController;
@@ -15,6 +16,8 @@
 @protocol ZCImagePickerPreviewViewControllerDelegate <NSObject>
 
 @optional
+
+- (void)imagePickerPreviewViewController:(ZCImagePickerPreviewViewController *)imagePickerViewController didFinishPickingImageWithImagesAssetArray:(NSMutableArray<ZCAsset *> *)imagesAssetArray;
 /**
  *  取消选择图片后被调用
  */
@@ -29,7 +32,7 @@
 @end
 
 
-@interface ZCImagePickerPreviewViewController : ZCImagePreviewViewController<ZCImagePreviewViewDelegate>
+@interface ZCImagePickerPreviewViewController : ZCImagePreviewViewController<ZCImagePreviewViewDelegate,CLImageEditorDelegate>
 
 @property(nonatomic, strong) UIColor *toolBarBackgroundColor UI_APPEARANCE_SELECTOR;
 @property(nonatomic, strong) UIColor *toolBarTintColor UI_APPEARANCE_SELECTOR;

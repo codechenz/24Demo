@@ -3,4 +3,5 @@
 
 target '24EditorDemo' do
   pod 'YYText'
+  pod 'CLImageEditor'
 end

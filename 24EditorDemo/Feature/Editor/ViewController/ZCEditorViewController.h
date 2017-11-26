@@ -7,7 +7,12 @@
 //
 
 #import "ZCBaseViewController.h"
+#import "ZCAssetsManager.h"
+#import "ZCAssetsGroup.h"
+#import "ZCImagePickerViewController.h"
 
-@interface ZCEditorViewController : ZCBaseViewController
+@interface ZCEditorViewController : ZCBaseViewController <ZCImagePickerViewControllerDelegate>
+
+@property(nonatomic, assign) ZCAlbumContentType contentType;
 
 @end
