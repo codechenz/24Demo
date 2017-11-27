@@ -564,8 +564,8 @@
 				TargetAttributes = {
 					93C143B31FC547D00006FB90 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = PX2JJM7RG8;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 78V589EJ5N;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -830,7 +830,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = PX2JJM7RG8;
+				DEVELOPMENT_TEAM = 78V589EJ5N;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/24EditorDemo/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = 24EditorDemo/Config/Info.plist;
@@ -852,8 +852,10 @@
 					"-framework",
 					"\"UIKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.personal.zhuchen.-4EditorDemo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ito.editorDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "02d62186-870f-4c5e-9e71-a0f611741e48";
+				PROVISIONING_PROFILE_SPECIFIER = "78V589EJ5N.com.ito.editorDemo_ Development";
 			};
 			name = Debug;
 		};
@@ -862,8 +864,8 @@
 			baseConfigurationReference = EF3D4C9F21CB708B2A091D47 /* Pods-24EditorDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = PX2JJM7RG8;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 78V589EJ5N;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/24EditorDemo/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = 24EditorDemo/Config/Info.plist;
@@ -885,8 +887,10 @@
 					"-framework",
 					"\"UIKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.personal.zhuchen.-4EditorDemo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ito.editorDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9f2a4c04-e3bc-4960-9f70-e7dcc987cd87";
+				PROVISIONING_PROFILE_SPECIFIER = "78V589EJ5N.com.ito.editorDemo_ Distribution";
 			};
 			name = Release;
 		};

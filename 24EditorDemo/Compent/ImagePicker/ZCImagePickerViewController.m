@@ -383,8 +383,8 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
             if (!info || [[info objectForKey:PHImageResultIsDegradedKey] boolValue]) {
                 cell.contentImageView.image = result;
             } else if ([collectionView zc_itemVisibleAtIndexPath:indexPath]) {
-                ZCImagePickerCollectionViewCell *anotherCell = (ZCImagePickerCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-                anotherCell.contentImageView.image = result;
+//                ZCImagePickerCollectionViewCell *anotherCell = (ZCImagePickerCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+//                anotherCell.contentImageView.image = result;
             }
         }];
         
