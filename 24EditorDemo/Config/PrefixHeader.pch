@@ -12,6 +12,13 @@
 
 #ifdef __OBJC__
 
+//简化masonry布局代码 without mas
+#define MAS_SHORTHAND
+//masonry equalTo函数可以接受基本数据类型
+#define MAS_SHORTHAND_GLOBALS
+
+#import "Masonry.h"
+
 #import "ZCConstant.h"
 #import "CommonDefines.h"
 

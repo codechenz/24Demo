@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 
 #import "ZCEditorViewController.h"
+#import "ZCDraftViewController.h"
+#import "ZCEventDetailViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,7 +24,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    UINavigationController *rootNaviController = [[UINavigationController alloc] initWithRootViewController:[[ZCEditorViewController alloc] init]];
+    UINavigationController *rootNaviController = [[UINavigationController alloc] initWithRootViewController:[[ZCEventDetailViewController alloc] init]];
     self.window.rootViewController = rootNaviController;
     
     return YES;

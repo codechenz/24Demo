@@ -20,15 +20,17 @@
 		9369B3541FCB0EC8005ED1D7 /* AshtonUIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3481FCB0EC8005ED1D7 /* AshtonUIKit.m */; };
 		9369B3551FCB0EC8005ED1D7 /* AshtonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B34A1FCB0EC8005ED1D7 /* AshtonUtils.m */; };
 		9369B3561FCB0EC8005ED1D7 /* NSAttributedString+Ashton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B34C1FCB0EC8005ED1D7 /* NSAttributedString+Ashton.m */; };
-		9369B3591FCB21CE005ED1D7 /* ZCDraftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3581FCB21CE005ED1D7 /* ZCDraftViewController.m */; };
-		9369B35C1FCB2223005ED1D7 /* ZCDraftTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B35B1FCB2223005ED1D7 /* ZCDraftTextTableViewCell.m */; };
-		9369B35F1FCB2239005ED1D7 /* ZCDraftTextImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B35E1FCB2239005ED1D7 /* ZCDraftTextImageTableViewCell.m */; };
-		9369B3621FCB224B005ED1D7 /* ZCDraftSoundTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3611FCB224B005ED1D7 /* ZCDraftSoundTableViewCell.m */; };
-		9369B3651FCB226F005ED1D7 /* ZCDraftDefautTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3641FCB226F005ED1D7 /* ZCDraftDefautTableViewCell.m */; };
-		9369B3681FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3671FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.m */; };
 		9369B36A1FCB2751005ED1D7 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9369B3691FCB2751005ED1D7 /* Muli-Regular.ttf */; };
 		939266B41FCE82E1002FFA49 /* UIImage+ZCCate.m in Sources */ = {isa = PBXBuildFile; fileRef = 939266B31FCE82E1002FFA49 /* UIImage+ZCCate.m */; };
 		939266B71FCE831F002FFA49 /* NSString+ZCCate.m in Sources */ = {isa = PBXBuildFile; fileRef = 939266B61FCE831F002FFA49 /* NSString+ZCCate.m */; };
+		939266D01FCE910F002FFA49 /* ZCDraftTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 939266C51FCE910F002FFA49 /* ZCDraftTextTableViewCell.m */; };
+		939266D31FCE910F002FFA49 /* ZCDraftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 939266CD1FCE910F002FFA49 /* ZCDraftViewController.m */; };
+		939266DD1FCE91EC002FFA49 /* ZCEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 939266DC1FCE91EC002FFA49 /* ZCEventDetailViewController.m */; };
+		939266E01FCEB62D002FFA49 /* ZCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 939266DF1FCEB62D002FFA49 /* ZCModel.m */; };
+		939266E31FCED72B002FFA49 /* ZCEventCountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 939266E21FCED72B002FFA49 /* ZCEventCountView.m */; };
+		939266E51FCEDE79002FFA49 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 939266E41FCEDE78002FFA49 /* Poppins-Regular.ttf */; };
+		939266E81FCEE4CA002FFA49 /* ZCScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 939266E71FCEE4CA002FFA49 /* ZCScoreView.m */; };
+		939266EB1FCEF1AB002FFA49 /* ZCNewsAudioTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 939266EA1FCEF1AB002FFA49 /* ZCNewsAudioTableViewCell.m */; };
 		93C143C51FC547D00006FB90 /* _4EditorDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93C143C31FC547D00006FB90 /* _4EditorDemo.xcdatamodeld */; };
 		93C143C71FC547D00006FB90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C143C61FC547D00006FB90 /* Assets.xcassets */; };
 		93C143D91FC54DB30006FB90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C143D31FC54DB30006FB90 /* AppDelegate.m */; };
@@ -99,23 +101,26 @@
 		9369B34A1FCB0EC8005ED1D7 /* AshtonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AshtonUtils.m; sourceTree = "<group>"; };
 		9369B34B1FCB0EC8005ED1D7 /* NSAttributedString+Ashton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Ashton.h"; sourceTree = "<group>"; };
 		9369B34C1FCB0EC8005ED1D7 /* NSAttributedString+Ashton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Ashton.m"; sourceTree = "<group>"; };
-		9369B3571FCB21CE005ED1D7 /* ZCDraftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCDraftViewController.h; sourceTree = "<group>"; };
-		9369B3581FCB21CE005ED1D7 /* ZCDraftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCDraftViewController.m; sourceTree = "<group>"; };
-		9369B35A1FCB2223005ED1D7 /* ZCDraftTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCDraftTextTableViewCell.h; sourceTree = "<group>"; };
-		9369B35B1FCB2223005ED1D7 /* ZCDraftTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCDraftTextTableViewCell.m; sourceTree = "<group>"; };
-		9369B35D1FCB2239005ED1D7 /* ZCDraftTextImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCDraftTextImageTableViewCell.h; sourceTree = "<group>"; };
-		9369B35E1FCB2239005ED1D7 /* ZCDraftTextImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCDraftTextImageTableViewCell.m; sourceTree = "<group>"; };
-		9369B3601FCB224B005ED1D7 /* ZCDraftSoundTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCDraftSoundTableViewCell.h; sourceTree = "<group>"; };
-		9369B3611FCB224B005ED1D7 /* ZCDraftSoundTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCDraftSoundTableViewCell.m; sourceTree = "<group>"; };
-		9369B3631FCB226F005ED1D7 /* ZCDraftDefautTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCDraftDefautTableViewCell.h; sourceTree = "<group>"; };
-		9369B3641FCB226F005ED1D7 /* ZCDraftDefautTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCDraftDefautTableViewCell.m; sourceTree = "<group>"; };
-		9369B3661FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCDraftVideoTableViewCell.h; sourceTree = "<group>"; };
-		9369B3671FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCDraftVideoTableViewCell.m; sourceTree = "<group>"; };
 		9369B3691FCB2751005ED1D7 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
 		939266B21FCE82E0002FFA49 /* UIImage+ZCCate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZCCate.h"; sourceTree = "<group>"; };
 		939266B31FCE82E1002FFA49 /* UIImage+ZCCate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZCCate.m"; sourceTree = "<group>"; };
 		939266B51FCE831F002FFA49 /* NSString+ZCCate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+ZCCate.h"; sourceTree = "<group>"; };
 		939266B61FCE831F002FFA49 /* NSString+ZCCate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZCCate.m"; sourceTree = "<group>"; };
+		939266C51FCE910F002FFA49 /* ZCDraftTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCDraftTextTableViewCell.m; sourceTree = "<group>"; };
+		939266C81FCE910F002FFA49 /* ZCDraftTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCDraftTextTableViewCell.h; sourceTree = "<group>"; };
+		939266CC1FCE910F002FFA49 /* ZCDraftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCDraftViewController.h; sourceTree = "<group>"; };
+		939266CD1FCE910F002FFA49 /* ZCDraftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCDraftViewController.m; sourceTree = "<group>"; };
+		939266DB1FCE91EC002FFA49 /* ZCEventDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCEventDetailViewController.h; sourceTree = "<group>"; };
+		939266DC1FCE91EC002FFA49 /* ZCEventDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCEventDetailViewController.m; sourceTree = "<group>"; };
+		939266DE1FCEB62D002FFA49 /* ZCModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCModel.h; sourceTree = "<group>"; };
+		939266DF1FCEB62D002FFA49 /* ZCModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCModel.m; sourceTree = "<group>"; };
+		939266E11FCED72B002FFA49 /* ZCEventCountView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCEventCountView.h; sourceTree = "<group>"; };
+		939266E21FCED72B002FFA49 /* ZCEventCountView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCEventCountView.m; sourceTree = "<group>"; };
+		939266E41FCEDE78002FFA49 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		939266E61FCEE4CA002FFA49 /* ZCScoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCScoreView.h; sourceTree = "<group>"; };
+		939266E71FCEE4CA002FFA49 /* ZCScoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCScoreView.m; sourceTree = "<group>"; };
+		939266E91FCEF1AB002FFA49 /* ZCNewsAudioTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCNewsAudioTableViewCell.h; sourceTree = "<group>"; };
+		939266EA1FCEF1AB002FFA49 /* ZCNewsAudioTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCNewsAudioTableViewCell.m; sourceTree = "<group>"; };
 		93C143B41FC547D00006FB90 /* 24EditorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 24EditorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C143C41FC547D00006FB90 /* _4EditorDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = _4EditorDemo.xcdatamodel; sourceTree = "<group>"; };
 		93C143C61FC547D00006FB90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -233,6 +238,82 @@
 			path = Ashton;
 			sourceTree = "<group>";
 		};
+		939266BE1FCE910F002FFA49 /* Draft */ = {
+			isa = PBXGroup;
+			children = (
+				939266BF1FCE910F002FFA49 /* Model */,
+				939266C01FCE910F002FFA49 /* View */,
+				939266CB1FCE910F002FFA49 /* ViewController */,
+			);
+			path = Draft;
+			sourceTree = "<group>";
+		};
+		939266BF1FCE910F002FFA49 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				939266DE1FCEB62D002FFA49 /* ZCModel.h */,
+				939266DF1FCEB62D002FFA49 /* ZCModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		939266C01FCE910F002FFA49 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				939266C81FCE910F002FFA49 /* ZCDraftTextTableViewCell.h */,
+				939266C51FCE910F002FFA49 /* ZCDraftTextTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		939266CB1FCE910F002FFA49 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				939266CC1FCE910F002FFA49 /* ZCDraftViewController.h */,
+				939266CD1FCE910F002FFA49 /* ZCDraftViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		939266D41FCE915B002FFA49 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				939266D71FCE915B002FFA49 /* ViewController */,
+				939266D51FCE915B002FFA49 /* Model */,
+				939266D61FCE915B002FFA49 /* View */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		939266D51FCE915B002FFA49 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		939266D61FCE915B002FFA49 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				939266E11FCED72B002FFA49 /* ZCEventCountView.h */,
+				939266E21FCED72B002FFA49 /* ZCEventCountView.m */,
+				939266E61FCEE4CA002FFA49 /* ZCScoreView.h */,
+				939266E71FCEE4CA002FFA49 /* ZCScoreView.m */,
+				939266E91FCEF1AB002FFA49 /* ZCNewsAudioTableViewCell.h */,
+				939266EA1FCEF1AB002FFA49 /* ZCNewsAudioTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		939266D71FCE915B002FFA49 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				939266DB1FCE91EC002FFA49 /* ZCEventDetailViewController.h */,
+				939266DC1FCE91EC002FFA49 /* ZCEventDetailViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		93C143AB1FC547D00006FB90 = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +378,8 @@
 			isa = PBXGroup;
 			children = (
 				93C143E81FC54EB80006FB90 /* Base */,
+				939266D41FCE915B002FFA49 /* Event */,
+				939266BE1FCE910F002FFA49 /* Draft */,
 				93C143E11FC54DC00006FB90 /* Editor */,
 			);
 			path = Feature;
@@ -326,16 +409,6 @@
 				93C1441E1FC57B120006FB90 /* ZCInputToolView.m */,
 				9369B3341FCA620E005ED1D7 /* ZCAlbumView.h */,
 				9369B3351FCA620E005ED1D7 /* ZCAlbumView.m */,
-				9369B35A1FCB2223005ED1D7 /* ZCDraftTextTableViewCell.h */,
-				9369B35B1FCB2223005ED1D7 /* ZCDraftTextTableViewCell.m */,
-				9369B35D1FCB2239005ED1D7 /* ZCDraftTextImageTableViewCell.h */,
-				9369B35E1FCB2239005ED1D7 /* ZCDraftTextImageTableViewCell.m */,
-				9369B3601FCB224B005ED1D7 /* ZCDraftSoundTableViewCell.h */,
-				9369B3611FCB224B005ED1D7 /* ZCDraftSoundTableViewCell.m */,
-				9369B3631FCB226F005ED1D7 /* ZCDraftDefautTableViewCell.h */,
-				9369B3641FCB226F005ED1D7 /* ZCDraftDefautTableViewCell.m */,
-				9369B3661FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.h */,
-				9369B3671FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -345,8 +418,6 @@
 			children = (
 				93C143F51FC5517C0006FB90 /* ZCEditorViewController.h */,
 				93C143F61FC5517C0006FB90 /* ZCEditorViewController.m */,
-				9369B3571FCB21CE005ED1D7 /* ZCDraftViewController.h */,
-				9369B3581FCB21CE005ED1D7 /* ZCDraftViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -409,6 +480,7 @@
 		93C1443C1FC5B72A0006FB90 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				939266E41FCEDE78002FFA49 /* Poppins-Regular.ttf */,
 				9369B3691FCB2751005ED1D7 /* Muli-Regular.ttf */,
 				93C144441FC5D2F70006FB90 /* Muli-SemiBold.ttf */,
 				93C1443D1FC5B72A0006FB90 /* Raleway-Medium.ttf */,
@@ -568,6 +640,7 @@
 				93C143C71FC547D00006FB90 /* Assets.xcassets in Resources */,
 				93C144231FC596030006FB90 /* icon24app.ttf in Resources */,
 				93C143DA1FC54DB30006FB90 /* LaunchScreen.storyboard in Resources */,
+				939266E51FCEDE79002FFA49 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,11 +712,10 @@
 				93C144681FC66FB60006FB90 /* ZCConstant.m in Sources */,
 				93C144921FC6FE150006FB90 /* ZCImagePickerPreviewViewController.m in Sources */,
 				93C144811FC6D5520006FB90 /* ZCImagePickerCollectionViewCell.m in Sources */,
-				9369B3621FCB224B005ED1D7 /* ZCDraftSoundTableViewCell.m in Sources */,
 				93C144A41FC70AA00006FB90 /* NSObject+ZCCate.m in Sources */,
 				93C1448C1FC6EE960006FB90 /* ZCImagePickerHelper.m in Sources */,
+				939266DD1FCE91EC002FFA49 /* ZCEventDetailViewController.m in Sources */,
 				939266B41FCE82E1002FFA49 /* UIImage+ZCCate.m in Sources */,
-				9369B3681FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.m in Sources */,
 				93C144791FC6C4BD0006FB90 /* ZCAssetsManager.m in Sources */,
 				93C1441C1FC579790006FB90 /* ZCBaseView.m in Sources */,
 				93C144DE1FC7ADA90006FB90 /* ZCHelper.m in Sources */,
@@ -652,19 +724,21 @@
 				93C1447E1FC6D04B0006FB90 /* ZCImagePickerViewController.m in Sources */,
 				9369B3551FCB0EC8005ED1D7 /* AshtonUtils.m in Sources */,
 				93C143DC1FC54DB30006FB90 /* main.m in Sources */,
-				9369B3591FCB21CE005ED1D7 /* ZCDraftViewController.m in Sources */,
 				93C1449E1FC7042A0006FB90 /* ZCCollectionViewPagingLayout.m in Sources */,
-				9369B3651FCB226F005ED1D7 /* ZCDraftDefautTableViewCell.m in Sources */,
+				939266EB1FCEF1AB002FFA49 /* ZCNewsAudioTableViewCell.m in Sources */,
 				93C144981FC702050006FB90 /* ZCImagePreviewView.m in Sources */,
+				939266E01FCEB62D002FFA49 /* ZCModel.m in Sources */,
 				939266B71FCE831F002FFA49 /* NSString+ZCCate.m in Sources */,
+				939266D31FCE910F002FFA49 /* ZCDraftViewController.m in Sources */,
 				9369B3561FCB0EC8005ED1D7 /* NSAttributedString+Ashton.m in Sources */,
-				9369B35F1FCB2239005ED1D7 /* ZCDraftTextImageTableViewCell.m in Sources */,
+				939266E81FCEE4CA002FFA49 /* ZCScoreView.m in Sources */,
 				9369B3541FCB0EC8005ED1D7 /* AshtonUIKit.m in Sources */,
-				9369B35C1FCB2223005ED1D7 /* ZCDraftTextTableViewCell.m in Sources */,
 				9315BD441FCD625D001ECD0B /* UIColor+ZCCate.m in Sources */,
 				93C1441F1FC57B120006FB90 /* ZCInputToolView.m in Sources */,
+				939266E31FCED72B002FFA49 /* ZCEventCountView.m in Sources */,
 				93C144951FC6FF9E0006FB90 /* ZCImagePreviewViewController.m in Sources */,
 				9369B3521FCB0EC8005ED1D7 /* AshtonMarkdownReader.m in Sources */,
+				939266D01FCE910F002FFA49 /* ZCDraftTextTableViewCell.m in Sources */,
 				93C144731FC6C4900006FB90 /* ZCAsset.m in Sources */,
 				93C143F71FC5517C0006FB90 /* ZCEditorViewController.m in Sources */,
 				93C144871FC6E5EC0006FB90 /* CALayer+ZCCate.m in Sources */,
@@ -802,6 +876,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/24EditorDemo/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = 24EditorDemo/Config/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -837,6 +912,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/24EditorDemo/Config/PrefixHeader.pch";
 				INFOPLIST_FILE = 24EditorDemo/Config/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

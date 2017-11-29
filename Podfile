@@ -5,4 +5,6 @@ target '24EditorDemo' do
   pod 'YYText'
   pod 'CLImageEditor'
   pod 'FDFullscreenPopGesture', '~> 1.1'
+  pod 'UITableView+FDTemplateLayoutCell', '~> 1.6'
+  pod 'Masonry'
 end

@@ -10,7 +10,6 @@
 #import "YYText.h"
 #import "ZCInputToolView.h"
 #import "ZCImagePickerViewController.h"
-#import "UIImage+ZCCate.h"
 #import "NSAttributedString+Ashton.h"
 #import "ZCDraftViewController.h"
 

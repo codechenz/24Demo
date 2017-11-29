@@ -14,7 +14,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Masonry.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-24EditorDemo.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UITableView+FDTemplateLayoutCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

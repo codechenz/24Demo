@@ -18,6 +18,7 @@ NSString *const kFNRalewayMedium = @"Raleway-Medium";
 NSString *const kFNRalewayRegular = @"Raleway-Regular";
 NSString *const kFNMuliSemiBold = @"Muli-SemiBold";
 NSString *const kFNMuliRegular = @"Muli-Regular";
+NSString *const kFNPoppinsRegular = @"Poppins-Regular";
 
 
 //Colors
@@ -30,5 +31,7 @@ NSString *const kIFIArrowRight = @"\U0000e913";
 NSString *const kIFISave = @"\U0000e914";
 NSString *const kIFIUser = @"\U0000e91d";
 NSString *const kIFIArtboard = @"\U0000e927";
+NSString *const kIFISite = @"\U0000e906";
+NSString *const kIFIClap = @"\U0000e91b";
 
 @end
