@@ -7,302 +7,319 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		004EB4178982F2467828E4ECFEC59CAB /* CLEffectBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F83D54C6D7587650FE70CAB28FBA3C9 /* CLEffectBase.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		01F134A87AFABA1877A8E89334760C20 /* CLCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 032CBF63AC3956FDE729B57BF258D0F6 /* CLCircleView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		0245BCD7875958A84C701A50A7E3A937 /* YYTextRubyAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = E6E17195E20632F78C18B32440A3A4EB /* YYTextRubyAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		02F0D50F8B6F01593755FD1D8E5870D4 /* CLColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8647B290097AF8BFD0877825A08A003 /* CLColorPickerView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		036A34ADB79D70D7D574E53B33774D66 /* CLBloomEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 8360D05A84CF4E2D7F6A5E41CF23CB81 /* CLBloomEffect.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		089C0944C0C189E4116DA5563984BC64 /* CLFilterTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 86079F8CB6339F1CA99380276B9140FF /* CLFilterTool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		0B5B9823B0D8AC072113F321082D7077 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51989122A4C924F5891AC4B30596DD9F /* Foundation.framework */; };
-		0D7E2A6392E29755CB649147810943AD /* YYTextArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = E814F94681D8327CF786D5A6AE3AA3A2 /* YYTextArchiver.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0DAEBCC4E0B2FA59889893149F7B3C0F /* CLHueEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F90C9951D7BDDD5DB37CFE650EF9378 /* CLHueEffect.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		1060D266C347CCBAF9656B41B29E38A4 /* UIView+Frame.h in Headers */ = {isa = PBXBuildFile; fileRef = E84F927746D916E65800F4B8E8BFD4B1 /* UIView+Frame.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		1284EAD4EE9B099EA65C1065F38717F4 /* YYTextUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = EEEE6F04E01BE6FF032D7E288E4B3430 /* YYTextUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		19538C408E0F56547B9F9E39AF866D49 /* YYTextInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 9571C790C8935D3BACD361A80C495A42 /* YYTextInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B903451345A90E11BB968F577A53F86 /* NSParagraphStyle+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = 911AD1D1188D83479E5AA09F2C858085 /* NSParagraphStyle+YYText.m */; };
-		20977FCA1D09A7C26E595F5D5AD9D8B3 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1072612542404CCF7FBD34D96AD7F87 /* Accelerate.framework */; };
-		22CD8E8C480D286BADE8912DF2F9D89B /* CLHighlightShadowEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C09EF78F79C5F090375685D2F03AC7 /* CLHighlightShadowEffect.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		2352D9C88D448408B3D99EC0AE27D866 /* CLGloomEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = E0E39D532170B635482FB1F466426BF2 /* CLGloomEffect.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2478A840B1B7A5FE94066473BAD9A896 /* CLBloomEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B35BA625D8716982ECC8880CEFCF66 /* CLBloomEffect.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		24E9D54F0FB65E36D216B761D079A01A /* YYTextParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F165CBFB9FC0A6B1486780F25EB315 /* YYTextParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2510895406DD2A1D449D0188BD6F2A25 /* CLImageToolInfo+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = F9502351A5C194888F74BB177AB750A5 /* CLImageToolInfo+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2642F9D966ADFC8E731DCF707AB77F2D /* YYTextLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B92742F649A018583835207CD528D72 /* YYTextLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		004EB4178982F2467828E4ECFEC59CAB /* CLEffectBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 115BF04F61B35B5E37B1E75E6B8E9D99 /* CLEffectBase.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		01E9E44B6135A83F7CB2FE5561BD977C /* YYTextAsyncLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1D7EE348C8BC81B252A442539FF49C /* YYTextAsyncLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		01F134A87AFABA1877A8E89334760C20 /* CLCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC47F89122BEB6229B1D3DD18BD56F28 /* CLCircleView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		02F0D50F8B6F01593755FD1D8E5870D4 /* CLColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C1336000E371E872E3FBA64FED974 /* CLColorPickerView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		036A34ADB79D70D7D574E53B33774D66 /* CLBloomEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A5E2B96F6B643DC8A0E78C76A8C8475 /* CLBloomEffect.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		089C0944C0C189E4116DA5563984BC64 /* CLFilterTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 917BD3609B979F41495D2D0C11644762 /* CLFilterTool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0C9BDA13139DDF749C17BA033B9D0D19 /* YYTextMagnifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD18CDC393D49162E80E93C3F82509F /* YYTextMagnifier.m */; };
+		0DAEBCC4E0B2FA59889893149F7B3C0F /* CLHueEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6F5DD1DA990A8BC24669427C3DB4B4 /* CLHueEffect.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1060D266C347CCBAF9656B41B29E38A4 /* UIView+Frame.h in Headers */ = {isa = PBXBuildFile; fileRef = 96498FF6FBAD6713E4A1DC1B5E47D870 /* UIView+Frame.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		18DE61537796CB0C59068ABCBC0B902D /* YYTextKeyboardManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 292AB5809F02FB35A433683C04717FE3 /* YYTextKeyboardManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2289C2A2DB845B27049C385D56782861 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51989122A4C924F5891AC4B30596DD9F /* Foundation.framework */; };
+		22CD8E8C480D286BADE8912DF2F9D89B /* CLHighlightShadowEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CBF37FE9D17B7DCC80CDA39C3697CE /* CLHighlightShadowEffect.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2352D9C88D448408B3D99EC0AE27D866 /* CLGloomEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 481C60E522DA37459AB76EE7CD3FFC91 /* CLGloomEffect.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2478A840B1B7A5FE94066473BAD9A896 /* CLBloomEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B02D6FECC6CE9C87CC705FEF566D88 /* CLBloomEffect.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2510895406DD2A1D449D0188BD6F2A25 /* CLImageToolInfo+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 588A019CD5798C103DAF84A1639856EF /* CLImageToolInfo+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2CD1692B54F947E81A808813F5252766 /* YYTextRunDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C24DE8250A8B6293B82101929659EDFC /* YYTextRunDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D43A449416EB1D8162056EB5AF638E5 /* YYTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECB8F478287F06DBBA2AE5F5BE81147 /* YYTextInput.m */; };
 		2FC875881930DFCB3248FD00CB954C74 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51989122A4C924F5891AC4B30596DD9F /* Foundation.framework */; };
-		30ED1C504D1CEE5E0CC3C54A15DCD7FF /* CLImageToolInfo+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD312F394E50B81D724F17A3D1BF360 /* CLImageToolInfo+Private.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		30FF599B43E3F0609CB82CC7985D6A95 /* YYTextTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = B695ABEE8735B093601FA29856F1AD23 /* YYTextTransaction.m */; };
-		310C28BEF1206CBF1B626E84875D8501 /* CLClassList.h in Headers */ = {isa = PBXBuildFile; fileRef = 68A38D77CBA95F735FB9A0FA6A840F97 /* CLClassList.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		388925581949D10B479C2B4EA4B97B6B /* YYTextMagnifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 87562B6F9DCA5134E7834AC6B2B751DD /* YYTextMagnifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		395B08C12ABB6614497E3B733AE0DA92 /* CLToneCurveTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A609DF63BE696FA0620831D132B58BC9 /* CLToneCurveTool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		3B0DEA4A3A4002341DC0DC885DA5BCAC /* YYTextSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A4CD2EEC3025BB5E0CA3E42B3C7C76 /* YYTextSelectionView.m */; };
-		3D5311FA3BA1EEA5FAE925D5087CBDF1 /* CLSpotEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C16E88ABC8F863560A67A9D6B7E442F /* CLSpotEffect.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		3DF78E5687951F6F1C445DC297E0D475 /* CLSplineInterpolator.h in Headers */ = {isa = PBXBuildFile; fileRef = 345DB680BA3B413DFBABEFA479F1A30F /* CLSplineInterpolator.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		43EE1F03D319100936D6BEBE45D19EF7 /* CLImageEditorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BDA4CB7D2EC8EB88A0EE1A8935AB55 /* CLImageEditorTheme.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		483657B5311ADB4B595F25F644601C61 /* YYTextRunDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 02CC84639FD608EACE1FDF7C03D85D43 /* YYTextRunDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4A5CF73A31235CF60B7B1896F3EC42F3 /* YYTextDebugOption.h in Headers */ = {isa = PBXBuildFile; fileRef = B87E42F5B6469CB1B7BA2A54BA5DEA37 /* YYTextDebugOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4B3E09FF92E03D20AB9C501B9CCA027B /* _CLImageEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9EA6A4B2DFC13C0E8DAC41FEE745D3 /* _CLImageEditorViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		4C5F953A76AD3E98E7DD19A42E5CD4DF /* CLBlurTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0545746E15C946E07EA45E55255579 /* CLBlurTool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		4D32A394DC35179B438585C07C1E5B32 /* YYTextKeyboardManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 3692293E062839770449BF54D6D2D7D5 /* YYTextKeyboardManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4E0D916F4A54FD1F0F00BAAD8036E946 /* YYTextTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E8D0BE2C4F4C3BD5ED00A4D40D56B8D /* YYTextTransaction.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4EE33AE70688A1102AFBFC156AE0E2B1 /* YYTextRubyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 751A90AC2F8AEF8712B09388A47F0B65 /* YYTextRubyAnnotation.m */; };
-		50F0457CDA40DF4FA2FE490003162336 /* CLColorPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = FD00FCCE0B1A5084D7555600867026BC /* CLColorPickerView.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		5263B50AAC3454F6ED28F3AFEC916512 /* CLToneCurveTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 370E3FA90393E00A5D0DD690D3AFF3FC /* CLToneCurveTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		52EC11C1F4CF93932BED1003C06E35CB /* NSAttributedString+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C5FDB1FC8D9ADB66F83EBB6CBB64ED /* NSAttributedString+YYText.m */; };
-		53E2A91777027C61DB2180CE9FFA5DCF /* CLFilterBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 869FD7E0950ABCF05D595CE8B4F1E340 /* CLFilterBase.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		561E2BDE2C63AFBC68754DA12CDA397C /* YYTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 790F8F0B7987047F116989FF65583AEC /* YYTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5991F12BB3AEC7CFF3247B6FC4538D83 /* YYTextContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D163A89C413D2906175622FB82F8741C /* YYTextContainerView.m */; };
-		59BECD83FED807E898DEBDC8ADE1D1D5 /* YYTextAsyncLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E48D5923437FEFE01CB57949C7B0B6F8 /* YYTextAsyncLayer.m */; };
-		5A61354DC072F398E8F9C3202139B078 /* CLEffectBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56EE3B3CB811547FF57616B8AC08A2 /* CLEffectBase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		6004C31E5503454C729FA64233593663 /* CLImageEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F575C6FD9598C6295D71F0436D2309 /* CLImageEditor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		60ACA5838B9918D1621478842CE05847 /* CLDrawTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ED67331432559CEDBFEE047A2470B24 /* CLDrawTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		60E74477BE571C31E24C1E115AD77FAE /* YYTextEffectWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF241C32F03BC488E3F2284072CA88A /* YYTextEffectWindow.m */; };
-		6353686B58F267D15ED855007606155D /* CLCircleView.h in Headers */ = {isa = PBXBuildFile; fileRef = F2F05CD9E7BBA734217482AF164ECF48 /* CLCircleView.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		64F1FF8DBC1A592DD3648C274E0E4FB1 /* YYTextLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 75B9417233D983763B450970C2D9C17D /* YYTextLine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		65E6C477ACBD940DF5703C33022A23A6 /* UIView+CLImageToolInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FD76F24F18EAF821403609565FD0BD28 /* UIView+CLImageToolInfo.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		6693037E24DA7791DC83E8320A3424A6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A2EA465825138DFE5956B42ED624B4 /* QuartzCore.framework */; };
-		688CA8AF13C697A828A3033838D22CA5 /* CLImageToolInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A99AD3FCA09739AA9AE7062980F9627A /* CLImageToolInfo.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		68A2581B235352A39E7CD0D3E3CA7E29 /* YYTextAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F335C463D61E70867D3EE5930ACB56C /* YYTextAttribute.m */; };
-		6A5ED6503CB0AF453E23B5572586BCCE /* YYTextUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CEA993C8F65C2FEA63C12165B30563 /* YYTextUtilities.m */; };
-		6ACFA3F33764C5D602459CCC3796F100 /* CLSplineInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = F773927FF0FE6C228FECAF78D8921831 /* CLSplineInterpolator.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		720FAA9955188746B2A2E32CF14F1F3B /* YYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B7719ABD4C2149CDDB699AF7A502E7B9 /* YYTextView.m */; };
-		73BB6DA1A4FBAFE839D650738038296C /* YYTextLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 327C4A14058238E641DD2F53FD9E8F5D /* YYTextLayout.m */; };
-		7451E8C25193EE62D420FD7F24D07979 /* YYTextContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 82A0EB2681E8D49B2FE5F3A143438401 /* YYTextContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		78FA718D21D5534F42D3DEE2ECA4F500 /* UIDevice+SystemVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A6F2092E0806D851522021AF7FBE5E /* UIDevice+SystemVersion.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		7B94F542C89FDC025960E24E8910DFF5 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1B252C9C3510B4883E55E93ECFAC3E /* UIView+Frame.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		7DFDE4BD059E5DDF09266E8273F6596A /* CLGloomEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 15ABB9CCFAD69501196240EC53D092AC /* CLGloomEffect.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		87FA35B5F293B70149746592C6AEA5B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51989122A4C924F5891AC4B30596DD9F /* Foundation.framework */; };
-		895979927546A92A50CC2140D4DAABF5 /* CLBlurTool.h in Headers */ = {isa = PBXBuildFile; fileRef = E96BDC5E7A3FA7AECB3FECE603BE8469 /* CLBlurTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		8A6B03118343D69EAB176B77D2C4AB00 /* CLPixellateEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E68F25972C1858602FFDB45B3BDF7A9 /* CLPixellateEffect.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		8AC0BA482BF73328DDB6CCEE75662EC0 /* YYText-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 76ECE006737D939969573F8A9E1DB1EE /* YYText-dummy.m */; };
-		8D32FC1A25240CFFD05B12ABC7B0E99A /* _CLImageEditorViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D6F48F2761A59A3A70D1672E8F653AB3 /* _CLImageEditorViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		301FA2A29F5EE1EBBABA5B286F09C65B /* YYTextUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 408D57EA66F86058DF2FDEF79469466A /* YYTextUtilities.m */; };
+		30ED1C504D1CEE5E0CC3C54A15DCD7FF /* CLImageToolInfo+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 507BD94F22A53EA69ABCE92175ED8F72 /* CLImageToolInfo+Private.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		310C28BEF1206CBF1B626E84875D8501 /* CLClassList.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D8422120E9BA6F5FEA1CA1A95229B9B /* CLClassList.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		37988FF51AAE81DA9CE2A835C84C5AA3 /* YYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81573D4C20CF8172CCC16F40F79D82E4 /* YYTextView.m */; };
+		395B08C12ABB6614497E3B733AE0DA92 /* CLToneCurveTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FCB24EA754E97F19ED55DC95DA57634 /* CLToneCurveTool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		39B74621CB1070DA144297962F8C4764 /* UIView+YYText.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7E652976FA4D958177F42847B88E50 /* UIView+YYText.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D2EEAB0CCFF88769599E5101D109DCF /* YYTextContainerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 709386817F2EE8BDE9500A2C4D7C124B /* YYTextContainerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D5311FA3BA1EEA5FAE925D5087CBDF1 /* CLSpotEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D88BE1436EA635F8ADCE49D6DFC14A3 /* CLSpotEffect.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3DF78E5687951F6F1C445DC297E0D475 /* CLSplineInterpolator.h in Headers */ = {isa = PBXBuildFile; fileRef = ED0C6914EC9779025757DA60B7794595 /* CLSplineInterpolator.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		427EEBA5C3368B80A7870E50F8BCC988 /* YYTextTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = E7136DE33D6D0D7E382F740FA97334AE /* YYTextTransaction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43EE1F03D319100936D6BEBE45D19EF7 /* CLImageEditorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 797281FFFB40DDEBAEF42B012938D707 /* CLImageEditorTheme.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		44D46CA2BF76ACEDC27EBC53BF6DAE25 /* YYTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 63088D4691782D954F67FADCB8510AF7 /* YYTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		492B7955E461E3A9FA5157C6ABE6905B /* YYText.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C4B17B9F6FF977F20C424ABECFCC462 /* YYText.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49382D69C0BFDEC46C1EBEC5D1EF1BF5 /* NSAttributedString+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE10467757F33AA028507D3B133CD6D /* NSAttributedString+YYText.m */; };
+		4B3E09FF92E03D20AB9C501B9CCA027B /* _CLImageEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EF13366764712DE01B84D6092ADB7E /* _CLImageEditorViewController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4C5F953A76AD3E98E7DD19A42E5CD4DF /* CLBlurTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D5BFC0BAA488FBBDCC6F506F44F0E67 /* CLBlurTool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		50F0457CDA40DF4FA2FE490003162336 /* CLColorPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AA175DCA5005C3AC9410D9F5EE3F4F2 /* CLColorPickerView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		51169FC775C7CBDE9A66E6F91CF9855B /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E92A8DB2C304FC66CC7E4ABF980E6A /* UINavigationController+FDFullscreenPopGesture.m */; };
+		5263B50AAC3454F6ED28F3AFEC916512 /* CLToneCurveTool.h in Headers */ = {isa = PBXBuildFile; fileRef = C913F6761A0A51D3427ABA4A76865819 /* CLToneCurveTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		53644A808FDE14FCD5EC2339B0E845FA /* YYTextLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8AD1ACE9987CE3C7529C2DB2C85872 /* YYTextLayout.m */; };
+		53E2A91777027C61DB2180CE9FFA5DCF /* CLFilterBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 2440443493D59F518E581E4E44BA6730 /* CLFilterBase.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		55FBB080E4C9F1C4912D70A81165B1C8 /* YYLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 23BAD5CF99A9BEDE711DBF132AE6880B /* YYLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		57489D15F06EB47AF2ECEBD080A8B827 /* YYTextWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B3779CBF1EF9C8F0577C9375429E12 /* YYTextWeakProxy.m */; };
+		599C8BE16292B3A8C3389D59CF640238 /* YYTextRubyAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = A6F4834F5E1EE9BF02CBC554D91F5461 /* YYTextRubyAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A61354DC072F398E8F9C3202139B078 /* CLEffectBase.m in Sources */ = {isa = PBXBuildFile; fileRef = C864144F714DF03B4FAD7B889A933FF1 /* CLEffectBase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		5AC3234066D919B8EDBAEB4001574F21 /* YYTextRunDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E1FAA7CD8F5F1B729D91D96A4EFB6B /* YYTextRunDelegate.m */; };
+		5BE6D44F5AE526359B75DAD1A4AB7756 /* YYTextAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E7D4B3BD8DA83721744087BA2D1F060 /* YYTextAttribute.m */; };
+		5CFF9AD6DFA7E5F7AE9864B3B75006B7 /* YYTextMagnifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 64EB2C86360E43148D4C3A3EBC8A4B9A /* YYTextMagnifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6004C31E5503454C729FA64233593663 /* CLImageEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C49C92A019FA842849F1BA492596B97 /* CLImageEditor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		60ACA5838B9918D1621478842CE05847 /* CLDrawTool.h in Headers */ = {isa = PBXBuildFile; fileRef = C9AA79E068F2C6A1E035541760A5D78C /* CLDrawTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		621528AE7C7B195529DD4D4CA3C44D00 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A2EA465825138DFE5956B42ED624B4 /* QuartzCore.framework */; };
+		6319640958F113CC40D02A1A0D9127A9 /* YYTextLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 19BE244FA8DE0924A342578FECE5E30C /* YYTextLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6353686B58F267D15ED855007606155D /* CLCircleView.h in Headers */ = {isa = PBXBuildFile; fileRef = BA0E77CB1534FBE3E3B454D7E2CA66BA /* CLCircleView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		64859CFDA39E7CE4AF6E197D9EE25E5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40EBD81499A8C973D1CFFE15AD989422 /* UIKit.framework */; };
+		65E6C477ACBD940DF5703C33022A23A6 /* UIView+CLImageToolInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AE78E2FD15BD280A55CDFE68505A201C /* UIView+CLImageToolInfo.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		675D8D4A4032FE066404C6A30DFB536F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8718A0717020A3D3109057747138CE7E /* CoreFoundation.framework */; };
+		688CA8AF13C697A828A3033838D22CA5 /* CLImageToolInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9E29F34EFA5690F6ABC46DBF29BB8F /* CLImageToolInfo.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		695D4418572092CC54A7E186696B711B /* YYTextEffectWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 4186E642092DB96C735F90C930F30B34 /* YYTextEffectWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6ACFA3F33764C5D602459CCC3796F100 /* CLSplineInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA4B67FA25DE00E908BEA910D0C284 /* CLSplineInterpolator.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		73D038FC9AD46335F5F92FB281096B07 /* NSAttributedString+YYText.h in Headers */ = {isa = PBXBuildFile; fileRef = 706C242C23F6726236464DAA0BE79049 /* NSAttributedString+YYText.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78FA718D21D5534F42D3DEE2ECA4F500 /* UIDevice+SystemVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE7958129C623678DEC80A17DE63160 /* UIDevice+SystemVersion.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7B94F542C89FDC025960E24E8910DFF5 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 68250D81A4E9B680F90BF1509CF069E6 /* UIView+Frame.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7DFDE4BD059E5DDF09266E8273F6596A /* CLGloomEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F1C9379D3E3BDC5108855527A5F28A /* CLGloomEffect.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7F6179DC38DF09D7FEBF65BEBBAB29A5 /* YYTextSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22645D7502AB0A274AB7BC6507CFC801 /* YYTextSelectionView.m */; };
+		895979927546A92A50CC2140D4DAABF5 /* CLBlurTool.h in Headers */ = {isa = PBXBuildFile; fileRef = D04BA9B5626D7392833F0C9804CFF2F4 /* CLBlurTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8A6B03118343D69EAB176B77D2C4AB00 /* CLPixellateEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = D48076D6CB504B0ADE417CEC0B57395F /* CLPixellateEffect.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		8AA7BF94A80F9E6800C2F42300B1DCA9 /* YYTextParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 82202EFA74B3E818E313AB60CA881CDE /* YYTextParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D32FC1A25240CFFD05B12ABC7B0E99A /* _CLImageEditorViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 85C1A1BC26750768FFBF48196D491884 /* _CLImageEditorViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8E13B42169BE6CCA8118A9221D0DD170 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1072612542404CCF7FBD34D96AD7F87 /* Accelerate.framework */; };
-		8F2002E2D4764231F0EECFD9BAB02E22 /* NSParagraphStyle+YYText.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A5782DC6510779C005BD64D37FB6B3 /* NSParagraphStyle+YYText.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9038543C262F0F9D8DEDE3776A53E46E /* CLClassList.m in Sources */ = {isa = PBXBuildFile; fileRef = 128AD9E5575C9AD7383685DFF9696EB2 /* CLClassList.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		98881942DB124809FA2CA7A278918C49 /* YYLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 203A6EFE9B76BDA33A9244A65FCB1E7F /* YYLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9A31891D7CABDABA7B04485D88C26BA1 /* YYTextArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 411CF90189D46B9A49B865B009B8DB8A /* YYTextArchiver.m */; };
-		9CBB724ABE7BB5CE33392FAE35A52CF2 /* CLImageToolBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 44767EEF709AC770C04C3E68039033EB /* CLImageToolBase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		9DBC77DD68AA1A72693E8C7CD7EEF72E /* YYTextWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 952B3088CABCD79411A3134C99712A9F /* YYTextWeakProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A0F0C959038EE9A509AE49E892FB7C22 /* CLFilterTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 33004C88B6404B6AB1FA49B6D6C2EA71 /* CLFilterTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A2013B8BA9E3D5488DE222045D9D906E /* YYTextKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A40593D234CE641FBF2F145EABEB418F /* YYTextKeyboardManager.m */; };
-		A262BCFFE95FF3E96F3F31C574958D45 /* CLImageToolBase.h in Headers */ = {isa = PBXBuildFile; fileRef = B630798F7653F08B7A92D5F8E2846FCF /* CLImageToolBase.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A5A7723AFEBE294D6C117B89DABB4318 /* CLEffectTool.h in Headers */ = {isa = PBXBuildFile; fileRef = AADF1103A84115DEFCA607D7CA6C168E /* CLEffectTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A72D8E70EFA1CC33C5D934827BE3252B /* CLPosterizeEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDAC60679401A70780BE11B21ECA3E8 /* CLPosterizeEffect.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		A8B0E7731E7517C1A895957223927DFB /* CLImageToolSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 46593390BDFA0074600D17B096C1AC29 /* CLImageToolSettings.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A8E3D74953CCF5073657E183D37114D5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5375FFFB601EBC6E68F764E9C1B63520 /* MobileCoreServices.framework */; };
-		A993CC1186EFEA71C8EAB98B1810D878 /* CLImageEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B3E52A4C0B0BFB118BE87FD1949359E /* CLImageEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AFECC9F8AA074ACF23954F883BCDDA28 /* YYTextDebugOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 222386371C4C3AC778A026E72D9D8EE2 /* YYTextDebugOption.m */; };
-		B00E0B8B9F8DA78A157FA37B3BA4DE0B /* CLClippingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 19BC83B5FF8B149C4E71FE20A7370F3E /* CLClippingTool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		B1DB45948499AC15ADFD3ECEEF53BEAF /* YYTextMagnifier.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCAECADD0A088FA02DB4373F12C0086 /* YYTextMagnifier.m */; };
-		B294DDC9C4A279C547684E4F9CE1B956 /* CLImageEditor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA8FBEE642FF1E8B4F468611EF3FC8C /* CLImageEditor-dummy.m */; };
-		B2DCC2ADEF86ED8429392125B91FF533 /* CLImageEditorTheme+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = B245B4C5FCF2C13F7627784C78299622 /* CLImageEditorTheme+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		B72FC37E46B014BC8F3844D9C326C956 /* CLAdjustmentTool.h in Headers */ = {isa = PBXBuildFile; fileRef = E83B2D59D4A13AF2EA9A8B0BEC6B7325 /* CLAdjustmentTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		B97DC080DDB304791A0BCD996FB28422 /* CLImageEditorTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 8561BC99115D64CB41C9145C743E5C18 /* CLImageEditorTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BBA60FB3D0DE5F85BDD8F04FBAAA367F /* CLImageToolProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F43CA98C38E143DF26CFB6BBC835999 /* CLImageToolProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		BCA948EB041BB5AE93B55648E193337E /* UIPasteboard+YYText.h in Headers */ = {isa = PBXBuildFile; fileRef = 5192513FFC54E45F5FECB991445A55D5 /* UIPasteboard+YYText.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BFD22673F1C549FE964F9797AA93F48B /* CLRotateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B78260BA07A0F69DA1F3FECF588D642E /* CLRotateTool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		C1B13708351D18526A8EF6FBAC97F769 /* CLImageToolInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4559B98B88A560BFB3DB1B920CCEF97A /* CLImageToolInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C1B27CA63EE1BDE54FF834B5267FFA88 /* UIPasteboard+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6C17EF8F4098E8D32BBB8BB79C4667 /* UIPasteboard+YYText.m */; };
-		C2193FAFAD6E4E84135265C7A4F2D9D8 /* YYTextAsyncLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = AC340A991C9C1EDA0159E643A1315987 /* YYTextAsyncLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C27FCB9A70E56629A27A6DAB12165D38 /* CLPixellateEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 437E7446C75EE36D66CF5A48B6EB95C2 /* CLPixellateEffect.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C498240BE8AB3C09E6D9C1CDCB722FA7 /* YYTextEffectWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C53C6514BD4991D8FA8BF7BBB518F4E /* YYTextEffectWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C5ABE37BF4E2D54455834650AA6A3CED /* YYText.h in Headers */ = {isa = PBXBuildFile; fileRef = 458FEDC16AB600E3C50F162190B27CD8 /* YYText.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9038543C262F0F9D8DEDE3776A53E46E /* CLClassList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C99A67BD23C0FAD6E8120E6D7341938 /* CLClassList.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		91F08BF429646D7F4A1009F3596045BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51989122A4C924F5891AC4B30596DD9F /* Foundation.framework */; };
+		969C54EBAE6E7A436CE036425446BB98 /* YYTextUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = DC292A05655A15FADABA490E3FC1AB38 /* YYTextUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99AE0E09E60B14448B47F7D15C8BBEA1 /* YYTextDebugOption.h in Headers */ = {isa = PBXBuildFile; fileRef = 20C480774D151EC8D274A7F666D96A2B /* YYTextDebugOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9CBB724ABE7BB5CE33392FAE35A52CF2 /* CLImageToolBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AA339758A781EF368EEF3D70F5D0D5 /* CLImageToolBase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9D25CE758FB02134D751BED614BBE741 /* YYTextSelectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 94977AB2DE516A0F22B338B78D6AF34D /* YYTextSelectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A049D7CF6343331BFED522EF390654C4 /* YYTextInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DC1F0358B9C30C20F2681559AF9BB48 /* YYTextInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0F0C959038EE9A509AE49E892FB7C22 /* CLFilterTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE2059154ED96F8BF3281A585BEE1B0 /* CLFilterTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A262BCFFE95FF3E96F3F31C574958D45 /* CLImageToolBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C6783D5B012B3D61394E8AC77620181 /* CLImageToolBase.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A5A7723AFEBE294D6C117B89DABB4318 /* CLEffectTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 923DAC1704500AFCDC2B29900AC16921 /* CLEffectTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A6490CEDD99AA4F40F13E74A3A433B1B /* YYTextArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 175DB7542376DBA6290C9E8C860E98D6 /* YYTextArchiver.m */; };
+		A6BF12EAEE60E02705A786FBB5CAAF69 /* YYTextAsyncLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 40EEBF270611709E89558BC1C5BB442D /* YYTextAsyncLayer.m */; };
+		A72D8E70EFA1CC33C5D934827BE3252B /* CLPosterizeEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3198D8E4ECEC1712476471F2A54FBB7B /* CLPosterizeEffect.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A808C4B3F2EAA411C2C043E73B838400 /* YYTextAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = A0A5D1427EB468ECEFDE1FCF69581063 /* YYTextAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A8B0E7731E7517C1A895957223927DFB /* CLImageToolSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = B6D22B8DFACAE3F60660061222D131DF /* CLImageToolSettings.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A993CC1186EFEA71C8EAB98B1810D878 /* CLImageEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 679E85950D2956051B0E2D8D1045B08C /* CLImageEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB6FFEC8CB06FBDBF594601B846FBBBA /* UIPasteboard+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F72578CC514799F145E76FA55C4D001 /* UIPasteboard+YYText.m */; };
+		ABD0B6F874EFDE16271DA26E3913F2FE /* YYTextKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E70A0416E9D019388320A981B47769 /* YYTextKeyboardManager.m */; };
+		ACC8ED1989F8BBFB4C5D7B60B809C68E /* Pods-24EditorDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2799CDA70091B2CFCEE7274F639AFA15 /* Pods-24EditorDemo-dummy.m */; };
+		B00E0B8B9F8DA78A157FA37B3BA4DE0B /* CLClippingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C18B93B908AB6ED4C221DE0CEA97FE /* CLClippingTool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B294DDC9C4A279C547684E4F9CE1B956 /* CLImageEditor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 271275C9FC662C8F07C8E1311B7E2667 /* CLImageEditor-dummy.m */; };
+		B2DCC2ADEF86ED8429392125B91FF533 /* CLImageEditorTheme+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D97798217EE70A19626FD96BDEBDB88 /* CLImageEditorTheme+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B346C11BB47C0BD886A5F21086D33717 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53C8DC9BF07E35D247C44C510245964 /* CoreText.framework */; };
+		B3A172B709D273ABA2565C7EEFA4AB37 /* NSParagraphStyle+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDA54664CE9C3E3B383B31C329BA603 /* NSParagraphStyle+YYText.m */; };
+		B72FC37E46B014BC8F3844D9C326C956 /* CLAdjustmentTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 53D3AC29D8C2D2A29F3E32C4C61AF615 /* CLAdjustmentTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B97DC080DDB304791A0BCD996FB28422 /* CLImageEditorTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = F91CE643CFBC07FA05837148A5D999A4 /* CLImageEditorTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BBA60FB3D0DE5F85BDD8F04FBAAA367F /* CLImageToolProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = B4897C78D0AC901B22081EF0D94D27C6 /* CLImageToolProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BDD2E97CA8172305450EFD31B81BFEF8 /* UIPasteboard+YYText.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EE47FFA049D690A15A51E654B9CFC17 /* UIPasteboard+YYText.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BFD22673F1C549FE964F9797AA93F48B /* CLRotateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E4FCFBDA52FEC277809E507A133FC8 /* CLRotateTool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C053CF080E404398282C8D35C2CA21D2 /* YYText-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F720E0209C1F387101B6BE875C95CA7F /* YYText-dummy.m */; };
+		C05F76026A00F9C663C8297AAD45EBC5 /* YYTextRubyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 801205A76B775221B7F0B73834B54FBA /* YYTextRubyAnnotation.m */; };
+		C1B13708351D18526A8EF6FBAC97F769 /* CLImageToolInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 02E74E7C70BF3B8D7A4515E803B12E0E /* CLImageToolInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C27FCB9A70E56629A27A6DAB12165D38 /* CLPixellateEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F3A2DAAEF8BBC1F56178BCC15075840 /* CLPixellateEffect.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C3EE4D2A25A5EAB5AF146F2F8B825919 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51989122A4C924F5891AC4B30596DD9F /* Foundation.framework */; };
+		C3FB4F117C9CE2928CE6FB66BAF784D9 /* UINavigationController+FDFullscreenPopGesture.h in Headers */ = {isa = PBXBuildFile; fileRef = 095945E72F629DF46EA609EAC85518B3 /* UINavigationController+FDFullscreenPopGesture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C6230B901FB43E2192357CE737C8EB8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F91ECBBA792915BFB16BA5AD0EC9F0 /* CoreGraphics.framework */; };
-		C779E9C1254599197530EBE30B044C14 /* CLRotateTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 50E44453861026854F7A40AAA9FE424D /* CLRotateTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C9E8C4DBFA378B1A9167F2F19CAB2E28 /* Pods-24EditorDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2799CDA70091B2CFCEE7274F639AFA15 /* Pods-24EditorDemo-dummy.m */; };
-		CA20484E243D5CB71123D1045EE40597 /* CLSpotEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = F9227E0F431393FC204B3F50C2490A40 /* CLSpotEffect.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		CB5C82DDAB31DDA97C63B052B92EE60C /* YYTextWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA86DECDFFF56E11EA0D7FBEB10EB54 /* YYTextWeakProxy.m */; };
-		CD416010D4DE58EC70904679F044EE36 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53C8DC9BF07E35D247C44C510245964 /* CoreText.framework */; };
-		CF571FEECEB8DC5931C548829F46DB42 /* YYTextLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F00CD225F763EF648D718406916C6B /* YYTextLine.m */; };
-		CF6001CF3B09B3916F82F5614E53369A /* CLDrawTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 03552FAF8199AD348A27C29CF65DAF68 /* CLDrawTool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		D0D047286F52F89D46EC4ACF9C160D98 /* CLEffectTool.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45C6CB06A0BFDB2DA2C04ED4D23C17 /* CLEffectTool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		D10AD5CC671D639924167966523B1412 /* YYTextAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C922280C5E23D20FD22053363EDC1CF /* YYTextAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D185C842BD4BBD49438E25737FB4FDD1 /* CLHighlightShadowEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = B0C9196686922258BCA4554426846ED0 /* CLHighlightShadowEffect.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		D30F715A7AEFD8096ED53F34CD3B36AA /* YYLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 75EF91970AB844104A48EB613D224355 /* YYLabel.m */; };
-		D362AF9A4E2ECEEFB065A2E5599C8153 /* YYTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE113A4DAD892BF15A46739554E8EBE /* YYTextInput.m */; };
-		D37CAFAEE55C7E8AC35B230D0825F679 /* CLToolbarMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 235867F72E4E9106EDE60DB9BB720BDF /* CLToolbarMenuItem.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		D3CB0740D3D92E1B68B4BEE956316546 /* UIDevice+SystemVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 8426DD715CECD43DCA9851F05BF83636 /* UIDevice+SystemVersion.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		D66D482E975A74914F6DC7B0D83650C5 /* UIView+YYText.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F15935BAA27877D06A319B1643A1C65 /* UIView+YYText.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D70DEB1B3FBCFCF182E41A5B66A3BD4B /* UIView+CLImageToolInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 01DF1B568C62D8F8F29886807C81694B /* UIView+CLImageToolInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		DBCD001E6973E9A98D360DE5FEC157D2 /* YYTextParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A0F2EB286359DE2E84B1135C3582D8 /* YYTextParser.m */; };
-		DDF564BFBB8FB7528FDF74BCB9A474FC /* CLClippingTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 23E77D8E0F1F5C3DBB67B280057E3621 /* CLClippingTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		E2C7612AD313554B6F8749DD96F2D8E2 /* CLFilterBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 86C3A7739408DE890DEA235A146B629C /* CLFilterBase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		E344EA33DCB03542FD38993873A1B50A /* UIView+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = 7034B9E0B99A1C672EFD95A675468E16 /* UIView+YYText.m */; };
-		E3C6A067C1C79A20F6BEC5B04570B670 /* UIImage+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 779308F74083EB0EC31DBA9182D20DCA /* UIImage+Utility.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		E3F1E279885C76E73C89BBABC461625D /* YYTextSelectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A49DC9D44E71B28B2B1441E7747B496 /* YYTextSelectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E95EFFB6C3121D14CE74A37790DFB910 /* CLImageEditorTheme+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BFA4BC9504EE34A2697D97C1DB68EF /* CLImageEditorTheme+Private.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		EA330F1238A02549016EC5A6C22495F0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40EBD81499A8C973D1CFFE15AD989422 /* UIKit.framework */; };
-		ECB705B0D775DD6D672109CF2156857B /* UIImage+Utility.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F69C6FF6DD7847BA116C37FED8C88CC /* UIImage+Utility.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		ED41D2B9DDCBF8510C4658DE0569F759 /* CLPosterizeEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 7758A015A97DF3D6A97CCC5E3DE47EE9 /* CLPosterizeEffect.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		EDBB81043AA63F9B86E35FA47FEEEE89 /* CLToolbarMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C441E38BA037678D412025199C85992 /* CLToolbarMenuItem.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		F25EBB3715CD80ACCF00474D29AE983F /* CLHueEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = A1A9FB980BEF188D6A994784952AA066 /* CLHueEffect.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		F53343E68E3DBF170CA2C960E513A2CF /* CLAdjustmentTool.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6841FF4ABA0FE2D528A7C5206DFCC0 /* CLAdjustmentTool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		F67AE524D045292F266D36F913CD2032 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8718A0717020A3D3109057747138CE7E /* CoreFoundation.framework */; };
+		C742CACB44605CB610AE3BD886FEF316 /* YYTextLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B0371A0DE4AE7FA66D8D5CD06C3714 /* YYTextLine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C779E9C1254599197530EBE30B044C14 /* CLRotateTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 62EC4DA62E68A54941BD9B44F184C2A8 /* CLRotateTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C805665B51B4CAF74E5B79B00B571E92 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5375FFFB601EBC6E68F764E9C1B63520 /* MobileCoreServices.framework */; };
+		CA20484E243D5CB71123D1045EE40597 /* CLSpotEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 091B7273EF4352541F4D9736C0F3823F /* CLSpotEffect.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		CABF4C70BBAFB45E86E8C18AFB97787A /* YYLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 391906DD6C4F01E4C9631CEF006ECAF8 /* YYLabel.m */; };
+		CF6001CF3B09B3916F82F5614E53369A /* CLDrawTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FB162216B23E133CEE25BD860D0EF93F /* CLDrawTool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		CFA2F5C9A1FF62120828492C2FB616B5 /* FDFullscreenPopGesture-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 072F43A720538EB377F6699317F959E4 /* FDFullscreenPopGesture-dummy.m */; };
+		D0D047286F52F89D46EC4ACF9C160D98 /* CLEffectTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 08182FFD35C0F75097977010381E328A /* CLEffectTool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D185C842BD4BBD49438E25737FB4FDD1 /* CLHighlightShadowEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E33C969C2AE6370A772CBA759A315D7 /* CLHighlightShadowEffect.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D37CAFAEE55C7E8AC35B230D0825F679 /* CLToolbarMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DE752BD6C6E7409D7DC37DE7AAF94AD /* CLToolbarMenuItem.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D3CB0740D3D92E1B68B4BEE956316546 /* UIDevice+SystemVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 309C1A93BE762C732F3E999BEA809336 /* UIDevice+SystemVersion.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D630FDBD207AC4FEB1724364FBE47579 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1072612542404CCF7FBD34D96AD7F87 /* Accelerate.framework */; };
+		D70DEB1B3FBCFCF182E41A5B66A3BD4B /* UIView+CLImageToolInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 652827F0790C0487BF4D13F280804A61 /* UIView+CLImageToolInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DADFBB53A1E036AE1F598BC6EB21D32D /* YYTextDebugOption.m in Sources */ = {isa = PBXBuildFile; fileRef = CD625365D146CC6400412834331963B6 /* YYTextDebugOption.m */; };
+		DC1BA26D05A73A1441F3B091EB300E0A /* YYTextEffectWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE5538F3B51C0A506F252602719320 /* YYTextEffectWindow.m */; };
+		DC65560F28841CA5C3C75C073579B6A4 /* YYTextContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD405B014D37F2A083CAC754E1C907D9 /* YYTextContainerView.m */; };
+		DDF564BFBB8FB7528FDF74BCB9A474FC /* CLClippingTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 636BBF48DAFE9426A98DB9397AE89D56 /* CLClippingTool.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DF07B39FA051DE7FEABA0A5EBF2883D4 /* YYTextWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = B2D457C6F8D8FC91095B3F89B3966037 /* YYTextWeakProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2C7612AD313554B6F8749DD96F2D8E2 /* CLFilterBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 990EC8ACCDF0D8BF2CC53482F432ECB2 /* CLFilterBase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E35414ED3871E59938C608D212DB26E7 /* UIView+YYText.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BD531303E2A53A18472CD7DCA13341 /* UIView+YYText.m */; };
+		E3C6A067C1C79A20F6BEC5B04570B670 /* UIImage+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = C938D58C17DF3B20CF7F48B8A628B445 /* UIImage+Utility.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E95EFFB6C3121D14CE74A37790DFB910 /* CLImageEditorTheme+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = E449DB3A21B2F3E1EFA7EA1AE534D60B /* CLImageEditorTheme+Private.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		EC9174324FB9A895EE7D4942DDC6269A /* YYTextLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF02ADAA758359142B64ECB3240ABDD /* YYTextLine.m */; };
+		ECB705B0D775DD6D672109CF2156857B /* UIImage+Utility.h in Headers */ = {isa = PBXBuildFile; fileRef = AF890905364AA6C8574A9DE1D37CFECF /* UIImage+Utility.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		ED41D2B9DDCBF8510C4658DE0569F759 /* CLPosterizeEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 128141295BB214F84F82A818EC6414E9 /* CLPosterizeEffect.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EDBB81043AA63F9B86E35FA47FEEEE89 /* CLToolbarMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AB04A4C5E935D98D07AA490AB82F0706 /* CLToolbarMenuItem.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F25EBB3715CD80ACCF00474D29AE983F /* CLHueEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3159AED55444AA8CB633960E1AC237 /* CLHueEffect.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F53343E68E3DBF170CA2C960E513A2CF /* CLAdjustmentTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6660698FBB10A85D36588D9D31377A /* CLAdjustmentTool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		F81CA055A24213296A4698CAB53A51CC /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0F72716002E4EF1D54608C3C30C4E83 /* CoreImage.framework */; };
-		FBA5210BA21220233EF151A53CCFC67B /* YYTextRunDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F774D812DF0BDA21A42EA9676187FA /* YYTextRunDelegate.m */; };
-		FCB14A561DF5969F6A4A4BD023E39E82 /* NSAttributedString+YYText.h in Headers */ = {isa = PBXBuildFile; fileRef = C31768E6F730DF1ECCCE84245DC7F4B5 /* NSAttributedString+YYText.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F84251F888803C7EBCD0F44A07344845 /* YYTextParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D10C6B4C5A85092BB8198C84C09E69FA /* YYTextParser.m */; };
+		FB3E532CDF3FB54C250F523D242AED9D /* NSParagraphStyle+YYText.h in Headers */ = {isa = PBXBuildFile; fileRef = 7612F482908169A902032791CF920718 /* NSParagraphStyle+YYText.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC3D670D8783A218CB5D995E5FC882CF /* YYTextArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 13A08CDE3B76D2C7256931999181FA8E /* YYTextArchiver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FDA4E0EB004D8FCAFA1492A700E46C49 /* YYTextTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C148215C2A73CA9139B9BDB845265C /* YYTextTransaction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		07E2219A8B800CAA3D0EA6823C3A3612 /* PBXContainerItemProxy */ = {
+		6A739A466D4972A5B1B2855948B8B19B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = CF497F50993F364000EB3D877101F821;
+			remoteGlobalIDString = 038335D11E9AEA95E4D949EC3ECA195E;
 			remoteInfo = YYText;
 		};
-		6F885A71B91A266A64A1013E8C539D41 /* PBXContainerItemProxy */ = {
+		B57FB1E16DB4D6A3A3C30462C406B6B9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DE82B8ACF304C8C99AF7AA4C3809232A;
 			remoteInfo = CLImageEditor;
 		};
+		B600F61945908B99B4E0ECFF9C211D95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE366E1E6962F82E6AEC8AE66FA66CBF;
+			remoteInfo = FDFullscreenPopGesture;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01DF1B568C62D8F8F29886807C81694B /* UIView+CLImageToolInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+CLImageToolInfo.h"; path = "CLImageEditor/ImageTools/ToolSettings/UIView+CLImageToolInfo.h"; sourceTree = "<group>"; };
-		02CC84639FD608EACE1FDF7C03D85D43 /* YYTextRunDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextRunDelegate.h; path = YYText/String/YYTextRunDelegate.h; sourceTree = "<group>"; };
-		032CBF63AC3956FDE729B57BF258D0F6 /* CLCircleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLCircleView.m; path = CLImageEditor/ImageTools/ToolSettings/CLCircleView.m; sourceTree = "<group>"; };
-		03552FAF8199AD348A27C29CF65DAF68 /* CLDrawTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLDrawTool.m; path = CLImageEditor/ImageTools/CLDrawTool/CLDrawTool.m; sourceTree = "<group>"; };
-		03F575C6FD9598C6295D71F0436D2309 /* CLImageEditor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLImageEditor.m; path = CLImageEditor/CLImageEditor.m; sourceTree = "<group>"; };
-		08A0F2EB286359DE2E84B1135C3582D8 /* YYTextParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextParser.m; path = YYText/String/YYTextParser.m; sourceTree = "<group>"; };
-		0B3E52A4C0B0BFB118BE87FD1949359E /* CLImageEditor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLImageEditor.h; path = CLImageEditor/CLImageEditor.h; sourceTree = "<group>"; };
-		0C16E88ABC8F863560A67A9D6B7E442F /* CLSpotEffect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSpotEffect.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLSpotEffect.h; sourceTree = "<group>"; };
-		128AD9E5575C9AD7383685DFF9696EB2 /* CLClassList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLClassList.m; path = CLImageEditor/Utils/CLClassList.m; sourceTree = "<group>"; };
-		15ABB9CCFAD69501196240EC53D092AC /* CLGloomEffect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLGloomEffect.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLGloomEffect.m; sourceTree = "<group>"; };
-		19BC83B5FF8B149C4E71FE20A7370F3E /* CLClippingTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLClippingTool.m; path = CLImageEditor/ImageTools/CLClippingTool/CLClippingTool.m; sourceTree = "<group>"; };
-		1A49DC9D44E71B28B2B1441E7747B496 /* YYTextSelectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextSelectionView.h; path = YYText/Component/YYTextSelectionView.h; sourceTree = "<group>"; };
-		1C922280C5E23D20FD22053363EDC1CF /* YYTextAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextAttribute.h; path = YYText/String/YYTextAttribute.h; sourceTree = "<group>"; };
-		1FD312F394E50B81D724F17A3D1BF360 /* CLImageToolInfo+Private.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CLImageToolInfo+Private.m"; path = "CLImageEditor/ImageTools/ToolSettings/CLImageToolInfo+Private.m"; sourceTree = "<group>"; };
-		203A6EFE9B76BDA33A9244A65FCB1E7F /* YYLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYLabel.h; path = YYText/YYLabel.h; sourceTree = "<group>"; };
-		222386371C4C3AC778A026E72D9D8EE2 /* YYTextDebugOption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextDebugOption.m; path = YYText/Component/YYTextDebugOption.m; sourceTree = "<group>"; };
-		235867F72E4E9106EDE60DB9BB720BDF /* CLToolbarMenuItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLToolbarMenuItem.h; path = CLImageEditor/ImageTools/ToolSettings/CLToolbarMenuItem.h; sourceTree = "<group>"; };
-		23E77D8E0F1F5C3DBB67B280057E3621 /* CLClippingTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLClippingTool.h; path = CLImageEditor/ImageTools/CLClippingTool/CLClippingTool.h; sourceTree = "<group>"; };
-		26B35BA625D8716982ECC8880CEFCF66 /* CLBloomEffect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLBloomEffect.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLBloomEffect.m; sourceTree = "<group>"; };
+		02E74E7C70BF3B8D7A4515E803B12E0E /* CLImageToolInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLImageToolInfo.h; path = CLImageEditor/CLImageToolInfo.h; sourceTree = "<group>"; };
+		072F43A720538EB377F6699317F959E4 /* FDFullscreenPopGesture-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FDFullscreenPopGesture-dummy.m"; sourceTree = "<group>"; };
+		07B3779CBF1EF9C8F0577C9375429E12 /* YYTextWeakProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextWeakProxy.m; path = YYText/Utility/YYTextWeakProxy.m; sourceTree = "<group>"; };
+		08182FFD35C0F75097977010381E328A /* CLEffectTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLEffectTool.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffectTool.m; sourceTree = "<group>"; };
+		091B7273EF4352541F4D9736C0F3823F /* CLSpotEffect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLSpotEffect.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLSpotEffect.m; sourceTree = "<group>"; };
+		095945E72F629DF46EA609EAC85518B3 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+FDFullscreenPopGesture.h"; path = "FDFullscreenPopGesture/UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		0C99A67BD23C0FAD6E8120E6D7341938 /* CLClassList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLClassList.m; path = CLImageEditor/Utils/CLClassList.m; sourceTree = "<group>"; };
+		0E33C969C2AE6370A772CBA759A315D7 /* CLHighlightShadowEffect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLHighlightShadowEffect.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLHighlightShadowEffect.h; sourceTree = "<group>"; };
+		10F1C9379D3E3BDC5108855527A5F28A /* CLGloomEffect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLGloomEffect.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLGloomEffect.m; sourceTree = "<group>"; };
+		115BF04F61B35B5E37B1E75E6B8E9D99 /* CLEffectBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLEffectBase.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffectBase.h; sourceTree = "<group>"; };
+		128141295BB214F84F82A818EC6414E9 /* CLPosterizeEffect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLPosterizeEffect.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLPosterizeEffect.h; sourceTree = "<group>"; };
+		12FA4B67FA25DE00E908BEA910D0C284 /* CLSplineInterpolator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLSplineInterpolator.m; path = CLImageEditor/Utils/CLSplineInterpolator.m; sourceTree = "<group>"; };
+		13A08CDE3B76D2C7256931999181FA8E /* YYTextArchiver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextArchiver.h; path = YYText/String/YYTextArchiver.h; sourceTree = "<group>"; };
+		175DB7542376DBA6290C9E8C860E98D6 /* YYTextArchiver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextArchiver.m; path = YYText/String/YYTextArchiver.m; sourceTree = "<group>"; };
+		18E70A0416E9D019388320A981B47769 /* YYTextKeyboardManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextKeyboardManager.m; path = YYText/Component/YYTextKeyboardManager.m; sourceTree = "<group>"; };
+		19BE244FA8DE0924A342578FECE5E30C /* YYTextLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextLayout.h; path = YYText/Component/YYTextLayout.h; sourceTree = "<group>"; };
+		1C4B17B9F6FF977F20C424ABECFCC462 /* YYText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYText.h; path = YYText/YYText.h; sourceTree = "<group>"; };
+		1DC1F0358B9C30C20F2681559AF9BB48 /* YYTextInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextInput.h; path = YYText/Component/YYTextInput.h; sourceTree = "<group>"; };
+		20C480774D151EC8D274A7F666D96A2B /* YYTextDebugOption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextDebugOption.h; path = YYText/Component/YYTextDebugOption.h; sourceTree = "<group>"; };
+		20E1FAA7CD8F5F1B729D91D96A4EFB6B /* YYTextRunDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextRunDelegate.m; path = YYText/String/YYTextRunDelegate.m; sourceTree = "<group>"; };
+		22645D7502AB0A274AB7BC6507CFC801 /* YYTextSelectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextSelectionView.m; path = YYText/Component/YYTextSelectionView.m; sourceTree = "<group>"; };
+		23BAD5CF99A9BEDE711DBF132AE6880B /* YYLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYLabel.h; path = YYText/YYLabel.h; sourceTree = "<group>"; };
+		2440443493D59F518E581E4E44BA6730 /* CLFilterBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLFilterBase.h; path = CLImageEditor/ImageTools/CLFilterTool/CLFilterBase.h; sourceTree = "<group>"; };
+		271275C9FC662C8F07C8E1311B7E2667 /* CLImageEditor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CLImageEditor-dummy.m"; sourceTree = "<group>"; };
 		2799CDA70091B2CFCEE7274F639AFA15 /* Pods-24EditorDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-24EditorDemo-dummy.m"; sourceTree = "<group>"; };
-		28BDA4CB7D2EC8EB88A0EE1A8935AB55 /* CLImageEditorTheme.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLImageEditorTheme.m; path = CLImageEditor/CLImageEditorTheme.m; sourceTree = "<group>"; };
-		2ED67331432559CEDBFEE047A2470B24 /* CLDrawTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLDrawTool.h; path = CLImageEditor/ImageTools/CLDrawTool/CLDrawTool.h; sourceTree = "<group>"; };
-		2F6C17EF8F4098E8D32BBB8BB79C4667 /* UIPasteboard+YYText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIPasteboard+YYText.m"; path = "YYText/Utility/UIPasteboard+YYText.m"; sourceTree = "<group>"; };
+		28B02D6FECC6CE9C87CC705FEF566D88 /* CLBloomEffect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLBloomEffect.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLBloomEffect.m; sourceTree = "<group>"; };
+		292AB5809F02FB35A433683C04717FE3 /* YYTextKeyboardManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextKeyboardManager.h; path = YYText/Component/YYTextKeyboardManager.h; sourceTree = "<group>"; };
+		2DD18CDC393D49162E80E93C3F82509F /* YYTextMagnifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextMagnifier.m; path = YYText/Component/YYTextMagnifier.m; sourceTree = "<group>"; };
+		2DDA54664CE9C3E3B383B31C329BA603 /* NSParagraphStyle+YYText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSParagraphStyle+YYText.m"; path = "YYText/Utility/NSParagraphStyle+YYText.m"; sourceTree = "<group>"; };
+		2E2C1336000E371E872E3FBA64FED974 /* CLColorPickerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLColorPickerView.m; path = CLImageEditor/ImageTools/ToolSettings/CLColorPickerView.m; sourceTree = "<group>"; };
+		2F3A2DAAEF8BBC1F56178BCC15075840 /* CLPixellateEffect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLPixellateEffect.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLPixellateEffect.h; sourceTree = "<group>"; };
+		309C1A93BE762C732F3E999BEA809336 /* UIDevice+SystemVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIDevice+SystemVersion.h"; path = "CLImageEditor/Utils/UIDevice+SystemVersion.h"; sourceTree = "<group>"; };
 		30A2EA465825138DFE5956B42ED624B4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		327C4A14058238E641DD2F53FD9E8F5D /* YYTextLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextLayout.m; path = YYText/Component/YYTextLayout.m; sourceTree = "<group>"; };
-		33004C88B6404B6AB1FA49B6D6C2EA71 /* CLFilterTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLFilterTool.h; path = CLImageEditor/ImageTools/CLFilterTool/CLFilterTool.h; sourceTree = "<group>"; };
-		345DB680BA3B413DFBABEFA479F1A30F /* CLSplineInterpolator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSplineInterpolator.h; path = CLImageEditor/Utils/CLSplineInterpolator.h; sourceTree = "<group>"; };
-		3583D8C03471BCFBC9A80815EA51DFE7 /* libYYText.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYYText.a; path = libYYText.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		3692293E062839770449BF54D6D2D7D5 /* YYTextKeyboardManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextKeyboardManager.h; path = YYText/Component/YYTextKeyboardManager.h; sourceTree = "<group>"; };
-		370E3FA90393E00A5D0DD690D3AFF3FC /* CLToneCurveTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLToneCurveTool.h; path = CLImageEditor/ImageTools/CLToneCurveTool/CLToneCurveTool.h; sourceTree = "<group>"; };
-		3AE113A4DAD892BF15A46739554E8EBE /* YYTextInput.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextInput.m; path = YYText/Component/YYTextInput.m; sourceTree = "<group>"; };
-		3F15935BAA27877D06A319B1643A1C65 /* UIView+YYText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+YYText.h"; path = "YYText/Utility/UIView+YYText.h"; sourceTree = "<group>"; };
-		3F56EE3B3CB811547FF57616B8AC08A2 /* CLEffectBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLEffectBase.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffectBase.m; sourceTree = "<group>"; };
+		3198D8E4ECEC1712476471F2A54FBB7B /* CLPosterizeEffect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLPosterizeEffect.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLPosterizeEffect.m; sourceTree = "<group>"; };
+		31EF13366764712DE01B84D6092ADB7E /* _CLImageEditorViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = _CLImageEditorViewController.m; path = CLImageEditor/ViewController/_CLImageEditorViewController.m; sourceTree = "<group>"; };
+		3420F1BD66EECA3B27947234BB0D8101 /* YYText-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YYText-prefix.pch"; sourceTree = "<group>"; };
+		391906DD6C4F01E4C9631CEF006ECAF8 /* YYLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYLabel.m; path = YYText/YYLabel.m; sourceTree = "<group>"; };
+		3DAE5538F3B51C0A506F252602719320 /* YYTextEffectWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextEffectWindow.m; path = YYText/Component/YYTextEffectWindow.m; sourceTree = "<group>"; };
+		3F33C7E8A70DC8864476EE0BB32A79F2 /* FDFullscreenPopGesture-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FDFullscreenPopGesture-prefix.pch"; sourceTree = "<group>"; };
+		3F8AD1ACE9987CE3C7529C2DB2C85872 /* YYTextLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextLayout.m; path = YYText/Component/YYTextLayout.m; sourceTree = "<group>"; };
+		3FCB24EA754E97F19ED55DC95DA57634 /* CLToneCurveTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLToneCurveTool.m; path = CLImageEditor/ImageTools/CLToneCurveTool/CLToneCurveTool.m; sourceTree = "<group>"; };
+		408D57EA66F86058DF2FDEF79469466A /* YYTextUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextUtilities.m; path = YYText/Utility/YYTextUtilities.m; sourceTree = "<group>"; };
 		40EBD81499A8C973D1CFFE15AD989422 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		411CF90189D46B9A49B865B009B8DB8A /* YYTextArchiver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextArchiver.m; path = YYText/String/YYTextArchiver.m; sourceTree = "<group>"; };
-		437E7446C75EE36D66CF5A48B6EB95C2 /* CLPixellateEffect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLPixellateEffect.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLPixellateEffect.h; sourceTree = "<group>"; };
-		44767EEF709AC770C04C3E68039033EB /* CLImageToolBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLImageToolBase.m; path = CLImageEditor/ImageTools/CLImageToolBase.m; sourceTree = "<group>"; };
-		4559B98B88A560BFB3DB1B920CCEF97A /* CLImageToolInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLImageToolInfo.h; path = CLImageEditor/CLImageToolInfo.h; sourceTree = "<group>"; };
-		458FEDC16AB600E3C50F162190B27CD8 /* YYText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYText.h; path = YYText/YYText.h; sourceTree = "<group>"; };
-		46593390BDFA0074600D17B096C1AC29 /* CLImageToolSettings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLImageToolSettings.h; path = CLImageEditor/ImageTools/ToolSettings/CLImageToolSettings.h; sourceTree = "<group>"; };
-		50E44453861026854F7A40AAA9FE424D /* CLRotateTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLRotateTool.h; path = CLImageEditor/ImageTools/CLRotateTool/CLRotateTool.h; sourceTree = "<group>"; };
-		5192513FFC54E45F5FECB991445A55D5 /* UIPasteboard+YYText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIPasteboard+YYText.h"; path = "YYText/Utility/UIPasteboard+YYText.h"; sourceTree = "<group>"; };
+		40EEBF270611709E89558BC1C5BB442D /* YYTextAsyncLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextAsyncLayer.m; path = YYText/Utility/YYTextAsyncLayer.m; sourceTree = "<group>"; };
+		4186E642092DB96C735F90C930F30B34 /* YYTextEffectWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextEffectWindow.h; path = YYText/Component/YYTextEffectWindow.h; sourceTree = "<group>"; };
+		481C60E522DA37459AB76EE7CD3FFC91 /* CLGloomEffect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLGloomEffect.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLGloomEffect.h; sourceTree = "<group>"; };
+		4BF02ADAA758359142B64ECB3240ABDD /* YYTextLine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextLine.m; path = YYText/Component/YYTextLine.m; sourceTree = "<group>"; };
+		4D3159AED55444AA8CB633960E1AC237 /* CLHueEffect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLHueEffect.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLHueEffect.h; sourceTree = "<group>"; };
+		4E7D4B3BD8DA83721744087BA2D1F060 /* YYTextAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextAttribute.m; path = YYText/String/YYTextAttribute.m; sourceTree = "<group>"; };
+		4ECB8F478287F06DBBA2AE5F5BE81147 /* YYTextInput.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextInput.m; path = YYText/Component/YYTextInput.m; sourceTree = "<group>"; };
+		507BD94F22A53EA69ABCE92175ED8F72 /* CLImageToolInfo+Private.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CLImageToolInfo+Private.m"; path = "CLImageEditor/ImageTools/ToolSettings/CLImageToolInfo+Private.m"; sourceTree = "<group>"; };
 		51989122A4C924F5891AC4B30596DD9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		51BFA4BC9504EE34A2697D97C1DB68EF /* CLImageEditorTheme+Private.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CLImageEditorTheme+Private.m"; path = "CLImageEditor/ImageTools/ToolSettings/CLImageEditorTheme+Private.m"; sourceTree = "<group>"; };
-		51C5FDB1FC8D9ADB66F83EBB6CBB64ED /* NSAttributedString+YYText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSAttributedString+YYText.m"; path = "YYText/Utility/NSAttributedString+YYText.m"; sourceTree = "<group>"; };
 		5375FFFB601EBC6E68F764E9C1B63520 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
-		5E68F25972C1858602FFDB45B3BDF7A9 /* CLPixellateEffect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLPixellateEffect.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLPixellateEffect.m; sourceTree = "<group>"; };
+		53D3AC29D8C2D2A29F3E32C4C61AF615 /* CLAdjustmentTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLAdjustmentTool.h; path = CLImageEditor/ImageTools/CLAdjustmentTool/CLAdjustmentTool.h; sourceTree = "<group>"; };
+		588A019CD5798C103DAF84A1639856EF /* CLImageToolInfo+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CLImageToolInfo+Private.h"; path = "CLImageEditor/ImageTools/ToolSettings/CLImageToolInfo+Private.h"; sourceTree = "<group>"; };
+		5A58B4EAE30815C231C7DC00B7A35BFC /* libYYText.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYYText.a; path = libYYText.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D5BFC0BAA488FBBDCC6F506F44F0E67 /* CLBlurTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLBlurTool.m; path = CLImageEditor/ImageTools/CLBlurTool/CLBlurTool.m; sourceTree = "<group>"; };
+		5D8422120E9BA6F5FEA1CA1A95229B9B /* CLClassList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLClassList.h; path = CLImageEditor/Utils/CLClassList.h; sourceTree = "<group>"; };
+		62EC4DA62E68A54941BD9B44F184C2A8 /* CLRotateTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLRotateTool.h; path = CLImageEditor/ImageTools/CLRotateTool/CLRotateTool.h; sourceTree = "<group>"; };
+		63088D4691782D954F67FADCB8510AF7 /* YYTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextView.h; path = YYText/YYTextView.h; sourceTree = "<group>"; };
+		636BBF48DAFE9426A98DB9397AE89D56 /* CLClippingTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLClippingTool.h; path = CLImageEditor/ImageTools/CLClippingTool/CLClippingTool.h; sourceTree = "<group>"; };
 		649975F4E97F85A17EC3EC8016F878FE /* Pods-24EditorDemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-24EditorDemo-resources.sh"; sourceTree = "<group>"; };
-		65F00CD225F763EF648D718406916C6B /* YYTextLine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextLine.m; path = YYText/Component/YYTextLine.m; sourceTree = "<group>"; };
-		67CEA993C8F65C2FEA63C12165B30563 /* YYTextUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextUtilities.m; path = YYText/Utility/YYTextUtilities.m; sourceTree = "<group>"; };
-		68A38D77CBA95F735FB9A0FA6A840F97 /* CLClassList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLClassList.h; path = CLImageEditor/Utils/CLClassList.h; sourceTree = "<group>"; };
-		6A9EA6A4B2DFC13C0E8DAC41FEE745D3 /* _CLImageEditorViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = _CLImageEditorViewController.m; path = CLImageEditor/ViewController/_CLImageEditorViewController.m; sourceTree = "<group>"; };
-		6E8D0BE2C4F4C3BD5ED00A4D40D56B8D /* YYTextTransaction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextTransaction.h; path = YYText/Utility/YYTextTransaction.h; sourceTree = "<group>"; };
-		6F83D54C6D7587650FE70CAB28FBA3C9 /* CLEffectBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLEffectBase.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffectBase.h; sourceTree = "<group>"; };
-		7034B9E0B99A1C672EFD95A675468E16 /* UIView+YYText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+YYText.m"; path = "YYText/Utility/UIView+YYText.m"; sourceTree = "<group>"; };
-		751A90AC2F8AEF8712B09388A47F0B65 /* YYTextRubyAnnotation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextRubyAnnotation.m; path = YYText/String/YYTextRubyAnnotation.m; sourceTree = "<group>"; };
-		75B9417233D983763B450970C2D9C17D /* YYTextLine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextLine.h; path = YYText/Component/YYTextLine.h; sourceTree = "<group>"; };
-		75EF91970AB844104A48EB613D224355 /* YYLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYLabel.m; path = YYText/YYLabel.m; sourceTree = "<group>"; };
-		76ECE006737D939969573F8A9E1DB1EE /* YYText-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YYText-dummy.m"; sourceTree = "<group>"; };
-		7758A015A97DF3D6A97CCC5E3DE47EE9 /* CLPosterizeEffect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLPosterizeEffect.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLPosterizeEffect.h; sourceTree = "<group>"; };
-		779308F74083EB0EC31DBA9182D20DCA /* UIImage+Utility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Utility.m"; path = "CLImageEditor/Utils/UIImage+Utility.m"; sourceTree = "<group>"; };
-		790F8F0B7987047F116989FF65583AEC /* YYTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextView.h; path = YYText/YYTextView.h; sourceTree = "<group>"; };
-		7F43CA98C38E143DF26CFB6BBC835999 /* CLImageToolProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLImageToolProtocol.h; path = CLImageEditor/ImageTools/ToolSettings/CLImageToolProtocol.h; sourceTree = "<group>"; };
-		7F90C9951D7BDDD5DB37CFE650EF9378 /* CLHueEffect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLHueEffect.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLHueEffect.m; sourceTree = "<group>"; };
-		82A0EB2681E8D49B2FE5F3A143438401 /* YYTextContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextContainerView.h; path = YYText/Component/YYTextContainerView.h; sourceTree = "<group>"; };
-		8360D05A84CF4E2D7F6A5E41CF23CB81 /* CLBloomEffect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLBloomEffect.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLBloomEffect.h; sourceTree = "<group>"; };
-		8426DD715CECD43DCA9851F05BF83636 /* UIDevice+SystemVersion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIDevice+SystemVersion.h"; path = "CLImageEditor/Utils/UIDevice+SystemVersion.h"; sourceTree = "<group>"; };
-		8561BC99115D64CB41C9145C743E5C18 /* CLImageEditorTheme.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLImageEditorTheme.h; path = CLImageEditor/CLImageEditorTheme.h; sourceTree = "<group>"; };
-		86079F8CB6339F1CA99380276B9140FF /* CLFilterTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLFilterTool.m; path = CLImageEditor/ImageTools/CLFilterTool/CLFilterTool.m; sourceTree = "<group>"; };
-		869FD7E0950ABCF05D595CE8B4F1E340 /* CLFilterBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLFilterBase.h; path = CLImageEditor/ImageTools/CLFilterTool/CLFilterBase.h; sourceTree = "<group>"; };
-		86C3A7739408DE890DEA235A146B629C /* CLFilterBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLFilterBase.m; path = CLImageEditor/ImageTools/CLFilterTool/CLFilterBase.m; sourceTree = "<group>"; };
+		64EB2C86360E43148D4C3A3EBC8A4B9A /* YYTextMagnifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextMagnifier.h; path = YYText/Component/YYTextMagnifier.h; sourceTree = "<group>"; };
+		652827F0790C0487BF4D13F280804A61 /* UIView+CLImageToolInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+CLImageToolInfo.h"; path = "CLImageEditor/ImageTools/ToolSettings/UIView+CLImageToolInfo.h"; sourceTree = "<group>"; };
+		679E85950D2956051B0E2D8D1045B08C /* CLImageEditor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLImageEditor.h; path = CLImageEditor/CLImageEditor.h; sourceTree = "<group>"; };
+		68250D81A4E9B680F90BF1509CF069E6 /* UIView+Frame.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+Frame.m"; path = "CLImageEditor/Utils/UIView+Frame.m"; sourceTree = "<group>"; };
+		6C49C92A019FA842849F1BA492596B97 /* CLImageEditor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLImageEditor.m; path = CLImageEditor/CLImageEditor.m; sourceTree = "<group>"; };
+		6C77AA46DDD69087215EAA4415BD1003 /* libPods-24EditorDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-24EditorDemo.a"; path = "libPods-24EditorDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D88BE1436EA635F8ADCE49D6DFC14A3 /* CLSpotEffect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSpotEffect.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLSpotEffect.h; sourceTree = "<group>"; };
+		6D97798217EE70A19626FD96BDEBDB88 /* CLImageEditorTheme+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CLImageEditorTheme+Private.h"; path = "CLImageEditor/ImageTools/ToolSettings/CLImageEditorTheme+Private.h"; sourceTree = "<group>"; };
+		6DE2059154ED96F8BF3281A585BEE1B0 /* CLFilterTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLFilterTool.h; path = CLImageEditor/ImageTools/CLFilterTool/CLFilterTool.h; sourceTree = "<group>"; };
+		6E6F5DD1DA990A8BC24669427C3DB4B4 /* CLHueEffect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLHueEffect.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLHueEffect.m; sourceTree = "<group>"; };
+		6F72578CC514799F145E76FA55C4D001 /* UIPasteboard+YYText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIPasteboard+YYText.m"; path = "YYText/Utility/UIPasteboard+YYText.m"; sourceTree = "<group>"; };
+		706C242C23F6726236464DAA0BE79049 /* NSAttributedString+YYText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSAttributedString+YYText.h"; path = "YYText/Utility/NSAttributedString+YYText.h"; sourceTree = "<group>"; };
+		709386817F2EE8BDE9500A2C4D7C124B /* YYTextContainerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextContainerView.h; path = YYText/Component/YYTextContainerView.h; sourceTree = "<group>"; };
+		7612F482908169A902032791CF920718 /* NSParagraphStyle+YYText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSParagraphStyle+YYText.h"; path = "YYText/Utility/NSParagraphStyle+YYText.h"; sourceTree = "<group>"; };
+		77E4FCFBDA52FEC277809E507A133FC8 /* CLRotateTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLRotateTool.m; path = CLImageEditor/ImageTools/CLRotateTool/CLRotateTool.m; sourceTree = "<group>"; };
+		797281FFFB40DDEBAEF42B012938D707 /* CLImageEditorTheme.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLImageEditorTheme.m; path = CLImageEditor/CLImageEditorTheme.m; sourceTree = "<group>"; };
+		7AE10467757F33AA028507D3B133CD6D /* NSAttributedString+YYText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSAttributedString+YYText.m"; path = "YYText/Utility/NSAttributedString+YYText.m"; sourceTree = "<group>"; };
+		801205A76B775221B7F0B73834B54FBA /* YYTextRubyAnnotation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextRubyAnnotation.m; path = YYText/String/YYTextRubyAnnotation.m; sourceTree = "<group>"; };
+		81573D4C20CF8172CCC16F40F79D82E4 /* YYTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextView.m; path = YYText/YYTextView.m; sourceTree = "<group>"; };
+		81B0371A0DE4AE7FA66D8D5CD06C3714 /* YYTextLine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextLine.h; path = YYText/Component/YYTextLine.h; sourceTree = "<group>"; };
+		82202EFA74B3E818E313AB60CA881CDE /* YYTextParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextParser.h; path = YYText/String/YYTextParser.h; sourceTree = "<group>"; };
+		85C1A1BC26750768FFBF48196D491884 /* _CLImageEditorViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _CLImageEditorViewController.h; path = CLImageEditor/ViewController/_CLImageEditorViewController.h; sourceTree = "<group>"; };
 		8718A0717020A3D3109057747138CE7E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
-		87562B6F9DCA5134E7834AC6B2B751DD /* YYTextMagnifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextMagnifier.h; path = YYText/Component/YYTextMagnifier.h; sourceTree = "<group>"; };
-		8B92742F649A018583835207CD528D72 /* YYTextLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextLayout.h; path = YYText/Component/YYTextLayout.h; sourceTree = "<group>"; };
-		8C53C6514BD4991D8FA8BF7BBB518F4E /* YYTextEffectWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextEffectWindow.h; path = YYText/Component/YYTextEffectWindow.h; sourceTree = "<group>"; };
-		911AD1D1188D83479E5AA09F2C858085 /* NSParagraphStyle+YYText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSParagraphStyle+YYText.m"; path = "YYText/Utility/NSParagraphStyle+YYText.m"; sourceTree = "<group>"; };
+		8A5E2B96F6B643DC8A0E78C76A8C8475 /* CLBloomEffect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLBloomEffect.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLBloomEffect.h; sourceTree = "<group>"; };
+		8AA175DCA5005C3AC9410D9F5EE3F4F2 /* CLColorPickerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLColorPickerView.h; path = CLImageEditor/ImageTools/ToolSettings/CLColorPickerView.h; sourceTree = "<group>"; };
+		8E6660698FBB10A85D36588D9D31377A /* CLAdjustmentTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLAdjustmentTool.m; path = CLImageEditor/ImageTools/CLAdjustmentTool/CLAdjustmentTool.m; sourceTree = "<group>"; };
+		917BD3609B979F41495D2D0C11644762 /* CLFilterTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLFilterTool.m; path = CLImageEditor/ImageTools/CLFilterTool/CLFilterTool.m; sourceTree = "<group>"; };
+		923DAC1704500AFCDC2B29900AC16921 /* CLEffectTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLEffectTool.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffectTool.h; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		93F165CBFB9FC0A6B1486780F25EB315 /* YYTextParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextParser.h; path = YYText/String/YYTextParser.h; sourceTree = "<group>"; };
-		952B3088CABCD79411A3134C99712A9F /* YYTextWeakProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextWeakProxy.h; path = YYText/Utility/YYTextWeakProxy.h; sourceTree = "<group>"; };
-		9571C790C8935D3BACD361A80C495A42 /* YYTextInput.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextInput.h; path = YYText/Component/YYTextInput.h; sourceTree = "<group>"; };
-		995A211BE41E0D5816D6178B97BC0314 /* YYText-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YYText-prefix.pch"; sourceTree = "<group>"; };
-		9C0545746E15C946E07EA45E55255579 /* CLBlurTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLBlurTool.m; path = CLImageEditor/ImageTools/CLBlurTool/CLBlurTool.m; sourceTree = "<group>"; };
-		9C441E38BA037678D412025199C85992 /* CLToolbarMenuItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLToolbarMenuItem.m; path = CLImageEditor/ImageTools/ToolSettings/CLToolbarMenuItem.m; sourceTree = "<group>"; };
-		9DDAC60679401A70780BE11B21ECA3E8 /* CLPosterizeEffect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLPosterizeEffect.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLPosterizeEffect.m; sourceTree = "<group>"; };
-		9F335C463D61E70867D3EE5930ACB56C /* YYTextAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextAttribute.m; path = YYText/String/YYTextAttribute.m; sourceTree = "<group>"; };
-		9F69C6FF6DD7847BA116C37FED8C88CC /* UIImage+Utility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Utility.h"; path = "CLImageEditor/Utils/UIImage+Utility.h"; sourceTree = "<group>"; };
-		A1A9FB980BEF188D6A994784952AA066 /* CLHueEffect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLHueEffect.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLHueEffect.h; sourceTree = "<group>"; };
-		A2A5782DC6510779C005BD64D37FB6B3 /* NSParagraphStyle+YYText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSParagraphStyle+YYText.h"; path = "YYText/Utility/NSParagraphStyle+YYText.h"; sourceTree = "<group>"; };
-		A40593D234CE641FBF2F145EABEB418F /* YYTextKeyboardManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextKeyboardManager.m; path = YYText/Component/YYTextKeyboardManager.m; sourceTree = "<group>"; };
-		A609DF63BE696FA0620831D132B58BC9 /* CLToneCurveTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLToneCurveTool.m; path = CLImageEditor/ImageTools/CLToneCurveTool/CLToneCurveTool.m; sourceTree = "<group>"; };
-		A99AD3FCA09739AA9AE7062980F9627A /* CLImageToolInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLImageToolInfo.m; path = CLImageEditor/CLImageToolInfo.m; sourceTree = "<group>"; };
-		AADF1103A84115DEFCA607D7CA6C168E /* CLEffectTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLEffectTool.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffectTool.h; sourceTree = "<group>"; };
-		AC340A991C9C1EDA0159E643A1315987 /* YYTextAsyncLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextAsyncLayer.h; path = YYText/Utility/YYTextAsyncLayer.h; sourceTree = "<group>"; };
-		B0C9196686922258BCA4554426846ED0 /* CLHighlightShadowEffect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLHighlightShadowEffect.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLHighlightShadowEffect.h; sourceTree = "<group>"; };
-		B245B4C5FCF2C13F7627784C78299622 /* CLImageEditorTheme+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CLImageEditorTheme+Private.h"; path = "CLImageEditor/ImageTools/ToolSettings/CLImageEditorTheme+Private.h"; sourceTree = "<group>"; };
-		B3C09EF78F79C5F090375685D2F03AC7 /* CLHighlightShadowEffect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLHighlightShadowEffect.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLHighlightShadowEffect.m; sourceTree = "<group>"; };
-		B630798F7653F08B7A92D5F8E2846FCF /* CLImageToolBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLImageToolBase.h; path = CLImageEditor/ImageTools/CLImageToolBase.h; sourceTree = "<group>"; };
-		B695ABEE8735B093601FA29856F1AD23 /* YYTextTransaction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextTransaction.m; path = YYText/Utility/YYTextTransaction.m; sourceTree = "<group>"; };
-		B7719ABD4C2149CDDB699AF7A502E7B9 /* YYTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextView.m; path = YYText/YYTextView.m; sourceTree = "<group>"; };
-		B78260BA07A0F69DA1F3FECF588D642E /* CLRotateTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLRotateTool.m; path = CLImageEditor/ImageTools/CLRotateTool/CLRotateTool.m; sourceTree = "<group>"; };
-		B87E42F5B6469CB1B7BA2A54BA5DEA37 /* YYTextDebugOption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextDebugOption.h; path = YYText/Component/YYTextDebugOption.h; sourceTree = "<group>"; };
+		94977AB2DE516A0F22B338B78D6AF34D /* YYTextSelectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextSelectionView.h; path = YYText/Component/YYTextSelectionView.h; sourceTree = "<group>"; };
+		96498FF6FBAD6713E4A1DC1B5E47D870 /* UIView+Frame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+Frame.h"; path = "CLImageEditor/Utils/UIView+Frame.h"; sourceTree = "<group>"; };
+		990EC8ACCDF0D8BF2CC53482F432ECB2 /* CLFilterBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLFilterBase.m; path = CLImageEditor/ImageTools/CLFilterTool/CLFilterBase.m; sourceTree = "<group>"; };
+		9C6783D5B012B3D61394E8AC77620181 /* CLImageToolBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLImageToolBase.h; path = CLImageEditor/ImageTools/CLImageToolBase.h; sourceTree = "<group>"; };
+		9DE752BD6C6E7409D7DC37DE7AAF94AD /* CLToolbarMenuItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLToolbarMenuItem.h; path = CLImageEditor/ImageTools/ToolSettings/CLToolbarMenuItem.h; sourceTree = "<group>"; };
+		9EE47FFA049D690A15A51E654B9CFC17 /* UIPasteboard+YYText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIPasteboard+YYText.h"; path = "YYText/Utility/UIPasteboard+YYText.h"; sourceTree = "<group>"; };
+		A0A5D1427EB468ECEFDE1FCF69581063 /* YYTextAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextAttribute.h; path = YYText/String/YYTextAttribute.h; sourceTree = "<group>"; };
+		A0AA339758A781EF368EEF3D70F5D0D5 /* CLImageToolBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLImageToolBase.m; path = CLImageEditor/ImageTools/CLImageToolBase.m; sourceTree = "<group>"; };
+		A6F4834F5E1EE9BF02CBC554D91F5461 /* YYTextRubyAnnotation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextRubyAnnotation.h; path = YYText/String/YYTextRubyAnnotation.h; sourceTree = "<group>"; };
+		AB04A4C5E935D98D07AA490AB82F0706 /* CLToolbarMenuItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLToolbarMenuItem.m; path = CLImageEditor/ImageTools/ToolSettings/CLToolbarMenuItem.m; sourceTree = "<group>"; };
+		ABE5489050FE8CA97C79E84DE903A44A /* CLImageEditor.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CLImageEditor.xcconfig; sourceTree = "<group>"; };
+		AD1D7EE348C8BC81B252A442539FF49C /* YYTextAsyncLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextAsyncLayer.h; path = YYText/Utility/YYTextAsyncLayer.h; sourceTree = "<group>"; };
+		AE78E2FD15BD280A55CDFE68505A201C /* UIView+CLImageToolInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+CLImageToolInfo.m"; path = "CLImageEditor/ImageTools/ToolSettings/UIView+CLImageToolInfo.m"; sourceTree = "<group>"; };
+		AE98E658BC73C0195562C1FCADFEBC32 /* YYText.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYText.xcconfig; sourceTree = "<group>"; };
+		AF4AA4546FFFBB37D04518D395277556 /* CLImageEditor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CLImageEditor-prefix.pch"; sourceTree = "<group>"; };
+		AF890905364AA6C8574A9DE1D37CFECF /* UIImage+Utility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Utility.h"; path = "CLImageEditor/Utils/UIImage+Utility.h"; sourceTree = "<group>"; };
+		B2D457C6F8D8FC91095B3F89B3966037 /* YYTextWeakProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextWeakProxy.h; path = YYText/Utility/YYTextWeakProxy.h; sourceTree = "<group>"; };
+		B4897C78D0AC901B22081EF0D94D27C6 /* CLImageToolProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLImageToolProtocol.h; path = CLImageEditor/ImageTools/ToolSettings/CLImageToolProtocol.h; sourceTree = "<group>"; };
+		B6C18B93B908AB6ED4C221DE0CEA97FE /* CLClippingTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLClippingTool.m; path = CLImageEditor/ImageTools/CLClippingTool/CLClippingTool.m; sourceTree = "<group>"; };
+		B6D22B8DFACAE3F60660061222D131DF /* CLImageToolSettings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLImageToolSettings.h; path = CLImageEditor/ImageTools/ToolSettings/CLImageToolSettings.h; sourceTree = "<group>"; };
+		B8CBF37FE9D17B7DCC80CDA39C3697CE /* CLHighlightShadowEffect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLHighlightShadowEffect.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLHighlightShadowEffect.m; sourceTree = "<group>"; };
+		B8E92A8DB2C304FC66CC7E4ABF980E6A /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+FDFullscreenPopGesture.m"; path = "FDFullscreenPopGesture/UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		B9BD531303E2A53A18472CD7DCA13341 /* UIView+YYText.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+YYText.m"; path = "YYText/Utility/UIView+YYText.m"; sourceTree = "<group>"; };
+		BA0E77CB1534FBE3E3B454D7E2CA66BA /* CLCircleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLCircleView.h; path = CLImageEditor/ImageTools/ToolSettings/CLCircleView.h; sourceTree = "<group>"; };
 		BA8FAF93C14824B2521DC7485B520711 /* Pods-24EditorDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-24EditorDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		BC902C5FB6E6DDB7501901B88B2D6556 /* Pods-24EditorDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-24EditorDemo-acknowledgements.plist"; sourceTree = "<group>"; };
-		BE45C6CB06A0BFDB2DA2C04ED4D23C17 /* CLEffectTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLEffectTool.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffectTool.m; sourceTree = "<group>"; };
-		C31768E6F730DF1ECCCE84245DC7F4B5 /* NSAttributedString+YYText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSAttributedString+YYText.h"; path = "YYText/Utility/NSAttributedString+YYText.h"; sourceTree = "<group>"; };
-		C3F774D812DF0BDA21A42EA9676187FA /* YYTextRunDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextRunDelegate.m; path = YYText/String/YYTextRunDelegate.m; sourceTree = "<group>"; };
-		C514719CDEEF8B4706EC5E4CB7585C38 /* libCLImageEditor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libCLImageEditor.a; path = libCLImageEditor.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD405B014D37F2A083CAC754E1C907D9 /* YYTextContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextContainerView.m; path = YYText/Component/YYTextContainerView.m; sourceTree = "<group>"; };
+		C24DE8250A8B6293B82101929659EDFC /* YYTextRunDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextRunDelegate.h; path = YYText/String/YYTextRunDelegate.h; sourceTree = "<group>"; };
+		C777135B056B4DFCF35748B397246390 /* FDFullscreenPopGesture.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FDFullscreenPopGesture.xcconfig; sourceTree = "<group>"; };
+		C864144F714DF03B4FAD7B889A933FF1 /* CLEffectBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLEffectBase.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffectBase.m; sourceTree = "<group>"; };
+		C913F6761A0A51D3427ABA4A76865819 /* CLToneCurveTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLToneCurveTool.h; path = CLImageEditor/ImageTools/CLToneCurveTool/CLToneCurveTool.h; sourceTree = "<group>"; };
+		C938D58C17DF3B20CF7F48B8A628B445 /* UIImage+Utility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Utility.m"; path = "CLImageEditor/Utils/UIImage+Utility.m"; sourceTree = "<group>"; };
+		C9AA79E068F2C6A1E035541760A5D78C /* CLDrawTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLDrawTool.h; path = CLImageEditor/ImageTools/CLDrawTool/CLDrawTool.h; sourceTree = "<group>"; };
 		CCF4BEA3C6A9D10AF2660E685048EBE3 /* Pods-24EditorDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-24EditorDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		CEA86DECDFFF56E11EA0D7FBEB10EB54 /* YYTextWeakProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextWeakProxy.m; path = YYText/Utility/YYTextWeakProxy.m; sourceTree = "<group>"; };
+		CD625365D146CC6400412834331963B6 /* YYTextDebugOption.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextDebugOption.m; path = YYText/Component/YYTextDebugOption.m; sourceTree = "<group>"; };
+		D04BA9B5626D7392833F0C9804CFF2F4 /* CLBlurTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLBlurTool.h; path = CLImageEditor/ImageTools/CLBlurTool/CLBlurTool.h; sourceTree = "<group>"; };
 		D1072612542404CCF7FBD34D96AD7F87 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
-		D163A89C413D2906175622FB82F8741C /* YYTextContainerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextContainerView.m; path = YYText/Component/YYTextContainerView.m; sourceTree = "<group>"; };
-		D6F48F2761A59A3A70D1672E8F653AB3 /* _CLImageEditorViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _CLImageEditorViewController.h; path = CLImageEditor/ViewController/_CLImageEditorViewController.h; sourceTree = "<group>"; };
-		D7A6F2092E0806D851522021AF7FBE5E /* UIDevice+SystemVersion.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+SystemVersion.m"; path = "CLImageEditor/Utils/UIDevice+SystemVersion.m"; sourceTree = "<group>"; };
+		D10C6B4C5A85092BB8198C84C09E69FA /* YYTextParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextParser.m; path = YYText/String/YYTextParser.m; sourceTree = "<group>"; };
+		D48076D6CB504B0ADE417CEC0B57395F /* CLPixellateEffect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLPixellateEffect.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLPixellateEffect.m; sourceTree = "<group>"; };
 		D9065B20C66522C256F77AFCE307CC21 /* Pods-24EditorDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-24EditorDemo-frameworks.sh"; sourceTree = "<group>"; };
-		D9A4CD2EEC3025BB5E0CA3E42B3C7C76 /* YYTextSelectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextSelectionView.m; path = YYText/Component/YYTextSelectionView.m; sourceTree = "<group>"; };
 		D9F91ECBBA792915BFB16BA5AD0EC9F0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		DA1B252C9C3510B4883E55E93ECFAC3E /* UIView+Frame.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+Frame.m"; path = "CLImageEditor/Utils/UIView+Frame.m"; sourceTree = "<group>"; };
-		DE6841FF4ABA0FE2D528A7C5206DFCC0 /* CLAdjustmentTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLAdjustmentTool.m; path = CLImageEditor/ImageTools/CLAdjustmentTool/CLAdjustmentTool.m; sourceTree = "<group>"; };
-		E0E39D532170B635482FB1F466426BF2 /* CLGloomEffect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLGloomEffect.h; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLGloomEffect.h; sourceTree = "<group>"; };
+		DAE7958129C623678DEC80A17DE63160 /* UIDevice+SystemVersion.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+SystemVersion.m"; path = "CLImageEditor/Utils/UIDevice+SystemVersion.m"; sourceTree = "<group>"; };
+		DB05C70B1392F535F222CF651A2B3D4C /* libCLImageEditor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libCLImageEditor.a; path = libCLImageEditor.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC292A05655A15FADABA490E3FC1AB38 /* YYTextUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextUtilities.h; path = YYText/Utility/YYTextUtilities.h; sourceTree = "<group>"; };
 		E0F72716002E4EF1D54608C3C30C4E83 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreImage.framework; sourceTree = DEVELOPER_DIR; };
-		E48D5923437FEFE01CB57949C7B0B6F8 /* YYTextAsyncLayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextAsyncLayer.m; path = YYText/Utility/YYTextAsyncLayer.m; sourceTree = "<group>"; };
+		E449DB3A21B2F3E1EFA7EA1AE534D60B /* CLImageEditorTheme+Private.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CLImageEditorTheme+Private.m"; path = "CLImageEditor/ImageTools/ToolSettings/CLImageEditorTheme+Private.m"; sourceTree = "<group>"; };
+		E4C148215C2A73CA9139B9BDB845265C /* YYTextTransaction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextTransaction.m; path = YYText/Utility/YYTextTransaction.m; sourceTree = "<group>"; };
 		E53C8DC9BF07E35D247C44C510245964 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
-		E6E17195E20632F78C18B32440A3A4EB /* YYTextRubyAnnotation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextRubyAnnotation.h; path = YYText/String/YYTextRubyAnnotation.h; sourceTree = "<group>"; };
-		E814F94681D8327CF786D5A6AE3AA3A2 /* YYTextArchiver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextArchiver.h; path = YYText/String/YYTextArchiver.h; sourceTree = "<group>"; };
-		E83B2D59D4A13AF2EA9A8B0BEC6B7325 /* CLAdjustmentTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLAdjustmentTool.h; path = CLImageEditor/ImageTools/CLAdjustmentTool/CLAdjustmentTool.h; sourceTree = "<group>"; };
-		E84F927746D916E65800F4B8E8BFD4B1 /* UIView+Frame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+Frame.h"; path = "CLImageEditor/Utils/UIView+Frame.h"; sourceTree = "<group>"; };
-		E8647B290097AF8BFD0877825A08A003 /* CLColorPickerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLColorPickerView.m; path = CLImageEditor/ImageTools/ToolSettings/CLColorPickerView.m; sourceTree = "<group>"; };
-		E96BDC5E7A3FA7AECB3FECE603BE8469 /* CLBlurTool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLBlurTool.h; path = CLImageEditor/ImageTools/CLBlurTool/CLBlurTool.h; sourceTree = "<group>"; };
-		ED2F881E8CE97441CF1C52CA17A5DE22 /* YYText.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYText.xcconfig; sourceTree = "<group>"; };
-		EEEE6F04E01BE6FF032D7E288E4B3430 /* YYTextUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextUtilities.h; path = YYText/Utility/YYTextUtilities.h; sourceTree = "<group>"; };
-		F2D62118B1C107CE217ADB65A979F7B4 /* CLImageEditor.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CLImageEditor.xcconfig; sourceTree = "<group>"; };
-		F2F05CD9E7BBA734217482AF164ECF48 /* CLCircleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLCircleView.h; path = CLImageEditor/ImageTools/ToolSettings/CLCircleView.h; sourceTree = "<group>"; };
-		F34F68054F316C0B152DC3676974E433 /* libPods-24EditorDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-24EditorDemo.a"; path = "libPods-24EditorDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F773927FF0FE6C228FECAF78D8921831 /* CLSplineInterpolator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLSplineInterpolator.m; path = CLImageEditor/Utils/CLSplineInterpolator.m; sourceTree = "<group>"; };
-		F9227E0F431393FC204B3F50C2490A40 /* CLSpotEffect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLSpotEffect.m; path = CLImageEditor/ImageTools/CLEffectTool/CLEffect/CLSpotEffect.m; sourceTree = "<group>"; };
-		F9502351A5C194888F74BB177AB750A5 /* CLImageToolInfo+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CLImageToolInfo+Private.h"; path = "CLImageEditor/ImageTools/ToolSettings/CLImageToolInfo+Private.h"; sourceTree = "<group>"; };
+		E6D80B4233CF8F7F99BB0EAB3A88C795 /* CLImageEditor.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = CLImageEditor.bundle; path = CLImageEditor/CLImageEditor.bundle; sourceTree = "<group>"; };
+		E7136DE33D6D0D7E382F740FA97334AE /* YYTextTransaction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYTextTransaction.h; path = YYText/Utility/YYTextTransaction.h; sourceTree = "<group>"; };
+		EC7E652976FA4D958177F42847B88E50 /* UIView+YYText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+YYText.h"; path = "YYText/Utility/UIView+YYText.h"; sourceTree = "<group>"; };
+		ED0C6914EC9779025757DA60B7794595 /* CLSplineInterpolator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSplineInterpolator.h; path = CLImageEditor/Utils/CLSplineInterpolator.h; sourceTree = "<group>"; };
+		F720E0209C1F387101B6BE875C95CA7F /* YYText-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YYText-dummy.m"; sourceTree = "<group>"; };
+		F91CE643CFBC07FA05837148A5D999A4 /* CLImageEditorTheme.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLImageEditorTheme.h; path = CLImageEditor/CLImageEditorTheme.h; sourceTree = "<group>"; };
 		FA3151EA69FAB02F32215D01564E5589 /* Pods-24EditorDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-24EditorDemo.release.xcconfig"; sourceTree = "<group>"; };
-		FAA8FBEE642FF1E8B4F468611EF3FC8C /* CLImageEditor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CLImageEditor-dummy.m"; sourceTree = "<group>"; };
-		FB2F203EBB80D4DD022849386EA3D6E0 /* CLImageEditor.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = CLImageEditor.bundle; path = CLImageEditor/CLImageEditor.bundle; sourceTree = "<group>"; };
-		FD00FCCE0B1A5084D7555600867026BC /* CLColorPickerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLColorPickerView.h; path = CLImageEditor/ImageTools/ToolSettings/CLColorPickerView.h; sourceTree = "<group>"; };
-		FD76F24F18EAF821403609565FD0BD28 /* UIView+CLImageToolInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+CLImageToolInfo.m"; path = "CLImageEditor/ImageTools/ToolSettings/UIView+CLImageToolInfo.m"; sourceTree = "<group>"; };
-		FDCAECADD0A088FA02DB4373F12C0086 /* YYTextMagnifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextMagnifier.m; path = YYText/Component/YYTextMagnifier.m; sourceTree = "<group>"; };
-		FEF241C32F03BC488E3F2284072CA88A /* YYTextEffectWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYTextEffectWindow.m; path = YYText/Component/YYTextEffectWindow.m; sourceTree = "<group>"; };
-		FFFC88D1FAAFC7CC202129A6356328C1 /* CLImageEditor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CLImageEditor-prefix.pch"; sourceTree = "<group>"; };
+		FA449BA36E1823A11F2800AB014E6E4F /* libFDFullscreenPopGesture.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libFDFullscreenPopGesture.a; path = libFDFullscreenPopGesture.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB162216B23E133CEE25BD860D0EF93F /* CLDrawTool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLDrawTool.m; path = CLImageEditor/ImageTools/CLDrawTool/CLDrawTool.m; sourceTree = "<group>"; };
+		FB9E29F34EFA5690F6ABC46DBF29BB8F /* CLImageToolInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLImageToolInfo.m; path = CLImageEditor/CLImageToolInfo.m; sourceTree = "<group>"; };
+		FC47F89122BEB6229B1D3DD18BD56F28 /* CLCircleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CLCircleView.m; path = CLImageEditor/ImageTools/ToolSettings/CLCircleView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,25 +334,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9289E4117302BEBF0C75FED191700FBB /* Frameworks */ = {
+		6F3FAA9AE3C53508DEEA637E27B3946F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20977FCA1D09A7C26E595F5D5AD9D8B3 /* Accelerate.framework in Frameworks */,
-				F67AE524D045292F266D36F913CD2032 /* CoreFoundation.framework in Frameworks */,
-				CD416010D4DE58EC70904679F044EE36 /* CoreText.framework in Frameworks */,
-				87FA35B5F293B70149746592C6AEA5B6 /* Foundation.framework in Frameworks */,
-				A8E3D74953CCF5073657E183D37114D5 /* MobileCoreServices.framework in Frameworks */,
-				6693037E24DA7791DC83E8320A3424A6 /* QuartzCore.framework in Frameworks */,
-				EA330F1238A02549016EC5A6C22495F0 /* UIKit.framework in Frameworks */,
+				D630FDBD207AC4FEB1724364FBE47579 /* Accelerate.framework in Frameworks */,
+				675D8D4A4032FE066404C6A30DFB536F /* CoreFoundation.framework in Frameworks */,
+				B346C11BB47C0BD886A5F21086D33717 /* CoreText.framework in Frameworks */,
+				2289C2A2DB845B27049C385D56782861 /* Foundation.framework in Frameworks */,
+				C805665B51B4CAF74E5B79B00B571E92 /* MobileCoreServices.framework in Frameworks */,
+				621528AE7C7B195529DD4D4CA3C44D00 /* QuartzCore.framework in Frameworks */,
+				64859CFDA39E7CE4AF6E197D9EE25E5E /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AB7A43FC0655351D574D74868F67B2EA /* Frameworks */ = {
+		7EC16DA88EC957C6C5852917E403CDE7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B5B9823B0D8AC072113F321082D7077 /* Foundation.framework in Frameworks */,
+				91F08BF429646D7F4A1009F3596045BE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D147C9CFBDD38B98535705CC4F5ADFC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3EE4D2A25A5EAB5AF146F2F8B825919 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,62 +375,14 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		2018CAD5AE91EFBE7A23681EBB5E3198 /* YYText */ = {
+		2171F94D49FDC4C460B0D71110661FF3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C31768E6F730DF1ECCCE84245DC7F4B5 /* NSAttributedString+YYText.h */,
-				51C5FDB1FC8D9ADB66F83EBB6CBB64ED /* NSAttributedString+YYText.m */,
-				A2A5782DC6510779C005BD64D37FB6B3 /* NSParagraphStyle+YYText.h */,
-				911AD1D1188D83479E5AA09F2C858085 /* NSParagraphStyle+YYText.m */,
-				5192513FFC54E45F5FECB991445A55D5 /* UIPasteboard+YYText.h */,
-				2F6C17EF8F4098E8D32BBB8BB79C4667 /* UIPasteboard+YYText.m */,
-				3F15935BAA27877D06A319B1643A1C65 /* UIView+YYText.h */,
-				7034B9E0B99A1C672EFD95A675468E16 /* UIView+YYText.m */,
-				203A6EFE9B76BDA33A9244A65FCB1E7F /* YYLabel.h */,
-				75EF91970AB844104A48EB613D224355 /* YYLabel.m */,
-				458FEDC16AB600E3C50F162190B27CD8 /* YYText.h */,
-				E814F94681D8327CF786D5A6AE3AA3A2 /* YYTextArchiver.h */,
-				411CF90189D46B9A49B865B009B8DB8A /* YYTextArchiver.m */,
-				AC340A991C9C1EDA0159E643A1315987 /* YYTextAsyncLayer.h */,
-				E48D5923437FEFE01CB57949C7B0B6F8 /* YYTextAsyncLayer.m */,
-				1C922280C5E23D20FD22053363EDC1CF /* YYTextAttribute.h */,
-				9F335C463D61E70867D3EE5930ACB56C /* YYTextAttribute.m */,
-				82A0EB2681E8D49B2FE5F3A143438401 /* YYTextContainerView.h */,
-				D163A89C413D2906175622FB82F8741C /* YYTextContainerView.m */,
-				B87E42F5B6469CB1B7BA2A54BA5DEA37 /* YYTextDebugOption.h */,
-				222386371C4C3AC778A026E72D9D8EE2 /* YYTextDebugOption.m */,
-				8C53C6514BD4991D8FA8BF7BBB518F4E /* YYTextEffectWindow.h */,
-				FEF241C32F03BC488E3F2284072CA88A /* YYTextEffectWindow.m */,
-				9571C790C8935D3BACD361A80C495A42 /* YYTextInput.h */,
-				3AE113A4DAD892BF15A46739554E8EBE /* YYTextInput.m */,
-				3692293E062839770449BF54D6D2D7D5 /* YYTextKeyboardManager.h */,
-				A40593D234CE641FBF2F145EABEB418F /* YYTextKeyboardManager.m */,
-				8B92742F649A018583835207CD528D72 /* YYTextLayout.h */,
-				327C4A14058238E641DD2F53FD9E8F5D /* YYTextLayout.m */,
-				75B9417233D983763B450970C2D9C17D /* YYTextLine.h */,
-				65F00CD225F763EF648D718406916C6B /* YYTextLine.m */,
-				87562B6F9DCA5134E7834AC6B2B751DD /* YYTextMagnifier.h */,
-				FDCAECADD0A088FA02DB4373F12C0086 /* YYTextMagnifier.m */,
-				93F165CBFB9FC0A6B1486780F25EB315 /* YYTextParser.h */,
-				08A0F2EB286359DE2E84B1135C3582D8 /* YYTextParser.m */,
-				E6E17195E20632F78C18B32440A3A4EB /* YYTextRubyAnnotation.h */,
-				751A90AC2F8AEF8712B09388A47F0B65 /* YYTextRubyAnnotation.m */,
-				02CC84639FD608EACE1FDF7C03D85D43 /* YYTextRunDelegate.h */,
-				C3F774D812DF0BDA21A42EA9676187FA /* YYTextRunDelegate.m */,
-				1A49DC9D44E71B28B2B1441E7747B496 /* YYTextSelectionView.h */,
-				D9A4CD2EEC3025BB5E0CA3E42B3C7C76 /* YYTextSelectionView.m */,
-				6E8D0BE2C4F4C3BD5ED00A4D40D56B8D /* YYTextTransaction.h */,
-				B695ABEE8735B093601FA29856F1AD23 /* YYTextTransaction.m */,
-				EEEE6F04E01BE6FF032D7E288E4B3430 /* YYTextUtilities.h */,
-				67CEA993C8F65C2FEA63C12165B30563 /* YYTextUtilities.m */,
-				790F8F0B7987047F116989FF65583AEC /* YYTextView.h */,
-				B7719ABD4C2149CDDB699AF7A502E7B9 /* YYTextView.m */,
-				952B3088CABCD79411A3134C99712A9F /* YYTextWeakProxy.h */,
-				CEA86DECDFFF56E11EA0D7FBEB10EB54 /* YYTextWeakProxy.m */,
-				76AB3A21AD5AD6FE408C55CAA1F10C71 /* Support Files */,
+				26112BB0D2CDA775D32B9EF435F4CEE6 /* CLImageEditor */,
+				29C0381FCEA1047C30B333EBAF139DE3 /* FDFullscreenPopGesture */,
+				64312FD418B38BD7320681D0CEDC77F4 /* YYText */,
 			);
-			name = YYText;
-			path = YYText;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		24002A6670E6882ECD6250D3E60F9CB2 /* Frameworks */ = {
@@ -416,130 +393,105 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2C3A0662AE81356F210969FA4629B5A0 /* Support Files */ = {
+		26112BB0D2CDA775D32B9EF435F4CEE6 /* CLImageEditor */ = {
 			isa = PBXGroup;
 			children = (
-				F2D62118B1C107CE217ADB65A979F7B4 /* CLImageEditor.xcconfig */,
-				FAA8FBEE642FF1E8B4F468611EF3FC8C /* CLImageEditor-dummy.m */,
-				FFFC88D1FAAFC7CC202129A6356328C1 /* CLImageEditor-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/CLImageEditor";
-			sourceTree = "<group>";
-		};
-		54CBA17EE5B2AEE7BF31A4790AEF4AD1 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				D6F48F2761A59A3A70D1672E8F653AB3 /* _CLImageEditorViewController.h */,
-				6A9EA6A4B2DFC13C0E8DAC41FEE745D3 /* _CLImageEditorViewController.m */,
-				E83B2D59D4A13AF2EA9A8B0BEC6B7325 /* CLAdjustmentTool.h */,
-				DE6841FF4ABA0FE2D528A7C5206DFCC0 /* CLAdjustmentTool.m */,
-				8360D05A84CF4E2D7F6A5E41CF23CB81 /* CLBloomEffect.h */,
-				26B35BA625D8716982ECC8880CEFCF66 /* CLBloomEffect.m */,
-				E96BDC5E7A3FA7AECB3FECE603BE8469 /* CLBlurTool.h */,
-				9C0545746E15C946E07EA45E55255579 /* CLBlurTool.m */,
-				F2F05CD9E7BBA734217482AF164ECF48 /* CLCircleView.h */,
-				032CBF63AC3956FDE729B57BF258D0F6 /* CLCircleView.m */,
-				68A38D77CBA95F735FB9A0FA6A840F97 /* CLClassList.h */,
-				128AD9E5575C9AD7383685DFF9696EB2 /* CLClassList.m */,
-				23E77D8E0F1F5C3DBB67B280057E3621 /* CLClippingTool.h */,
-				19BC83B5FF8B149C4E71FE20A7370F3E /* CLClippingTool.m */,
-				FD00FCCE0B1A5084D7555600867026BC /* CLColorPickerView.h */,
-				E8647B290097AF8BFD0877825A08A003 /* CLColorPickerView.m */,
-				2ED67331432559CEDBFEE047A2470B24 /* CLDrawTool.h */,
-				03552FAF8199AD348A27C29CF65DAF68 /* CLDrawTool.m */,
-				6F83D54C6D7587650FE70CAB28FBA3C9 /* CLEffectBase.h */,
-				3F56EE3B3CB811547FF57616B8AC08A2 /* CLEffectBase.m */,
-				AADF1103A84115DEFCA607D7CA6C168E /* CLEffectTool.h */,
-				BE45C6CB06A0BFDB2DA2C04ED4D23C17 /* CLEffectTool.m */,
-				869FD7E0950ABCF05D595CE8B4F1E340 /* CLFilterBase.h */,
-				86C3A7739408DE890DEA235A146B629C /* CLFilterBase.m */,
-				33004C88B6404B6AB1FA49B6D6C2EA71 /* CLFilterTool.h */,
-				86079F8CB6339F1CA99380276B9140FF /* CLFilterTool.m */,
-				E0E39D532170B635482FB1F466426BF2 /* CLGloomEffect.h */,
-				15ABB9CCFAD69501196240EC53D092AC /* CLGloomEffect.m */,
-				B0C9196686922258BCA4554426846ED0 /* CLHighlightShadowEffect.h */,
-				B3C09EF78F79C5F090375685D2F03AC7 /* CLHighlightShadowEffect.m */,
-				A1A9FB980BEF188D6A994784952AA066 /* CLHueEffect.h */,
-				7F90C9951D7BDDD5DB37CFE650EF9378 /* CLHueEffect.m */,
-				0B3E52A4C0B0BFB118BE87FD1949359E /* CLImageEditor.h */,
-				03F575C6FD9598C6295D71F0436D2309 /* CLImageEditor.m */,
-				8561BC99115D64CB41C9145C743E5C18 /* CLImageEditorTheme.h */,
-				28BDA4CB7D2EC8EB88A0EE1A8935AB55 /* CLImageEditorTheme.m */,
-				B245B4C5FCF2C13F7627784C78299622 /* CLImageEditorTheme+Private.h */,
-				51BFA4BC9504EE34A2697D97C1DB68EF /* CLImageEditorTheme+Private.m */,
-				B630798F7653F08B7A92D5F8E2846FCF /* CLImageToolBase.h */,
-				44767EEF709AC770C04C3E68039033EB /* CLImageToolBase.m */,
-				4559B98B88A560BFB3DB1B920CCEF97A /* CLImageToolInfo.h */,
-				A99AD3FCA09739AA9AE7062980F9627A /* CLImageToolInfo.m */,
-				F9502351A5C194888F74BB177AB750A5 /* CLImageToolInfo+Private.h */,
-				1FD312F394E50B81D724F17A3D1BF360 /* CLImageToolInfo+Private.m */,
-				7F43CA98C38E143DF26CFB6BBC835999 /* CLImageToolProtocol.h */,
-				46593390BDFA0074600D17B096C1AC29 /* CLImageToolSettings.h */,
-				437E7446C75EE36D66CF5A48B6EB95C2 /* CLPixellateEffect.h */,
-				5E68F25972C1858602FFDB45B3BDF7A9 /* CLPixellateEffect.m */,
-				7758A015A97DF3D6A97CCC5E3DE47EE9 /* CLPosterizeEffect.h */,
-				9DDAC60679401A70780BE11B21ECA3E8 /* CLPosterizeEffect.m */,
-				50E44453861026854F7A40AAA9FE424D /* CLRotateTool.h */,
-				B78260BA07A0F69DA1F3FECF588D642E /* CLRotateTool.m */,
-				345DB680BA3B413DFBABEFA479F1A30F /* CLSplineInterpolator.h */,
-				F773927FF0FE6C228FECAF78D8921831 /* CLSplineInterpolator.m */,
-				0C16E88ABC8F863560A67A9D6B7E442F /* CLSpotEffect.h */,
-				F9227E0F431393FC204B3F50C2490A40 /* CLSpotEffect.m */,
-				370E3FA90393E00A5D0DD690D3AFF3FC /* CLToneCurveTool.h */,
-				A609DF63BE696FA0620831D132B58BC9 /* CLToneCurveTool.m */,
-				235867F72E4E9106EDE60DB9BB720BDF /* CLToolbarMenuItem.h */,
-				9C441E38BA037678D412025199C85992 /* CLToolbarMenuItem.m */,
-				8426DD715CECD43DCA9851F05BF83636 /* UIDevice+SystemVersion.h */,
-				D7A6F2092E0806D851522021AF7FBE5E /* UIDevice+SystemVersion.m */,
-				9F69C6FF6DD7847BA116C37FED8C88CC /* UIImage+Utility.h */,
-				779308F74083EB0EC31DBA9182D20DCA /* UIImage+Utility.m */,
-				01DF1B568C62D8F8F29886807C81694B /* UIView+CLImageToolInfo.h */,
-				FD76F24F18EAF821403609565FD0BD28 /* UIView+CLImageToolInfo.m */,
-				E84F927746D916E65800F4B8E8BFD4B1 /* UIView+Frame.h */,
-				DA1B252C9C3510B4883E55E93ECFAC3E /* UIView+Frame.m */,
-				63AFE57D28E3B523697E6B2766D3F132 /* Resources */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		588FD48BD6B8C2C658125690213E6ED1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C514719CDEEF8B4706EC5E4CB7585C38 /* libCLImageEditor.a */,
-				F34F68054F316C0B152DC3676974E433 /* libPods-24EditorDemo.a */,
-				3583D8C03471BCFBC9A80815EA51DFE7 /* libYYText.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		63AFE57D28E3B523697E6B2766D3F132 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				FB2F203EBB80D4DD022849386EA3D6E0 /* CLImageEditor.bundle */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		6A224DDE1E023045B57C7E78162AB502 /* CLImageEditor */ = {
-			isa = PBXGroup;
-			children = (
-				54CBA17EE5B2AEE7BF31A4790AEF4AD1 /* Core */,
-				2C3A0662AE81356F210969FA4629B5A0 /* Support Files */,
+				AC96D668BA1A9FA21EAE6780BD46F81E /* Core */,
+				CBD94B4926AB92107B232B9674C8F8D6 /* Support Files */,
 			);
 			name = CLImageEditor;
 			path = CLImageEditor;
 			sourceTree = "<group>";
 		};
-		76AB3A21AD5AD6FE408C55CAA1F10C71 /* Support Files */ = {
+		29C0381FCEA1047C30B333EBAF139DE3 /* FDFullscreenPopGesture */ = {
 			isa = PBXGroup;
 			children = (
-				ED2F881E8CE97441CF1C52CA17A5DE22 /* YYText.xcconfig */,
-				76ECE006737D939969573F8A9E1DB1EE /* YYText-dummy.m */,
-				995A211BE41E0D5816D6178B97BC0314 /* YYText-prefix.pch */,
+				095945E72F629DF46EA609EAC85518B3 /* UINavigationController+FDFullscreenPopGesture.h */,
+				B8E92A8DB2C304FC66CC7E4ABF980E6A /* UINavigationController+FDFullscreenPopGesture.m */,
+				61A0C990D657846927FB442AE65E1694 /* Support Files */,
+			);
+			name = FDFullscreenPopGesture;
+			path = FDFullscreenPopGesture;
+			sourceTree = "<group>";
+		};
+		4F6899B9EA4A547C419548041BF63377 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB05C70B1392F535F222CF651A2B3D4C /* libCLImageEditor.a */,
+				FA449BA36E1823A11F2800AB014E6E4F /* libFDFullscreenPopGesture.a */,
+				6C77AA46DDD69087215EAA4415BD1003 /* libPods-24EditorDemo.a */,
+				5A58B4EAE30815C231C7DC00B7A35BFC /* libYYText.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		61A0C990D657846927FB442AE65E1694 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C777135B056B4DFCF35748B397246390 /* FDFullscreenPopGesture.xcconfig */,
+				072F43A720538EB377F6699317F959E4 /* FDFullscreenPopGesture-dummy.m */,
+				3F33C7E8A70DC8864476EE0BB32A79F2 /* FDFullscreenPopGesture-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/YYText";
+			path = "../Target Support Files/FDFullscreenPopGesture";
+			sourceTree = "<group>";
+		};
+		64312FD418B38BD7320681D0CEDC77F4 /* YYText */ = {
+			isa = PBXGroup;
+			children = (
+				706C242C23F6726236464DAA0BE79049 /* NSAttributedString+YYText.h */,
+				7AE10467757F33AA028507D3B133CD6D /* NSAttributedString+YYText.m */,
+				7612F482908169A902032791CF920718 /* NSParagraphStyle+YYText.h */,
+				2DDA54664CE9C3E3B383B31C329BA603 /* NSParagraphStyle+YYText.m */,
+				9EE47FFA049D690A15A51E654B9CFC17 /* UIPasteboard+YYText.h */,
+				6F72578CC514799F145E76FA55C4D001 /* UIPasteboard+YYText.m */,
+				EC7E652976FA4D958177F42847B88E50 /* UIView+YYText.h */,
+				B9BD531303E2A53A18472CD7DCA13341 /* UIView+YYText.m */,
+				23BAD5CF99A9BEDE711DBF132AE6880B /* YYLabel.h */,
+				391906DD6C4F01E4C9631CEF006ECAF8 /* YYLabel.m */,
+				1C4B17B9F6FF977F20C424ABECFCC462 /* YYText.h */,
+				13A08CDE3B76D2C7256931999181FA8E /* YYTextArchiver.h */,
+				175DB7542376DBA6290C9E8C860E98D6 /* YYTextArchiver.m */,
+				AD1D7EE348C8BC81B252A442539FF49C /* YYTextAsyncLayer.h */,
+				40EEBF270611709E89558BC1C5BB442D /* YYTextAsyncLayer.m */,
+				A0A5D1427EB468ECEFDE1FCF69581063 /* YYTextAttribute.h */,
+				4E7D4B3BD8DA83721744087BA2D1F060 /* YYTextAttribute.m */,
+				709386817F2EE8BDE9500A2C4D7C124B /* YYTextContainerView.h */,
+				BD405B014D37F2A083CAC754E1C907D9 /* YYTextContainerView.m */,
+				20C480774D151EC8D274A7F666D96A2B /* YYTextDebugOption.h */,
+				CD625365D146CC6400412834331963B6 /* YYTextDebugOption.m */,
+				4186E642092DB96C735F90C930F30B34 /* YYTextEffectWindow.h */,
+				3DAE5538F3B51C0A506F252602719320 /* YYTextEffectWindow.m */,
+				1DC1F0358B9C30C20F2681559AF9BB48 /* YYTextInput.h */,
+				4ECB8F478287F06DBBA2AE5F5BE81147 /* YYTextInput.m */,
+				292AB5809F02FB35A433683C04717FE3 /* YYTextKeyboardManager.h */,
+				18E70A0416E9D019388320A981B47769 /* YYTextKeyboardManager.m */,
+				19BE244FA8DE0924A342578FECE5E30C /* YYTextLayout.h */,
+				3F8AD1ACE9987CE3C7529C2DB2C85872 /* YYTextLayout.m */,
+				81B0371A0DE4AE7FA66D8D5CD06C3714 /* YYTextLine.h */,
+				4BF02ADAA758359142B64ECB3240ABDD /* YYTextLine.m */,
+				64EB2C86360E43148D4C3A3EBC8A4B9A /* YYTextMagnifier.h */,
+				2DD18CDC393D49162E80E93C3F82509F /* YYTextMagnifier.m */,
+				82202EFA74B3E818E313AB60CA881CDE /* YYTextParser.h */,
+				D10C6B4C5A85092BB8198C84C09E69FA /* YYTextParser.m */,
+				A6F4834F5E1EE9BF02CBC554D91F5461 /* YYTextRubyAnnotation.h */,
+				801205A76B775221B7F0B73834B54FBA /* YYTextRubyAnnotation.m */,
+				C24DE8250A8B6293B82101929659EDFC /* YYTextRunDelegate.h */,
+				20E1FAA7CD8F5F1B729D91D96A4EFB6B /* YYTextRunDelegate.m */,
+				94977AB2DE516A0F22B338B78D6AF34D /* YYTextSelectionView.h */,
+				22645D7502AB0A274AB7BC6507CFC801 /* YYTextSelectionView.m */,
+				E7136DE33D6D0D7E382F740FA97334AE /* YYTextTransaction.h */,
+				E4C148215C2A73CA9139B9BDB845265C /* YYTextTransaction.m */,
+				DC292A05655A15FADABA490E3FC1AB38 /* YYTextUtilities.h */,
+				408D57EA66F86058DF2FDEF79469466A /* YYTextUtilities.m */,
+				63088D4691782D954F67FADCB8510AF7 /* YYTextView.h */,
+				81573D4C20CF8172CCC16F40F79D82E4 /* YYTextView.m */,
+				B2D457C6F8D8FC91095B3F89B3966037 /* YYTextWeakProxy.h */,
+				07B3779CBF1EF9C8F0577C9375429E12 /* YYTextWeakProxy.m */,
+				C27B97DB4003C29C58DA91B82A84A767 /* Support Files */,
+			);
+			name = YYText;
+			path = YYText;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -547,19 +499,18 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				24002A6670E6882ECD6250D3E60F9CB2 /* Frameworks */,
-				88B6173BBF2C2D8AD2E53B71A2DF6826 /* Pods */,
-				588FD48BD6B8C2C658125690213E6ED1 /* Products */,
+				2171F94D49FDC4C460B0D71110661FF3 /* Pods */,
+				4F6899B9EA4A547C419548041BF63377 /* Products */,
 				03578A91632C38CDE6EC8AC9F4D8D658 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		88B6173BBF2C2D8AD2E53B71A2DF6826 /* Pods */ = {
+		8604C2AF3807539EBD9F18D9423DC7ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6A224DDE1E023045B57C7E78162AB502 /* CLImageEditor */,
-				2018CAD5AE91EFBE7A23681EBB5E3198 /* YYText */,
+				E6D80B4233CF8F7F99BB0EAB3A88C795 /* CLImageEditor.bundle */,
 			);
-			name = Pods;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		8F8B8637E7D763A4819AC464C6161DA8 /* Pods-24EditorDemo */ = {
@@ -593,9 +544,147 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		AC96D668BA1A9FA21EAE6780BD46F81E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				85C1A1BC26750768FFBF48196D491884 /* _CLImageEditorViewController.h */,
+				31EF13366764712DE01B84D6092ADB7E /* _CLImageEditorViewController.m */,
+				53D3AC29D8C2D2A29F3E32C4C61AF615 /* CLAdjustmentTool.h */,
+				8E6660698FBB10A85D36588D9D31377A /* CLAdjustmentTool.m */,
+				8A5E2B96F6B643DC8A0E78C76A8C8475 /* CLBloomEffect.h */,
+				28B02D6FECC6CE9C87CC705FEF566D88 /* CLBloomEffect.m */,
+				D04BA9B5626D7392833F0C9804CFF2F4 /* CLBlurTool.h */,
+				5D5BFC0BAA488FBBDCC6F506F44F0E67 /* CLBlurTool.m */,
+				BA0E77CB1534FBE3E3B454D7E2CA66BA /* CLCircleView.h */,
+				FC47F89122BEB6229B1D3DD18BD56F28 /* CLCircleView.m */,
+				5D8422120E9BA6F5FEA1CA1A95229B9B /* CLClassList.h */,
+				0C99A67BD23C0FAD6E8120E6D7341938 /* CLClassList.m */,
+				636BBF48DAFE9426A98DB9397AE89D56 /* CLClippingTool.h */,
+				B6C18B93B908AB6ED4C221DE0CEA97FE /* CLClippingTool.m */,
+				8AA175DCA5005C3AC9410D9F5EE3F4F2 /* CLColorPickerView.h */,
+				2E2C1336000E371E872E3FBA64FED974 /* CLColorPickerView.m */,
+				C9AA79E068F2C6A1E035541760A5D78C /* CLDrawTool.h */,
+				FB162216B23E133CEE25BD860D0EF93F /* CLDrawTool.m */,
+				115BF04F61B35B5E37B1E75E6B8E9D99 /* CLEffectBase.h */,
+				C864144F714DF03B4FAD7B889A933FF1 /* CLEffectBase.m */,
+				923DAC1704500AFCDC2B29900AC16921 /* CLEffectTool.h */,
+				08182FFD35C0F75097977010381E328A /* CLEffectTool.m */,
+				2440443493D59F518E581E4E44BA6730 /* CLFilterBase.h */,
+				990EC8ACCDF0D8BF2CC53482F432ECB2 /* CLFilterBase.m */,
+				6DE2059154ED96F8BF3281A585BEE1B0 /* CLFilterTool.h */,
+				917BD3609B979F41495D2D0C11644762 /* CLFilterTool.m */,
+				481C60E522DA37459AB76EE7CD3FFC91 /* CLGloomEffect.h */,
+				10F1C9379D3E3BDC5108855527A5F28A /* CLGloomEffect.m */,
+				0E33C969C2AE6370A772CBA759A315D7 /* CLHighlightShadowEffect.h */,
+				B8CBF37FE9D17B7DCC80CDA39C3697CE /* CLHighlightShadowEffect.m */,
+				4D3159AED55444AA8CB633960E1AC237 /* CLHueEffect.h */,
+				6E6F5DD1DA990A8BC24669427C3DB4B4 /* CLHueEffect.m */,
+				679E85950D2956051B0E2D8D1045B08C /* CLImageEditor.h */,
+				6C49C92A019FA842849F1BA492596B97 /* CLImageEditor.m */,
+				F91CE643CFBC07FA05837148A5D999A4 /* CLImageEditorTheme.h */,
+				797281FFFB40DDEBAEF42B012938D707 /* CLImageEditorTheme.m */,
+				6D97798217EE70A19626FD96BDEBDB88 /* CLImageEditorTheme+Private.h */,
+				E449DB3A21B2F3E1EFA7EA1AE534D60B /* CLImageEditorTheme+Private.m */,
+				9C6783D5B012B3D61394E8AC77620181 /* CLImageToolBase.h */,
+				A0AA339758A781EF368EEF3D70F5D0D5 /* CLImageToolBase.m */,
+				02E74E7C70BF3B8D7A4515E803B12E0E /* CLImageToolInfo.h */,
+				FB9E29F34EFA5690F6ABC46DBF29BB8F /* CLImageToolInfo.m */,
+				588A019CD5798C103DAF84A1639856EF /* CLImageToolInfo+Private.h */,
+				507BD94F22A53EA69ABCE92175ED8F72 /* CLImageToolInfo+Private.m */,
+				B4897C78D0AC901B22081EF0D94D27C6 /* CLImageToolProtocol.h */,
+				B6D22B8DFACAE3F60660061222D131DF /* CLImageToolSettings.h */,
+				2F3A2DAAEF8BBC1F56178BCC15075840 /* CLPixellateEffect.h */,
+				D48076D6CB504B0ADE417CEC0B57395F /* CLPixellateEffect.m */,
+				128141295BB214F84F82A818EC6414E9 /* CLPosterizeEffect.h */,
+				3198D8E4ECEC1712476471F2A54FBB7B /* CLPosterizeEffect.m */,
+				62EC4DA62E68A54941BD9B44F184C2A8 /* CLRotateTool.h */,
+				77E4FCFBDA52FEC277809E507A133FC8 /* CLRotateTool.m */,
+				ED0C6914EC9779025757DA60B7794595 /* CLSplineInterpolator.h */,
+				12FA4B67FA25DE00E908BEA910D0C284 /* CLSplineInterpolator.m */,
+				6D88BE1436EA635F8ADCE49D6DFC14A3 /* CLSpotEffect.h */,
+				091B7273EF4352541F4D9736C0F3823F /* CLSpotEffect.m */,
+				C913F6761A0A51D3427ABA4A76865819 /* CLToneCurveTool.h */,
+				3FCB24EA754E97F19ED55DC95DA57634 /* CLToneCurveTool.m */,
+				9DE752BD6C6E7409D7DC37DE7AAF94AD /* CLToolbarMenuItem.h */,
+				AB04A4C5E935D98D07AA490AB82F0706 /* CLToolbarMenuItem.m */,
+				309C1A93BE762C732F3E999BEA809336 /* UIDevice+SystemVersion.h */,
+				DAE7958129C623678DEC80A17DE63160 /* UIDevice+SystemVersion.m */,
+				AF890905364AA6C8574A9DE1D37CFECF /* UIImage+Utility.h */,
+				C938D58C17DF3B20CF7F48B8A628B445 /* UIImage+Utility.m */,
+				652827F0790C0487BF4D13F280804A61 /* UIView+CLImageToolInfo.h */,
+				AE78E2FD15BD280A55CDFE68505A201C /* UIView+CLImageToolInfo.m */,
+				96498FF6FBAD6713E4A1DC1B5E47D870 /* UIView+Frame.h */,
+				68250D81A4E9B680F90BF1509CF069E6 /* UIView+Frame.m */,
+				8604C2AF3807539EBD9F18D9423DC7ED /* Resources */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		C27B97DB4003C29C58DA91B82A84A767 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AE98E658BC73C0195562C1FCADFEBC32 /* YYText.xcconfig */,
+				F720E0209C1F387101B6BE875C95CA7F /* YYText-dummy.m */,
+				3420F1BD66EECA3B27947234BB0D8101 /* YYText-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/YYText";
+			sourceTree = "<group>";
+		};
+		CBD94B4926AB92107B232B9674C8F8D6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABE5489050FE8CA97C79E84DE903A44A /* CLImageEditor.xcconfig */,
+				271275C9FC662C8F07C8E1311B7E2667 /* CLImageEditor-dummy.m */,
+				AF4AA4546FFFBB37D04518D395277556 /* CLImageEditor-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/CLImageEditor";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		6528D49BBCDEB5E0F7B2BDF1992AD226 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3FB4F117C9CE2928CE6FB66BAF784D9 /* UINavigationController+FDFullscreenPopGesture.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0538F7ED47A8C5B03A899F9935E971 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73D038FC9AD46335F5F92FB281096B07 /* NSAttributedString+YYText.h in Headers */,
+				FB3E532CDF3FB54C250F523D242AED9D /* NSParagraphStyle+YYText.h in Headers */,
+				BDD2E97CA8172305450EFD31B81BFEF8 /* UIPasteboard+YYText.h in Headers */,
+				39B74621CB1070DA144297962F8C4764 /* UIView+YYText.h in Headers */,
+				55FBB080E4C9F1C4912D70A81165B1C8 /* YYLabel.h in Headers */,
+				492B7955E461E3A9FA5157C6ABE6905B /* YYText.h in Headers */,
+				FC3D670D8783A218CB5D995E5FC882CF /* YYTextArchiver.h in Headers */,
+				01E9E44B6135A83F7CB2FE5561BD977C /* YYTextAsyncLayer.h in Headers */,
+				A808C4B3F2EAA411C2C043E73B838400 /* YYTextAttribute.h in Headers */,
+				3D2EEAB0CCFF88769599E5101D109DCF /* YYTextContainerView.h in Headers */,
+				99AE0E09E60B14448B47F7D15C8BBEA1 /* YYTextDebugOption.h in Headers */,
+				695D4418572092CC54A7E186696B711B /* YYTextEffectWindow.h in Headers */,
+				A049D7CF6343331BFED522EF390654C4 /* YYTextInput.h in Headers */,
+				18DE61537796CB0C59068ABCBC0B902D /* YYTextKeyboardManager.h in Headers */,
+				6319640958F113CC40D02A1A0D9127A9 /* YYTextLayout.h in Headers */,
+				C742CACB44605CB610AE3BD886FEF316 /* YYTextLine.h in Headers */,
+				5CFF9AD6DFA7E5F7AE9864B3B75006B7 /* YYTextMagnifier.h in Headers */,
+				8AA7BF94A80F9E6800C2F42300B1DCA9 /* YYTextParser.h in Headers */,
+				599C8BE16292B3A8C3389D59CF640238 /* YYTextRubyAnnotation.h in Headers */,
+				2CD1692B54F947E81A808813F5252766 /* YYTextRunDelegate.h in Headers */,
+				9D25CE758FB02134D751BED614BBE741 /* YYTextSelectionView.h in Headers */,
+				427EEBA5C3368B80A7870E50F8BCC988 /* YYTextTransaction.h in Headers */,
+				969C54EBAE6E7A436CE036425446BB98 /* YYTextUtilities.h in Headers */,
+				44D46CA2BF76ACEDC27EBC53BF6DAE25 /* YYTextView.h in Headers */,
+				DF07B39FA051DE7FEABA0A5EBF2883D4 /* YYTextWeakProxy.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		832FE8A71999BA2A723879AF2A168DAD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -638,66 +727,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F8CD7AD63A5325FA51A6531D0A6AA331 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FCB14A561DF5969F6A4A4BD023E39E82 /* NSAttributedString+YYText.h in Headers */,
-				8F2002E2D4764231F0EECFD9BAB02E22 /* NSParagraphStyle+YYText.h in Headers */,
-				BCA948EB041BB5AE93B55648E193337E /* UIPasteboard+YYText.h in Headers */,
-				D66D482E975A74914F6DC7B0D83650C5 /* UIView+YYText.h in Headers */,
-				98881942DB124809FA2CA7A278918C49 /* YYLabel.h in Headers */,
-				C5ABE37BF4E2D54455834650AA6A3CED /* YYText.h in Headers */,
-				0D7E2A6392E29755CB649147810943AD /* YYTextArchiver.h in Headers */,
-				C2193FAFAD6E4E84135265C7A4F2D9D8 /* YYTextAsyncLayer.h in Headers */,
-				D10AD5CC671D639924167966523B1412 /* YYTextAttribute.h in Headers */,
-				7451E8C25193EE62D420FD7F24D07979 /* YYTextContainerView.h in Headers */,
-				4A5CF73A31235CF60B7B1896F3EC42F3 /* YYTextDebugOption.h in Headers */,
-				C498240BE8AB3C09E6D9C1CDCB722FA7 /* YYTextEffectWindow.h in Headers */,
-				19538C408E0F56547B9F9E39AF866D49 /* YYTextInput.h in Headers */,
-				4D32A394DC35179B438585C07C1E5B32 /* YYTextKeyboardManager.h in Headers */,
-				2642F9D966ADFC8E731DCF707AB77F2D /* YYTextLayout.h in Headers */,
-				64F1FF8DBC1A592DD3648C274E0E4FB1 /* YYTextLine.h in Headers */,
-				388925581949D10B479C2B4EA4B97B6B /* YYTextMagnifier.h in Headers */,
-				24E9D54F0FB65E36D216B761D079A01A /* YYTextParser.h in Headers */,
-				0245BCD7875958A84C701A50A7E3A937 /* YYTextRubyAnnotation.h in Headers */,
-				483657B5311ADB4B595F25F644601C61 /* YYTextRunDelegate.h in Headers */,
-				E3F1E279885C76E73C89BBABC461625D /* YYTextSelectionView.h in Headers */,
-				4E0D916F4A54FD1F0F00BAAD8036E946 /* YYTextTransaction.h in Headers */,
-				1284EAD4EE9B099EA65C1065F38717F4 /* YYTextUtilities.h in Headers */,
-				561E2BDE2C63AFBC68754DA12CDA397C /* YYTextView.h in Headers */,
-				9DBC77DD68AA1A72693E8C7CD7EEF72E /* YYTextWeakProxy.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		34A8F7EDD3F39E1AFC9A974CFC8A19FB /* Pods-24EditorDemo */ = {
+		038335D11E9AEA95E4D949EC3ECA195E /* YYText */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0367F938C57B7C35190B75A16A4D6D36 /* Build configuration list for PBXNativeTarget "Pods-24EditorDemo" */;
+			buildConfigurationList = 7C2B51D1965B3C0197D7840456BAF2C0 /* Build configuration list for PBXNativeTarget "YYText" */;
 			buildPhases = (
-				AD76D6BDEF43DC1C14B8FEB5E58A84F8 /* Sources */,
-				AB7A43FC0655351D574D74868F67B2EA /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8B480E33B7401079B13296EC55E8C95D /* PBXTargetDependency */,
-				40BCD90BAF2849313B741F67BDDE7E1C /* PBXTargetDependency */,
-			);
-			name = "Pods-24EditorDemo";
-			productName = "Pods-24EditorDemo";
-			productReference = F34F68054F316C0B152DC3676974E433 /* libPods-24EditorDemo.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		CF497F50993F364000EB3D877101F821 /* YYText */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1E64D91C0A397C402A1DBED740B918ED /* Build configuration list for PBXNativeTarget "YYText" */;
-			buildPhases = (
-				91C002636386BA31B9301D24EC657FC2 /* Sources */,
-				9289E4117302BEBF0C75FED191700FBB /* Frameworks */,
-				F8CD7AD63A5325FA51A6531D0A6AA331 /* Headers */,
+				756196A60D75684A6481B635312C4839 /* Sources */,
+				6F3FAA9AE3C53508DEEA637E27B3946F /* Frameworks */,
+				6A0538F7ED47A8C5B03A899F9935E971 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -705,7 +744,26 @@
 			);
 			name = YYText;
 			productName = YYText;
-			productReference = 3583D8C03471BCFBC9A80815EA51DFE7 /* libYYText.a */;
+			productReference = 5A58B4EAE30815C231C7DC00B7A35BFC /* libYYText.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		2CED0930E0129CD7959E5F8A976FB3C9 /* Pods-24EditorDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A564F1AF870D0D503C994D0530FAB73 /* Build configuration list for PBXNativeTarget "Pods-24EditorDemo" */;
+			buildPhases = (
+				4BA06B203D42193D090D797BD0B95ACF /* Sources */,
+				D147C9CFBDD38B98535705CC4F5ADFC8 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AF1F3F53412C041876246F5008F7F67 /* PBXTargetDependency */,
+				B555D62FCA234507459442FDE29A4480 /* PBXTargetDependency */,
+				5AFCC6F4F38D003A30D52487B56B5D45 /* PBXTargetDependency */,
+			);
+			name = "Pods-24EditorDemo";
+			productName = "Pods-24EditorDemo";
+			productReference = 6C77AA46DDD69087215EAA4415BD1003 /* libPods-24EditorDemo.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		DE82B8ACF304C8C99AF7AA4C3809232A /* CLImageEditor */ = {
@@ -722,7 +780,24 @@
 			);
 			name = CLImageEditor;
 			productName = CLImageEditor;
-			productReference = C514719CDEEF8B4706EC5E4CB7585C38 /* libCLImageEditor.a */;
+			productReference = DB05C70B1392F535F222CF651A2B3D4C /* libCLImageEditor.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EE366E1E6962F82E6AEC8AE66FA66CBF /* FDFullscreenPopGesture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1375982388E24238B8AA563D203E6661 /* Build configuration list for PBXNativeTarget "FDFullscreenPopGesture" */;
+			buildPhases = (
+				62A0A24B70175AE9DB1F05D025D9DBD3 /* Sources */,
+				7EC16DA88EC957C6C5852917E403CDE7 /* Frameworks */,
+				6528D49BBCDEB5E0F7B2BDF1992AD226 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FDFullscreenPopGesture;
+			productName = FDFullscreenPopGesture;
+			productReference = FA449BA36E1823A11F2800AB014E6E4F /* libFDFullscreenPopGesture.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -742,47 +817,65 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 588FD48BD6B8C2C658125690213E6ED1 /* Products */;
+			productRefGroup = 4F6899B9EA4A547C419548041BF63377 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				DE82B8ACF304C8C99AF7AA4C3809232A /* CLImageEditor */,
-				34A8F7EDD3F39E1AFC9A974CFC8A19FB /* Pods-24EditorDemo */,
-				CF497F50993F364000EB3D877101F821 /* YYText */,
+				EE366E1E6962F82E6AEC8AE66FA66CBF /* FDFullscreenPopGesture */,
+				2CED0930E0129CD7959E5F8A976FB3C9 /* Pods-24EditorDemo */,
+				038335D11E9AEA95E4D949EC3ECA195E /* YYText */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		91C002636386BA31B9301D24EC657FC2 /* Sources */ = {
+		4BA06B203D42193D090D797BD0B95ACF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52EC11C1F4CF93932BED1003C06E35CB /* NSAttributedString+YYText.m in Sources */,
-				1B903451345A90E11BB968F577A53F86 /* NSParagraphStyle+YYText.m in Sources */,
-				C1B27CA63EE1BDE54FF834B5267FFA88 /* UIPasteboard+YYText.m in Sources */,
-				E344EA33DCB03542FD38993873A1B50A /* UIView+YYText.m in Sources */,
-				D30F715A7AEFD8096ED53F34CD3B36AA /* YYLabel.m in Sources */,
-				8AC0BA482BF73328DDB6CCEE75662EC0 /* YYText-dummy.m in Sources */,
-				9A31891D7CABDABA7B04485D88C26BA1 /* YYTextArchiver.m in Sources */,
-				59BECD83FED807E898DEBDC8ADE1D1D5 /* YYTextAsyncLayer.m in Sources */,
-				68A2581B235352A39E7CD0D3E3CA7E29 /* YYTextAttribute.m in Sources */,
-				5991F12BB3AEC7CFF3247B6FC4538D83 /* YYTextContainerView.m in Sources */,
-				AFECC9F8AA074ACF23954F883BCDDA28 /* YYTextDebugOption.m in Sources */,
-				60E74477BE571C31E24C1E115AD77FAE /* YYTextEffectWindow.m in Sources */,
-				D362AF9A4E2ECEEFB065A2E5599C8153 /* YYTextInput.m in Sources */,
-				A2013B8BA9E3D5488DE222045D9D906E /* YYTextKeyboardManager.m in Sources */,
-				73BB6DA1A4FBAFE839D650738038296C /* YYTextLayout.m in Sources */,
-				CF571FEECEB8DC5931C548829F46DB42 /* YYTextLine.m in Sources */,
-				B1DB45948499AC15ADFD3ECEEF53BEAF /* YYTextMagnifier.m in Sources */,
-				DBCD001E6973E9A98D360DE5FEC157D2 /* YYTextParser.m in Sources */,
-				4EE33AE70688A1102AFBFC156AE0E2B1 /* YYTextRubyAnnotation.m in Sources */,
-				FBA5210BA21220233EF151A53CCFC67B /* YYTextRunDelegate.m in Sources */,
-				3B0DEA4A3A4002341DC0DC885DA5BCAC /* YYTextSelectionView.m in Sources */,
-				30FF599B43E3F0609CB82CC7985D6A95 /* YYTextTransaction.m in Sources */,
-				6A5ED6503CB0AF453E23B5572586BCCE /* YYTextUtilities.m in Sources */,
-				720FAA9955188746B2A2E32CF14F1F3B /* YYTextView.m in Sources */,
-				CB5C82DDAB31DDA97C63B052B92EE60C /* YYTextWeakProxy.m in Sources */,
+				ACC8ED1989F8BBFB4C5D7B60B809C68E /* Pods-24EditorDemo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62A0A24B70175AE9DB1F05D025D9DBD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFA2F5C9A1FF62120828492C2FB616B5 /* FDFullscreenPopGesture-dummy.m in Sources */,
+				51169FC775C7CBDE9A66E6F91CF9855B /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		756196A60D75684A6481B635312C4839 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49382D69C0BFDEC46C1EBEC5D1EF1BF5 /* NSAttributedString+YYText.m in Sources */,
+				B3A172B709D273ABA2565C7EEFA4AB37 /* NSParagraphStyle+YYText.m in Sources */,
+				AB6FFEC8CB06FBDBF594601B846FBBBA /* UIPasteboard+YYText.m in Sources */,
+				E35414ED3871E59938C608D212DB26E7 /* UIView+YYText.m in Sources */,
+				CABF4C70BBAFB45E86E8C18AFB97787A /* YYLabel.m in Sources */,
+				C053CF080E404398282C8D35C2CA21D2 /* YYText-dummy.m in Sources */,
+				A6490CEDD99AA4F40F13E74A3A433B1B /* YYTextArchiver.m in Sources */,
+				A6BF12EAEE60E02705A786FBB5CAAF69 /* YYTextAsyncLayer.m in Sources */,
+				5BE6D44F5AE526359B75DAD1A4AB7756 /* YYTextAttribute.m in Sources */,
+				DC65560F28841CA5C3C75C073579B6A4 /* YYTextContainerView.m in Sources */,
+				DADFBB53A1E036AE1F598BC6EB21D32D /* YYTextDebugOption.m in Sources */,
+				DC1BA26D05A73A1441F3B091EB300E0A /* YYTextEffectWindow.m in Sources */,
+				2D43A449416EB1D8162056EB5AF638E5 /* YYTextInput.m in Sources */,
+				ABD0B6F874EFDE16271DA26E3913F2FE /* YYTextKeyboardManager.m in Sources */,
+				53644A808FDE14FCD5EC2339B0E845FA /* YYTextLayout.m in Sources */,
+				EC9174324FB9A895EE7D4942DDC6269A /* YYTextLine.m in Sources */,
+				0C9BDA13139DDF749C17BA033B9D0D19 /* YYTextMagnifier.m in Sources */,
+				F84251F888803C7EBCD0F44A07344845 /* YYTextParser.m in Sources */,
+				C05F76026A00F9C663C8297AAD45EBC5 /* YYTextRubyAnnotation.m in Sources */,
+				5AC3234066D919B8EDBAEB4001574F21 /* YYTextRunDelegate.m in Sources */,
+				7F6179DC38DF09D7FEBF65BEBBAB29A5 /* YYTextSelectionView.m in Sources */,
+				FDA4E0EB004D8FCAFA1492A700E46C49 /* YYTextTransaction.m in Sources */,
+				301FA2A29F5EE1EBBABA5B286F09C65B /* YYTextUtilities.m in Sources */,
+				37988FF51AAE81DA9CE2A835C84C5AA3 /* YYTextView.m in Sources */,
+				57489D15F06EB47AF2ECEBD080A8B827 /* YYTextWeakProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -827,83 +920,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AD76D6BDEF43DC1C14B8FEB5E58A84F8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C9E8C4DBFA378B1A9167F2F19CAB2E28 /* Pods-24EditorDemo-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		40BCD90BAF2849313B741F67BDDE7E1C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = YYText;
-			target = CF497F50993F364000EB3D877101F821 /* YYText */;
-			targetProxy = 07E2219A8B800CAA3D0EA6823C3A3612 /* PBXContainerItemProxy */;
-		};
-		8B480E33B7401079B13296EC55E8C95D /* PBXTargetDependency */ = {
+		5AF1F3F53412C041876246F5008F7F67 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CLImageEditor;
 			target = DE82B8ACF304C8C99AF7AA4C3809232A /* CLImageEditor */;
-			targetProxy = 6F885A71B91A266A64A1013E8C539D41 /* PBXContainerItemProxy */;
+			targetProxy = B57FB1E16DB4D6A3A3C30462C406B6B9 /* PBXContainerItemProxy */;
+		};
+		5AFCC6F4F38D003A30D52487B56B5D45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YYText;
+			target = 038335D11E9AEA95E4D949EC3ECA195E /* YYText */;
+			targetProxy = 6A739A466D4972A5B1B2855948B8B19B /* PBXContainerItemProxy */;
+		};
+		B555D62FCA234507459442FDE29A4480 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FDFullscreenPopGesture;
+			target = EE366E1E6962F82E6AEC8AE66FA66CBF /* FDFullscreenPopGesture */;
+			targetProxy = B600F61945908B99B4E0ECFF9C211D95 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		166E2CAC58E8608AD59A6F0B71C9C3E0 /* Debug */ = {
+		0228C7A8A3EF6DB6A24B10C44F4C05A7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = NO;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_DEBUG=1",
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
-				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Debug;
-		};
-		265DE4B1C6692BC5B6B4C3F470370079 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA3151EA69FAB02F32215D01564E5589 /* Pods-24EditorDemo.release.xcconfig */;
+			baseConfigurationReference = C777135B056B4DFCF35748B397246390 /* FDFullscreenPopGesture.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -911,20 +954,45 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
-				MACH_O_TYPE = staticlib;
+				GCC_PREFIX_HEADER = "Target Support Files/FDFullscreenPopGesture/FDFullscreenPopGesture-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 			};
 			name = Release;
 		};
-		2AA51DE91B15E9D0A9E7CBD21C929A7E /* Debug */ = {
+		032B8AE8DACECA32A2AA7E1D4AA2D01F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABE5489050FE8CA97C79E84DE903A44A /* CLImageEditor.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CLImageEditor/CLImageEditor-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+			};
+			name = Release;
+		};
+		0CA1D095A06BF3A43CBA850A2DCB1007 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BA8FAF93C14824B2521DC7485B520711 /* Pods-24EditorDemo.debug.xcconfig */;
 			buildSettings = {
@@ -947,19 +1015,19 @@
 			};
 			name = Debug;
 		};
-		418BF86BE4B3738E8764BA2479DF73EB /* Debug */ = {
+		3F167E219C178F1339C8D78D37C23C0A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2D62118B1C107CE217ADB65A979F7B4 /* CLImageEditor.xcconfig */;
+			baseConfigurationReference = AE98E658BC73C0195562C1FCADFEBC32 /* YYText.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/CLImageEditor/CLImageEditor-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/YYText/YYText-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -967,12 +1035,13 @@
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 			};
-			name = Debug;
+			name = Release;
 		};
-		671CCF8699F1E08C52D38BC503854EAE /* Debug */ = {
+		5A38B66D00476B005C97F39BFE1914CF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED2F881E8CE97441CF1C52CA17A5DE22 /* YYText.xcconfig */;
+			baseConfigurationReference = AE98E658BC73C0195562C1FCADFEBC32 /* YYText.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -990,6 +1059,7 @@
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 			};
 			name = Debug;
 		};
@@ -1037,42 +1107,19 @@
 			};
 			name = Release;
 		};
-		B18B6F90C451919E4AF66FC6EF5547BA /* Release */ = {
+		ACDCE4BF18F7DE44F4E9FA97EDEFAF93 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED2F881E8CE97441CF1C52CA17A5DE22 /* YYText.xcconfig */;
+			baseConfigurationReference = ABE5489050FE8CA97C79E84DE903A44A /* CLImageEditor.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/YYText/YYText-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		B7454FF6587CA7F508F5487DCF993EE3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2D62118B1C107CE217ADB65A979F7B4 /* CLImageEditor.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/CLImageEditor/CLImageEditor-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -1080,26 +1127,114 @@
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+			};
+			name = Debug;
+		};
+		D99984006F4650404F93060F1DF87FC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C777135B056B4DFCF35748B397246390 /* FDFullscreenPopGesture.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/FDFullscreenPopGesture/FDFullscreenPopGesture-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+			};
+			name = Debug;
+		};
+		EAD9922906CF716D95135C3D4FE6C10B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA3151EA69FAB02F32215D01564E5589 /* Pods-24EditorDemo.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
+		};
+		FC8212A50BC1BCA4BF1B8BC800078F2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0367F938C57B7C35190B75A16A4D6D36 /* Build configuration list for PBXNativeTarget "Pods-24EditorDemo" */ = {
+		1375982388E24238B8AA563D203E6661 /* Build configuration list for PBXNativeTarget "FDFullscreenPopGesture" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2AA51DE91B15E9D0A9E7CBD21C929A7E /* Debug */,
-				265DE4B1C6692BC5B6B4C3F470370079 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1E64D91C0A397C402A1DBED740B918ED /* Build configuration list for PBXNativeTarget "YYText" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				671CCF8699F1E08C52D38BC503854EAE /* Debug */,
-				B18B6F90C451919E4AF66FC6EF5547BA /* Release */,
+				D99984006F4650404F93060F1DF87FC3 /* Debug */,
+				0228C7A8A3EF6DB6A24B10C44F4C05A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1107,8 +1242,26 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				166E2CAC58E8608AD59A6F0B71C9C3E0 /* Debug */,
+				FC8212A50BC1BCA4BF1B8BC800078F2F /* Debug */,
 				AA0B5BDEB018901CD8F88AAD05F5B893 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A564F1AF870D0D503C994D0530FAB73 /* Build configuration list for PBXNativeTarget "Pods-24EditorDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CA1D095A06BF3A43CBA850A2DCB1007 /* Debug */,
+				EAD9922906CF716D95135C3D4FE6C10B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C2B51D1965B3C0197D7840456BAF2C0 /* Build configuration list for PBXNativeTarget "YYText" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A38B66D00476B005C97F39BFE1914CF /* Debug */,
+				3F167E219C178F1339C8D78D37C23C0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1116,8 +1269,8 @@
 		FF7686C673EFEE23C383B6D9D2C75D88 /* Build configuration list for PBXNativeTarget "CLImageEditor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				418BF86BE4B3738E8764BA2479DF73EB /* Debug */,
-				B7454FF6587CA7F508F5487DCF993EE3 /* Release */,
+				ACDCE4BF18F7DE44F4E9FA97EDEFAF93 /* Debug */,
+				032B8AE8DACECA32A2AA7E1D4AA2D01F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

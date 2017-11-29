@@ -7,6 +7,7 @@
 //
 
 #import "ZCHelper.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation ZCHelper
 
@@ -16,7 +17,6 @@
     dispatch_once(&onceToken,^{
         instance = [[super allocWithZone:NULL] init];
         // 此处没有用到Keyboard
-        
     });
     return instance;
 }
@@ -58,7 +58,7 @@ static NSInteger isIPad = -1;
 static NSInteger isIPadPro = -1;
 + (BOOL)isIPadPro {
     if (isIPadPro < 0) {
-        isIPadPro = [ZCHelper isIPad] ? (DEVICE_WIDTH == 1024 && DEVICE_HEIGHT == 1366 ? 1 : 0) : 0;
+        isIPadPro = [ZCHelper isIPad] ? (kDeviceWidth == 1024 && kDeviceHeight == 1366 ? 1 : 0) : 0;
     }
     return isIPadPro > 0;
 }
@@ -96,7 +96,7 @@ static NSInteger isSimulator = -1;
 static NSInteger is58InchScreen = -1;
 + (BOOL)is58InchScreen {
     if (is58InchScreen < 0) {
-        is58InchScreen = (DEVICE_WIDTH == self.screenSizeFor58Inch.width && DEVICE_HEIGHT == self.screenSizeFor58Inch.height) ? 1 : 0;
+        is58InchScreen = (kDeviceWidth == self.screenSizeFor58Inch.width && kDeviceHeight == self.screenSizeFor58Inch.height) ? 1 : 0;
     }
     return is58InchScreen > 0;
 }
@@ -104,7 +104,7 @@ static NSInteger is58InchScreen = -1;
 static NSInteger is55InchScreen = -1;
 + (BOOL)is55InchScreen {
     if (is55InchScreen < 0) {
-        is55InchScreen = (DEVICE_WIDTH == self.screenSizeFor55Inch.width && DEVICE_HEIGHT == self.screenSizeFor55Inch.height) ? 1 : 0;
+        is55InchScreen = (kDeviceWidth == self.screenSizeFor55Inch.width && kDeviceHeight == self.screenSizeFor55Inch.height) ? 1 : 0;
     }
     return is55InchScreen > 0;
 }
@@ -112,7 +112,7 @@ static NSInteger is55InchScreen = -1;
 static NSInteger is47InchScreen = -1;
 + (BOOL)is47InchScreen {
     if (is47InchScreen < 0) {
-        is47InchScreen = (DEVICE_WIDTH == self.screenSizeFor47Inch.width && DEVICE_HEIGHT == self.screenSizeFor47Inch.height) ? 1 : 0;
+        is47InchScreen = (kDeviceWidth == self.screenSizeFor47Inch.width && kDeviceHeight == self.screenSizeFor47Inch.height) ? 1 : 0;
     }
     return is47InchScreen > 0;
 }
@@ -120,7 +120,7 @@ static NSInteger is47InchScreen = -1;
 static NSInteger is40InchScreen = -1;
 + (BOOL)is40InchScreen {
     if (is40InchScreen < 0) {
-        is40InchScreen = (DEVICE_WIDTH == self.screenSizeFor40Inch.width && DEVICE_HEIGHT == self.screenSizeFor40Inch.height) ? 1 : 0;
+        is40InchScreen = (kDeviceWidth == self.screenSizeFor40Inch.width && kDeviceHeight == self.screenSizeFor40Inch.height) ? 1 : 0;
     }
     return is40InchScreen > 0;
 }
@@ -128,7 +128,7 @@ static NSInteger is40InchScreen = -1;
 static NSInteger is35InchScreen = -1;
 + (BOOL)is35InchScreen {
     if (is35InchScreen < 0) {
-        is35InchScreen = (DEVICE_WIDTH == self.screenSizeFor35Inch.width && DEVICE_HEIGHT == self.screenSizeFor35Inch.height) ? 1 : 0;
+        is35InchScreen = (kDeviceWidth == self.screenSizeFor35Inch.width && kDeviceHeight == self.screenSizeFor35Inch.height) ? 1 : 0;
     }
     return is35InchScreen > 0;
 }
@@ -160,6 +160,6 @@ static NSInteger isHighPerformanceDevice = -1;
     }
     return isHighPerformanceDevice > 0;
 }
-
 @end
+
 

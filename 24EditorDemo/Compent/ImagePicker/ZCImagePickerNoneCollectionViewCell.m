@@ -8,6 +8,7 @@
 
 #import "ZCImagePickerNoneCollectionViewCell.h"
 #import "UIImage+ZCCate.h"
+#import "UIView+ZCCate.h"
 
 @implementation ZCImagePickerNoneCollectionViewCell
 

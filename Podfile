@@ -4,4 +4,5 @@
 target '24EditorDemo' do
   pod 'YYText'
   pod 'CLImageEditor'
+  pod 'FDFullscreenPopGesture', '~> 1.1'
 end

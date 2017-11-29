@@ -11,8 +11,8 @@
 #import <Photos/Photos.h>
 #import <MobileCoreServices/UTCoreTypes.h>
 #import "ZCAssetsManager.h"
-#import "UIView+YYAdd.h"
-#import "NSString+YYAdd.h"
+#import "UIView+ZCCate.h"
+#import "NSString+ZCCate.h"
 
 static NSString * const kAssetInfoImageData = @"imageData";
 static NSString * const kAssetInfoOriginInfo = @"originInfo";
@@ -127,7 +127,7 @@ static NSString * const kAssetInfoSize = @"size";
     if (_usePhotoKit) {
         PHImageRequestOptions *phImageRequestOptions = [[PHImageRequestOptions alloc] init];
         phImageRequestOptions.resizeMode = PHImageRequestOptionsResizeModeExact;
-        // 在 PHImageManager 中，targetSize 等 size 都是使用 px 作为单位，因此需要对targetSize 中对传入的 Size 进行处理，宽高各自乘以 ScreenScale，从而得到正确的图片
+        // 在 PHImageManager 中，targetSize 等 size 都是使用 px 作为单位，因此需要对targetSize 中对传入的 Size 进行处理，宽高各自乘以 kScreenScale，从而得到正确的图片
         [[[ZCAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:_phAsset
                                                                               targetSize:CGSizeMake(size.width * kScreenScale, size.height * kScreenScale)
                                                                              contentMode:PHImageContentModeAspectFill options:phImageRequestOptions
@@ -184,7 +184,7 @@ static NSString * const kAssetInfoSize = @"size";
     if (_usePhotoKit) {
         PHImageRequestOptions *imageRequestOptions = [[PHImageRequestOptions alloc] init];
         imageRequestOptions.resizeMode = PHImageRequestOptionsResizeModeFast;
-        // 在 PHImageManager 中，targetSize 等 size 都是使用 px 作为单位，因此需要对targetSize 中对传入的 Size 进行处理，宽高各自乘以 ScreenScale，从而得到正确的图片
+        // 在 PHImageManager 中，targetSize 等 size 都是使用 px 作为单位，因此需要对targetSize 中对传入的 Size 进行处理，宽高各自乘以 kScreenScale，从而得到正确的图片
         return [[[ZCAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:_phAsset targetSize:CGSizeMake(size.width * kScreenScale, size.height * kScreenScale) contentMode:PHImageContentModeAspectFill options:imageRequestOptions resultHandler:^(UIImage *result, NSDictionary *info) {
             if (completion) {
                 completion(result, info);

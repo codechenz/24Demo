@@ -16,4 +16,6 @@
 @property (nonatomic, strong)UIImageView *authorImage;
 @property (nonatomic, strong)UILabel *nameLabel;
 
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+
 @end

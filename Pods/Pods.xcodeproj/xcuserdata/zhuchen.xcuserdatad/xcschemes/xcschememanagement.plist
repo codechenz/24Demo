@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FDFullscreenPopGesture.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-24EditorDemo.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -21,22 +26,6 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>34A8F7EDD3F39E1AFC9A974CFC8A19FB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CF497F50993F364000EB3D877101F821</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DE82B8ACF304C8C99AF7AA4C3809232A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

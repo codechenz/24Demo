@@ -9,7 +9,7 @@
 #import "ZCAssetsGroup.h"
 #import "ZCAsset.h"
 #import "ZCAssetsManager.h"
-#import "UIView+YYAdd.h"
+#import "UIView+ZCCate.h"
 
 @interface ZCAssetsGroup()
 
@@ -74,7 +74,7 @@
             PHImageRequestOptions *pHImageRequestOptions = [[PHImageRequestOptions alloc] init];
             pHImageRequestOptions.synchronous = YES; // 同步请求
             pHImageRequestOptions.resizeMode = PHImageRequestOptionsResizeModeExact;
-            // targetSize 中对传入的 Size 进行处理，宽高各自乘以 ScreenScale，从而得到正确的图片
+            // targetSize 中对传入的 Size 进行处理，宽高各自乘以 kScreenScale，从而得到正确的图片
             [[[ZCAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:asset targetSize:CGSizeMake(size.width * kScreenScale, size.height * kScreenScale) contentMode:PHImageContentModeAspectFill options:pHImageRequestOptions resultHandler:^(UIImage *result, NSDictionary *info) {
                 resultImage = result;
             }];

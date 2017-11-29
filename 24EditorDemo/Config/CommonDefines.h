@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
-#import "UIView+YYAdd.h"
+#import "UIColor+ZCCate.h"
 #import "ZCHelper.h"
 
 #pragma mark - 变量-编译相关
@@ -28,26 +28,45 @@
 #define IS_SIMULATOR [ZCHelper isSimulator]
 
 // 操作系统版本号
-#define IOS_VERSION ([[[UIDevice currentDevice] systemVersion] floatValue])
+#define kSystemVersion ([[[UIDevice currentDevice] systemVersion] floatValue])
+
+#ifndef kiOS6Later
+#define kiOS6Later (kSystemVersion >= 6)
+#endif
+
+#ifndef kiOS7Later
+#define kiOS7Later (kSystemVersion >= 7)
+#endif
+
+#ifndef kiOS8Later
+#define kiOS8Later (kSystemVersion >= 8)
+#endif
+
+#ifndef kiOS9Later
+#define kiOS9Later (kSystemVersion >= 9)
+#endif
 
 // 是否横竖屏
 // 用户界面横屏了才会返回YES
-#define IS_LANDSCAPE UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])
+#define kLandScape UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])
 // 无论支不支持横屏，只要设备横屏了，就会返回YES
-#define IS_DEVICE_LANDSCAPE UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])
+#define kIsDeviceLandScape UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation])
 
 
 // 屏幕宽度，会根据横竖屏的变化而变化
-#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define kScreenWidth ([[UIScreen mainScreen] bounds].size.width)
 
 // 屏幕宽度，跟横竖屏无关
-#define DEVICE_WIDTH (IS_LANDSCAPE ? [[UIScreen mainScreen] bounds].size.height : [[UIScreen mainScreen] bounds].size.width)
+#define kDeviceWidth (kLandScape ? [[UIScreen mainScreen] bounds].size.height : [[UIScreen mainScreen] bounds].size.width)
 
 // 屏幕高度，会根据横竖屏的变化而变化
-#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define kScreenHeight ([[UIScreen mainScreen] bounds].size.height)
 
 // 屏幕高度，跟横竖屏无关
-#define DEVICE_HEIGHT (IS_LANDSCAPE ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height)
+#define kDeviceHeight (kLandScape ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height)
+#ifndef kScreenScale
+#define kScreenScale [UIScreen mainScreen].scale
+#endif
 
 // 设备屏幕尺寸
 #define IS_58INCH_SCREEN [ZCHelper is58InchScreen]
@@ -71,6 +90,10 @@
 // UIColor 相关的宏，用于快速创建一个 UIColor 对象，更多创建的宏可查看 UIColor+QMUI.h
 #define UIColorMake(r, g, b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
 #define UIColorMakeWithRGBA(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a/1.0]
+
+#ifndef UIColorHex
+#define UIColorHex(_hex_)   [UIColor colorWithHexString:((__bridge NSString *)CFSTR(#_hex_))]
+#endif
 
 #pragma mark - 方法-C对象、结构操作
 

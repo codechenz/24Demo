@@ -50,8 +50,6 @@
 }
 
 - (void)setNavigationBar {
-    
-    self.navigationItem.leftBarButtonItems = @[];
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
     [btn setImage:[UIImage imageWithIcon:kIFISave size:18 color:UIColorHex(#667587)] forState:UIControlStateDisabled];
     [btn setImage:[UIImage imageWithIcon:kIFISave size:18 color:UIColorHex(#0088cc)] forState:UIControlStateNormal];
@@ -215,8 +213,6 @@
 }
 
 - (void)handleSaveButtonClick:(UIButton *)sender {
-    
-    
     UIAlertController *saveAlertController = [UIAlertController alertControllerWithTitle:@"Save" message:@"test" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *htmlAction = [UIAlertAction actionWithTitle:@"log html" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSString *showString = [NSString stringWithFormat:@"{title:%@,content:%@}",[self.titleTextView.attributedText mn_HTMLRepresentationFromCoreTextAttributes],[self.contentTextView.attributedText mn_HTMLRepresentationFromCoreTextAttributes]];

@@ -1,22 +1,14 @@
 //
-//  NSString+YYAdd.h
-//  YYCategories <https://github.com/ibireme/YYCategories>
+//  NSString+ZCCate.h
+//  24EditorDemo
 //
-//  Created by ibireme on 13/4/3.
-//  Copyright (c) 2015 ibireme.
-//
-//  This source code is licensed under the MIT-style license found in the
-//  LICENSE file in the root directory of this source tree.
+//  Created by zhuchen on 2017/11/29.
+//  Copyright © 2017年 personal. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-/**
- Provide hash, encrypt, encode and some common method for 'NSString'.
- */
-@interface NSString (YYAdd)
-
-
+@interface NSString (ZCCate)
 #pragma mark - Drawing
 ///=============================================================================
 /// @name Drawing
@@ -84,12 +76,12 @@
  @param options  The matching options to report.
  @param block    The block to apply to elements in the array of matches.
  The block takes four arguments:
-     match: The match substring.
-     matchRange: The matching options.
-     stop: A reference to a Boolean value. The block can set the value
-         to YES to stop further processing of the array. The stop
-         argument is an out-only argument. You should only ever set
-         this Boolean to YES within the Block.
+ match: The match substring.
+ matchRange: The matching options.
+ stop: A reference to a Boolean value. The block can set the value
+ to YES to stop further processing of the array. The stop
+ argument is an out-only argument. You should only ever set
+ this Boolean to YES within the Block.
  */
 - (void)enumerateRegexMatches:(NSString *)regex
                       options:(NSRegularExpressionOptions)options
@@ -155,12 +147,12 @@
  
  @param range The range within the string to enumerate substrings.
  @param block The block executed for the enumeration. The block takes four arguments:
-    char32: The unicode character.
-    range: The range in receiver. If the range.length is 1, the character is in BMP;
-        otherwise (range.length is 2) the character is in none-BMP Plane and stored
-        by a surrogate pair in the receiver.
-    stop: A reference to a Boolean value that the block can use to stop the enumeration 
-        by setting *stop = YES; it should not touch *stop otherwise.
+ char32: The unicode character.
+ range: The range in receiver. If the range.length is 1, the character is in BMP;
+ otherwise (range.length is 2) the character is in none-BMP Plane and stored
+ by a surrogate pair in the receiver.
+ stop: A reference to a Boolean value that the block can use to stop the enumeration
+ by setting *stop = YES; it should not touch *stop otherwise.
  */
 - (void)enumerateUTF32CharInRange:(NSRange)range usingBlock:(void (^)(UTF32Char char32, NSRange range, BOOL *stop))block;
 
@@ -263,5 +255,4 @@
 //AssetManager
 - (NSString *)zc_md5;
 + (NSString *)zc_timeStringWithMinsAndSecsFromSecs:(double)seconds;
-
 @end

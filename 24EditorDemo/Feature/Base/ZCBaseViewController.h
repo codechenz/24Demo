@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIView+YYAdd.h"
-
+#import "UIImage+ZCCate.h"
+#import "UIView+ZCCate.h"
 @interface ZCBaseViewController : UIViewController
 
 @end

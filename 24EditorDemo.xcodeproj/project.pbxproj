@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3EAC1B88DBA7C5A860E5F821 /* libPods-24EditorDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF41CCCE21E3C1A793C23BB6 /* libPods-24EditorDemo.a */; };
+		9315BD441FCD625D001ECD0B /* UIColor+ZCCate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9315BD431FCD625D001ECD0B /* UIColor+ZCCate.m */; };
 		9369B3071FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3061FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.m */; };
 		9369B3361FCA620E005ED1D7 /* ZCAlbumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3351FCA620E005ED1D7 /* ZCAlbumView.m */; };
 		9369B34E1FCB0EC8005ED1D7 /* AshtonCoreText.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B33C1FCB0EC8005ED1D7 /* AshtonCoreText.m */; };
@@ -26,6 +27,8 @@
 		9369B3651FCB226F005ED1D7 /* ZCDraftDefautTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3641FCB226F005ED1D7 /* ZCDraftDefautTableViewCell.m */; };
 		9369B3681FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B3671FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.m */; };
 		9369B36A1FCB2751005ED1D7 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9369B3691FCB2751005ED1D7 /* Muli-Regular.ttf */; };
+		939266B41FCE82E1002FFA49 /* UIImage+ZCCate.m in Sources */ = {isa = PBXBuildFile; fileRef = 939266B31FCE82E1002FFA49 /* UIImage+ZCCate.m */; };
+		939266B71FCE831F002FFA49 /* NSString+ZCCate.m in Sources */ = {isa = PBXBuildFile; fileRef = 939266B61FCE831F002FFA49 /* NSString+ZCCate.m */; };
 		93C143C51FC547D00006FB90 /* _4EditorDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93C143C31FC547D00006FB90 /* _4EditorDemo.xcdatamodeld */; };
 		93C143C71FC547D00006FB90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C143C61FC547D00006FB90 /* Assets.xcassets */; };
 		93C143D91FC54DB30006FB90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C143D31FC54DB30006FB90 /* AppDelegate.m */; };
@@ -35,13 +38,6 @@
 		93C143DF1FC54DBC0006FB90 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93C143DE1FC54DBC0006FB90 /* Info.plist */; };
 		93C143F11FC550530006FB90 /* ZCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C143F01FC550530006FB90 /* ZCBaseViewController.m */; };
 		93C143F71FC5517C0006FB90 /* ZCEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C143F61FC5517C0006FB90 /* ZCEditorViewController.m */; };
-		93C144051FC55D950006FB90 /* CALayer+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C143FA1FC55D950006FB90 /* CALayer+YYAdd.m */; };
-		93C144061FC55D950006FB90 /* NSBundle+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C143FC1FC55D950006FB90 /* NSBundle+YYAdd.m */; };
-		93C144071FC55D950006FB90 /* NSData+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C143FE1FC55D950006FB90 /* NSData+YYAdd.m */; };
-		93C144081FC55D950006FB90 /* NSString+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C144001FC55D950006FB90 /* NSString+YYAdd.m */; };
-		93C144091FC55D950006FB90 /* UIControl+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C144021FC55D950006FB90 /* UIControl+YYAdd.m */; };
-		93C1440A1FC55D950006FB90 /* UIGestureRecognizer+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C144041FC55D950006FB90 /* UIGestureRecognizer+YYAdd.m */; };
-		93C1440D1FC55E690006FB90 /* UIView+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C1440C1FC55E690006FB90 /* UIView+YYAdd.m */; };
 		93C1440F1FC570CB0006FB90 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C1440E1FC570CB0006FB90 /* UIKit.framework */; };
 		93C144111FC570D20006FB90 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C144101FC570D20006FB90 /* CoreFoundation.framework */; };
 		93C144131FC570D80006FB90 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C144121FC570D80006FB90 /* CoreText.framework */; };
@@ -52,7 +48,6 @@
 		93C1441F1FC57B120006FB90 /* ZCInputToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C1441E1FC57B120006FB90 /* ZCInputToolView.m */; };
 		93C144231FC596030006FB90 /* icon24app.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93C144221FC596030006FB90 /* icon24app.ttf */; };
 		93C144331FC59BB80006FB90 /* ZCBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C144321FC59BB80006FB90 /* ZCBaseModel.m */; };
-		93C1443A1FC5A7FA0006FB90 /* UIImage+ZCCate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C144391FC5A7FA0006FB90 /* UIImage+ZCCate.m */; };
 		93C1443F1FC5B72A0006FB90 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93C1443D1FC5B72A0006FB90 /* Raleway-Medium.ttf */; };
 		93C144401FC5B72A0006FB90 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93C1443E1FC5B72A0006FB90 /* Raleway-Regular.ttf */; };
 		93C144451FC5D2F70006FB90 /* Muli-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93C144441FC5D2F70006FB90 /* Muli-SemiBold.ttf */; };
@@ -79,6 +74,8 @@
 
 /* Begin PBXFileReference section */
 		25CD7A04455561CED0A1AE43 /* Pods-24EditorDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24EditorDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-24EditorDemo/Pods-24EditorDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		9315BD421FCD625D001ECD0B /* UIColor+ZCCate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+ZCCate.h"; sourceTree = "<group>"; };
+		9315BD431FCD625D001ECD0B /* UIColor+ZCCate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ZCCate.m"; sourceTree = "<group>"; };
 		9369B3051FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCImagePickerNoneCollectionViewCell.h; sourceTree = "<group>"; };
 		9369B3061FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCImagePickerNoneCollectionViewCell.m; sourceTree = "<group>"; };
 		9369B3341FCA620E005ED1D7 /* ZCAlbumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCAlbumView.h; sourceTree = "<group>"; };
@@ -115,6 +112,10 @@
 		9369B3661FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCDraftVideoTableViewCell.h; sourceTree = "<group>"; };
 		9369B3671FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCDraftVideoTableViewCell.m; sourceTree = "<group>"; };
 		9369B3691FCB2751005ED1D7 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
+		939266B21FCE82E0002FFA49 /* UIImage+ZCCate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZCCate.h"; sourceTree = "<group>"; };
+		939266B31FCE82E1002FFA49 /* UIImage+ZCCate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZCCate.m"; sourceTree = "<group>"; };
+		939266B51FCE831F002FFA49 /* NSString+ZCCate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+ZCCate.h"; sourceTree = "<group>"; };
+		939266B61FCE831F002FFA49 /* NSString+ZCCate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZCCate.m"; sourceTree = "<group>"; };
 		93C143B41FC547D00006FB90 /* 24EditorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 24EditorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C143C41FC547D00006FB90 /* _4EditorDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = _4EditorDemo.xcdatamodel; sourceTree = "<group>"; };
 		93C143C61FC547D00006FB90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,20 +129,6 @@
 		93C143F01FC550530006FB90 /* ZCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCBaseViewController.m; sourceTree = "<group>"; };
 		93C143F51FC5517C0006FB90 /* ZCEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCEditorViewController.h; sourceTree = "<group>"; };
 		93C143F61FC5517C0006FB90 /* ZCEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCEditorViewController.m; sourceTree = "<group>"; };
-		93C143F91FC55D950006FB90 /* CALayer+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+YYAdd.h"; sourceTree = "<group>"; };
-		93C143FA1FC55D950006FB90 /* CALayer+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+YYAdd.m"; sourceTree = "<group>"; };
-		93C143FB1FC55D950006FB90 /* NSBundle+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+YYAdd.h"; sourceTree = "<group>"; };
-		93C143FC1FC55D950006FB90 /* NSBundle+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+YYAdd.m"; sourceTree = "<group>"; };
-		93C143FD1FC55D950006FB90 /* NSData+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+YYAdd.h"; sourceTree = "<group>"; };
-		93C143FE1FC55D950006FB90 /* NSData+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+YYAdd.m"; sourceTree = "<group>"; };
-		93C143FF1FC55D950006FB90 /* NSString+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YYAdd.h"; sourceTree = "<group>"; };
-		93C144001FC55D950006FB90 /* NSString+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YYAdd.m"; sourceTree = "<group>"; };
-		93C144011FC55D950006FB90 /* UIControl+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+YYAdd.h"; sourceTree = "<group>"; };
-		93C144021FC55D950006FB90 /* UIControl+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+YYAdd.m"; sourceTree = "<group>"; };
-		93C144031FC55D950006FB90 /* UIGestureRecognizer+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+YYAdd.h"; sourceTree = "<group>"; };
-		93C144041FC55D950006FB90 /* UIGestureRecognizer+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+YYAdd.m"; sourceTree = "<group>"; };
-		93C1440B1FC55E690006FB90 /* UIView+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YYAdd.h"; sourceTree = "<group>"; };
-		93C1440C1FC55E690006FB90 /* UIView+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YYAdd.m"; sourceTree = "<group>"; };
 		93C1440E1FC570CB0006FB90 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		93C144101FC570D20006FB90 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		93C144121FC570D80006FB90 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -155,8 +142,6 @@
 		93C144221FC596030006FB90 /* icon24app.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icon24app.ttf; sourceTree = "<group>"; };
 		93C144311FC59BB80006FB90 /* ZCBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCBaseModel.h; sourceTree = "<group>"; };
 		93C144321FC59BB80006FB90 /* ZCBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCBaseModel.m; sourceTree = "<group>"; };
-		93C144381FC5A7FA0006FB90 /* UIImage+ZCCate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZCCate.h"; sourceTree = "<group>"; };
-		93C144391FC5A7FA0006FB90 /* UIImage+ZCCate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZCCate.m"; sourceTree = "<group>"; };
 		93C1443D1FC5B72A0006FB90 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
 		93C1443E1FC5B72A0006FB90 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		93C144441FC5D2F70006FB90 /* Muli-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -299,9 +284,9 @@
 			children = (
 				93C143DE1FC54DBC0006FB90 /* Info.plist */,
 				93C1445F1FC6656F0006FB90 /* PrefixHeader.pch */,
+				93C144891FC6EB4E0006FB90 /* CommonDefines.h */,
 				93C144661FC66FB60006FB90 /* ZCConstant.h */,
 				93C144671FC66FB60006FB90 /* ZCConstant.m */,
-				93C144891FC6EB4E0006FB90 /* CommonDefines.h */,
 				93C144DC1FC7ADA90006FB90 /* ZCHelper.h */,
 				93C144DD1FC7ADA90006FB90 /* ZCHelper.m */,
 			);
@@ -382,33 +367,24 @@
 		93C143F81FC55D950006FB90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				93C144341FC5A76F0006FB90 /* IconFont */,
-				93C1440B1FC55E690006FB90 /* UIView+YYAdd.h */,
-				93C1440C1FC55E690006FB90 /* UIView+YYAdd.m */,
-				93C143F91FC55D950006FB90 /* CALayer+YYAdd.h */,
-				93C143FA1FC55D950006FB90 /* CALayer+YYAdd.m */,
-				93C143FB1FC55D950006FB90 /* NSBundle+YYAdd.h */,
-				93C143FC1FC55D950006FB90 /* NSBundle+YYAdd.m */,
-				93C143FD1FC55D950006FB90 /* NSData+YYAdd.h */,
-				93C143FE1FC55D950006FB90 /* NSData+YYAdd.m */,
-				93C143FF1FC55D950006FB90 /* NSString+YYAdd.h */,
-				93C144001FC55D950006FB90 /* NSString+YYAdd.m */,
-				93C144011FC55D950006FB90 /* UIControl+YYAdd.h */,
-				93C144021FC55D950006FB90 /* UIControl+YYAdd.m */,
-				93C144031FC55D950006FB90 /* UIGestureRecognizer+YYAdd.h */,
-				93C144041FC55D950006FB90 /* UIGestureRecognizer+YYAdd.m */,
+				93C144A21FC70AA00006FB90 /* NSObject+ZCCate.h */,
+				93C144A31FC70AA00006FB90 /* NSObject+ZCCate.m */,
 				93C144821FC6E38B0006FB90 /* UIControl+ZCCate.h */,
 				93C144831FC6E38B0006FB90 /* UIControl+ZCCate.m */,
-				93C144851FC6E5EC0006FB90 /* CALayer+ZCCate.h */,
-				93C144861FC6E5EC0006FB90 /* CALayer+ZCCate.m */,
+				93C144D91FC7AC0E0006FB90 /* UIView+ZCCate.h */,
+				93C144DA1FC7AC0E0006FB90 /* UIView+ZCCate.m */,
+				939266B21FCE82E0002FFA49 /* UIImage+ZCCate.h */,
+				939266B31FCE82E1002FFA49 /* UIImage+ZCCate.m */,
 				93C1448D1FC6F72E0006FB90 /* UICollectionView+ZCCate.h */,
 				93C1448E1FC6F72E0006FB90 /* UICollectionView+ZCCate.m */,
 				93C1449F1FC70A490006FB90 /* UILabel+ZCCate.h */,
 				93C144A01FC70A490006FB90 /* UILabel+ZCCate.m */,
-				93C144A21FC70AA00006FB90 /* NSObject+ZCCate.h */,
-				93C144A31FC70AA00006FB90 /* NSObject+ZCCate.m */,
-				93C144D91FC7AC0E0006FB90 /* UIView+ZCCate.h */,
-				93C144DA1FC7AC0E0006FB90 /* UIView+ZCCate.m */,
+				9315BD421FCD625D001ECD0B /* UIColor+ZCCate.h */,
+				9315BD431FCD625D001ECD0B /* UIColor+ZCCate.m */,
+				93C144851FC6E5EC0006FB90 /* CALayer+ZCCate.h */,
+				93C144861FC6E5EC0006FB90 /* CALayer+ZCCate.m */,
+				939266B51FCE831F002FFA49 /* NSString+ZCCate.h */,
+				939266B61FCE831F002FFA49 /* NSString+ZCCate.m */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -426,15 +402,6 @@
 			isa = PBXGroup;
 			children = (
 				93C144221FC596030006FB90 /* icon24app.ttf */,
-			);
-			path = IconFont;
-			sourceTree = "<group>";
-		};
-		93C144341FC5A76F0006FB90 /* IconFont */ = {
-			isa = PBXGroup;
-			children = (
-				93C144381FC5A7FA0006FB90 /* UIImage+ZCCate.h */,
-				93C144391FC5A7FA0006FB90 /* UIImage+ZCCate.m */,
 			);
 			path = IconFont;
 			sourceTree = "<group>";
@@ -613,9 +580,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-24EditorDemo/Pods-24EditorDemo-resources.sh",
+				"${PODS_ROOT}/CLImageEditor/CLImageEditor/CLImageEditor.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -628,13 +598,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-24EditorDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		76EFC5B2FB157E436DECC1A0 /* [CP] Embed Pods Frameworks */ = {
@@ -660,25 +633,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				93C1448F1FC6F72E0006FB90 /* UICollectionView+ZCCate.m in Sources */,
-				93C144061FC55D950006FB90 /* NSBundle+YYAdd.m in Sources */,
-				93C1443A1FC5A7FA0006FB90 /* UIImage+ZCCate.m in Sources */,
 				9369B3361FCA620E005ED1D7 /* ZCAlbumView.m in Sources */,
 				93C143F11FC550530006FB90 /* ZCBaseViewController.m in Sources */,
 				93C144DB1FC7AC0E0006FB90 /* UIView+ZCCate.m in Sources */,
-				93C144081FC55D950006FB90 /* NSString+YYAdd.m in Sources */,
 				93C144681FC66FB60006FB90 /* ZCConstant.m in Sources */,
 				93C144921FC6FE150006FB90 /* ZCImagePickerPreviewViewController.m in Sources */,
 				93C144811FC6D5520006FB90 /* ZCImagePickerCollectionViewCell.m in Sources */,
 				9369B3621FCB224B005ED1D7 /* ZCDraftSoundTableViewCell.m in Sources */,
 				93C144A41FC70AA00006FB90 /* NSObject+ZCCate.m in Sources */,
-				93C144071FC55D950006FB90 /* NSData+YYAdd.m in Sources */,
 				93C1448C1FC6EE960006FB90 /* ZCImagePickerHelper.m in Sources */,
+				939266B41FCE82E1002FFA49 /* UIImage+ZCCate.m in Sources */,
 				9369B3681FCB2287005ED1D7 /* ZCDraftVideoTableViewCell.m in Sources */,
 				93C144791FC6C4BD0006FB90 /* ZCAssetsManager.m in Sources */,
 				93C1441C1FC579790006FB90 /* ZCBaseView.m in Sources */,
 				93C144DE1FC7ADA90006FB90 /* ZCHelper.m in Sources */,
 				93C143D91FC54DB30006FB90 /* AppDelegate.m in Sources */,
-				93C144091FC55D950006FB90 /* UIControl+YYAdd.m in Sources */,
 				9369B34F1FCB0EC8005ED1D7 /* AshtonHTMLReader.m in Sources */,
 				93C1447E1FC6D04B0006FB90 /* ZCImagePickerViewController.m in Sources */,
 				9369B3551FCB0EC8005ED1D7 /* AshtonUtils.m in Sources */,
@@ -687,10 +656,12 @@
 				93C1449E1FC7042A0006FB90 /* ZCCollectionViewPagingLayout.m in Sources */,
 				9369B3651FCB226F005ED1D7 /* ZCDraftDefautTableViewCell.m in Sources */,
 				93C144981FC702050006FB90 /* ZCImagePreviewView.m in Sources */,
+				939266B71FCE831F002FFA49 /* NSString+ZCCate.m in Sources */,
 				9369B3561FCB0EC8005ED1D7 /* NSAttributedString+Ashton.m in Sources */,
 				9369B35F1FCB2239005ED1D7 /* ZCDraftTextImageTableViewCell.m in Sources */,
 				9369B3541FCB0EC8005ED1D7 /* AshtonUIKit.m in Sources */,
 				9369B35C1FCB2223005ED1D7 /* ZCDraftTextTableViewCell.m in Sources */,
+				9315BD441FCD625D001ECD0B /* UIColor+ZCCate.m in Sources */,
 				93C1441F1FC57B120006FB90 /* ZCInputToolView.m in Sources */,
 				93C144951FC6FF9E0006FB90 /* ZCImagePreviewViewController.m in Sources */,
 				9369B3521FCB0EC8005ED1D7 /* AshtonMarkdownReader.m in Sources */,
@@ -700,15 +671,12 @@
 				93C1449B1FC702C40006FB90 /* ZCZoomImageView.m in Sources */,
 				9369B3511FCB0EC8005ED1D7 /* AshtonIntermediate.m in Sources */,
 				93C144841FC6E38B0006FB90 /* UIControl+ZCCate.m in Sources */,
-				93C1440D1FC55E690006FB90 /* UIView+YYAdd.m in Sources */,
 				9369B3071FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.m in Sources */,
 				93C144761FC6C4AD0006FB90 /* ZCAssetsGroup.m in Sources */,
 				93C143C51FC547D00006FB90 /* _4EditorDemo.xcdatamodeld in Sources */,
-				93C144051FC55D950006FB90 /* CALayer+YYAdd.m in Sources */,
 				9369B3531FCB0EC8005ED1D7 /* AshtonMarkdownWriter.m in Sources */,
 				9369B3501FCB0EC8005ED1D7 /* AshtonHTMLWriter.m in Sources */,
 				93C144331FC59BB80006FB90 /* ZCBaseModel.m in Sources */,
-				93C1440A1FC55D950006FB90 /* UIGestureRecognizer+YYAdd.m in Sources */,
 				93C144A11FC70A490006FB90 /* UILabel+ZCCate.m in Sources */,
 				9369B34E1FCB0EC8005ED1D7 /* AshtonCoreText.m in Sources */,
 			);

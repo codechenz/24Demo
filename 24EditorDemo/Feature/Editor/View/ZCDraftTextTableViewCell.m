@@ -8,6 +8,7 @@
 
 #import "ZCDraftTextTableViewCell.h"
 #import "UIImage+ZCCate.h"
+#import "UIView+ZCCate.h"
 
 @implementation ZCDraftTextTableViewCell
 
@@ -55,33 +56,33 @@
         [self addSubview:nameLabel];
         self.nameLabel = nameLabel;
         
+        self.author.left = self.left + 10;
+        self.author.top = self.top + 10;
+        
+        self.timeLabel.left = self.author.right + 10;
+        self.timeLabel.bottom = self.author.bottom;
+        
+        self.contentLabel.size = CGSizeMake(kScreenWidth - 20, 33);
+        self.contentLabel.left = self.left + 10;
+        self.contentLabel.top = self.author.bottom + 10;
+        
+        self.artboardImageView.size = CGSizeMake(15, 15);
+        self.artboardImageView.centerY = self.author.centerY;
+        self.artboardImageView.right = self.right - 10;
+        
+        self.authorImage.size = CGSizeMake(15, 15);
+        self.authorImage.left = self.left + 10;
+        self.authorImage.bottom = self.bottom - 10;
+        
+        self.nameLabel.left = self.authorImage.right + 10;
+        self.nameLabel.bottom = self.bottom - 10;
+        
     }
     return self;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
-    self.author.left = self.left + 10;
-    self.author.top = self.top + 10;
-    
-    self.timeLabel.left = self.author.right + 10;
-    self.timeLabel.bottom = self.author.bottom;
-    
-    self.contentLabel.size = CGSizeMake(kScreenWidth - 20, 33);
-    self.contentLabel.left = self.left + 10;
-    self.contentLabel.top = self.author.bottom + 10;
-    
-    self.artboardImageView.size = CGSizeMake(15, 15);
-    self.artboardImageView.centerY = self.author.centerY;
-    self.artboardImageView.right = self.right - 10;
-    
-    self.authorImage.size = CGSizeMake(15, 15);
-    self.authorImage.left = self.left + 10;
-    self.authorImage.bottom = self.bottom - 10;
-    
-    self.nameLabel.left = self.authorImage.right + 10;
-    self.nameLabel.bottom = self.bottom - 10;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

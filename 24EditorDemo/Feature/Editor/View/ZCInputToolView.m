@@ -7,7 +7,7 @@
 //
 
 #import "ZCInputToolView.h"
-#import "UIView+YYAdd.h"
+#import "UIView+ZCCate.h"
 #import "UIImage+ZCCate.h"
 
 @interface ZCInputToolView ()

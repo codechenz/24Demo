@@ -9,9 +9,9 @@
 #import "ZCImagePickerViewController.h"
 #import "ZCImagePickerCollectionViewCell.h"
 #import "ZCImagePickerNoneCollectionViewCell.h"
-#import "UIView+YYAdd.h"
+#import "UIView+ZCCate.h"
 #import "UICollectionView+ZCCate.h"
-#import "NSString+YYAdd.h"
+#import "NSString+ZCCate.h"
 #import "ZCAssetsManager.h"
 #import "ZCImagePickerHelper.h"
 #import <MobileCoreServices/MobileCoreServices.h>

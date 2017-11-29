@@ -8,7 +8,7 @@
 
 #import "ZCAssetsManager.h"
 #import "ZCAsset.h"
-#import "UIView+YYAdd.h"
+#import "UIView+ZCCate.h"
 
 void ZCImageWriteToSavedPhotosAlbumWithAlbumAssetsGroup(UIImage *image, ZCAssetsGroup *albumAssetsGroup, ZCWriteAssetCompletionBlock completionBlock) {
     [[ZCAssetsManager sharedInstance] saveImageWithImageRef:image.CGImage albumAssetsGroup:albumAssetsGroup orientation:image.imageOrientation completionBlock:completionBlock];

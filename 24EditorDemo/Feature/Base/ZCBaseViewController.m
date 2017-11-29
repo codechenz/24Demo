@@ -7,9 +7,9 @@
 //
 
 #import "ZCBaseViewController.h"
-#import "UIImage+ZCCate.h"
 
-@interface ZCBaseViewController () <UIGestureRecognizerDelegate>
+
+@interface ZCBaseViewController ()
 
 @end
 
@@ -20,7 +20,6 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self setNavigationController];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,29 +41,26 @@
     
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColorHex(#3f4a56),NSFontAttributeName:[UIFont fontWithName:kFNMuliSemiBold size:16]}];
     
+    if ([self.navigationController viewControllers].count > 1) {
+        [self setCustomNavigationBackItem];
+    }
+}
+
+- (void)setCustomNavigationBackItem {
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
     [btn setImage:[UIImage imageWithIcon:kIFIArrowLeft size:18 color:UIColorHex(#3F4A56)] forState:UIControlStateNormal];
+    btn.contentHorizontalAlignment = UISegmentedControlSegmentLeft;
     [btn addTarget:self action:@selector(handleBackButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] initWithCustomView:btn];
     UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    spacer.width = -20;
+    spacer.width = -14.5;
     self.navigationItem.leftBarButtonItems = @[spacer, backBtn];
-    self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 
 #pragma mark - Event Handle
 
 - (void)handleBackButtonClick:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-#pragma mark - <UIGestureRecognizerDelegate>
-
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
-    if (gestureRecognizer == self.navigationController.interactivePopGestureRecognizer) {
-        return [self.navigationController viewControllers].count > 1;
-    }
-    return true;
 }
 
 @end

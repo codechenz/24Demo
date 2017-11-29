@@ -1,21 +1,15 @@
 //
-//  NSString+YYAdd.m
-//  YYCategories <https://github.com/ibireme/YYCategories>
+//  NSString+ZCCate.m
+//  24EditorDemo
 //
-//  Created by ibireme on 13/4/3.
-//  Copyright (c) 2015 ibireme.
-//
-//  This source code is licensed under the MIT-style license found in the
-//  LICENSE file in the root directory of this source tree.
+//  Created by zhuchen on 2017/11/29.
+//  Copyright © 2017年 personal. All rights reserved.
 //
 
-#import "NSString+YYAdd.h"
-
+#import "NSString+ZCCate.h"
 #import <CommonCrypto/CommonDigest.h>
 
-
-@implementation NSString (YYAdd)
-
+@implementation NSString (ZCCate)
 - (CGSize)sizeForFont:(UIFont *)font size:(CGSize)size mode:(NSLineBreakMode)lineBreakMode {
     CGSize result;
     if (!font) font = [UIFont systemFontOfSize:12];
@@ -231,11 +225,11 @@
     unsigned char result[16];
     CC_MD5(cStr, (CC_LONG)strlen(cStr), result);
     return [NSString stringWithFormat:
-     @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
-     result[0], result[1], result[2], result[3],
-     result[4], result[5], result[6], result[7],
-     result[8], result[9], result[10], result[11],
-     result[12], result[13], result[14], result[15]];
+            @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
+            result[0], result[1], result[2], result[3],
+            result[4], result[5], result[6], result[7],
+            result[8], result[9], result[10], result[11],
+            result[12], result[13], result[14], result[15]];
     
 }
 
@@ -244,5 +238,4 @@
     NSUInteger sec = floor(seconds - min * 60);
     return [NSString stringWithFormat:@"%02ld:%02ld", (long)min, (long)sec];
 }
-
 @end

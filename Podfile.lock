@@ -2,16 +2,19 @@ PODS:
   - CLImageEditor (0.1.8):
     - CLImageEditor/Core (= 0.1.8)
   - CLImageEditor/Core (0.1.8)
+  - FDFullscreenPopGesture (1.1)
   - YYText (1.0.7)
 
 DEPENDENCIES:
   - CLImageEditor
+  - FDFullscreenPopGesture (~> 1.1)
   - YYText
 
 SPEC CHECKSUMS:
   CLImageEditor: 0d4d5a14aa317c097418b05b5736fec4b8a90dcf
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 5381701fd8a319df96e9cdbba0b5346fdb3d10f0
+PODFILE CHECKSUM: 552ead1ea1642cf263f76227c727af29327c920a
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1
