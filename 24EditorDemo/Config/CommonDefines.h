@@ -16,8 +16,10 @@
 // 判断当前是否debug编译模式
 #ifdef DEBUG
 #define IS_DEBUG YES
+#define DLog(fmt, ...) NSLog((@"<%s : %d> %s  " fmt), [[[NSString stringWithUTF8String:__FILE__] lastPathComponent]   UTF8String], __LINE__, __PRETTY_FUNCTION__,  ##__VA_ARGS__);
 #else
 #define IS_DEBUG NO
+#define DLog(...)
 #endif
 
 // 设备类型

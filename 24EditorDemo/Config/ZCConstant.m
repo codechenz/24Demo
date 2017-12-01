@@ -33,5 +33,10 @@ NSString *const kIFIUser = @"\U0000e91d";
 NSString *const kIFIArtboard = @"\U0000e927";
 NSString *const kIFISite = @"\U0000e906";
 NSString *const kIFIClap = @"\U0000e91b";
+NSString *const kIFIPlayVoice = @"\U0000e91f";
+NSString *const kIFIPauseVoice = @"\U0000e91e";
+
+//URL
+
 
 @end

@@ -9,16 +9,18 @@
 #import "ZCDraftTextTableViewCell.h"
 #import "UIImage+ZCCate.h"
 #import "UIView+ZCCate.h"
+#import "NSAttributedString+Ashton.h"
+#import <YYText.h>
+#import <DateTools.h>
 
 @interface ZCDraftTextTableViewCell ()
-@property (nonatomic, strong)UILabel *contentLabel;
+@property (nonatomic, strong)YYLabel *contentLabel;
 @property (nonatomic, strong)UILabel *author;
 @property (nonatomic, strong)UILabel *timeLabel;
 @property (nonatomic, strong)UILabel *nameLabel;
 @property (nonatomic, strong)UIImageView *artboardImageView;
 @property (nonatomic, strong)UIImageView *authorImage;
-@property (nonatomic, strong)UILabel *clapCountLabel;
-@property (nonatomic, strong)UIImageView *clapImageView;
+@property (nonatomic, strong)UIButton *clapButton;
 @end
 
 @implementation ZCDraftTextTableViewCell
@@ -49,6 +51,7 @@
     totalHeight += [self.author sizeThatFits:size].height;
     totalHeight += [self.authorImage sizeThatFits:size].height;
     totalHeight += 50; //40;
+    totalHeight += PixelOne; //分割线;
     return CGSizeMake(size.width, totalHeight);
 }
 
@@ -120,35 +123,67 @@
         make.width.equalTo(self).multipliedBy(0.2);
     }];
     
-    self.clapImageView = [[UIImageView alloc] initWithImage:[UIImage imageWithIcon:kIFIClap size:14 color:UIColorHex(#667587)]];
+    self.clapButton = [UIButton new];
+    [self.clapButton setImage:[UIImage imageWithIcon:kIFIClap size:14 color:UIColorHex(#667587)] forState:UIControlStateNormal];
+    self.clapButton.titleLabel.font = [UIFont fontWithName:kFNMuliRegular size:12];
     
-    [self.contentView addSubview:self.clapImageView];
-    [self.clapImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.clapButton setTitleColor:UIColorHex(#667587) forState:UIControlStateNormal];
+    
+    [self.clapButton setImage:[UIImage imageWithIcon:kIFIClap size:14 color:UIColorHex(#0088cc)] forState:UIControlStateSelected];
+    [self.clapButton setTitleColor:UIColorHex(#667587) forState:UIControlStateSelected];
+    self.clapButton.backgroundColor = [UIColor whiteColor];
+    [self.clapButton setTitle:@"0" forState:UIControlStateNormal];
+    
+    [self.clapButton addTarget:self action:@selector(handleClapButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:self.clapButton];
+    
+    [self.clapButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.nameLabel.mas_right).offset(10);
         make.top.equalTo(self.contentLabel.mas_bottom).offset(10);
         make.bottom.equalTo(self).offset(-10);
-        make.size.equalTo(CGSizeMake(15, 15));
+        make.size.equalTo(CGSizeMake(80, 15));
     }];
+    self.clapButton.imageView.backgroundColor = [UIColor whiteColor];
+    self.clapButton.titleLabel.backgroundColor = [UIColor whiteColor];
     
-    self.clapCountLabel = [[UILabel alloc] init];
-    self.clapCountLabel.font = [UIFont fontWithName:kFNMuliRegular size:12];
-    self.clapCountLabel.textColor = UIColorHex(#667587);
+    [self.clapButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, self.clapButton.width - self.clapButton.imageView.width)];
+    [self.clapButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, self.clapButton.width - self.clapButton.imageView.width - self.clapButton.titleLabel.width - 10)];
     
-    [self.clapCountLabel sizeToFit];
-    [self.contentView addSubview:self.clapCountLabel];
-    [self.clapCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.clapImageView);
-        make.left.equalTo(self.clapImageView.mas_right).offset(10);
+    UIView *separaView = [UIView new];
+    separaView.backgroundColor = UIColorHex(#dfe6ee);
+    [self.contentView addSubview:separaView];
+    [separaView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.and.left.and.width.equalTo(self);
+        make.height.equalTo(PixelOne);
     }];
 }
 
-- (void)setModel:(ZCModel *)model {
-    _model = model;
-    self.author.text = model.title;
-    self.timeLabel.text = model.time;
-    self.contentLabel.text = model.content;
-    self.nameLabel.text = @"Name";
-    self.clapCountLabel.text = @"32";
+- (void)setNewsModel:(ZCNewsModel *)newsModel {
+    _newsModel = newsModel;
+    self.author.text = [newsModel.title isEqualToString:@""] ? @"Untitled" : newsModel.title;
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:newsModel.date];
+    self.timeLabel.text = [NSString stringWithFormat:@"· %@", date.timeAgoSinceNow];
+    NSAttributedString *content = [[NSAttributedString alloc] mn_initWithHTMLString:newsModel.contents];
+    
+    self.contentLabel.attributedText = content;
+    self.nameLabel.text = newsModel.username;
+    self.clapButton.selected = newsModel.alert;
+    
+    
 }
+
+- (void)updateLikesWithAnimation {
+    self.clapButton.selected = self.newsModel.alert;
+    [self.clapButton setTitle:[NSString stringWithFormat:@"%d", self.newsModel.likes] forState:UIControlStateSelected];
+}
+
+#pragma mark - Event Handle
+
+- (void)handleClapButtonClick:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(draftTextHandleClapButtonClick:)]) {
+        [self.delegate draftTextHandleClapButtonClick:self];
+    }
+}
+
 
 @end

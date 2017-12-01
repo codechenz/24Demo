@@ -26,8 +26,15 @@
     
     UINavigationController *rootNaviController = [[UINavigationController alloc] initWithRootViewController:[[ZCEventDetailViewController alloc] init]];
     self.window.rootViewController = rootNaviController;
-    
+    [self setAppBaseURL];
     return YES;
+}
+
+- (void)setAppBaseURL {
+    [ZCNetworking updateBaseUrl:@"http://123.56.15.9:7003"];
+    [ZCNetworking enableInterfaceDebug:IS_DEBUG];
+    [ZCNetworking configRequestType:kZCRequestTypeJSON responseType:kZCRequestTypeJSON shouldAutoEncodeUrl:YES callbackOnCancelRequest:NO];
+    [ZCNetworking cacheGetRequest:YES shoulCachePost:YES];
 }
 
 

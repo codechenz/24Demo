@@ -17,6 +17,7 @@
         _title = dictionary[@"title"];
         _content = dictionary[@"content"];
         _time = dictionary[@"time"];
+        _type = dictionary[@"type"];
     }
     return self;
 }

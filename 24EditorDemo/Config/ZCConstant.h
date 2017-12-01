@@ -31,4 +31,9 @@ extern NSString *const kIFIUser;
 extern NSString *const kIFIArtboard;
 extern NSString *const kIFISite;
 extern NSString *const kIFIClap;
+extern NSString *const kIFIPlayVoice;
+extern NSString *const kIFIPauseVoice;
+
+//URL
+
 @end

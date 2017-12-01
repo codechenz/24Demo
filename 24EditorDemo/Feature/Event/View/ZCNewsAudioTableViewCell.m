@@ -9,16 +9,18 @@
 #import "ZCNewsAudioTableViewCell.h"
 #import "UIImage+ZCCate.h"
 #import "UIView+ZCCate.h"
+#import <DateTools.h>
+
 
 @interface ZCNewsAudioTableViewCell ()
-@property (nonatomic, strong)UILabel *contentLabel;
 @property (nonatomic, strong)UILabel *author;
 @property (nonatomic, strong)UILabel *timeLabel;
 @property (nonatomic, strong)UILabel *nameLabel;
 @property (nonatomic, strong)UIImageView *artboardImageView;
 @property (nonatomic, strong)UIImageView *authorImage;
-@property (nonatomic, strong)UILabel *clapCountLabel;
-@property (nonatomic, strong)UIImageView *clapImageView;
+@property (nonatomic, strong)UIView *shadowView;
+@property (nonatomic, strong)UIButton *clapButton;
+
 @end
 @implementation ZCNewsAudioTableViewCell
 
@@ -41,10 +43,11 @@
 - (CGSize)sizeThatFits:(CGSize)size {
     [super sizeThatFits:size];
     CGFloat totalHeight = 0;
-    totalHeight += [self.contentLabel sizeThatFits:size].height;
+    totalHeight += [self.shadowView sizeThatFits:size].height;
     totalHeight += [self.author sizeThatFits:size].height;
     totalHeight += [self.authorImage sizeThatFits:size].height;
-    totalHeight += 50; //40;
+    totalHeight += 40; //40;
+    totalHeight += PixelOne; //分割线;
     return CGSizeMake(size.width, totalHeight);
 }
 
@@ -72,19 +75,7 @@
         make.bottom.equalTo(self.author);
     }];
     
-    self.contentLabel = [[UILabel alloc] init];
-    self.contentLabel.numberOfLines = 0;
-    self.contentLabel.font = [UIFont fontWithName:kFNMuliRegular size:13];
-    self.contentLabel.textColor = UIColorHex(#667587);
-    self.contentLabel.lineBreakMode = NSLineBreakByCharWrapping;
-    
-    [self.contentView addSubview:self.contentLabel];
-    
-    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.and.equalTo(self).offset(10);
-        make.right.equalTo(self).offset(-10);
-        make.top.equalTo(self.author.mas_bottom).offset(10);
-    }];
+    [self audioView];
     
     self.artboardImageView = [[UIImageView alloc] initWithImage:[UIImage imageWithIcon:kIFIArtboard size:15 color:UIColorHex(#667587)]];
     [self.contentView addSubview:self.artboardImageView];
@@ -99,7 +90,7 @@
     [self.contentView addSubview:self.authorImage];
     [self.authorImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(10);
-        make.top.equalTo(self.contentLabel.mas_bottom).offset(10);
+        make.top.equalTo(self.shadowView.mas_bottom).offset(10);
         make.bottom.equalTo(self).offset(-10);
         make.size.equalTo(CGSizeMake(15, 15));
     }];
@@ -116,34 +107,170 @@
         make.width.equalTo(self).multipliedBy(0.2);
     }];
     
-    self.clapImageView = [[UIImageView alloc] initWithImage:[UIImage imageWithIcon:kIFIClap size:14 color:UIColorHex(#667587)]];
+    self.clapButton = [UIButton new];
+    [self.clapButton setImage:[UIImage imageWithIcon:kIFIClap size:14 color:UIColorHex(#667587)] forState:UIControlStateNormal];
+    self.clapButton.titleLabel.font = [UIFont fontWithName:kFNMuliRegular size:12];
     
-    [self.contentView addSubview:self.clapImageView];
-    [self.clapImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.clapButton setTitleColor:UIColorHex(#667587) forState:UIControlStateNormal];
+    
+    [self.clapButton setImage:[UIImage imageWithIcon:kIFIClap size:14 color:UIColorHex(#0088cc)] forState:UIControlStateSelected];
+    [self.clapButton setTitleColor:UIColorHex(#667587) forState:UIControlStateSelected];
+    self.clapButton.backgroundColor = [UIColor whiteColor];
+    [self.clapButton setTitle:@"0" forState:UIControlStateNormal];
+    
+    [self.clapButton addTarget:self action:@selector(handleClapButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:self.clapButton];
+    
+    [self.clapButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.nameLabel.mas_right).offset(10);
-        make.top.equalTo(self.contentLabel.mas_bottom).offset(10);
+        make.top.equalTo(self.shadowView.mas_bottom).offset(10);
         make.bottom.equalTo(self).offset(-10);
-        make.size.equalTo(CGSizeMake(15, 15));
+        make.size.equalTo(CGSizeMake(80, 15));
     }];
+    self.clapButton.imageView.backgroundColor = [UIColor whiteColor];
+    self.clapButton.titleLabel.backgroundColor = [UIColor whiteColor];
     
-    self.clapCountLabel = [[UILabel alloc] init];
-    self.clapCountLabel.font = [UIFont fontWithName:kFNMuliRegular size:12];
-    self.clapCountLabel.textColor = UIColorHex(#667587);
+    [self.clapButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, self.clapButton.width - self.clapButton.imageView.width)];
+    [self.clapButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 10, 0, self.clapButton.width - self.clapButton.imageView.width - self.clapButton.titleLabel.width - 10)];
     
-    [self.clapCountLabel sizeToFit];
-    [self.contentView addSubview:self.clapCountLabel];
-    [self.clapCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.clapImageView);
-        make.left.equalTo(self.clapImageView.mas_right).offset(10);
+    UIView *separaView = [UIView new];
+    separaView.backgroundColor = UIColorHex(#dfe6ee);
+    [self.contentView addSubview:separaView];
+    [separaView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.and.left.and.width.equalTo(self);
+        make.height.equalTo(PixelOne);
     }];
 }
 
-- (void)setModel:(ZCModel *)model {
-    _model = model;
-    self.author.text = model.title;
-    self.timeLabel.text = model.time;
-    self.nameLabel.text = @"Name";
-    self.clapCountLabel.text = @"32";
+- (void)audioView {
+    
+#warning 阴影
+    self.shadowView = [UIView new];
+    self.shadowView.backgroundColor = [UIColor clearColor];
+    self.shadowView.layer.shadowColor = UIColorHex(#0000001a).CGColor;
+    self.shadowView.layer.shadowOffset = CGSizeMake(10, 10);
+    self.shadowView.layer.shadowRadius = 10;
+    self.shadowView.layer.shadowOpacity = 1;
+    [self.contentView addSubview:self.shadowView];
+    
+    [self.shadowView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.equalTo(self).offset(10);
+        make.top.equalTo(self.author.mas_bottom).offset(10);
+        make.size.equalTo(CGSizeMake(kScreenWidth - 20, 46));
+    }];
+#warning 手动高度
+    self.shadowView.height = 46;
+    
+    UIView *audio = [UIView new];
+    audio.layer.borderColor = UIColorHex(#dfe6ee).CGColor;
+    audio.layer.borderWidth = PixelOne;
+    audio.layer.cornerRadius = 10;
+    audio.layer.masksToBounds = YES;
+    
+    [self.shadowView addSubview:audio];
+    [audio mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.shadowView);
+    }];
+    
+    UIButton *audioButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [audioButton setImage:[UIImage imageWithIcon:kIFIPlayVoice size:26 color:UIColorHex(#0088cc)] forState:UIControlStateNormal];
+    [audioButton setImage:[UIImage imageWithIcon:kIFIPauseVoice size:26 color:UIColorHex(#0088cc)] forState:UIControlStateSelected];
+    [audioButton addTarget:self action:@selector(handleAudioButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [audio addSubview:audioButton];
+    [audioButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(audio);
+        make.left.equalTo(audio).offset(15);
+        make.size.equalTo(CGSizeMake(26, 26));
+    }];
+    
+    self.audioIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [audioButton addSubview:self.audioIndicator];
+    
+    [self.audioIndicator mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(audioButton);
+    }];
+    [self.audioIndicator startAnimating];
+    
+    self.audioTime = [UILabel new];
+    self.audioTime.text = @"--:--";
+    self.audioTime.textAlignment = NSTextAlignmentCenter;
+    self.audioTime.font = [UIFont fontWithName:kFNMuliRegular size:13];
+    self.audioTime.textColor = UIColorHex(#667587);
+    [self.audioTime sizeToFit];
+    [audio addSubview:self.audioTime];
+    
+    [self.audioTime mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(audioButton.mas_right).offset(10);
+        make.centerY.equalTo(audio);
+        make.width.equalTo(35);
+    }];
+    
+    self.audioYLProgressBar = [[YLProgressBar alloc] init];
+    [audio addSubview:self.audioYLProgressBar];
+    [self.audioYLProgressBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.audioTime.mas_right).offset(10);
+        make.right.equalTo(audio).offset(-15);
+        make.centerY.equalTo(audio);
+        make.height.equalTo(6);
+    }];
+    
+    self.audioYLProgressBar.trackTintColor = UIColorHex(#e8f1f9);
+    self.audioYLProgressBar.progressTintColor = UIColorHex(#0088cc);
+    self.audioYLProgressBar.hideStripes = YES;
+    self.audioYLProgressBar.hideGloss = YES;
+    self.audioYLProgressBar.progress = 0;
+    self.audioYLProgressBar.uniformTintColor = YES;
+    
+    
+    //创建滑动条对象
+    UISlider *slider = [[UISlider alloc]init];
+    slider.maximumValue = 100;
+    slider.minimumValue = 0;
+    slider.value=0;
+    slider.minimumTrackTintColor = [UIColor clearColor];
+    slider.maximumTrackTintColor = [UIColor clearColor];
+    slider.thumbTintColor = [UIColor clearColor];
+    [slider addTarget:self action:@selector(handleSliderValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    [self.audioYLProgressBar addSubview:slider];
+    [slider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.audioYLProgressBar);
+    }];
 }
+
+- (void)setAudioModel:(ZCAudioModel *)audioModel {
+    _audioModel = audioModel;
+    self.author.text = [audioModel.title isEqualToString:@""] ? @"Untitled" : audioModel.title;
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:audioModel.date];
+    self.timeLabel.text = [NSString stringWithFormat:@"· %@", date.timeAgoSinceNow];
+    self.nameLabel.text = audioModel.username;
+    self.clapButton.selected = audioModel.alert;
+}
+
+- (void)updateLikesWithAnimation {
+    self.clapButton.selected = self.audioModel.alert;
+    [self.clapButton setTitle:[NSString stringWithFormat:@"%d", self.audioModel.likes] forState:UIControlStateSelected];
+}
+
+#pragma mark - Event Handle
+- (void)handleAudioButtonClick:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if ([self.delegate respondsToSelector:@selector(handleAudioPlayButtonClick:cell:withAudioURL:)]) {
+        [self.delegate handleAudioPlayButtonClick:sender cell:self withAudioURL:[NSURL URLWithString:self.audioModel.contents]];
+    }
+}
+
+- (void)handleSliderValueChanged:(UISlider *)sender {
+    float progress = (sender.value-sender.minimumValue) / (sender.maximumValue - sender.minimumValue);
+    [self.audioYLProgressBar setProgress:progress animated:NO];
+    
+}
+
+- (void)handleClapButtonClick:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(handleClapButtonClick:)]) {
+        [self.delegate handleClapButtonClick:self];
+    }
+}
+
 
 @end

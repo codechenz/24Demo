@@ -77,7 +77,7 @@
 }
 
 - (void)configureCell:(ZCDraftTextTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    cell.model = self.dataSource[indexPath.row];
+    cell.newsModel = self.dataSource[indexPath.row];
 }
 
 @end

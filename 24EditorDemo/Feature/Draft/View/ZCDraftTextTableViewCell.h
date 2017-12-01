@@ -7,12 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZCModel.h"
+#import "ZCNewsModel.h"
+
+@class ZCDraftTextTableViewCell;
+@protocol ZCDraftTextTableViewCellDelegate <NSObject>
+
+@optional
+
+- (void)draftTextHandleClapButtonClick:(ZCDraftTextTableViewCell *)cell;
+
+@end
 
 @interface ZCDraftTextTableViewCell : UITableViewCell
+@property (nonatomic, weak) id<ZCDraftTextTableViewCellDelegate> delegate;
 
-@property (nonatomic, strong) ZCModel *model;
+@property (nonatomic, strong) ZCNewsModel *newsModel;
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+
+- (void)updateLikesWithAnimation;
 
 @end

@@ -7,12 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZCModel.h"
+#import "ZCAudioModel.h"
+#import <YLProgressBar.h>
+
+@class ZCNewsAudioTableViewCell;
+@protocol ZCNewsAudioTableViewCellDelegate <NSObject>
+
+@optional
+- (void)handleAudioPlayButtonClick:(UIButton *)sender cell:(ZCNewsAudioTableViewCell *)cell withAudioURL:(NSURL *)URL;
+
+- (void)handleClapButtonClick:(ZCNewsAudioTableViewCell *)cell;
+
+@end
 
 @interface ZCNewsAudioTableViewCell : UITableViewCell
+@property (nonatomic, weak) id<ZCNewsAudioTableViewCellDelegate> delegate;
 
-@property (nonatomic, strong) ZCModel *model;
+@property (nonatomic, strong) ZCAudioModel *audioModel;
+@property (nonatomic, strong) YLProgressBar *audioYLProgressBar;
+@property (nonatomic, strong) UILabel *audioTime;
+@property (nonatomic, strong) UIActivityIndicatorView *audioIndicator;
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+- (void)updateLikesWithAnimation;
 
 @end
