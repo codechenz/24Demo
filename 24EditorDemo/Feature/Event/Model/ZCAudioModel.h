@@ -31,6 +31,7 @@
 
 //附加音频本地字段
 @property (nonatomic, assign) DOUAudioStreamerStatus audioStreamerStatus;
+@property (nonatomic, assign) float audioDuration;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 @end

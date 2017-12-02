@@ -118,6 +118,8 @@
     layout.sectionInset = CollectionViewInset;
     layout.minimumLineSpacing = CollectionViewCellMargin;
     layout.minimumInteritemSpacing = CollectionViewCellMargin;
+#warning 改为横向滑动
+//    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     collectionView.delegate = self;
     collectionView.dataSource = self;

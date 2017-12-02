@@ -212,22 +212,8 @@
 }
 
 - (void)handleSaveButtonClick:(UIButton *)sender {
-    UIAlertController *saveAlertController = [UIAlertController alertControllerWithTitle:@"Save" message:@"test" preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *htmlAction = [UIAlertAction actionWithTitle:@"log html" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSString *showString = [NSString stringWithFormat:@"{title:%@,content:%@}",[self.titleTextView.attributedText mn_HTMLRepresentationFromCoreTextAttributes],[self.contentTextView.attributedText mn_HTMLRepresentationFromCoreTextAttributes]];
-        
-        self.contentTextView.text = showString;
-        self.contentTextView.selectedRange = NSMakeRange((self.contentTextView.text.length), 0);
-        
-    }];
-    
-    UIAlertAction *draftAction = [UIAlertAction actionWithTitle:@"open draft" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        ZCDraftViewController *vc = [[ZCDraftViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }];
-    [saveAlertController addAction:htmlAction];
-    [saveAlertController addAction:draftAction];
-    [self presentViewController:saveAlertController animated:YES completion:nil];
+    ZCDraftViewController *vc = [[ZCDraftViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark <YYTextViewDelegate>

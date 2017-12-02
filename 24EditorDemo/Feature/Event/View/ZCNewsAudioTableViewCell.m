@@ -21,6 +21,8 @@
 @property (nonatomic, strong)UIView *shadowView;
 @property (nonatomic, strong)UIButton *clapButton;
 @property (nonatomic, strong)UIButton *audioButton;
+@property (nonatomic, strong)NSTimer *timer;
+@property (nonatomic, assign) float changeDuration;
 
 @end
 @implementation ZCNewsAudioTableViewCell
@@ -253,6 +255,7 @@
     self.timeLabel.text = [NSString stringWithFormat:@"· %@", date.timeAgoSinceNow];
     self.nameLabel.text = audioModel.username;
     self.clapButton.selected = audioModel.alert;
+    self.audioTime.text = audioModel.audioDuration == 0 ? @"--:--" : [self convertStringWithTime:audioModel.audioDuration];
     [self updateAudioButtonStatus];
 }
 
@@ -266,6 +269,7 @@
         case DOUAudioStreamerPlaying:
             [self.audioButton setImage:[UIImage imageWithIcon:kIFIPauseVoice size:26 color:UIColorHex(#0088cc)] forState:UIControlStateNormal];
             [self.audioIndicator stopAnimating];
+            [self.timer fire];
             break;
             
         case DOUAudioStreamerPaused:
@@ -276,11 +280,13 @@
         case DOUAudioStreamerIdle:
             [self.audioButton setImage:[UIImage imageWithIcon:kIFIPlayVoice size:26 color:UIColorHex(#0088cc)] forState:UIControlStateNormal];
             [self.audioIndicator stopAnimating];
+            [self resetAudioDurationLabel:self.timer];
             break;
             
         case DOUAudioStreamerFinished:
             [self.audioButton setImage:[UIImage imageWithIcon:kIFIPlayVoice size:26 color:UIColorHex(#0088cc)] forState:UIControlStateNormal];
             [self.audioIndicator stopAnimating];
+            [self resetAudioDurationLabel:self.timer];
             break;
             
         case DOUAudioStreamerBuffering:
@@ -293,6 +299,29 @@
             [self.audioIndicator stopAnimating];
             break;
     }
+}
+
+- (void)updateAudioDurationLabel {
+    self.audioTime.text = [self convertStringWithTime:self.audioModel.audioDuration];
+    self.changeDuration = self.audioModel.audioDuration;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(handleTimer:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+}
+
+- (void)resetAudioDurationLabel:(NSTimer *)sender {
+    [sender invalidate];
+    self.audioTime.text = [self convertStringWithTime:self.audioModel.audioDuration];
+    self.audioYLProgressBar.progress = 0;
+}
+
+- (NSString *)convertStringWithTime:(float)time {
+    if (isnan(time)) time = 0.f;
+    int min = time / 60.0;
+    int sec = time - min * 60;
+    NSString * minStr = min > 9 ? [NSString stringWithFormat:@"%d",min] : [NSString stringWithFormat:@"0%d",min];
+    NSString * secStr = sec > 9 ? [NSString stringWithFormat:@"%d",sec] : [NSString stringWithFormat:@"0%d",sec];
+    NSString * timeStr = [NSString stringWithFormat:@"%@:%@",minStr, secStr];
+    return timeStr;
 }
 
 #pragma mark - Event Handle
@@ -318,6 +347,17 @@
     if ([self.delegate respondsToSelector:@selector(audioCell:handleArtBoardButtonClick:)]) {
         [self.delegate audioCell:self handleArtBoardButtonClick:sender];
     }
+}
+
+- (void)handleTimer:(NSTimer *)sender {
+    if (self.changeDuration > 0) {
+        self.changeDuration -= 1;
+    }else {
+        [self resetAudioDurationLabel:sender];
+    }
+
+    self.audioYLProgressBar.progress = (self.audioModel.audioDuration - self.changeDuration) / self.audioModel.audioDuration;
+    self.audioTime.text = [self convertStringWithTime:self.changeDuration];
 }
 
 

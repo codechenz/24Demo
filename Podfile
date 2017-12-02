@@ -10,4 +10,5 @@ target '24EditorDemo' do
   pod 'YLProgressBar', '~> 3.10.2'
   pod 'AFNetworking', '~> 3.0'
   pod 'DateTools'
+  pod 'MJRefresh'
 end

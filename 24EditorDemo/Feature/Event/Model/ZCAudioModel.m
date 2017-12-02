@@ -86,6 +86,7 @@ NSString *const kZCAudioModelUsername = @"username";
     
     //附加字段
     self.audioStreamerStatus = DOUAudioStreamerPaused; //DOUAudioStreamerPaused
+    self.audioDuration = 0;
     return self;
 }
 

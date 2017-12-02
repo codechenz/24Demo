@@ -9,7 +9,7 @@
 #import "ZCDraftViewController.h"
 #import "ZCDraftTextTableViewCell.h"
 #import <UITableView+FDTemplateLayoutCell.h>
-#import "ZCModel.h"
+#import "ZCNewsModel.h"
 
 @class ZCEditorViewController;
 
@@ -25,12 +25,25 @@
     [super viewDidLoad];
     self.title = @"Draft";
     NSDictionary *dic = @{
-                          @"title":@"Joseph Simmons",
-                          @"time":@"· 3 hours ago",
-                          @"content":@"Etiam blandit nisi feugiat eros mollis, sed vehicula massatempus.",
+                          @"id": @"fcea9e52d68511e7b6df00163e30c008",
+                          @"title": @"更是事实",
+                          @"date": @1512125662,
+                          @"username": @"Liu Jinyang",
+                          @"contents": @"<p>好多好多好多遍</p>",
+                          @"editorname": @"false",
+                          @"alert": @"false",
+                          @"avatar": @"//24liveblog.tradingfront.cn/avatar/609adb7c9d1c11e7bd6100163e30c008_1512094180.jpeg",
+                          @"updated": @0,
+                          @"likes": @0,
+                          @"share": @"https://24live.co/UjIjb/",
+                          @"eid": @"c6befbb0d02311e78cd000163e30c008",
+                          @"type": @0
                           };
-    ZCModel *model = [[ZCModel alloc] initWithDictionary:dic];
+    ZCNewsModel *model = [[ZCNewsModel alloc] initWithDictionary:dic];
     self.dataSource = [[NSMutableArray alloc] init];
+    [self.dataSource addObject:model];
+    [self.dataSource addObject:model];
+    [self.dataSource addObject:model];
     [self.dataSource addObject:model];
     [self initTableView];
 }
@@ -67,6 +80,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZCDraftTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ZCDraftTextTableViewCell class]) forIndexPath:indexPath];
+    cell.selectionStyle  = UITableViewCellSelectionStyleNone;
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }

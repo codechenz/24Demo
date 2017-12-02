@@ -34,5 +34,6 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 - (void)updateLikesWithAnimation;
 - (void)updateAudioButtonStatus;
+- (void)updateAudioDurationLabel;
 
 @end

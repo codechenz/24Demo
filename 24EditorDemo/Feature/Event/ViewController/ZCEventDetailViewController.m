@@ -22,13 +22,12 @@
 #import <DateTools.h>
 #import "ZCNewsInputToolView.h"
 #import "ZCEditorViewController.h"
-
+#import <MJRefresh.h>
+#import "NSAttributedString+Ashton.h"
 
 static void *kStatusKVOKey = &kStatusKVOKey;
 static void *kDurationKVOKey = &kDurationKVOKey;
 static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
-
-
 
 @interface ZCEventDetailViewController () <UITableViewDelegate, UITableViewDataSource, ZCNewsAudioTableViewCellDelegate, ZCDraftTextTableViewCellDelegate, UIScrollViewDelegate> {
     @private
@@ -51,11 +50,30 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     self.playedAudioIndexs = [[NSMutableArray alloc] init];
     self.title = @"Event Details";
     
+   
+    
+    
     [self setNavigationBar];
     [self initTableView];
     
     self.dataSource = [[NSMutableArray alloc] init];
-    [ZCNetworking getWithUrl:@"/api/v1/c6befbb0d02311e78cd000163e30c008/comb" refreshCache:YES success:^(id response) {
+    [self getDataWithCache:NO];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [_streamer stop];
+    [self cancelStreamer];
+    [self cancelLastAudioPlay];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+- (void)getDataWithCache:(BOOL)isFresh {
+    [self.dataSource removeAllObjects];
+    [ZCNetworking getWithUrl:@"/api/v1/c6befbb0d02311e78cd000163e30c008/comb" refreshCache:isFresh success:^(id response) {
         NSMutableArray *jsonArray = response[@"data"][@"list"];
         for (NSDictionary *dic in jsonArray) {
             NSNumber *type = dic[@"type"];
@@ -73,181 +91,12 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
             }
         }
         dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView.mj_header endRefreshing];
             [self.tableView reloadData];
         });
     } fail:^(NSError *error) {
         
     }];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [_streamer stop];
-    [self _cancelStreamer];
-}
-
-- (void)_cancelStreamer
-{
-    if (_streamer != nil) {
-        [_streamer pause];
-        [_streamer removeObserver:self forKeyPath:@"status"];
-        [_streamer removeObserver:self forKeyPath:@"duration"];
-        [_streamer removeObserver:self forKeyPath:@"bufferingRatio"];
-        _streamer = nil;
-    }
-}
-
-- (void)cancelLastAudioPlay {
-    ZCNewsAudioTableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.playedAudioIndexs.lastObject];
-    ZCAudioModel *audioModel = cell.audioModel;
-    audioModel.audioStreamerStatus = DOUAudioStreamerIdle;
-    [cell updateAudioButtonStatus];
-    
-}
-
-- (void)resetStreamer {
-    [self _cancelStreamer];
-    [self cancelLastAudioPlay];
-    if (0 == [self.dataSource count])
-    {
-#warning 无audio数据
-    }
-    else
-    {
-        ZCAudioModel *model = [self.dataSource objectAtIndex:self.currentAudioIndex.row];
-        
-        _streamer = [DOUAudioStreamer streamerWithAudioFile:model];
-        [_streamer addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:kStatusKVOKey];
-        [_streamer addObserver:self forKeyPath:@"duration" options:NSKeyValueObservingOptionNew context:kDurationKVOKey];
-        [_streamer addObserver:self forKeyPath:@"bufferingRatio" options:NSKeyValueObservingOptionNew context:kBufferingRatioKVOKey];
-        
-        [_streamer play];
-        
-//        [self _updateBufferingStatus];
-        [self setupHintForStreamer];
-    }
-}
-
-- (void)setupHintForStreamer
-{
-    NSUInteger nextIndex = self.currentAudioIndex.row + 1;
-    
-    if (nextIndex >= [self.dataSource count]) {
-        nextIndex = 0;
-    }
-    
-    if ([self.dataSource[nextIndex] isKindOfClass:[ZCAudioModel class]]) {
-        [DOUAudioStreamer setHintWithAudioFile:[self.dataSource objectAtIndex:nextIndex]];
-    }
-}
-
-- (void)updateStatus {
-    ZCNewsAudioTableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.currentAudioIndex];
-    ZCAudioModel *audioModel = cell.audioModel;
-    audioModel.audioStreamerStatus = [_streamer status];
-    [cell updateAudioButtonStatus];
-    switch ([_streamer status]) {
-        case DOUAudioStreamerPlaying:
-            DLog(@"Playing");
-            break;
-            
-        case DOUAudioStreamerPaused:
-            DLog(@"Paused");
-            break;
-            
-        case DOUAudioStreamerIdle:
-            DLog(@"Idle");
-            break;
-            
-        case DOUAudioStreamerFinished:
-            DLog(@"Finished");
-            [self autoPlayNextAudio];
-            break;
-            
-        case DOUAudioStreamerBuffering:
-            DLog(@"Buffering");
-            break;
-            
-        case DOUAudioStreamerError:
-            DLog(@"Error");
-            break;
-    }
-}
-
-- (void)updateAudioProgress{
-    ZCNewsAudioTableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.currentAudioIndex];
-    
-    
-    if ([_streamer duration] == 0.0) {
-//        [cell.audioYLProgressBar setProgress:0.0f animated:NO];
-    }
-    else {
-        DLog(@"%i和%i",[_streamer duration],[_streamer currentTime]);
-//        = [NSString stringWithFormat:@"%f",[_streamer duration]];
-        
-        NSDate * date = [NSDate dateWithTimeIntervalSinceNow:[_streamer duration]];
-        NSDate *currentDate = [NSDate dateWithTimeIntervalSinceNow:[_streamer currentTime]];
-        DLog(@"%@",date);
-        DLog(@"%@", currentDate);
-        NSString *dateString = [date formattedDateWithFormat:@"mm:ss"];
-        cell.audioTime.text = dateString;
-        
-//        CGFloat progress = [_streamer currentTime] / [[_streamer duration];
-//        [cell.audioYLProgressBar setProgress:progress animated:YES];
-    }
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if (context == kStatusKVOKey) {
-        [self performSelector:@selector(updateStatus)
-                     onThread:[NSThread mainThread]
-                   withObject:nil
-                waitUntilDone:NO];
-    }
-    else if (context == kDurationKVOKey) {
-        [self performSelector:@selector(updateAudioProgress)
-                     onThread:[NSThread mainThread]
-                   withObject:nil
-                waitUntilDone:NO];
-    }
-    else if (context == kBufferingRatioKVOKey) {
-//        [self performSelector:@selector(updateBufferingStatus)
-//                     onThread:[NSThread mainThread]
-//                   withObject:nil
-//                waitUntilDone:NO];
-    }
-    else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
-}
-
-- (void)actionPlayPause:(id)sender
-{
-    if ([_streamer status] == DOUAudioStreamerPaused ||
-        [_streamer status] == DOUAudioStreamerIdle) {
-        [_streamer play];
-    }
-    else {
-        [_streamer pause];
-    }
-}
-
-- (void)autoPlayNextAudio{
-    NSInteger row = self.currentAudioIndex.row;
-    if (++ row >= [self.dataSource count]) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        self.currentAudioIndex = indexPath;
-    }
-    
-    if ([self.dataSource[row] isKindOfClass:[ZCAudioModel class]]) {
-        self.currentAudioIndex = [NSIndexPath indexPathForRow:row inSection:0];
-        [self resetStreamer];
-    }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 - (void)setNavigationBar {
@@ -269,6 +118,9 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     [self.tableView registerClass:[ZCNewsVoteTableViewCell class] forCellReuseIdentifier:NSStringFromClass([ZCNewsVoteTableViewCell class])];
     
     self.tableView.tableFooterView = [[UIView alloc] init];
+    self.tableView.mj_header = [MJRefreshStateHeader headerWithRefreshingBlock:^{
+        [self getDataWithCache:YES];
+    }];
     
     [self.view addSubview:self.tableView];
     
@@ -292,26 +144,25 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     
     [self.toolView addTypeButtonClick:^(UIButton *sender) {
     if (sender.selected) {
+#warning 适配X
+        CGFloat height = kScreenHeight == 812 ? 812-20 : kScreenHeight;
         [UIView animateWithDuration:.5 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionNone animations:^{
-            self.toolView.top = kScreenHeight - 248 - 64;
+            self.toolView.top = height - 248 - 64;
         } completion:nil];
     }else {
         [self hideToolView];
     }
     }];
-    
-   
 }
 
 #pragma mark - Custom Method
 
 - (void)hideToolView {
+    CGFloat height = kScreenHeight == 812 ? 812-20 : kScreenHeight;
     [UIView animateWithDuration:.3 delay:0 options:UIViewAnimationOptionTransitionNone animations:^{
-        self.toolView.top = kScreenHeight - 45 - 64;
+        self.toolView.top = height - 45 - 64;
     } completion:nil];
 }
-
-
 
 #pragma mark - Event Handle
 - (void)handleSiteButtonClick:(UIButton *)sender {
@@ -468,5 +319,158 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 - (void)draftTextCell:(ZCDraftTextTableViewCell *)cell handleArtboardButtonClick:(UIButton *)sender {
     [self presentAlertController];
 }
+
+#pragma mark - 音频相关
+
+- (void)cancelStreamer
+{
+    if (_streamer != nil) {
+        [_streamer pause];
+        [_streamer removeObserver:self forKeyPath:@"status"];
+        [_streamer removeObserver:self forKeyPath:@"duration"];
+        [_streamer removeObserver:self forKeyPath:@"bufferingRatio"];
+        _streamer = nil;
+    }
+}
+
+- (void)cancelLastAudioPlay {
+    ZCNewsAudioTableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.playedAudioIndexs.lastObject];
+    ZCAudioModel *audioModel = cell.audioModel;
+    audioModel.audioStreamerStatus = DOUAudioStreamerIdle;
+    [cell updateAudioButtonStatus];
+    
+}
+
+- (void)resetStreamer {
+    [self cancelStreamer];
+    [self cancelLastAudioPlay];
+    if (0 == [self.dataSource count])
+    {
+#warning 无audio数据
+    }
+    else
+    {
+        ZCAudioModel *model = [self.dataSource objectAtIndex:self.currentAudioIndex.row];
+        
+        _streamer = [DOUAudioStreamer streamerWithAudioFile:model];
+        [_streamer addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:kStatusKVOKey];
+        [_streamer addObserver:self forKeyPath:@"duration" options:NSKeyValueObservingOptionNew context:kDurationKVOKey];
+        [_streamer addObserver:self forKeyPath:@"bufferingRatio" options:NSKeyValueObservingOptionNew context:kBufferingRatioKVOKey];
+        
+        [_streamer play];
+        
+        [self setupHintForStreamer];
+    }
+}
+
+- (void)setupHintForStreamer
+{
+    NSUInteger nextIndex = self.currentAudioIndex.row + 1;
+    
+    if (nextIndex >= [self.dataSource count]) {
+        nextIndex = 0;
+    }
+    
+    if ([self.dataSource[nextIndex] isKindOfClass:[ZCAudioModel class]]) {
+        [DOUAudioStreamer setHintWithAudioFile:[self.dataSource objectAtIndex:nextIndex]];
+    }
+}
+
+- (void)updateStatus {
+    ZCNewsAudioTableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.currentAudioIndex];
+    ZCAudioModel *audioModel = cell.audioModel;
+    audioModel.audioStreamerStatus = [_streamer status];
+    [cell updateAudioButtonStatus];
+    switch ([_streamer status]) {
+        case DOUAudioStreamerPlaying:
+            DLog(@"Playing");
+            break;
+            
+        case DOUAudioStreamerPaused:
+            DLog(@"Paused");
+            break;
+            
+        case DOUAudioStreamerIdle:
+            DLog(@"Idle");
+            break;
+            
+        case DOUAudioStreamerFinished:
+            DLog(@"Finished");
+//            [self autoPlayNextAudio];
+            break;
+            
+        case DOUAudioStreamerBuffering:
+            DLog(@"Buffering");
+            break;
+            
+        case DOUAudioStreamerError:
+            DLog(@"Error");
+            break;
+    }
+}
+
+- (void)updateAudioProgress{
+    
+    if ([_streamer duration] == 0.0) {
+
+    }
+    else {
+        ZCNewsAudioTableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.currentAudioIndex];
+        ZCAudioModel *audioModel = cell.audioModel;
+        float progress = [_streamer duration];
+        audioModel.audioDuration = ceilf(progress);
+        [cell updateAudioDurationLabel];
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == kStatusKVOKey) {
+        [self performSelector:@selector(updateStatus)
+                     onThread:[NSThread mainThread]
+                   withObject:nil
+                waitUntilDone:NO];
+    }
+    else if (context == kDurationKVOKey) {
+        [self performSelector:@selector(updateAudioProgress)
+                     onThread:[NSThread mainThread]
+                   withObject:nil
+                waitUntilDone:NO];
+    }
+    else if (context == kBufferingRatioKVOKey) {
+        //        [self performSelector:@selector(updateBufferingStatus)
+        //                     onThread:[NSThread mainThread]
+        //                   withObject:nil
+        //                waitUntilDone:NO];
+    }
+    else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
+- (void)actionPlayPause:(id)sender
+{
+    if ([_streamer status] == DOUAudioStreamerPaused ||
+        [_streamer status] == DOUAudioStreamerIdle) {
+        [_streamer play];
+    }
+    else {
+        [_streamer pause];
+    }
+}
+
+- (void)autoPlayNextAudio{
+    NSInteger row = self.currentAudioIndex.row;
+    if (++ row >= [self.dataSource count]) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        self.currentAudioIndex = indexPath;
+    }
+    
+    if ([self.dataSource[row] isKindOfClass:[ZCAudioModel class]]) {
+        self.currentAudioIndex = [NSIndexPath indexPathForRow:row inSection:0];
+        [self resetStreamer];
+    }
+}
+
 
 @end
