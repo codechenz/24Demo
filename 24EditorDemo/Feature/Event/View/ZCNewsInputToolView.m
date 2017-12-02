@@ -54,7 +54,6 @@
         make.left.and.width.equalTo(self);
         make.height.equalTo(45);
     }];
-    
     UIButton *keyBoardButton = [UIButton new];
     keyBoardButton.backgroundColor = [UIColor whiteColor];
     [keyBoardButton setImage:[UIImage imageWithIcon:kIFIImage size:16 color:UIColorHex(#8091a5)] forState:UIControlStateNormal];

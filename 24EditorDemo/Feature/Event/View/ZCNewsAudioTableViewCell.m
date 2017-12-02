@@ -269,7 +269,6 @@
         case DOUAudioStreamerPlaying:
             [self.audioButton setImage:[UIImage imageWithIcon:kIFIPauseVoice size:26 color:UIColorHex(#0088cc)] forState:UIControlStateNormal];
             [self.audioIndicator stopAnimating];
-            [self.timer fire];
             break;
             
         case DOUAudioStreamerPaused:
@@ -286,7 +285,8 @@
         case DOUAudioStreamerFinished:
             [self.audioButton setImage:[UIImage imageWithIcon:kIFIPlayVoice size:26 color:UIColorHex(#0088cc)] forState:UIControlStateNormal];
             [self.audioIndicator stopAnimating];
-            [self resetAudioDurationLabel:self.timer];
+            [self.timer invalidate];
+            [self performSelector:@selector(resetAudioDurationLabel:) withObject:nil afterDelay:0.5];
             break;
             
         case DOUAudioStreamerBuffering:
@@ -306,6 +306,7 @@
     self.changeDuration = self.audioModel.audioDuration;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(handleTimer:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    [self.timer fire];
 }
 
 - (void)resetAudioDurationLabel:(NSTimer *)sender {

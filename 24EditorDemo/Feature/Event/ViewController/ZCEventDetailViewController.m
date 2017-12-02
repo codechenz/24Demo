@@ -382,29 +382,9 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     audioModel.audioStreamerStatus = [_streamer status];
     [cell updateAudioButtonStatus];
     switch ([_streamer status]) {
-        case DOUAudioStreamerPlaying:
-            DLog(@"Playing");
-            break;
-            
-        case DOUAudioStreamerPaused:
-            DLog(@"Paused");
-            break;
-            
-        case DOUAudioStreamerIdle:
-            DLog(@"Idle");
-            break;
-            
         case DOUAudioStreamerFinished:
             DLog(@"Finished");
-//            [self autoPlayNextAudio];
-            break;
-            
-        case DOUAudioStreamerBuffering:
-            DLog(@"Buffering");
-            break;
-            
-        case DOUAudioStreamerError:
-            DLog(@"Error");
+            [self performSelector:@selector(autoPlayNextAudio) withObject:nil afterDelay:0.5];
             break;
     }
 }
