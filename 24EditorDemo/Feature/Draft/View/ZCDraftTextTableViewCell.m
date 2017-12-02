@@ -18,7 +18,7 @@
 @property (nonatomic, strong)UILabel *author;
 @property (nonatomic, strong)UILabel *timeLabel;
 @property (nonatomic, strong)UILabel *nameLabel;
-@property (nonatomic, strong)UIImageView *artboardImageView;
+@property (nonatomic, strong)UIButton *artboardButton;
 @property (nonatomic, strong)UIImageView *authorImage;
 @property (nonatomic, strong)UIButton *clapButton;
 @end
@@ -93,13 +93,18 @@
         make.top.equalTo(self.author.mas_bottom).offset(10);
     }];
     
-    self.artboardImageView = [[UIImageView alloc] initWithImage:[UIImage imageWithIcon:kIFIArtboard size:15 color:UIColorHex(#667587)]];
-    [self.contentView addSubview:self.artboardImageView];
-    [self.artboardImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.artboardButton = [UIButton new];
+    [self.artboardButton setImage:[UIImage imageWithIcon:kIFIArtboard size:15 color:UIColorHex(#667587)] forState:UIControlStateNormal];
+    [self.artboardButton addTarget:self action:@selector(handleArtboardButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:self.artboardButton];
+    [self.artboardButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-10);
         make.centerY.equalTo(self.author);
-        make.size.equalTo(CGSizeMake(15, 15));
+        make.size.equalTo(CGSizeMake(30, 30));
     }];
+    self.artboardButton.backgroundColor = [UIColor whiteColor];
+    self.artboardButton.imageView.backgroundColor = [UIColor whiteColor];
+    [self.artboardButton setImageEdgeInsets:UIEdgeInsetsMake(0, self.artboardButton.width - self.artboardButton.imageView.width, 0, 0)];
 
     self.authorImage = [[UIImageView alloc] initWithImage:[UIImage imageWithIcon:kIFIUser size:14 color:UIColorHex(#667587)]];
 
@@ -182,6 +187,12 @@
 - (void)handleClapButtonClick:(UIButton *)sender {
     if ([self.delegate respondsToSelector:@selector(draftTextHandleClapButtonClick:)]) {
         [self.delegate draftTextHandleClapButtonClick:self];
+    }
+}
+
+- (void)handleArtboardButtonClick:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(draftTextCell:handleArtboardButtonClick:)]) {
+        [self.delegate draftTextCell:self handleArtboardButtonClick:sender];
     }
 }
 

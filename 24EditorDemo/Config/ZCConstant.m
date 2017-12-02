@@ -35,6 +35,14 @@ NSString *const kIFISite = @"\U0000e906";
 NSString *const kIFIClap = @"\U0000e91b";
 NSString *const kIFIPlayVoice = @"\U0000e91f";
 NSString *const kIFIPauseVoice = @"\U0000e91e";
+NSString *const kIFIVote = @"\U0000e90e";
+NSString *const kIFIKeyboard = @"\U0000e900";
+NSString *const kIFIMike = @"\U0000e902";
+NSString *const kIFIAdd = @"\U0000e910";
+NSString *const kIFIVideo = @"\U0000e928";
+NSString *const kIFIScore = @"\U0000e90f"; //vip 代替 score e90c
+NSString *const kIFICollaborator = @"\U0000e909";
+NSString *const kIFIShare = @"\U0000e90d";
 
 //URL
 

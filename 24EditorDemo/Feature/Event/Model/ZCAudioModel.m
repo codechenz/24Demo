@@ -83,6 +83,9 @@ NSString *const kZCAudioModelUsername = @"username";
     if(![dictionary[kZCAudioModelUsername] isKindOfClass:[NSNull class]]){
         self.username = dictionary[kZCAudioModelUsername];
     }
+    
+    //附加字段
+    self.audioStreamerStatus = DOUAudioStreamerPaused; //DOUAudioStreamerPaused
     return self;
 }
 

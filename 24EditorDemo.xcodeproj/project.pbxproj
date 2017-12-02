@@ -55,6 +55,12 @@
 		939267641FD12EA4002FFA49 /* DOUAudioFrequencyAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392674B1FD12EA4002FFA49 /* DOUAudioFrequencyAnalyzer.m */; };
 		939267651FD12EA4002FFA49 /* DOUMPMediaLibraryAssetLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392674E1FD12EA4002FFA49 /* DOUMPMediaLibraryAssetLoader.m */; };
 		939267681FD136AF002FFA49 /* ZCAudioModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 939267671FD136AF002FFA49 /* ZCAudioModel.m */; };
+		939267831FD1B9CF002FFA49 /* ZCNewsVoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 939267821FD1B9CF002FFA49 /* ZCNewsVoteTableViewCell.m */; };
+		939267861FD1BD84002FFA49 /* ZCPerVoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 939267851FD1BD84002FFA49 /* ZCPerVoteTableViewCell.m */; };
+		939267891FD1C5FF002FFA49 /* ZCVoteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 939267881FD1C5FF002FFA49 /* ZCVoteModel.m */; };
+		9392678C1FD1C687002FFA49 /* ZCOptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392678B1FD1C687002FFA49 /* ZCOptionModel.m */; };
+		9392678F1FD26430002FFA49 /* ZCInputTypeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392678E1FD26430002FFA49 /* ZCInputTypeCollectionViewCell.m */; };
+		939267921FD26B0D002FFA49 /* ZCNewsInputToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 939267911FD26B0D002FFA49 /* ZCNewsInputToolView.m */; };
 		93C143C51FC547D00006FB90 /* _4EditorDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93C143C31FC547D00006FB90 /* _4EditorDemo.xcdatamodeld */; };
 		93C143C71FC547D00006FB90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C143C61FC547D00006FB90 /* Assets.xcassets */; };
 		93C143D91FC54DB30006FB90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C143D31FC54DB30006FB90 /* AppDelegate.m */; };
@@ -194,6 +200,18 @@
 		939267501FD12EA4002FFA49 /* DOUAudioBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioBase.h; sourceTree = "<group>"; };
 		939267661FD136AF002FFA49 /* ZCAudioModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCAudioModel.h; sourceTree = "<group>"; };
 		939267671FD136AF002FFA49 /* ZCAudioModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCAudioModel.m; sourceTree = "<group>"; };
+		939267811FD1B9CF002FFA49 /* ZCNewsVoteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCNewsVoteTableViewCell.h; sourceTree = "<group>"; };
+		939267821FD1B9CF002FFA49 /* ZCNewsVoteTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCNewsVoteTableViewCell.m; sourceTree = "<group>"; };
+		939267841FD1BD84002FFA49 /* ZCPerVoteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCPerVoteTableViewCell.h; sourceTree = "<group>"; };
+		939267851FD1BD84002FFA49 /* ZCPerVoteTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCPerVoteTableViewCell.m; sourceTree = "<group>"; };
+		939267871FD1C5FF002FFA49 /* ZCVoteModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCVoteModel.h; sourceTree = "<group>"; };
+		939267881FD1C5FF002FFA49 /* ZCVoteModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCVoteModel.m; sourceTree = "<group>"; };
+		9392678A1FD1C687002FFA49 /* ZCOptionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCOptionModel.h; sourceTree = "<group>"; };
+		9392678B1FD1C687002FFA49 /* ZCOptionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCOptionModel.m; sourceTree = "<group>"; };
+		9392678D1FD26430002FFA49 /* ZCInputTypeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCInputTypeCollectionViewCell.h; sourceTree = "<group>"; };
+		9392678E1FD26430002FFA49 /* ZCInputTypeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCInputTypeCollectionViewCell.m; sourceTree = "<group>"; };
+		939267901FD26B0D002FFA49 /* ZCNewsInputToolView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCNewsInputToolView.h; sourceTree = "<group>"; };
+		939267911FD26B0D002FFA49 /* ZCNewsInputToolView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCNewsInputToolView.m; sourceTree = "<group>"; };
 		93C143B41FC547D00006FB90 /* 24EditorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 24EditorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C143C41FC547D00006FB90 /* _4EditorDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = _4EditorDemo.xcdatamodel; sourceTree = "<group>"; };
 		93C143C61FC547D00006FB90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -359,6 +377,10 @@
 				939267091FD00786002FFA49 /* ZCNewsModel.m */,
 				939267661FD136AF002FFA49 /* ZCAudioModel.h */,
 				939267671FD136AF002FFA49 /* ZCAudioModel.m */,
+				939267871FD1C5FF002FFA49 /* ZCVoteModel.h */,
+				939267881FD1C5FF002FFA49 /* ZCVoteModel.m */,
+				9392678A1FD1C687002FFA49 /* ZCOptionModel.h */,
+				9392678B1FD1C687002FFA49 /* ZCOptionModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -372,6 +394,14 @@
 				939266E71FCEE4CA002FFA49 /* ZCScoreView.m */,
 				939266E91FCEF1AB002FFA49 /* ZCNewsAudioTableViewCell.h */,
 				939266EA1FCEF1AB002FFA49 /* ZCNewsAudioTableViewCell.m */,
+				939267811FD1B9CF002FFA49 /* ZCNewsVoteTableViewCell.h */,
+				939267821FD1B9CF002FFA49 /* ZCNewsVoteTableViewCell.m */,
+				939267841FD1BD84002FFA49 /* ZCPerVoteTableViewCell.h */,
+				939267851FD1BD84002FFA49 /* ZCPerVoteTableViewCell.m */,
+				9392678D1FD26430002FFA49 /* ZCInputTypeCollectionViewCell.h */,
+				9392678E1FD26430002FFA49 /* ZCInputTypeCollectionViewCell.m */,
+				939267901FD26B0D002FFA49 /* ZCNewsInputToolView.h */,
+				939267911FD26B0D002FFA49 /* ZCNewsInputToolView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -839,6 +869,7 @@
 				939267641FD12EA4002FFA49 /* DOUAudioFrequencyAnalyzer.m in Sources */,
 				93C1448F1FC6F72E0006FB90 /* UICollectionView+ZCCate.m in Sources */,
 				9369B3361FCA620E005ED1D7 /* ZCAlbumView.m in Sources */,
+				939267831FD1B9CF002FFA49 /* ZCNewsVoteTableViewCell.m in Sources */,
 				93C143F11FC550530006FB90 /* ZCBaseViewController.m in Sources */,
 				93C144DB1FC7AC0E0006FB90 /* UIView+ZCCate.m in Sources */,
 				93C144681FC66FB60006FB90 /* ZCConstant.m in Sources */,
@@ -873,6 +904,7 @@
 				939266E81FCEE4CA002FFA49 /* ZCScoreView.m in Sources */,
 				939267551FD12EA4002FFA49 /* DOUAudioStreamer+Options.m in Sources */,
 				9369B3541FCB0EC8005ED1D7 /* AshtonUIKit.m in Sources */,
+				939267861FD1BD84002FFA49 /* ZCPerVoteTableViewCell.m in Sources */,
 				9315BD441FCD625D001ECD0B /* UIColor+ZCCate.m in Sources */,
 				939267621FD12EA4002FFA49 /* DOUAudioEventLoop.m in Sources */,
 				93C1441F1FC57B120006FB90 /* ZCInputToolView.m in Sources */,
@@ -891,6 +923,7 @@
 				939267571FD12EA4002FFA49 /* DOUAudioRenderer.m in Sources */,
 				9392675D1FD12EA4002FFA49 /* DOUAudioLPCM.m in Sources */,
 				939267591FD12EA4002FFA49 /* NSData+DOUMappedFile.m in Sources */,
+				939267921FD26B0D002FFA49 /* ZCNewsInputToolView.m in Sources */,
 				939267631FD12EA4002FFA49 /* DOUAudioSpatialAnalyzer.m in Sources */,
 				93C144841FC6E38B0006FB90 /* UIControl+ZCCate.m in Sources */,
 				9369B3071FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.m in Sources */,
@@ -900,8 +933,11 @@
 				9369B3501FCB0EC8005ED1D7 /* AshtonHTMLWriter.m in Sources */,
 				93C144331FC59BB80006FB90 /* ZCBaseModel.m in Sources */,
 				93C144A11FC70A490006FB90 /* UILabel+ZCCate.m in Sources */,
+				9392678C1FD1C687002FFA49 /* ZCOptionModel.m in Sources */,
+				939267891FD1C5FF002FFA49 /* ZCVoteModel.m in Sources */,
 				9392675A1FD12EA4002FFA49 /* DOUAudioFilePreprocessor.m in Sources */,
 				9369B34E1FCB0EC8005ED1D7 /* AshtonCoreText.m in Sources */,
+				9392678F1FD26430002FFA49 /* ZCInputTypeCollectionViewCell.m in Sources */,
 				9392675C1FD12EA4002FFA49 /* DOUEAGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

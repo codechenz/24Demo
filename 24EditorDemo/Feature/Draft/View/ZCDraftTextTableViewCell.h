@@ -16,6 +16,8 @@
 
 - (void)draftTextHandleClapButtonClick:(ZCDraftTextTableViewCell *)cell;
 
+- (void)draftTextCell:(ZCDraftTextTableViewCell *)cell handleArtboardButtonClick:(UIButton *)sender;
+
 @end
 
 @interface ZCDraftTextTableViewCell : UITableViewCell

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ZCAudioModel.h"
 #import <YLProgressBar.h>
+#import "DOUAudioStreamer.h"
 
 @class ZCNewsAudioTableViewCell;
 @protocol ZCNewsAudioTableViewCellDelegate <NSObject>
@@ -17,6 +18,8 @@
 - (void)handleAudioPlayButtonClick:(UIButton *)sender cell:(ZCNewsAudioTableViewCell *)cell withAudioURL:(NSURL *)URL;
 
 - (void)handleClapButtonClick:(ZCNewsAudioTableViewCell *)cell;
+
+- (void)audioCell:(ZCNewsAudioTableViewCell *)cell handleArtBoardButtonClick:(UIButton *)sender;
 
 @end
 
@@ -30,5 +33,6 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 - (void)updateLikesWithAnimation;
+- (void)updateAudioButtonStatus;
 
 @end

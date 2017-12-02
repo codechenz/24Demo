@@ -16,10 +16,11 @@
 @property (nonatomic, strong)UILabel *author;
 @property (nonatomic, strong)UILabel *timeLabel;
 @property (nonatomic, strong)UILabel *nameLabel;
-@property (nonatomic, strong)UIImageView *artboardImageView;
+@property (nonatomic, strong)UIButton *artboardButton;
 @property (nonatomic, strong)UIImageView *authorImage;
 @property (nonatomic, strong)UIView *shadowView;
 @property (nonatomic, strong)UIButton *clapButton;
+@property (nonatomic, strong)UIButton *audioButton;
 
 @end
 @implementation ZCNewsAudioTableViewCell
@@ -77,13 +78,18 @@
     
     [self audioView];
     
-    self.artboardImageView = [[UIImageView alloc] initWithImage:[UIImage imageWithIcon:kIFIArtboard size:15 color:UIColorHex(#667587)]];
-    [self.contentView addSubview:self.artboardImageView];
-    [self.artboardImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.artboardButton = [UIButton new];
+    [self.artboardButton setImage:[UIImage imageWithIcon:kIFIArtboard size:15 color:UIColorHex(#667587)] forState:UIControlStateNormal];
+    [self.artboardButton addTarget:self action:@selector(handleArtboardButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:self.artboardButton];
+    [self.artboardButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-10);
         make.centerY.equalTo(self.author);
-        make.size.equalTo(CGSizeMake(15, 15));
+        make.size.equalTo(CGSizeMake(30, 30));
     }];
+    self.artboardButton.backgroundColor = [UIColor whiteColor];
+    self.artboardButton.imageView.backgroundColor = [UIColor whiteColor];
+    [self.artboardButton setImageEdgeInsets:UIEdgeInsetsMake(0, self.artboardButton.width - self.artboardButton.imageView.width, 0, 0)];
     
     self.authorImage = [[UIImageView alloc] initWithImage:[UIImage imageWithIcon:kIFIUser size:14 color:UIColorHex(#667587)]];
     
@@ -172,24 +178,26 @@
         make.edges.equalTo(self.shadowView);
     }];
     
-    UIButton *audioButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [audioButton setImage:[UIImage imageWithIcon:kIFIPlayVoice size:26 color:UIColorHex(#0088cc)] forState:UIControlStateNormal];
-    [audioButton setImage:[UIImage imageWithIcon:kIFIPauseVoice size:26 color:UIColorHex(#0088cc)] forState:UIControlStateSelected];
-    [audioButton addTarget:self action:@selector(handleAudioButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [audio addSubview:audioButton];
-    [audioButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.audioButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.audioButton setImage:[UIImage imageWithIcon:kIFIPlayVoice size:26 color:UIColorHex(#0088cc)] forState:UIControlStateNormal];
+    
+    [self.audioButton addTarget:self action:@selector(handleAudioButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [audio addSubview:self.audioButton];
+    [self.audioButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(audio);
         make.left.equalTo(audio).offset(15);
         make.size.equalTo(CGSizeMake(26, 26));
     }];
     
     self.audioIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [audioButton addSubview:self.audioIndicator];
+    self.audioIndicator.layer.cornerRadius = 22 / 2;
+    self.audioIndicator.layer.masksToBounds = YES;
+    self.audioIndicator.backgroundColor = [UIColor whiteColor];
+    [self.audioButton addSubview:self.audioIndicator];
     
     [self.audioIndicator mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(audioButton);
+        make.edges.equalTo(self.audioButton).offset(UIEdgeInsetsMake(2, 2, 2, 2));
     }];
-    [self.audioIndicator startAnimating];
     
     self.audioTime = [UILabel new];
     self.audioTime.text = @"--:--";
@@ -200,7 +208,7 @@
     [audio addSubview:self.audioTime];
     
     [self.audioTime mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(audioButton.mas_right).offset(10);
+        make.left.equalTo(self.audioButton.mas_right).offset(10);
         make.centerY.equalTo(audio);
         make.width.equalTo(35);
     }];
@@ -245,6 +253,7 @@
     self.timeLabel.text = [NSString stringWithFormat:@"· %@", date.timeAgoSinceNow];
     self.nameLabel.text = audioModel.username;
     self.clapButton.selected = audioModel.alert;
+    [self updateAudioButtonStatus];
 }
 
 - (void)updateLikesWithAnimation {
@@ -252,9 +261,42 @@
     [self.clapButton setTitle:[NSString stringWithFormat:@"%d", self.audioModel.likes] forState:UIControlStateSelected];
 }
 
+- (void)updateAudioButtonStatus {
+    switch (self.audioModel.audioStreamerStatus) {
+        case DOUAudioStreamerPlaying:
+            [self.audioButton setImage:[UIImage imageWithIcon:kIFIPauseVoice size:26 color:UIColorHex(#0088cc)] forState:UIControlStateNormal];
+            [self.audioIndicator stopAnimating];
+            break;
+            
+        case DOUAudioStreamerPaused:
+            [self.audioButton setImage:[UIImage imageWithIcon:kIFIPlayVoice size:26 color:UIColorHex(#0088cc)] forState:UIControlStateNormal];
+            [self.audioIndicator stopAnimating];
+            break;
+            
+        case DOUAudioStreamerIdle:
+            [self.audioButton setImage:[UIImage imageWithIcon:kIFIPlayVoice size:26 color:UIColorHex(#0088cc)] forState:UIControlStateNormal];
+            [self.audioIndicator stopAnimating];
+            break;
+            
+        case DOUAudioStreamerFinished:
+            [self.audioButton setImage:[UIImage imageWithIcon:kIFIPlayVoice size:26 color:UIColorHex(#0088cc)] forState:UIControlStateNormal];
+            [self.audioIndicator stopAnimating];
+            break;
+            
+        case DOUAudioStreamerBuffering:
+            [self.audioButton setImage:[UIImage imageWithIcon:kIFIPauseVoice size:26 color:UIColorHex(#0088cc)] forState:UIControlStateNormal];
+            [self.audioIndicator startAnimating];
+            break;
+            
+        case DOUAudioStreamerError:
+            [self.audioButton setImage:[UIImage imageWithIcon:kIFIPlayVoice size:26 color:UIColorHex(#0088cc)] forState:UIControlStateNormal];
+            [self.audioIndicator stopAnimating];
+            break;
+    }
+}
+
 #pragma mark - Event Handle
 - (void)handleAudioButtonClick:(UIButton *)sender {
-    sender.selected = !sender.selected;
     if ([self.delegate respondsToSelector:@selector(handleAudioPlayButtonClick:cell:withAudioURL:)]) {
         [self.delegate handleAudioPlayButtonClick:sender cell:self withAudioURL:[NSURL URLWithString:self.audioModel.contents]];
     }
@@ -269,6 +311,12 @@
 - (void)handleClapButtonClick:(UIButton *)sender {
     if ([self.delegate respondsToSelector:@selector(handleClapButtonClick:)]) {
         [self.delegate handleClapButtonClick:self];
+    }
+}
+
+- (void)handleArtboardButtonClick:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(audioCell:handleArtBoardButtonClick:)]) {
+        [self.delegate audioCell:self handleArtBoardButtonClick:sender];
     }
 }
 

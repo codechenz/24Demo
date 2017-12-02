@@ -8,9 +8,9 @@
 
 #import "ZCBaseModel.h"
 #import "DOUAudioFile.h"
+#import "DOUAudioStreamer.h"
 
 @interface ZCAudioModel : ZCBaseModel <DOUAudioFile>
-@property (nonatomic, strong) NSURL *audioFileURL;
 
 @property (nonatomic, assign) BOOL alert;
 @property (nonatomic, strong) NSString * avatar;
@@ -25,6 +25,12 @@
 @property (nonatomic, assign) NSInteger type;
 @property (nonatomic, assign) NSInteger updated;
 @property (nonatomic, strong) NSString * username;
+
+
+@property (nonatomic, strong) NSURL *audioFileURL;
+
+//附加音频本地字段
+@property (nonatomic, assign) DOUAudioStreamerStatus audioStreamerStatus;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 @end

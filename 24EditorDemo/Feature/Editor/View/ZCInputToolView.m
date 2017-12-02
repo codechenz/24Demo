@@ -37,9 +37,6 @@
         [self addButtonWithIcon:kIFIUser size:20 tag:1003 hidden:!isShowTool];
         
         UIButton *sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        sendButton.size = CGSizeMake(66, 29);
-        sendButton.right = kScreenWidth - 15;
-        sendButton.centerY = self.centerY;
         sendButton.backgroundColor = UIColorHex(#0088cc);
         [sendButton setTitle:buttonTitle forState:UIControlStateNormal];
         sendButton.titleLabel.font = [UIFont fontWithName:kFNRalewayRegular size:15];
@@ -47,6 +44,12 @@
         sendButton.layer.masksToBounds = true;
         [sendButton addTarget:self action:@selector(handleSendButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:sendButton];
+        
+        [sendButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self);
+            make.right.equalTo(self).offset(-15);
+            make.size.equalTo(CGSizeMake(66, 29));
+        }];
     }
     return self;
 }
