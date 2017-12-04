@@ -31,15 +31,19 @@
 #import "UIColor+BBVoiceRecord.h"
 #import "BBHoldToSpeakButton.h"
 
+#import <AVFoundation/AVFoundation.h>
+
 #define kFakeTimerDuration       0.2
 #define kMaxRecordDuration       60     //最长录音时长
 #define kRemainCountingDuration  10     //剩余多少秒开始倒计时
+
+#define kRecordAudioFile @"myRecord.caf"
 
 static void *kStatusKVOKey = &kStatusKVOKey;
 static void *kDurationKVOKey = &kDurationKVOKey;
 static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
-@interface ZCEventDetailViewController () <UITableViewDelegate, UITableViewDataSource, ZCNewsAudioTableViewCellDelegate, ZCDraftTextTableViewCellDelegate, UIScrollViewDelegate, ZCNewsInputToolViewDelegate> {
+@interface ZCEventDetailViewController () <UITableViewDelegate, UITableViewDataSource, ZCNewsAudioTableViewCellDelegate, ZCDraftTextTableViewCellDelegate, UIScrollViewDelegate, ZCNewsInputToolViewDelegate, AVAudioRecorderDelegate> {
     @private
     DOUAudioStreamer *_streamer;
     DOUAudioVisualizer *_audioVisualizer;
@@ -58,6 +62,9 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 @property (nonatomic, assign) float duration;
 @property (nonatomic, assign) BOOL canceled;
 
+@property (nonatomic,strong) AVAudioRecorder *audioRecorder;
+@property (nonatomic,strong) AVAudioPlayer *audioPlayer;//音频播放器，暂用于播放本地录音文件
+
 @end
 
 @implementation ZCEventDetailViewController
@@ -69,6 +76,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     self.title = @"Event Details";
     [self setNavigationBar];
     [self initTableView];
+    [self setAudioSession];
     
     self.dataSource = [[NSMutableArray alloc] init];
     [self getDataWithCache:NO];
@@ -83,6 +91,63 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+-(void)setAudioSession{
+    AVAudioSession *audioSession=[AVAudioSession sharedInstance];
+    //设置为播放和录音状态，以便可以在录制完之后播放录音     [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    [audioSession setActive:YES error:nil];
+}
+
+/** * 取得录音文件保存路径 * * @return 录音文件路径 */
+-(NSURL *)getSavePath{
+    NSString *urlStr=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    urlStr=[urlStr stringByAppendingPathComponent:kRecordAudioFile];
+    DLog(@"file path:%@",urlStr);
+    NSURL *url=[NSURL fileURLWithPath:urlStr];
+    return url;
+}
+
+-(NSDictionary *)getAudioSetting{
+    NSMutableDictionary *dicM=[NSMutableDictionary dictionary];
+    //设置录音格式     [dicM setObject:@(kAudioFormatLinearPCM) forKey:AVFormatIDKey];
+    //设置录音采样率，8000是电话采样率，对于一般录音已经够了     [dicM setObject:@(8000) forKey:AVSampleRateKey];
+    //设置通道,这里采用单声道     [dicM setObject:@(1) forKey:AVNumberOfChannelsKey];
+    //每个采样点位数,分为8、16、24、32     [dicM setObject:@(8) forKey:AVLinearPCMBitDepthKey];
+    //是否使用浮点数采样     [dicM setObject:@(YES) forKey:AVLinearPCMIsFloatKey];
+    //....其他设置等
+    return dicM;
+}
+
+- (AVAudioRecorder *)audioRecorder {
+    if (!_audioRecorder) {
+             NSURL *url=[self getSavePath];//创建录音文件保存路径
+            NSDictionary *setting=[self getAudioSetting];//创建录音格式设置
+           NSError *error=nil; //创建录音机
+            _audioRecorder=[[AVAudioRecorder alloc]initWithURL:url settings:setting error:&error];
+            _audioRecorder.delegate=self;
+            _audioRecorder.meteringEnabled=YES;
+            if (error) {
+            DLog(@"创建录音机对象时发生错误，错误信息：%@",error.localizedDescription);
+            return nil;
+            }
+    }
+    return _audioRecorder;
+}
+
+-(AVAudioPlayer *)audioPlayer{
+    if (!_audioPlayer) {
+        NSURL *url=[self getSavePath];
+        NSError *error=nil;
+        _audioPlayer=[[AVAudioPlayer alloc]initWithContentsOfURL:url error:&error];
+        _audioPlayer.numberOfLoops=0;
+        [_audioPlayer prepareToPlay];
+        if (error) {
+            DLog(@"创建播放器过程中发生错误，错误信息：%@",error.localizedDescription);
+            return nil;
+        }
+    }
+    return _audioPlayer;
 }
 
 - (void)getDataWithCache:(BOOL)isFresh {
@@ -185,7 +250,10 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 #pragma mark - Event Handle
 - (void)handleSiteButtonClick:(UIButton *)sender {
-    
+    if (![self.audioPlayer isPlaying]) {
+        DLog(@"播放");
+        [self.audioPlayer play];
+    }
 }
 
 - (void)presentAlertController {
@@ -295,6 +363,13 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 - (void)configureVoteCell:(ZCNewsVoteTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     cell.voteModel = self.dataSource[indexPath.row];
+}
+
+#pragma mark - <AVAudioRecorderDelegate>
+-(void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag{
+    NSString *str = [NSString stringWithFormat:@"录音完成、未做上传处理，存入本地路径为:%@;\n为演示录音效果，点击右上角设置按钮，播放录音。",[self getSavePath]];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Voice Record Success" message:str delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+    [alertView show];
 }
 
 #pragma mark - <ZCNewsAudioTableViewCellDelegate>
@@ -515,8 +590,11 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     }
     else
     {
-        float fakePower = (float)(1+arc4random()%99)/100;
-        [self.voiceRecordCtrl updatePower:fakePower];
+        [self.audioRecorder updateMeters];
+        float power = [self.audioRecorder averagePowerForChannel:0];
+        float progress = (1.0/160.0)*(power+160.0);
+
+        [self.voiceRecordCtrl updatePower:progress];
     }
 }
 
@@ -541,7 +619,15 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     CGPoint touchPoint = [[touches anyObject] locationInView:self.view];
     if (CGRectContainsPoint(CGRectMake(self.toolView.voiceButton.left, self.toolView.top + self.toolView.voiceButton.top, self.toolView.voiceButton.width, self.toolView.voiceButton.height), touchPoint)) {
         self.currentRecordState = BBVoiceRecordState_Recording;
+        
+        
+        if (![self.audioRecorder isRecording]) {
+            [self.audioRecorder record];//首次使用应用时如果调用record方法会询问用户是否允许使用麦克风
+        }
+        
         [self dispatchVoiceState];
+        
+        
     }
 }
 
@@ -567,7 +653,6 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     if (_canceled) {
         return;
     }
-    
     CGPoint touchPoint = [[touches anyObject] locationInView:self.view];
     if (CGRectContainsPoint(CGRectMake(self.toolView.voiceButton.left, self.toolView.top + self.toolView.voiceButton.top, self.toolView.voiceButton.width, self.toolView.voiceButton.height), touchPoint)) {
         if (self.duration < 3) {
@@ -576,6 +661,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         else
         {
             //upload voice
+            [self.audioRecorder stop];
         }
     }
     self.currentRecordState = BBVoiceRecordState_Normal;
@@ -590,12 +676,12 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     
     CGPoint touchPoint = [[touches anyObject] locationInView:self.view];
     if (CGRectContainsPoint(CGRectMake(self.toolView.voiceButton.left, self.toolView.top + self.toolView.voiceButton.top, self.toolView.voiceButton.width, self.toolView.voiceButton.height), touchPoint)) {
-        if (self.duration < 3) {
+        if (self.duration < 1) {
             [self.voiceRecordCtrl showToast:@"Message Too Short."];
         }
         else
         {
-            //upload voice
+            [self.audioRecorder stop];
         }
     }
     self.currentRecordState = BBVoiceRecordState_Normal;
@@ -623,6 +709,5 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     }
     return _voiceRecordCtrl;
 }
-
 
 @end
