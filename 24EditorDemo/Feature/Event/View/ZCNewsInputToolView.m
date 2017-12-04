@@ -8,7 +8,6 @@
 
 #import "ZCNewsInputToolView.h"
 #import "UIImage+ZCCate.h"
-#import "ZCInputTypeCollectionViewCell.h"
 
 #define CollectionViewInsetHorizontal PreferredVarForDevices((PixelOne * 2), 1, 2, 2)
 #define CollectionViewInset UIEdgeInsetsMake(CollectionViewInsetHorizontal, CollectionViewInsetHorizontal, CollectionViewInsetHorizontal, CollectionViewInsetHorizontal)
@@ -84,19 +83,21 @@
         make.size.equalTo(CGSizeMake(29, 29));
     }];
     
-    UIButton *voiceButton = [UIButton new];
-    voiceButton.backgroundColor = [UIColor whiteColor];
-    [voiceButton setImage:[UIImage imageWithIcon:kIFIMike size:21 color:UIColorHex(#8091a5)] forState:UIControlStateNormal];
-    [voiceButton setTitle:@"   Press and hold the talk" forState:UIControlStateNormal];
-    voiceButton.titleLabel.font = [UIFont fontWithName:kFNRalewayMedium size:13];
-    [voiceButton setTitleColor:UIColorHex(#8091a5) forState:UIControlStateNormal];
-    voiceButton.layer.cornerRadius = 4;
-    voiceButton.layer.masksToBounds = YES;
-    voiceButton.layer.borderColor = UIColorHex(#dfe6ee).CGColor;
-    voiceButton.layer.borderWidth = PixelOne;
+    self.voiceButton = [UIButton new];
+    self.voiceButton.backgroundColor = [UIColor whiteColor];
+    [self.voiceButton setImage:[UIImage imageWithIcon:kIFIMike size:21 color:UIColorHex(#8091a5)] forState:UIControlStateNormal];
+    [self.voiceButton setTitle:@"   Press and hold the talk" forState:UIControlStateNormal];
+    [self.voiceButton addTarget:self action:@selector(handleVoiceRecordButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    self.voiceButton.titleLabel.font = [UIFont fontWithName:kFNRalewayMedium size:13];
+    [self.voiceButton setTitleColor:UIColorHex(#8091a5) forState:UIControlStateNormal];
+    self.voiceButton.layer.cornerRadius = 4;
+    self.voiceButton.layer.masksToBounds = YES;
+    self.voiceButton.enabled = NO;
+    self.voiceButton.layer.borderColor = UIColorHex(#dfe6ee).CGColor;
+    self.voiceButton.layer.borderWidth = PixelOne;
     
-    [inputToolBar addSubview:voiceButton];
-    [voiceButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [inputToolBar addSubview:self.voiceButton];
+    [self.voiceButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(inputToolBar);
         make.left.equalTo(keyBoardButton.mas_right).offset(10);
         make.right.equalTo(addButton.mas_left).offset(-10);
@@ -148,6 +149,10 @@
     self.addTypeButtonClickBlock = block;
 }
 
+- (void)voiceRecordButtonClick:(VoiceRecordButtonClickBlock)block {
+    self.voiceRecordButtonClickBlock = block;
+}
+
 #pragma mark - Event Handle
 
 - (void)handleEditNewsTextButtonClick:(UIButton *)sender {
@@ -157,6 +162,10 @@
 - (void)handleAddTypeButtonClick:(UIButton *)sender {
     sender.selected = !sender.selected;
     self.addTypeButtonClickBlock(sender);
+}
+
+- (void)handleVoiceRecordButtonClick:(UIButton *)sender {
+    self.voiceRecordButtonClickBlock(sender);
 }
 
 #pragma mark - <UICollectionViewDelegate, UICollectionViewDataSource>
@@ -175,5 +184,11 @@
     }
     cell.dataSource = self.dataSource[indexPath.row];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.delegate respondsToSelector:@selector(collectionCellDidSelected:)]) {
+        [self.delegate collectionCellDidSelected:self];
+    }
 }
 @end

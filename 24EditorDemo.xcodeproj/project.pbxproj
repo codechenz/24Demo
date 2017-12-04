@@ -21,6 +21,21 @@
 		9369B3551FCB0EC8005ED1D7 /* AshtonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B34A1FCB0EC8005ED1D7 /* AshtonUtils.m */; };
 		9369B3561FCB0EC8005ED1D7 /* NSAttributedString+Ashton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9369B34C1FCB0EC8005ED1D7 /* NSAttributedString+Ashton.m */; };
 		9369B36A1FCB2751005ED1D7 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9369B3691FCB2751005ED1D7 /* Muli-Regular.ttf */; };
+		93864D671FD52547002AC596 /* UIImage+BBVoiceRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 93864D4F1FD52547002AC596 /* UIImage+BBVoiceRecord.m */; };
+		93864D681FD52547002AC596 /* BBHoldToSpeakButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 93864D511FD52547002AC596 /* BBHoldToSpeakButton.m */; };
+		93864D691FD52547002AC596 /* BBVoiceRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93864D521FD52547002AC596 /* BBVoiceRecordView.m */; };
+		93864D6A1FD52547002AC596 /* ic_record_ripple@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93864D551FD52547002AC596 /* ic_record_ripple@3x.png */; };
+		93864D6B1FD52547002AC596 /* ic_record_ripple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93864D561FD52547002AC596 /* ic_record_ripple@2x.png */; };
+		93864D6C1FD52547002AC596 /* ic_record_too_short@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93864D571FD52547002AC596 /* ic_record_too_short@2x.png */; };
+		93864D6D1FD52547002AC596 /* ic_record_too_short@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93864D581FD52547002AC596 /* ic_record_too_short@3x.png */; };
+		93864D6E1FD52547002AC596 /* ic_release_to_cancel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93864D591FD52547002AC596 /* ic_release_to_cancel@3x.png */; };
+		93864D6F1FD52547002AC596 /* ic_record@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93864D5A1FD52547002AC596 /* ic_record@2x.png */; };
+		93864D701FD52547002AC596 /* ic_record@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93864D5B1FD52547002AC596 /* ic_record@3x.png */; };
+		93864D711FD52547002AC596 /* ic_release_to_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93864D5C1FD52547002AC596 /* ic_release_to_cancel@2x.png */; };
+		93864D721FD52547002AC596 /* UIColor+BBVoiceRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 93864D5E1FD52547002AC596 /* UIColor+BBVoiceRecord.m */; };
+		93864D731FD52547002AC596 /* BBVoiceRecordToastContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93864D5F1FD52547002AC596 /* BBVoiceRecordToastContentView.m */; };
+		93864D741FD52547002AC596 /* BBVoiceRecordPowerAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93864D641FD52547002AC596 /* BBVoiceRecordPowerAnimationView.m */; };
+		93864D751FD52547002AC596 /* BBVoiceRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93864D651FD52547002AC596 /* BBVoiceRecordController.m */; };
 		939266B41FCE82E1002FFA49 /* UIImage+ZCCate.m in Sources */ = {isa = PBXBuildFile; fileRef = 939266B31FCE82E1002FFA49 /* UIImage+ZCCate.m */; };
 		939266B71FCE831F002FFA49 /* NSString+ZCCate.m in Sources */ = {isa = PBXBuildFile; fileRef = 939266B61FCE831F002FFA49 /* NSString+ZCCate.m */; };
 		939266D01FCE910F002FFA49 /* ZCDraftTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 939266C51FCE910F002FFA49 /* ZCDraftTextTableViewCell.m */; };
@@ -61,6 +76,7 @@
 		9392678C1FD1C687002FFA49 /* ZCOptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392678B1FD1C687002FFA49 /* ZCOptionModel.m */; };
 		9392678F1FD26430002FFA49 /* ZCInputTypeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9392678E1FD26430002FFA49 /* ZCInputTypeCollectionViewCell.m */; };
 		939267921FD26B0D002FFA49 /* ZCNewsInputToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 939267911FD26B0D002FFA49 /* ZCNewsInputToolView.m */; };
+		939267951FD2BECA002FFA49 /* ZCEmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 939267941FD2BECA002FFA49 /* ZCEmptyViewController.m */; };
 		93C143C51FC547D00006FB90 /* _4EditorDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93C143C31FC547D00006FB90 /* _4EditorDemo.xcdatamodeld */; };
 		93C143C71FC547D00006FB90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93C143C61FC547D00006FB90 /* Assets.xcassets */; };
 		93C143D91FC54DB30006FB90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C143D31FC54DB30006FB90 /* AppDelegate.m */; };
@@ -129,6 +145,29 @@
 		9369B34B1FCB0EC8005ED1D7 /* NSAttributedString+Ashton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Ashton.h"; sourceTree = "<group>"; };
 		9369B34C1FCB0EC8005ED1D7 /* NSAttributedString+Ashton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Ashton.m"; sourceTree = "<group>"; };
 		9369B3691FCB2751005ED1D7 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
+		93864D4F1FD52547002AC596 /* UIImage+BBVoiceRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BBVoiceRecord.m"; sourceTree = "<group>"; };
+		93864D501FD52547002AC596 /* BBVoiceRecordToastContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBVoiceRecordToastContentView.h; sourceTree = "<group>"; };
+		93864D511FD52547002AC596 /* BBHoldToSpeakButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBHoldToSpeakButton.m; sourceTree = "<group>"; };
+		93864D521FD52547002AC596 /* BBVoiceRecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBVoiceRecordView.m; sourceTree = "<group>"; };
+		93864D531FD52547002AC596 /* BBVoiceRecordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBVoiceRecordController.h; sourceTree = "<group>"; };
+		93864D551FD52547002AC596 /* ic_record_ripple@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_record_ripple@3x.png"; sourceTree = "<group>"; };
+		93864D561FD52547002AC596 /* ic_record_ripple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_record_ripple@2x.png"; sourceTree = "<group>"; };
+		93864D571FD52547002AC596 /* ic_record_too_short@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_record_too_short@2x.png"; sourceTree = "<group>"; };
+		93864D581FD52547002AC596 /* ic_record_too_short@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_record_too_short@3x.png"; sourceTree = "<group>"; };
+		93864D591FD52547002AC596 /* ic_release_to_cancel@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_release_to_cancel@3x.png"; sourceTree = "<group>"; };
+		93864D5A1FD52547002AC596 /* ic_record@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_record@2x.png"; sourceTree = "<group>"; };
+		93864D5B1FD52547002AC596 /* ic_record@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_record@3x.png"; sourceTree = "<group>"; };
+		93864D5C1FD52547002AC596 /* ic_release_to_cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_release_to_cancel@2x.png"; sourceTree = "<group>"; };
+		93864D5D1FD52547002AC596 /* BBVoiceRecordPowerAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBVoiceRecordPowerAnimationView.h; sourceTree = "<group>"; };
+		93864D5E1FD52547002AC596 /* UIColor+BBVoiceRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BBVoiceRecord.m"; sourceTree = "<group>"; };
+		93864D5F1FD52547002AC596 /* BBVoiceRecordToastContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBVoiceRecordToastContentView.m; sourceTree = "<group>"; };
+		93864D601FD52547002AC596 /* UIImage+BBVoiceRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BBVoiceRecord.h"; sourceTree = "<group>"; };
+		93864D611FD52547002AC596 /* BBHoldToSpeakButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBHoldToSpeakButton.h; sourceTree = "<group>"; };
+		93864D621FD52547002AC596 /* BBVoiceRecordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBVoiceRecordView.h; sourceTree = "<group>"; };
+		93864D631FD52547002AC596 /* UIColor+BBVoiceRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BBVoiceRecord.h"; sourceTree = "<group>"; };
+		93864D641FD52547002AC596 /* BBVoiceRecordPowerAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBVoiceRecordPowerAnimationView.m; sourceTree = "<group>"; };
+		93864D651FD52547002AC596 /* BBVoiceRecordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBVoiceRecordController.m; sourceTree = "<group>"; };
+		93864D661FD52547002AC596 /* BBVoiceRecordHeaderDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBVoiceRecordHeaderDefine.h; sourceTree = "<group>"; };
 		939266B21FCE82E0002FFA49 /* UIImage+ZCCate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZCCate.h"; sourceTree = "<group>"; };
 		939266B31FCE82E1002FFA49 /* UIImage+ZCCate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZCCate.m"; sourceTree = "<group>"; };
 		939266B51FCE831F002FFA49 /* NSString+ZCCate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+ZCCate.h"; sourceTree = "<group>"; };
@@ -212,6 +251,8 @@
 		9392678E1FD26430002FFA49 /* ZCInputTypeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCInputTypeCollectionViewCell.m; sourceTree = "<group>"; };
 		939267901FD26B0D002FFA49 /* ZCNewsInputToolView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCNewsInputToolView.h; sourceTree = "<group>"; };
 		939267911FD26B0D002FFA49 /* ZCNewsInputToolView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCNewsInputToolView.m; sourceTree = "<group>"; };
+		939267931FD2BECA002FFA49 /* ZCEmptyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCEmptyViewController.h; sourceTree = "<group>"; };
+		939267941FD2BECA002FFA49 /* ZCEmptyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCEmptyViewController.m; sourceTree = "<group>"; };
 		93C143B41FC547D00006FB90 /* 24EditorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 24EditorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C143C41FC547D00006FB90 /* _4EditorDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = _4EditorDemo.xcdatamodel; sourceTree = "<group>"; };
 		93C143C61FC547D00006FB90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -323,6 +364,44 @@
 			path = Ashton;
 			sourceTree = "<group>";
 		};
+		93864D4E1FD52547002AC596 /* VoiceRecord */ = {
+			isa = PBXGroup;
+			children = (
+				93864D611FD52547002AC596 /* BBHoldToSpeakButton.h */,
+				93864D511FD52547002AC596 /* BBHoldToSpeakButton.m */,
+				93864D531FD52547002AC596 /* BBVoiceRecordController.h */,
+				93864D651FD52547002AC596 /* BBVoiceRecordController.m */,
+				93864D661FD52547002AC596 /* BBVoiceRecordHeaderDefine.h */,
+				93864D5D1FD52547002AC596 /* BBVoiceRecordPowerAnimationView.h */,
+				93864D641FD52547002AC596 /* BBVoiceRecordPowerAnimationView.m */,
+				93864D501FD52547002AC596 /* BBVoiceRecordToastContentView.h */,
+				93864D5F1FD52547002AC596 /* BBVoiceRecordToastContentView.m */,
+				93864D621FD52547002AC596 /* BBVoiceRecordView.h */,
+				93864D521FD52547002AC596 /* BBVoiceRecordView.m */,
+				93864D541FD52547002AC596 /* resources */,
+				93864D631FD52547002AC596 /* UIColor+BBVoiceRecord.h */,
+				93864D5E1FD52547002AC596 /* UIColor+BBVoiceRecord.m */,
+				93864D601FD52547002AC596 /* UIImage+BBVoiceRecord.h */,
+				93864D4F1FD52547002AC596 /* UIImage+BBVoiceRecord.m */,
+			);
+			path = VoiceRecord;
+			sourceTree = "<group>";
+		};
+		93864D541FD52547002AC596 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				93864D551FD52547002AC596 /* ic_record_ripple@3x.png */,
+				93864D561FD52547002AC596 /* ic_record_ripple@2x.png */,
+				93864D571FD52547002AC596 /* ic_record_too_short@2x.png */,
+				93864D581FD52547002AC596 /* ic_record_too_short@3x.png */,
+				93864D591FD52547002AC596 /* ic_release_to_cancel@3x.png */,
+				93864D5A1FD52547002AC596 /* ic_record@2x.png */,
+				93864D5B1FD52547002AC596 /* ic_record@3x.png */,
+				93864D5C1FD52547002AC596 /* ic_release_to_cancel@2x.png */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		939266BE1FCE910F002FFA49 /* Draft */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,6 +490,8 @@
 			children = (
 				939266DB1FCE91EC002FFA49 /* ZCEventDetailViewController.h */,
 				939266DC1FCE91EC002FFA49 /* ZCEventDetailViewController.m */,
+				939267931FD2BECA002FFA49 /* ZCEmptyViewController.h */,
+				939267941FD2BECA002FFA49 /* ZCEmptyViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -673,6 +754,7 @@
 		93C1447A1FC6D0300006FB90 /* Compent */ = {
 			isa = PBXGroup;
 			children = (
+				93864D4E1FD52547002AC596 /* VoiceRecord */,
 				93C1447B1FC6D0300006FB90 /* ImagePicker */,
 			);
 			path = Compent;
@@ -794,11 +876,19 @@
 				93C1443F1FC5B72A0006FB90 /* Raleway-Medium.ttf in Resources */,
 				9369B36A1FCB2751005ED1D7 /* Muli-Regular.ttf in Resources */,
 				93C143DB1FC54DB30006FB90 /* Main.storyboard in Resources */,
+				93864D6B1FD52547002AC596 /* ic_record_ripple@2x.png in Resources */,
+				93864D6C1FD52547002AC596 /* ic_record_too_short@2x.png in Resources */,
+				93864D6F1FD52547002AC596 /* ic_record@2x.png in Resources */,
 				93C144401FC5B72A0006FB90 /* Raleway-Regular.ttf in Resources */,
 				93C143C71FC547D00006FB90 /* Assets.xcassets in Resources */,
+				93864D6E1FD52547002AC596 /* ic_release_to_cancel@3x.png in Resources */,
+				93864D701FD52547002AC596 /* ic_record@3x.png in Resources */,
+				93864D6A1FD52547002AC596 /* ic_record_ripple@3x.png in Resources */,
 				93C144231FC596030006FB90 /* icon24app.ttf in Resources */,
 				93C143DA1FC54DB30006FB90 /* LaunchScreen.storyboard in Resources */,
+				93864D6D1FD52547002AC596 /* ic_record_too_short@3x.png in Resources */,
 				939266E51FCEDE79002FFA49 /* Poppins-Regular.ttf in Resources */,
+				93864D711FD52547002AC596 /* ic_release_to_cancel@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -871,6 +961,8 @@
 				93C1448F1FC6F72E0006FB90 /* UICollectionView+ZCCate.m in Sources */,
 				9369B3361FCA620E005ED1D7 /* ZCAlbumView.m in Sources */,
 				939267831FD1B9CF002FFA49 /* ZCNewsVoteTableViewCell.m in Sources */,
+				93864D681FD52547002AC596 /* BBHoldToSpeakButton.m in Sources */,
+				93864D731FD52547002AC596 /* BBVoiceRecordToastContentView.m in Sources */,
 				93C143F11FC550530006FB90 /* ZCBaseViewController.m in Sources */,
 				93C144DB1FC7AC0E0006FB90 /* UIView+ZCCate.m in Sources */,
 				93C144681FC66FB60006FB90 /* ZCConstant.m in Sources */,
@@ -888,6 +980,7 @@
 				93C143D91FC54DB30006FB90 /* AppDelegate.m in Sources */,
 				9392675E1FD12EA4002FFA49 /* DOUAudioStreamer.m in Sources */,
 				9369B34F1FCB0EC8005ED1D7 /* AshtonHTMLReader.m in Sources */,
+				93864D741FD52547002AC596 /* BBVoiceRecordPowerAnimationView.m in Sources */,
 				93C1447E1FC6D04B0006FB90 /* ZCImagePickerViewController.m in Sources */,
 				9369B3551FCB0EC8005ED1D7 /* AshtonUtils.m in Sources */,
 				93C143DC1FC54DB30006FB90 /* main.m in Sources */,
@@ -895,10 +988,12 @@
 				93C1449E1FC7042A0006FB90 /* ZCCollectionViewPagingLayout.m in Sources */,
 				939266EB1FCEF1AB002FFA49 /* ZCNewsAudioTableViewCell.m in Sources */,
 				939267681FD136AF002FFA49 /* ZCAudioModel.m in Sources */,
+				93864D751FD52547002AC596 /* BBVoiceRecordController.m in Sources */,
 				939267521FD12EA4002FFA49 /* ZCAssetsManager.m in Sources */,
 				93C144981FC702050006FB90 /* ZCImagePreviewView.m in Sources */,
 				939266E01FCEB62D002FFA49 /* ZCModel.m in Sources */,
 				939266B71FCE831F002FFA49 /* NSString+ZCCate.m in Sources */,
+				93864D721FD52547002AC596 /* UIColor+BBVoiceRecord.m in Sources */,
 				939266D31FCE910F002FFA49 /* ZCDraftViewController.m in Sources */,
 				9369B3561FCB0EC8005ED1D7 /* NSAttributedString+Ashton.m in Sources */,
 				939267531FD12EA4002FFA49 /* ZCAsset.m in Sources */,
@@ -912,9 +1007,11 @@
 				939266E31FCED72B002FFA49 /* ZCEventCountView.m in Sources */,
 				93C144951FC6FF9E0006FB90 /* ZCImagePreviewViewController.m in Sources */,
 				9369B3521FCB0EC8005ED1D7 /* AshtonMarkdownReader.m in Sources */,
+				93864D671FD52547002AC596 /* UIImage+BBVoiceRecord.m in Sources */,
 				939267541FD12EA4002FFA49 /* DOUAudioFileProvider.m in Sources */,
 				939266D01FCE910F002FFA49 /* ZCDraftTextTableViewCell.m in Sources */,
 				93C143F71FC5517C0006FB90 /* ZCEditorViewController.m in Sources */,
+				93864D691FD52547002AC596 /* BBVoiceRecordView.m in Sources */,
 				9392670A1FD00786002FFA49 /* ZCNewsModel.m in Sources */,
 				93C144871FC6E5EC0006FB90 /* CALayer+ZCCate.m in Sources */,
 				93C1449B1FC702C40006FB90 /* ZCZoomImageView.m in Sources */,
@@ -926,6 +1023,7 @@
 				939267591FD12EA4002FFA49 /* NSData+DOUMappedFile.m in Sources */,
 				939267921FD26B0D002FFA49 /* ZCNewsInputToolView.m in Sources */,
 				939267631FD12EA4002FFA49 /* DOUAudioSpatialAnalyzer.m in Sources */,
+				939267951FD2BECA002FFA49 /* ZCEmptyViewController.m in Sources */,
 				93C144841FC6E38B0006FB90 /* UIControl+ZCCate.m in Sources */,
 				9369B3071FC93DCD005ED1D7 /* ZCImagePickerNoneCollectionViewCell.m in Sources */,
 				939267561FD12EA4002FFA49 /* DOUAudioAnalyzer.m in Sources */,

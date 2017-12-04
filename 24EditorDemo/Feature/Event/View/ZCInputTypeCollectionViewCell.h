@@ -10,4 +10,5 @@
 
 @interface ZCInputTypeCollectionViewCell : UICollectionViewCell
 @property (nonatomic, strong) NSDictionary *dataSource;
+@property (nonatomic, strong) UILabel *typeLabel;
 @end

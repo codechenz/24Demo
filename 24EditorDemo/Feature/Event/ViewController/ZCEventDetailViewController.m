@@ -24,12 +24,22 @@
 #import "ZCEditorViewController.h"
 #import <MJRefresh.h>
 #import "NSAttributedString+Ashton.h"
+#import "ZCEmptyViewController.h"
+#import "ZCDraftViewController.h"
+
+#import "BBVoiceRecordController.h"
+#import "UIColor+BBVoiceRecord.h"
+#import "BBHoldToSpeakButton.h"
+
+#define kFakeTimerDuration       0.2
+#define kMaxRecordDuration       60     //最长录音时长
+#define kRemainCountingDuration  10     //剩余多少秒开始倒计时
 
 static void *kStatusKVOKey = &kStatusKVOKey;
 static void *kDurationKVOKey = &kDurationKVOKey;
 static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
-@interface ZCEventDetailViewController () <UITableViewDelegate, UITableViewDataSource, ZCNewsAudioTableViewCellDelegate, ZCDraftTextTableViewCellDelegate, UIScrollViewDelegate> {
+@interface ZCEventDetailViewController () <UITableViewDelegate, UITableViewDataSource, ZCNewsAudioTableViewCellDelegate, ZCDraftTextTableViewCellDelegate, UIScrollViewDelegate, ZCNewsInputToolViewDelegate> {
     @private
     DOUAudioStreamer *_streamer;
     DOUAudioVisualizer *_audioVisualizer;
@@ -40,6 +50,14 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 @property (nonatomic, strong) NSMutableArray *playedAudioIndexs;
 @property (nonatomic, strong) ZCNewsInputToolView *toolView;
 
+
+@property (nonatomic, strong) BBVoiceRecordController *voiceRecordCtrl;
+@property (nonatomic, assign) BBVoiceRecordState currentRecordState;
+@property (nonatomic, strong) BBHoldToSpeakButton *btnRecord;
+@property (nonatomic, strong) NSTimer *fakeTimer;
+@property (nonatomic, assign) float duration;
+@property (nonatomic, assign) BOOL canceled;
+
 @end
 
 @implementation ZCEventDetailViewController
@@ -49,10 +67,6 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
     self.playedAudioIndexs = [[NSMutableArray alloc] init];
     self.title = @"Event Details";
-    
-   
-    
-    
     [self setNavigationBar];
     [self initTableView];
     
@@ -125,11 +139,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     [self.view addSubview:self.tableView];
     
     self.toolView = [[ZCNewsInputToolView alloc] initWithFrame:CGRectZero];
-    
-    [self.toolView editNewsTextButtonClick:^(UIButton *sender) {
-        ZCEditorViewController *vc = [ZCEditorViewController new];
-        [self.navigationController pushViewController:vc animated:YES];
-    }];
+    self.toolView.delegate = self;
     
     self.toolView.layer.shadowColor = UIColorHex(#8091a56b).CGColor;
     self.toolView.layer.shadowOffset = CGSizeMake(0, 1);
@@ -142,6 +152,11 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         make.size.equalTo(CGSizeMake(kScreenWidth, 248));
     }];
     
+    [self.toolView editNewsTextButtonClick:^(UIButton *sender) {
+        ZCEditorViewController *vc = [ZCEditorViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+    
     [self.toolView addTypeButtonClick:^(UIButton *sender) {
     if (sender.selected) {
 #warning 适配X
@@ -152,6 +167,10 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     }else {
         [self hideToolView];
     }
+    }];
+    
+    [self.toolView voiceRecordButtonClick:^(UIButton *sender) {
+        
     }];
 }
 
@@ -320,6 +339,13 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     [self presentAlertController];
 }
 
+#pragma mark - <ZCNewsInputToolViewDelegate>
+
+- (void)collectionCellDidSelected:(ZCInputTypeCollectionViewCell *)cell {
+    ZCDraftViewController *vc = [[ZCDraftViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 #pragma mark - 音频相关
 
 - (void)cancelStreamer
@@ -450,6 +476,152 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         self.currentAudioIndex = [NSIndexPath indexPathForRow:row inSection:0];
         [self resetStreamer];
     }
+}
+
+#pragma mark - Voice Record
+
+
+- (void)startFakeTimer
+{
+    if (_fakeTimer) {
+        [_fakeTimer invalidate];
+        _fakeTimer = nil;
+    }
+    self.fakeTimer = [NSTimer scheduledTimerWithTimeInterval:kFakeTimerDuration target:self selector:@selector(onFakeTimerTimeOut) userInfo:nil repeats:YES];
+    [_fakeTimer fire];
+}
+
+- (void)stopFakeTimer
+{
+    if (_fakeTimer) {
+        [_fakeTimer invalidate];
+        _fakeTimer = nil;
+    }
+}
+
+- (void)onFakeTimerTimeOut
+{
+    self.duration += kFakeTimerDuration;
+    DLog(@"+++duration+++ %f",self.duration);
+    float remainTime = kMaxRecordDuration-self.duration;
+    if ((int)remainTime == 0) {
+        self.currentRecordState = BBVoiceRecordState_Normal;
+        [self dispatchVoiceState];
+    }
+    else if ([self shouldShowCounting]) {
+        self.currentRecordState = BBVoiceRecordState_RecordCounting;
+        [self dispatchVoiceState];
+        [self.voiceRecordCtrl showRecordCounting:remainTime];
+    }
+    else
+    {
+        float fakePower = (float)(1+arc4random()%99)/100;
+        [self.voiceRecordCtrl updatePower:fakePower];
+    }
+}
+
+- (BOOL)shouldShowCounting
+{
+    if (self.duration >= (kMaxRecordDuration-kRemainCountingDuration) && self.duration < kMaxRecordDuration && self.currentRecordState != BBVoiceRecordState_ReleaseToCancel) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)resetState
+{
+    [self stopFakeTimer];
+    self.duration = 0;
+    self.canceled = YES;
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    
+    CGPoint touchPoint = [[touches anyObject] locationInView:self.view];
+    if (CGRectContainsPoint(CGRectMake(self.toolView.voiceButton.left, self.toolView.top + self.toolView.voiceButton.top, self.toolView.voiceButton.width, self.toolView.voiceButton.height), touchPoint)) {
+        self.currentRecordState = BBVoiceRecordState_Recording;
+        [self dispatchVoiceState];
+    }
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    if (_canceled) {
+        return;
+    }
+    
+    CGPoint touchPoint = [[touches anyObject] locationInView:self.view];
+    if (CGRectContainsPoint(CGRectMake(self.toolView.voiceButton.left, self.toolView.top + self.toolView.voiceButton.top, self.toolView.voiceButton.width, self.toolView.voiceButton.height), touchPoint)) {
+        self.currentRecordState = BBVoiceRecordState_Recording;
+    }
+    else
+    {
+        self.currentRecordState = BBVoiceRecordState_ReleaseToCancel;
+    }
+    [self dispatchVoiceState];
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    if (_canceled) {
+        return;
+    }
+    
+    CGPoint touchPoint = [[touches anyObject] locationInView:self.view];
+    if (CGRectContainsPoint(CGRectMake(self.toolView.voiceButton.left, self.toolView.top + self.toolView.voiceButton.top, self.toolView.voiceButton.width, self.toolView.voiceButton.height), touchPoint)) {
+        if (self.duration < 3) {
+            [self.voiceRecordCtrl showToast:@"Message Too Short."];
+        }
+        else
+        {
+            //upload voice
+        }
+    }
+    self.currentRecordState = BBVoiceRecordState_Normal;
+    [self dispatchVoiceState];
+}
+
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    if (_canceled) {
+        return;
+    }
+    
+    CGPoint touchPoint = [[touches anyObject] locationInView:self.view];
+    if (CGRectContainsPoint(CGRectMake(self.toolView.voiceButton.left, self.toolView.top + self.toolView.voiceButton.top, self.toolView.voiceButton.width, self.toolView.voiceButton.height), touchPoint)) {
+        if (self.duration < 3) {
+            [self.voiceRecordCtrl showToast:@"Message Too Short."];
+        }
+        else
+        {
+            //upload voice
+        }
+    }
+    self.currentRecordState = BBVoiceRecordState_Normal;
+    [self dispatchVoiceState];
+}
+
+- (void)dispatchVoiceState
+{
+    if (_currentRecordState == BBVoiceRecordState_Recording) {
+        self.canceled = NO;
+        [self startFakeTimer];
+    }
+    else if (_currentRecordState == BBVoiceRecordState_Normal)
+    {
+        [self resetState];
+    }
+    [_btnRecord updateRecordButtonStyle:_currentRecordState];
+    [self.voiceRecordCtrl updateUIWithRecordState:_currentRecordState];
+}
+
+- (BBVoiceRecordController *)voiceRecordCtrl
+{
+    if (_voiceRecordCtrl == nil) {
+        _voiceRecordCtrl = [BBVoiceRecordController new];
+    }
+    return _voiceRecordCtrl;
 }
 
 
