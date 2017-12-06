@@ -31,8 +31,6 @@
 #import "UIColor+BBVoiceRecord.h"
 #import "BBHoldToSpeakButton.h"
 
-#import <AVFoundation/AVFoundation.h>
-
 #define kFakeTimerDuration       0.2
 #define kMaxRecordDuration       60     //最长录音时长
 #define kRemainCountingDuration  10     //剩余多少秒开始倒计时
@@ -57,7 +55,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 @property (nonatomic, strong) BBVoiceRecordController *voiceRecordCtrl;
 @property (nonatomic, assign) BBVoiceRecordState currentRecordState;
-@property (nonatomic, strong) BBHoldToSpeakButton *btnRecord;
+//@property (nonatomic, strong) BBHoldToSpeakButton *btnRecord;
 @property (nonatomic, strong) NSTimer *fakeTimer;
 @property (nonatomic, assign) float duration;
 @property (nonatomic, assign) BOOL canceled;
@@ -95,7 +93,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 -(void)setAudioSession{
     AVAudioSession *audioSession=[AVAudioSession sharedInstance];
-    //设置为播放和录音状态，以便可以在录制完之后播放录音     [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    [audioSession setCategory:AVAudioSessionCategoryMultiRoute error:nil];
     [audioSession setActive:YES error:nil];
 }
 
@@ -110,12 +108,12 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 -(NSDictionary *)getAudioSetting{
     NSMutableDictionary *dicM=[NSMutableDictionary dictionary];
-    //设置录音格式     [dicM setObject:@(kAudioFormatLinearPCM) forKey:AVFormatIDKey];
-    //设置录音采样率，8000是电话采样率，对于一般录音已经够了     [dicM setObject:@(8000) forKey:AVSampleRateKey];
-    //设置通道,这里采用单声道     [dicM setObject:@(1) forKey:AVNumberOfChannelsKey];
-    //每个采样点位数,分为8、16、24、32     [dicM setObject:@(8) forKey:AVLinearPCMBitDepthKey];
-    //是否使用浮点数采样     [dicM setObject:@(YES) forKey:AVLinearPCMIsFloatKey];
-    //....其他设置等
+   [dicM setObject:@(kAudioFormatLinearPCM) forKey:AVFormatIDKey]; //设置录音格式
+   [dicM setObject:@(8000) forKey:AVSampleRateKey]; //设置录音采样率，8000是电话采样率，对于一般录音已经够了
+    [dicM setObject:@(1) forKey:AVNumberOfChannelsKey];//设置通道,这里采用单声道
+    [dicM setObject:@(8) forKey:AVLinearPCMBitDepthKey];//每个采样点位数,分为8、16、24、32
+   [dicM setObject:@(YES) forKey:AVLinearPCMIsFloatKey]; //是否使用浮点数采样
+    
     return dicM;
 }
 
@@ -417,8 +415,13 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 #pragma mark - <ZCNewsInputToolViewDelegate>
 
 - (void)collectionCellDidSelected:(ZCInputTypeCollectionViewCell *)cell {
-    ZCDraftViewController *vc = [[ZCDraftViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    NSString *type = cell.dataSource[@"title"];
+    if ([type isEqualToString:@"Video"]) {
+        DLog(@"oyeah");
+    }else {
+        ZCDraftViewController *vc = [[ZCDraftViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 #pragma mark - 音频相关
@@ -556,26 +559,25 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 #pragma mark - Voice Record
 
 
-- (void)startFakeTimer
-{
+- (void)startFakeTimer {
     if (_fakeTimer) {
-        [_fakeTimer invalidate];
+        [_fakeTimer setFireDate:[NSDate distantFuture]];
         _fakeTimer = nil;
     }
     self.fakeTimer = [NSTimer scheduledTimerWithTimeInterval:kFakeTimerDuration target:self selector:@selector(onFakeTimerTimeOut) userInfo:nil repeats:YES];
-    [_fakeTimer fire];
+    [[NSRunLoop mainRunLoop] addTimer:self.fakeTimer forMode:NSRunLoopCommonModes];
+    [_fakeTimer setFireDate:[NSDate distantPast]];
+    
 }
 
-- (void)stopFakeTimer
-{
+- (void)stopFakeTimer {
     if (_fakeTimer) {
-        [_fakeTimer invalidate];
+        [_fakeTimer setFireDate:[NSDate distantFuture]];
         _fakeTimer = nil;
     }
 }
 
-- (void)onFakeTimerTimeOut
-{
+- (void)onFakeTimerTimeOut {
     self.duration += kFakeTimerDuration;
     DLog(@"+++duration+++ %f",self.duration);
     float remainTime = kMaxRecordDuration-self.duration;
@@ -588,13 +590,13 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         [self dispatchVoiceState];
         [self.voiceRecordCtrl showRecordCounting:remainTime];
     }
-    else
-    {
+    else {
         [self.audioRecorder updateMeters];
         float power = [self.audioRecorder averagePowerForChannel:0];
         float progress = (1.0/160.0)*(power+160.0);
-
+        NSLog(@"音量大小:%f",progress);
         [self.voiceRecordCtrl updatePower:progress];
+        
     }
 }
 
@@ -620,14 +622,11 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     if (CGRectContainsPoint(CGRectMake(self.toolView.voiceButton.left, self.toolView.top + self.toolView.voiceButton.top, self.toolView.voiceButton.width, self.toolView.voiceButton.height), touchPoint)) {
         self.currentRecordState = BBVoiceRecordState_Recording;
         
-        
         if (![self.audioRecorder isRecording]) {
             [self.audioRecorder record];//首次使用应用时如果调用record方法会询问用户是否允许使用麦克风
         }
         
         [self dispatchVoiceState];
-        
-        
     }
 }
 
@@ -655,7 +654,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     }
     CGPoint touchPoint = [[touches anyObject] locationInView:self.view];
     if (CGRectContainsPoint(CGRectMake(self.toolView.voiceButton.left, self.toolView.top + self.toolView.voiceButton.top, self.toolView.voiceButton.width, self.toolView.voiceButton.height), touchPoint)) {
-        if (self.duration < 3) {
+        if (self.duration < 1) {
             [self.voiceRecordCtrl showToast:@"Message Too Short."];
         }
         else
@@ -698,7 +697,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     {
         [self resetState];
     }
-    [_btnRecord updateRecordButtonStyle:_currentRecordState];
+//    [_btnRecord updateRecordButtonStyle:_currentRecordState];
     [self.voiceRecordCtrl updateUIWithRecordState:_currentRecordState];
 }
 

@@ -187,8 +187,9 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    ZCInputTypeCollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     if ([self.delegate respondsToSelector:@selector(collectionCellDidSelected:)]) {
-        [self.delegate collectionCellDidSelected:self];
+        [self.delegate collectionCellDidSelected:cell];
     }
 }
 @end

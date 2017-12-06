@@ -11,4 +11,5 @@ target '24EditorDemo' do
   pod 'AFNetworking', '~> 3.0'
   pod 'DateTools'
   pod 'MJRefresh'
+  pod 'LLSimpleCamera', '~> 4.1'
 end

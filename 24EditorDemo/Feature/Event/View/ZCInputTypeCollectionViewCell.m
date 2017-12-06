@@ -11,7 +11,7 @@
 
 @interface ZCInputTypeCollectionViewCell ()
 @property (nonatomic, strong) UIImageView *typeImageView;
-
+@property (nonatomic, strong) UILabel *typeLabel;
 
 @end
 
