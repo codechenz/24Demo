@@ -41,6 +41,7 @@ extern NSString *const kIFIVideo;
 extern NSString *const kIFIScore;
 extern NSString *const kIFICollaborator;
 extern NSString *const kIFIShare;
+extern NSString *const kIFIFinsh;
 
 //URL
 

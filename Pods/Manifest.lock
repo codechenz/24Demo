@@ -19,6 +19,7 @@ PODS:
   - CLImageEditor/Core (0.1.8)
   - DateTools (2.0.0)
   - FDFullscreenPopGesture (1.1)
+  - LLSimpleCamera (4.2.0)
   - Masonry (1.0.2)
   - MJRefresh (3.1.15.1)
   - UITableView+FDTemplateLayoutCell (1.6)
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - CLImageEditor
   - DateTools
   - FDFullscreenPopGesture (~> 1.1)
+  - LLSimpleCamera (~> 4.1)
   - Masonry
   - MJRefresh
   - UITableView+FDTemplateLayoutCell (~> 1.6)
@@ -41,12 +43,13 @@ SPEC CHECKSUMS:
   CLImageEditor: 0d4d5a14aa317c097418b05b5736fec4b8a90dcf
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  LLSimpleCamera: ed7813ce4827ff3e34c6af159c99b5b56e54d1c6
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
   UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
   YLProgressBar: 365b6c5e934be18b661f79413db33c993c8e8251
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: b612b0f12034280c29873f3d5fcbb284db502c19
+PODFILE CHECKSUM: da402c3735fc22e20736ed2732e6286b49e914c9
 
 COCOAPODS: 1.3.1

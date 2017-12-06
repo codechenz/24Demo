@@ -31,6 +31,8 @@
 #import "UIColor+BBVoiceRecord.h"
 #import "BBHoldToSpeakButton.h"
 
+#import "HomeViewController.h"
+
 #define kFakeTimerDuration       0.2
 #define kMaxRecordDuration       60     //最长录音时长
 #define kRemainCountingDuration  10     //剩余多少秒开始倒计时
@@ -417,7 +419,8 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 - (void)collectionCellDidSelected:(ZCInputTypeCollectionViewCell *)cell {
     NSString *type = cell.dataSource[@"title"];
     if ([type isEqualToString:@"Video"]) {
-        DLog(@"oyeah");
+        HomeViewController *vc = [[HomeViewController alloc] init];
+        [self presentViewController:vc animated:YES completion:nil];
     }else {
         ZCDraftViewController *vc = [[ZCDraftViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];

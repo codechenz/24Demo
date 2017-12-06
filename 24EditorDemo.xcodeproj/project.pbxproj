@@ -36,6 +36,10 @@
 		93864D731FD52547002AC596 /* BBVoiceRecordToastContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93864D5F1FD52547002AC596 /* BBVoiceRecordToastContentView.m */; };
 		93864D741FD52547002AC596 /* BBVoiceRecordPowerAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93864D641FD52547002AC596 /* BBVoiceRecordPowerAnimationView.m */; };
 		93864D751FD52547002AC596 /* BBVoiceRecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93864D651FD52547002AC596 /* BBVoiceRecordController.m */; };
+		93864DC11FD7BC87002AC596 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93864DBE1FD7BC87002AC596 /* HomeViewController.m */; };
+		93864DC21FD7BC87002AC596 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93864DBF1FD7BC87002AC596 /* VideoViewController.m */; };
+		93864DC51FD7C890002AC596 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93864DC31FD7C890002AC596 /* ImageViewController.m */; };
+		93864DC81FD7E37E002AC596 /* ZCCycleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93864DC71FD7E37E002AC596 /* ZCCycleView.m */; };
 		939266B41FCE82E1002FFA49 /* UIImage+ZCCate.m in Sources */ = {isa = PBXBuildFile; fileRef = 939266B31FCE82E1002FFA49 /* UIImage+ZCCate.m */; };
 		939266B71FCE831F002FFA49 /* NSString+ZCCate.m in Sources */ = {isa = PBXBuildFile; fileRef = 939266B61FCE831F002FFA49 /* NSString+ZCCate.m */; };
 		939266D01FCE910F002FFA49 /* ZCDraftTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 939266C51FCE910F002FFA49 /* ZCDraftTextTableViewCell.m */; };
@@ -168,6 +172,14 @@
 		93864D641FD52547002AC596 /* BBVoiceRecordPowerAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBVoiceRecordPowerAnimationView.m; sourceTree = "<group>"; };
 		93864D651FD52547002AC596 /* BBVoiceRecordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBVoiceRecordController.m; sourceTree = "<group>"; };
 		93864D661FD52547002AC596 /* BBVoiceRecordHeaderDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBVoiceRecordHeaderDefine.h; sourceTree = "<group>"; };
+		93864DBD1FD7BC87002AC596 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		93864DBE1FD7BC87002AC596 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		93864DBF1FD7BC87002AC596 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		93864DC01FD7BC87002AC596 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		93864DC31FD7C890002AC596 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		93864DC41FD7C890002AC596 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		93864DC61FD7E37E002AC596 /* ZCCycleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZCCycleView.h; sourceTree = "<group>"; };
+		93864DC71FD7E37E002AC596 /* ZCCycleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZCCycleView.m; sourceTree = "<group>"; };
 		939266B21FCE82E0002FFA49 /* UIImage+ZCCate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZCCate.h"; sourceTree = "<group>"; };
 		939266B31FCE82E1002FFA49 /* UIImage+ZCCate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZCCate.m"; sourceTree = "<group>"; };
 		939266B51FCE831F002FFA49 /* NSString+ZCCate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+ZCCate.h"; sourceTree = "<group>"; };
@@ -400,6 +412,21 @@
 				93864D5C1FD52547002AC596 /* ic_release_to_cancel@2x.png */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		93864DBC1FD7BC87002AC596 /* VideoRecord */ = {
+			isa = PBXGroup;
+			children = (
+				93864DC01FD7BC87002AC596 /* HomeViewController.h */,
+				93864DBE1FD7BC87002AC596 /* HomeViewController.m */,
+				93864DC41FD7C890002AC596 /* ImageViewController.h */,
+				93864DC31FD7C890002AC596 /* ImageViewController.m */,
+				93864DBD1FD7BC87002AC596 /* VideoViewController.h */,
+				93864DBF1FD7BC87002AC596 /* VideoViewController.m */,
+				93864DC61FD7E37E002AC596 /* ZCCycleView.h */,
+				93864DC71FD7E37E002AC596 /* ZCCycleView.m */,
+			);
+			path = VideoRecord;
 			sourceTree = "<group>";
 		};
 		939266BE1FCE910F002FFA49 /* Draft */ = {
@@ -754,6 +781,7 @@
 		93C1447A1FC6D0300006FB90 /* Compent */ = {
 			isa = PBXGroup;
 			children = (
+				93864DBC1FD7BC87002AC596 /* VideoRecord */,
 				93864D4E1FD52547002AC596 /* VoiceRecord */,
 				93C1447B1FC6D0300006FB90 /* ImagePicker */,
 			);
@@ -983,6 +1011,7 @@
 				93864D741FD52547002AC596 /* BBVoiceRecordPowerAnimationView.m in Sources */,
 				93C1447E1FC6D04B0006FB90 /* ZCImagePickerViewController.m in Sources */,
 				9369B3551FCB0EC8005ED1D7 /* AshtonUtils.m in Sources */,
+				93864DC81FD7E37E002AC596 /* ZCCycleView.m in Sources */,
 				93C143DC1FC54DB30006FB90 /* main.m in Sources */,
 				9392675B1FD12EA4002FFA49 /* DOUAudioVisualizer.m in Sources */,
 				93C1449E1FC7042A0006FB90 /* ZCCollectionViewPagingLayout.m in Sources */,
@@ -1002,6 +1031,8 @@
 				9369B3541FCB0EC8005ED1D7 /* AshtonUIKit.m in Sources */,
 				939267861FD1BD84002FFA49 /* ZCPerVoteTableViewCell.m in Sources */,
 				9315BD441FCD625D001ECD0B /* UIColor+ZCCate.m in Sources */,
+				93864DC11FD7BC87002AC596 /* HomeViewController.m in Sources */,
+				93864DC51FD7C890002AC596 /* ImageViewController.m in Sources */,
 				939267621FD12EA4002FFA49 /* DOUAudioEventLoop.m in Sources */,
 				93C1441F1FC57B120006FB90 /* ZCInputToolView.m in Sources */,
 				939266E31FCED72B002FFA49 /* ZCEventCountView.m in Sources */,
@@ -1019,6 +1050,7 @@
 				939267581FD12EA4002FFA49 /* DOUAudioAnalyzer+Default.m in Sources */,
 				939267511FD12EA4002FFA49 /* ZCAssetsGroup.m in Sources */,
 				939267571FD12EA4002FFA49 /* DOUAudioRenderer.m in Sources */,
+				93864DC21FD7BC87002AC596 /* VideoViewController.m in Sources */,
 				9392675D1FD12EA4002FFA49 /* DOUAudioLPCM.m in Sources */,
 				939267591FD12EA4002FFA49 /* NSData+DOUMappedFile.m in Sources */,
 				939267921FD26B0D002FFA49 /* ZCNewsInputToolView.m in Sources */,

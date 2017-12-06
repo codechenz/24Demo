@@ -43,6 +43,7 @@ NSString *const kIFIVideo = @"\U0000e928";
 NSString *const kIFIScore = @"\U0000e90f"; //vip 代替 score e90c
 NSString *const kIFICollaborator = @"\U0000e909";
 NSString *const kIFIShare = @"\U0000e90d";
+NSString *const kIFIFinsh = @"\U0000e907";
 
 //URL
 

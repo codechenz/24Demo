@@ -11,5 +11,6 @@
 @interface UIImage (ZCCate)
 
 + (UIImage *)imageWithIcon:(NSString *)iconCode size:(NSUInteger)size color:(UIColor *)color;
-+ (UIImage *)imageWithIcon:(NSString *)iconCode withSize:(CGSize)size withColor:(UIColor *)color;
+
+- (UIImage *)crop:(CGRect)rect;
 @end

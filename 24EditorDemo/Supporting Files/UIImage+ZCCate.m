@@ -24,19 +24,18 @@
     return retImage;
 }
 
-+ (UIImage *)imageWithIcon:(NSString *)iconCode withSize:(CGSize)size withColor:(UIColor *)color {
-    CGSize imageSize = size;
-    UIGraphicsBeginImageContextWithOptions(imageSize, NO, [[UIScreen mainScreen] scale]);
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    CGFloat fontSize = size.width > size.height ? size.width : size.height;
-    label.font = [UIFont fontWithName:kIFIcon24App size:24];
-    label.text = iconCode;
-    if (color) {
-        label.textColor = color;
-    }
-    [label.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *retImage = UIGraphicsGetImageFromCurrentImageContext();
-    return retImage;
+
+- (UIImage *)crop:(CGRect)rect {
+    
+    rect = CGRectMake(rect.origin.x * self.scale,
+                      rect.origin.y * self.scale,
+                      rect.size.width * self.scale,
+                      rect.size.height * self.scale);
+    
+    CGImageRef imageRef = CGImageCreateWithImageInRect(self.CGImage, rect);
+    UIImage *result = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:self.imageOrientation];
+    CGImageRelease(imageRef);
+    return result;
 }
 
 @end
