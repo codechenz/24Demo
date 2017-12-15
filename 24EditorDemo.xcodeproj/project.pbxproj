@@ -1215,7 +1215,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ito.editorDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5de767fd-8d50-4b32-b430-856f5e28f42f";
+				PROVISIONING_PROFILE = "0a7e089f-60d0-4bb3-965c-2fece2862629";
 				PROVISIONING_PROFILE_SPECIFIER = "78V589EJ5N.com.ito.editorDemo_ Development";
 			};
 			name = Debug;

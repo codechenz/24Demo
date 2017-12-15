@@ -37,7 +37,7 @@
     // the video player
     self.avPlayer = [AVPlayer playerWithURL:self.videoUrl];
     self.avPlayer.actionAtItemEnd = AVPlayerActionAtItemEndNone;
-    
+
     self.avPlayerLayer = [AVPlayerLayer playerLayerWithPlayer:self.avPlayer];
     //self.avPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     
@@ -102,7 +102,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [self.avPlayer play];
+   [self.avPlayer play];
 }
 
 - (void)playerItemDidReachEnd:(NSNotification *)notification {
